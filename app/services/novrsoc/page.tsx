@@ -49,7 +49,7 @@ export default function NovrSOCPage() {
               24/7/365 AI-Powered Managed SOC
             </span>
             <h1 className="text-5xl md:text-[64px] md:leading-[72px] font-black mb-6 text-on-background">
-              NovrSOC: High Precision.<br/><span class="text-primary">Accurate Protection.</span>
+              NovrSOC: High Precision.<br/><span classname="text-primary">Accurate Protection.</span>
             </h1>
             <p className="text-lg text-on-surface-variant max-w-xl mb-10">
               24/7 Monitoring and Management of Your Assets Against Cyber Threats. Professional-grade vigilance powered by proprietary intelligence.
