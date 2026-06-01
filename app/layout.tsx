@@ -32,15 +32,14 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         
-        {/* [Module 1: Responsive Navigation Navbar] */}
+        {/* [Module 1: Navigation Navbar] */}
         <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
-          <div className="flex justify-between items-center w-full px-6 md:px-margin-desktop max-w-[1536px] mx-auto h-full">
-            {/* Left Brand: Scaled up logo with text branding removed next to it */}
+          {/* Expanded layout padding constraints safely for widescreen layouts */}
+          <div className="flex justify-between items-center w-full px-8 md:px-16 lg:px-24 max-w-[1728px] mx-auto h-full">
             <Link className="flex items-center" href="/">
               <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
             
-            {/* Desktop Navigation Link Cluster */}
             <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/about">About</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/services">Services</Link>
@@ -48,20 +47,20 @@ export default function RootLayout({
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/incident-response">Incident Response</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/blog">Blog</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/resources">Resources</Link>
+              {/* Added Assessments Link item directly into the navbar cluster array */}
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/assessments">Assessments</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/contacts">Contacts</Link>
             </div>
             
-            {/* Desktop Action Trigger */}
             <div className="hidden lg:block">
               <Link href="/academy" className="bg-surface-container-lowest text-primary border border-primary px-5 py-2.5 text-sm font-semibold rounded-DEFAULT active:scale-95 transition-all hover:bg-primary hover:text-white text-center">
                 CYBERNOVR ACADEMY
               </Link>
             </div>
 
-            {/* Mobile Hamburger Toggle Mechanism */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="lg:hidden text-on-surface p-2 focus:outline-none"
+              className="lg:hidden text-on-surface p-2"
               aria-label="Toggle navigation menu"
             >
               <span className="material-symbols-outlined text-3xl">
@@ -70,15 +69,16 @@ export default function RootLayout({
             </button>
           </div>
 
-          {/* Mobile Drawer Panel Overlay */}
+          {/* Mobile Overlay Menu */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-outline-variant shadow-xl px-6 py-8 flex flex-col gap-6 z-50 animate-fadeIn">
+            <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-outline-variant shadow-xl px-8 py-8 flex flex-col gap-6 z-50">
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/about">About</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/services">Services</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/industries">Industries</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/incident-response">Incident Response</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/blog">Blog</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/resources">Resources</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/assessments">Assessments</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/contacts">Contacts</Link>
               <hr className="border-outline-variant/30" />
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="bg-primary text-white text-center py-3 font-bold rounded-DEFAULT">
@@ -88,12 +88,12 @@ export default function RootLayout({
           )}
         </nav>
 
-        {/* Global Mount Point Injection Framework */}
+        {/* Global Page Injection Slot */}
         <main className="min-h-screen">{children}</main>
 
-        {/* [Module 7: Responsive Footer with Dynamic Social Links Grid] */}
-        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 md:py-section-gap px-6 md:px-margin-desktop">
-          <div className="max-w-[1536px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-gutter mb-16">
+        {/* [Module 7: Footer Layout] */}
+        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 px-8 md:px-16 lg:px-24">
+          <div className="max-w-[1728px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="space-y-6">
               <Link className="block" href="/">
                 <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
@@ -101,25 +101,6 @@ export default function RootLayout({
               <p className="text-on-surface-variant max-w-xs text-sm leading-relaxed">
                 Institutional-grade cybersecurity intelligence and response. Protecting the world&apos;s most critical digital infrastructures.
               </p>
-              
-              {/* Image 5 Checklist Config: Fully mapped social linkage icons matrix */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="Facebook">
-                  <span className="material-symbols-outlined text-lg">public</span>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="Instagram">
-                  <span className="material-symbols-outlined text-lg">photo_camera</span>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="LinkedIn">
-                  <span className="material-symbols-outlined text-lg">group</span>
-                </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="X (Twitter)">
-                  <span className="material-symbols-outlined text-sm font-bold">close</span>
-                </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="TikTok">
-                  <span className="material-symbols-outlined text-lg">music_note</span>
-                </a>
-              </div>
             </div>
             
             <div>
@@ -139,7 +120,6 @@ export default function RootLayout({
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">SLA Agreements</a></li>
-                <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">ISO Certifications</a></li>
               </ul>
             </div>
             
@@ -155,39 +135,30 @@ export default function RootLayout({
             </div>
           </div>
           
-          <div className="max-w-[1536px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+          <div className="max-w-[1728px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-on-surface-variant/50 text-center sm:text-left">
               © 2026 Cybernovr Intelligence. All rights reserved. Institutional-grade cybersecurity.
             </p>
-            <div className="flex gap-6 text-on-surface-variant/30">
-              <span className="material-symbols-outlined text-3xl">verified_user</span>
-              <span className="material-symbols-outlined text-3xl">gpp_good</span>
-              <span className="material-symbols-outlined text-3xl">lock</span>
-            </div>
           </div>
         </footer>
 
-        {/* [Cookies Consent Banner Intersection - Mapped from image_421451.png] */}
+        {/* Cookies Consent Popup Box */}
         {showCookies && (
-          <div className="fixed bottom-6 right-6 z-50 max-w-sm w-full bg-white border border-outline-variant/40 rounded-xl shadow-2xl p-6 animate-slideUp">
+          <div className="fixed bottom-6 right-6 z-50 max-w-sm w-full bg-white border border-outline-variant/40 rounded-xl shadow-2xl p-6">
             <h4 className="text-base font-bold text-on-surface mb-2 flex items-center gap-2">
               <span className="material-symbols-outlined text-primary">cookie</span>
               Cookies &amp; Privacy
             </h4>
             <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
-              We use cookies to ensure that we give you the best experience on our website. If you continue, we&apos;ll assume that you are happy to receive all cookies on the CYBERNOVR website.
+              We use cookies to ensure that we give you the best experience on our website.
             </p>
             <div className="flex items-center justify-end gap-3">
-              <button onClick={() => setShowCookies(false)} className="text-xs text-on-surface-variant hover:text-primary font-medium px-3 py-2">
-                Settings
-              </button>
-              <button onClick={acceptCookies} className="bg-primary text-white text-xs font-bold px-4 py-2 rounded shadow-sm hover:bg-red-700 transition-colors">
+              <button onClick={acceptCookies} className="bg-primary text-white text-xs font-bold px-4 py-2 rounded shadow-sm hover:bg-purple-900 transition-colors">
                 Accept Cookies
               </button>
             </div>
           </div>
         )}
-
       </body>
     </html>
   );
