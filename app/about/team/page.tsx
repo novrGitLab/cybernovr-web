@@ -1,5 +1,5 @@
 "use client";
-import React illumination from "react";
+import React from "react";
 
 export default function TheTeamPage() {
   const corporateArchitects = [
@@ -28,7 +28,6 @@ export default function TheTeamPage() {
         {corporateArchitects.map((member, i) => (
           <div key={i} className="bg-white border border-outline-variant/30 rounded-xl p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg group">
             <div className="space-y-4">
-              {/* Profile Graphic Stand-in Frame container box */}
               <div className="aspect-square w-full rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant/20 relative overflow-hidden border border-outline-variant/10">
                 <span className="material-symbols-outlined text-6xl group-hover:scale-105 transition-transform duration-500">account_circle</span>
                 <span className="absolute bottom-3 left-3 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded tracking-wider uppercase shadow-sm">
