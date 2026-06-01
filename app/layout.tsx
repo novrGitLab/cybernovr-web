@@ -1,74 +1,130 @@
-import type { Metadata } from "next";
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
-  description: "Resilience is in our DNA",
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showCookies, setShowCookies] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cybernovr_cookie_consent");
+    if (!consent) {
+      setShowCookies(true);
+    }
+  }, []);
+
+  const acceptCookies = () => {
+    localStorage.setItem("cybernovr_cookie_consent", "accepted");
+    setShowCookies(false);
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <title>CYBERNOVR | Institutional-Grade Cybersecurity Intelligence</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         
-        {/* [Module 1: Constant Navigation Navbar] */}
-        <nav className="fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
-          <div className="flex justify-between items-center w-full px-margin-desktop max-w-[1536px] mx-auto h-full">
-            <Link className="flex items-center gap-3 text-xl font-black tracking-tighter text-on-surface uppercase" href="/">
-              <img src="/logo.png" alt="" className="h-6 w-auto object-contain" />
-              <span>CYBERNOVR</span>
+        {/* [Module 1: Responsive Navigation Navbar] */}
+        <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
+          <div className="flex justify-between items-center w-full px-6 md:px-margin-desktop max-w-[1536px] mx-auto h-full">
+            {/* Left Brand: Scaled up logo with text branding removed next to it */}
+            <Link className="flex items-center" href="/">
+              <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/about">About</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/services">Services</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/industries">Industries</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/incident-response">Incident Response</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/blog">Blog</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/resources">Resources</Link>
-              <Link className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="/contacts">Contacts</Link>
+            
+            {/* Desktop Navigation Link Cluster */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/about">About</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/services">Services</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/industries">Industries</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/incident-response">Incident Response</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/blog">Blog</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/resources">Resources</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/contacts">Contacts</Link>
             </div>
-            <button className="bg-surface-container-lowest text-primary border border-primary px-6 py-2.5 font-medium rounded-DEFAULT active:scale-95 transition-all duration-150 hover:bg-primary hover:text-white">
-              CYBERNOVR ACADEMY
+            
+            {/* Desktop Action Trigger */}
+            <div className="hidden lg:block">
+              <Link href="/academy" className="bg-surface-container-lowest text-primary border border-primary px-5 py-2.5 text-sm font-semibold rounded-DEFAULT active:scale-95 transition-all hover:bg-primary hover:text-white text-center">
+                CYBERNOVR ACADEMY
+              </Link>
+            </div>
+
+            {/* Mobile Hamburger Toggle Mechanism */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+              className="lg:hidden text-on-surface p-2 focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              <span className="material-symbols-outlined text-3xl">
+                {isMobileMenuOpen ? "close" : "menu"}
+              </span>
             </button>
           </div>
+
+          {/* Mobile Drawer Panel Overlay */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-outline-variant shadow-xl px-6 py-8 flex flex-col gap-6 z-50 animate-fadeIn">
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/about">About</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/services">Services</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/industries">Industries</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/incident-response">Incident Response</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/blog">Blog</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/resources">Resources</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/contacts">Contacts</Link>
+              <hr className="border-outline-variant/30" />
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="bg-primary text-white text-center py-3 font-bold rounded-DEFAULT">
+                CYBERNOVR ACADEMY
+              </Link>
+            </div>
+          )}
         </nav>
 
-        {/* Constant Content Body Injector */}
+        {/* Global Mount Point Injection Framework */}
         <main className="min-h-screen">{children}</main>
 
-        {/* [Module 7: Constant Footer] */}
-        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-section-gap px-margin-desktop">
-          <div className="max-w-[1536px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
-            <div className="col-span-1">
-              <Link className="flex items-center gap-3 text-xl font-bold text-on-surface mb-8 uppercase tracking-tighter" href="/">
-                <img src="/logo.png" alt="" className="h-5 w-auto object-contain" />
-                <span>CYBERNOVR</span>
+        {/* [Module 7: Responsive Footer with Dynamic Social Links Grid] */}
+        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 md:py-section-gap px-6 md:px-margin-desktop">
+          <div className="max-w-[1536px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-gutter mb-16">
+            <div className="space-y-6">
+              <Link className="block" href="/">
+                <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
               </Link>
-              <p className="text-on-surface-variant mb-8 max-w-xs text-sm">
+              <p className="text-on-surface-variant max-w-xs text-sm leading-relaxed">
                 Institutional-grade cybersecurity intelligence and response. Protecting the world&apos;s most critical digital infrastructures.
               </p>
-              <div className="flex gap-4">
-                <a className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all" href="#">
-                  <span className="material-symbols-outlined text-lg">share</span>
-                </a>
-                <a className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all" href="#">
+              
+              {/* Image 5 Checklist Config: Fully mapped social linkage icons matrix */}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="Facebook">
                   <span className="material-symbols-outlined text-lg">public</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="Instagram">
+                  <span className="material-symbols-outlined text-lg">photo_camera</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="LinkedIn">
+                  <span className="material-symbols-outlined text-lg">group</span>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="X (Twitter)">
+                  <span className="material-symbols-outlined text-sm font-bold">close</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary hover:text-white transition-all text-on-surface-variant" aria-label="TikTok">
+                  <span className="material-symbols-outlined text-lg">music_note</span>
                 </a>
               </div>
             </div>
+            
             <div>
-              {/* FIXED: Changed 'class' to 'className' below 👇 */}
-              <h5 className="uppercase tracking-widest text-primary mb-8 font-bold text-sm">Navigation</h5>
-              <ul className="space-y-4">
+              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Navigation</h5>
+              <ul className="space-y-3 text-sm font-medium">
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/about">About Us</Link></li>
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/services">Security Services</Link></li>
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/incident-response">Incident Response</Link></li>
@@ -76,37 +132,62 @@ export default function RootLayout({
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/contacts">Contacts</Link></li>
               </ul>
             </div>
+            
             <div>
-              <h5 className="uppercase tracking-widest text-primary mb-8 font-bold text-sm">Compliance</h5>
-              <ul className="space-y-4">
+              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Compliance</h5>
+              <ul className="space-y-3 text-sm font-medium">
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">SLA Agreements</a></li>
                 <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">ISO Certifications</a></li>
               </ul>
             </div>
+            
             <div>
-              <h5 className="uppercase tracking-widest text-primary mb-8 font-bold text-sm">Stay Updated</h5>
-              <p className="text-on-surface-variant mb-6 text-sm">Receive elite threat intelligence directly to your inbox.</p>
+              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Stay Updated</h5>
+              <p className="text-on-surface-variant mb-4 text-sm">Receive elite threat intelligence directly to your inbox.</p>
               <div className="flex items-center border-b border-outline-variant pb-2">
-                <input className="bg-transparent border-0 w-full focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 text-sm" placeholder="Enter your email" type="email" />
+                <input className="bg-transparent border-0 w-full text-sm focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40" placeholder="Enter your email" type="email" />
                 <button className="text-primary hover:translate-x-1 transition-transform">
-                  <span className="material-symbols-outlined text-sm">send</span>
+                  <span className="material-symbols-outlined">send</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="max-w-[1536px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-            <p className="text-on-surface-variant/50 text-center">
+          
+          <div className="max-w-[1536px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p className="text-on-surface-variant/50 text-center sm:text-left">
               © 2026 Cybernovr Intelligence. All rights reserved. Institutional-grade cybersecurity.
             </p>
-            <div className="flex gap-8 text-on-surface-variant/30">
-              <span className="material-symbols-outlined text-4xl">verified_user</span>
-              <span className="material-symbols-outlined text-4xl">gpp_good</span>
-              <span className="material-symbols-outlined text-4xl">lock</span>
+            <div className="flex gap-6 text-on-surface-variant/30">
+              <span className="material-symbols-outlined text-3xl">verified_user</span>
+              <span className="material-symbols-outlined text-3xl">gpp_good</span>
+              <span className="material-symbols-outlined text-3xl">lock</span>
             </div>
           </div>
         </footer>
+
+        {/* [Cookies Consent Banner Intersection - Mapped from image_421451.png] */}
+        {showCookies && (
+          <div className="fixed bottom-6 right-6 z-50 max-w-sm w-full bg-white border border-outline-variant/40 rounded-xl shadow-2xl p-6 animate-slideUp">
+            <h4 className="text-base font-bold text-on-surface mb-2 flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary">cookie</span>
+              Cookies &amp; Privacy
+            </h4>
+            <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
+              We use cookies to ensure that we give you the best experience on our website. If you continue, we&apos;ll assume that you are happy to receive all cookies on the CYBERNOVR website.
+            </p>
+            <div className="flex items-center justify-end gap-3">
+              <button onClick={() => setShowCookies(false)} className="text-xs text-on-surface-variant hover:text-primary font-medium px-3 py-2">
+                Settings
+              </button>
+              <button onClick={acceptCookies} className="bg-primary text-white text-xs font-bold px-4 py-2 rounded shadow-sm hover:bg-red-700 transition-colors">
+                Accept Cookies
+              </button>
+            </div>
+          </div>
+        )}
+
       </body>
     </html>
   );
