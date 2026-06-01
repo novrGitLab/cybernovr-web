@@ -49,7 +49,7 @@ export default function SecuBreachPage() {
         <div className="max-w-[1536px] mx-auto px-margin-desktop">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-on-background mb-8 leading-tight">Deeper Defense, <br/><span class="text-primary">Closer Compliance.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-black text-on-background mb-8 leading-tight">Deeper Defense, <br/><span className="text-primary">Closer Compliance.</span></h2>
               <div className="space-y-6">
                 {[
                   "Active Exploit Detection: Real-world simulation of adversarial techniques to test resilience.",
