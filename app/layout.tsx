@@ -35,7 +35,7 @@ export default function RootLayout({
         {/* [Module 1: Navigation Navbar] */}
         <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
           {/* Expanded layout padding constraints safely for widescreen layouts */}
-          <div className="flex justify-between items-center w-full px-8 md:px-16 lg:px-24 max-w-[1728px] mx-auto h-full">
+          <div className="flex justify-between items-center w-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop">
             <Link className="flex items-center" href="/">
               <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
             </Link>

@@ -19,7 +19,8 @@ export default function CybernovrAcademyPage() {
   ];
 
   return (
-    <div className="pt-32 md:pt-40 pb-section-gap px-margin-desktop max-w-[1536px] mx-auto space-y-20">
+    /* CLEANED: Outer container padding removed completely to lean on layout.tsx rules */
+    <div className="pt-32 pb-16 space-y-16 w-full">
       
       {/* Hero Module Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-outline-variant/20 pb-12">
@@ -60,7 +61,7 @@ export default function CybernovrAcademyPage() {
         </div>
       </section>
 
-      {/* NEW INTERACTION LINK NODE: Centralized Impact Console Callout Section Card */}
+      {/* Centralized Impact Console Callout Section Card */}
       <div className="bg-surface-container-low border border-outline-variant/30 p-6 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm">
         <div className="space-y-1">
           <h4 className="text-sm font-black text-on-surface uppercase tracking-wide flex items-center gap-2">
