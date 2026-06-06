@@ -244,7 +244,7 @@ export default function Home() {
               We collaborate with industry-leading technology providers to deliver elite security solutions across environments.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 items-center gap-8 max-w-5xl mx-auto py-4 font-mono text-xs font-black tracking-widest text-on-surface-variant/50 uppercase">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 items-center gap-8 max-w-5xl mx-auto py-4 font-mono text-xl font-black tracking-widest text-on-surface-variant/50 uppercase">
             <span>Darktrace </span>
             <span>Tenable </span>
             <span>Proofpoint </span>
