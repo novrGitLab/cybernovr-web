@@ -52,9 +52,6 @@ export default function RootLayout({
             </div>
             
             <div className="hidden lg:flex items-center gap-4">
-              <Link href="/impact-dashboard" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2.5 text-xs font-bold tracking-wider rounded uppercase hover:bg-primary hover:text-white transition-all text-center">
-                Impact
-              </Link>
               <Link href="/academy" className="bg-surface-container-lowest text-primary border border-primary px-5 py-2.5 text-sm font-semibold rounded-DEFAULT active:scale-95 transition-all hover:bg-primary hover:text-white text-center">
                 CYBERNOVR ACADEMY
               </Link>

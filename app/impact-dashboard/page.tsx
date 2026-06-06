@@ -8,7 +8,7 @@ export default function CEAPImpactDashboard() {
   const [organizations, setOrganizations] = useState<any[]>([]);
   const [stories, setStories] = useState<any[]>([]);
   
-  // NEW STATE INTERACTION: Toggles the central table view window smoothly between Students and Organizations
+  // State to toggle the table view smoothly between Students and Organizations
   const [dashboardViewMode, setDashboardViewMode] = useState<"students" | "organizations">("students");
 
   const GOOGLE_DATABASE_ENDPOINT = "https://sheetdb.io/api/v1/0vxudqmh2jcnx";
@@ -69,8 +69,7 @@ export default function CEAPImpactDashboard() {
   }
 
   return (
-    /* UPDATED: Applied matching uniform responsive dimensions and screen rhythm parameters perfectly matching navbar */
-    <div className="pt-32 pb-16 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-8 min-h-screen w-full">
+    <div className="pt-32 pb-16 space-y-8 min-h-screen w-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
       
       {/* Top Header Section */}
       <header className="bg-white border border-outline-variant/30 rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-sm">
@@ -168,7 +167,7 @@ export default function CEAPImpactDashboard() {
               <p className="text-[11px] text-on-surface-variant mt-0.5">Relational matrix view syncing raw repository snapshots.</p>
             </div>
             
-            {/* INTERACTIVE MODE TOGGLE BUTTON MODULE */}
+            {/* Interactive Switcher Toggle Module */}
             <div className="flex items-center bg-surface-container-low p-1 rounded-lg border border-outline-variant/30 self-start sm:self-center">
               <button 
                 onClick={() => setDashboardViewMode("students")}
@@ -232,9 +231,9 @@ export default function CEAPImpactDashboard() {
                 </tbody>
               </table>
             ) : (
-              /* ALTERNATIVE VIEW LAYOUT: Renders Organization details cleanly when triggered */
               <table className="w-full text-left border-collapse min-w-[500px]">
                 <thead>
+                  {/* FIXED: Swapped out 'class' for 'className' right here to satisfy build compilers */}
                   <tr className="border-b border-outline-variant/20 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-widest bg-white sticky top-0 z-10">
                     <th className="py-3 px-4">Partner Entity</th>
                     <th className="py-3 px-3">Sector Classification</th>
