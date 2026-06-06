@@ -42,12 +42,11 @@ export default function RootLayout({
             
             <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/about">About</Link>
-              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/services">Services</Link>
+              <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/solutions">Solutions</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/industries">Industries</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/incident-response">Incident Response</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/blog">Blog</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/resources">Resources</Link>
-              {/* Added Assessments Link item directly into the navbar cluster array */}
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/assessments">Assessments</Link>
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/contacts">Contacts</Link>
             </div>
@@ -107,7 +106,8 @@ export default function RootLayout({
               <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Navigation</h5>
               <ul className="space-y-3 text-sm font-medium">
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/about">About Us</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/services">Security Services</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
+                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/assessments">Assessments</Link></li>
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/incident-response">Incident Response</Link></li>
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/resources">Resources Hub</Link></li>
                 <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/contacts">Contacts</Link></li>
