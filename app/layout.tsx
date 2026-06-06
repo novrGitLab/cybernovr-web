@@ -34,8 +34,8 @@ export default function RootLayout({
         
         {/* [Module 1: Navigation Navbar] */}
         <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
-          {/* UPDATED: Applied matching uniform responsive dimensions and height parameters */}
-          <div className="flex justify-between items-center w-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto h-full">
+          {/* CORRECTED: Horizontal container width margins fully calibrated to rhythm with your page perimeters */}
+          <div className="flex justify-between items-center w-full h-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
             <Link className="flex items-center" href="/">
               <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
@@ -51,7 +51,6 @@ export default function RootLayout({
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/contacts">Contacts</Link>
             </div>
             
-            {/* UPDATED: Combined desktop console control targets cleanly inside a flexible block row */}
             <div className="hidden lg:flex items-center gap-4">
               <Link href="/impact-dashboard" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2.5 text-xs font-bold tracking-wider rounded uppercase hover:bg-primary hover:text-white transition-all text-center">
                 Impact

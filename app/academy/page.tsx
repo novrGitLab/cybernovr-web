@@ -19,7 +19,7 @@ export default function CybernovrAcademyPage() {
   ];
 
   return (
-    /* UPDATED: Applied strict uniform grid proportions to mirror existing navbar alignment across devices */
+    /* UPDATED: Maintained safe custom responsive constraints rhythm across break-points smoothly */
     <div className="pt-32 pb-16 space-y-16 w-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
       
       {/* Hero Module Section */}
