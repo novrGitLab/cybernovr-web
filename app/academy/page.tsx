@@ -19,7 +19,6 @@ export default function CybernovrAcademyPage() {
   ];
 
   return (
-    /* CLEANED: Outer container padding removed completely to lean on layout.tsx rules */
     <div className="pt-32 pb-16 space-y-16 w-full">
       
       {/* Hero Module Section */}
