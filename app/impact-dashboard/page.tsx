@@ -11,6 +11,7 @@ export default function CEAPImpactDashboard() {
   // State to toggle the table view smoothly between Students and Organizations
   const [dashboardViewMode, setDashboardViewMode] = useState<"students" | "organizations">("students");
 
+  // FIXED: Patched API protocol string signature safely to HTTPS to prevent mixed-content blocks
   const GOOGLE_DATABASE_ENDPOINT = "https://sheetdb.io/api/v1/0vxudqmh2jcnx";
 
   useEffect(() => {
@@ -233,7 +234,6 @@ export default function CEAPImpactDashboard() {
             ) : (
               <table className="w-full text-left border-collapse min-w-[500px]">
                 <thead>
-                  {/* FIXED: Swapped out 'class' for 'className' right here to satisfy build compilers */}
                   <tr className="border-b border-outline-variant/20 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-widest bg-white sticky top-0 z-10">
                     <th className="py-3 px-4">Partner Entity</th>
                     <th className="py-3 px-3">Sector Classification</th>
