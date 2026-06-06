@@ -57,9 +57,9 @@ export default function Home() {
   const currentInsight = rotatingBlogInsights[blogIndex] || rotatingBlogInsights[0];
 
   return (
-    <>
-      {/* [Module 1: Hero Section] */}
-      <section className="pt-32 md:pt-40 pb-12 md:pb-section-gap px-margin-desktop max-w-[1536px] mx-auto overflow-hidden">
+    <div className="w-full space-y-12">
+      {/* [Module 1: Hero Section] - Synchronized Layout Proportions */}
+      <section className="pt-32 md:pt-40 pb-12 md:pb-section-gap px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-gutter items-start">
           <div className="lg:col-span-8 space-y-4">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-on-surface tracking-tight leading-none">
@@ -73,7 +73,7 @@ export default function Home() {
                 Resilience is in our DNA
               </p>
               <div className="max-w-2xl space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed">
-                <p>CYBERNOVR is a cybersecurity firm dedicated to building resilience for Critical Information Infrastructures across Africa and beyond. Our business is driven towards attaining a 360-degree cybersecurity resilience for your business, utilizing the core technical philosophy that &quot;It is Possible&quot;.</p>
+                <p>CYBERNOVR is a cybersecurity firm dedicated to building resilience for Critical Information Infrastructures across Africa and beyond. Our business is driven towards attaining a 360-degree cybersecurity resilience for your business, utilizing the core technical philosophy that "It is Possible".</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <button className="w-full sm:w-auto bg-primary text-white px-8 py-4 font-bold rounded-DEFAULT hover:brightness-110 active:scale-95 transition-all text-xs uppercase tracking-widest">
@@ -108,8 +108,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Module 2: About Mini Section] */}
-      <section className="py-16 bg-surface-container-low border-y border-outline-variant/10 px-margin-desktop max-w-[1536px] mx-auto rounded-xl">
+      {/* [Module 2: About Mini Section] - Clean Padding Matrix */}
+      <section className="py-16 bg-surface-container-low border-y border-outline-variant/10 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto rounded-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">About Cybernovr</h2>
@@ -128,8 +128,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [NEW Module 3: Our Core Software Solutions - Mapped directly from image_10c98a.png layout] */}
-      <section className="py-20 px-margin-desktop max-w-[1536px] mx-auto text-center space-y-12">
+      {/* [Module 3: Our Core Software Solutions] */}
+      <section className="py-20 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto text-center space-y-12">
         <div className="space-y-3">
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-on-surface">Our Core Software Solutions</h2>
           <div className="w-12 h-1 bg-primary mx-auto rounded"></div>
@@ -156,14 +156,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [NEW Module 4: Tailored Protection for Critical Sectors - Tab Matrix From image_10c98a.png] */}
-      <section className="py-20 bg-surface-container-low px-margin-desktop max-w-[1536px] mx-auto rounded-xl border border-outline-variant/10 space-y-10">
+      {/* [Module 4: Tailored Protection for Critical Sectors] */}
+      <section className="py-20 bg-surface-container-low px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto rounded-xl border border-outline-variant/10 space-y-10">
         <div className="text-center space-y-2">
           <h2 className="text-3xl font-black uppercase tracking-tight text-on-surface">Tailored Protection for Critical Sectors</h2>
           <p className="text-on-surface-variant text-sm max-w-xl mx-auto">Providing certified sovereignty in risk engineering across vital state and banking verticals.</p>
         </div>
 
-        {/* Tab Selection Row */}
         <div className="flex flex-wrap items-center justify-center gap-3 border-b border-outline-variant/20 pb-6">
           {industryVerticals.map((ind, i) => (
             <button
@@ -181,7 +180,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Dynamic Panel Window Frame */}
         <div className="bg-white border border-outline-variant/20 p-8 md:p-12 rounded-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[260px] animate-fadeIn">
           <div className="lg:col-span-8 space-y-4">
             <h3 className="text-xl md:text-2xl font-black text-on-surface leading-tight">
@@ -199,12 +197,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [NEW Module 5: CEAP Academy Testimonial Block - Injected right from image_10c98a.png template] */}
-      <section className="py-20 px-margin-desktop max-w-[1536px] mx-auto bg-white border border-outline-variant/30 rounded-xl my-12 text-center relative overflow-hidden">
+      {/* [Module 5: CEAP Academy Testimonial Block] */}
+      <section className="py-20 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto bg-white border border-outline-variant/30 rounded-xl text-center relative overflow-hidden">
         <div className="absolute top-6 left-6 text-on-surface-variant/5 text-9xl font-serif select-none pointer-events-none font-black leading-none">“</div>
         <div className="max-w-3xl mx-auto space-y-6 relative z-10">
           <p className="text-lg md:text-xl text-on-surface font-medium leading-relaxed italic">
-            &quot;The CEAP Academy has completely transformed our operational security posture. Cybernovr doesn&apos;t just provide software; they provide a foundation of knowledge and vigilance that feels rawly integrated with our daily operations. Our systems have never been more secure.&quot;
+            "The CEAP Academy has completely transformed our operational security posture. Cybernovr doesn't just provide software; they provide a foundation of knowledge and vigilance that feels rawly integrated with our daily operations. Our systems have never been more secure."
           </p>
           <div className="pt-2">
             <h4 className="text-sm font-black text-on-surface uppercase tracking-wider">Chief Information Security Officer</h4>
@@ -214,8 +212,8 @@ export default function Home() {
       </section>
 
       {/* [Module 6: Statistics Banner] */}
-      <section className="w-full bg-primary text-white py-12 my-12">
-        <div className="max-w-[1536px] mx-auto px-margin-desktop grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <section className="w-full bg-primary text-white py-12">
+        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           <div>
             <h4 className="text-3xl md:text-4xl font-black leading-none tracking-tight">17+</h4>
             <p className="text-[10px] text-white/70 uppercase tracking-widest mt-1.5 font-bold">Years Experience </p>
@@ -236,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* [Global Partners Showcase Component] */}
-      <section className="py-16 bg-surface-container-low text-center px-margin-desktop max-w-[1536px] mx-auto rounded-xl my-12">
+      <section className="py-16 bg-surface-container-low text-center px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto rounded-xl">
         <div className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-extrabold tracking-tight text-on-surface">Our Global Partners</h2>
@@ -256,13 +254,13 @@ export default function Home() {
       </section>
 
       {/* [Contact Audit Form Container Box] */}
-      <section className="pb-16 md:pb-section-gap px-margin-desktop max-w-[1536px] mx-auto pt-4">
+      <section className="pb-16 md:pb-section-gap px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto pt-4">
         <div className="bg-inverse-surface rounded-xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
           <div className="lg:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-black/10">
             <div className="space-y-4">
-              <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let&apos;s Secure Your Business</h2>
+              <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Secure Your Business</h2>
               <p className="text-white/70 italic text-sm md:text-base leading-relaxed">
-                &quot;In the digital age, security isn&apos;t an option—it&apos;s the foundation of existence.&quot;
+                "In the digital age, security isn't an option—it's the foundation of existence."
               </p>
             </div>
           </div>
@@ -285,6 +283,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
