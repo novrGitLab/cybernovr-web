@@ -34,7 +34,7 @@ export default function RootLayout({
         
         {/* [Module 1: Navigation Navbar] */}
         <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
-          {/* FIXED: Formatted layout bounds to follow clean uniform horizontal alignment */}
+          {/* UPDATED: Applied matching uniform responsive dimensions and height parameters */}
           <div className="flex justify-between items-center w-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto h-full">
             <Link className="flex items-center" href="/">
               <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
@@ -51,6 +51,7 @@ export default function RootLayout({
               <Link className="text-[15px] text-on-surface-variant font-medium hover:text-primary transition-colors" href="/contacts">Contacts</Link>
             </div>
             
+            {/* UPDATED: Combined desktop console control targets cleanly inside a flexible block row */}
             <div className="hidden lg:flex items-center gap-4">
               <Link href="/impact-dashboard" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2.5 text-xs font-bold tracking-wider rounded uppercase hover:bg-primary hover:text-white transition-all text-center">
                 Impact
@@ -62,45 +63,43 @@ export default function RootLayout({
 
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="lg:hidden text-on-surface p-2 focus:outline-none"
+              className="lg:hidden text-on-surface p-2"
               aria-label="Toggle navigation menu"
             >
               <span className="material-symbols-outlined text-3xl">
                 {isMobileMenuOpen ? "close" : "menu"}
               </span>
             </button>
-          </div> {/* ← FIXED: Closed the navbar contents row container cleanly on line 48 */}
+          </div>
 
-          {/* Mobile Overlay Menu Drawer */}
+          {/* Mobile Overlay Menu */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-outline-variant shadow-xl px-6 py-8 flex flex-col gap-5 z-50 animate-fadeIn">
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/about">About</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/solutions">Solutions</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/industries">Industries</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/incident-response">Incident Response</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/blog">Blog</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/resources">Resources</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/assessments">Assessments</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base text-on-surface font-semibold hover:text-primary" href="/contacts">Contacts</Link>
+            <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-outline-variant shadow-xl px-8 py-8 flex flex-col gap-6 z-50">
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/about">About</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/solutions">Solutions</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/industries">Industries</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/incident-response">Incident Response</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/blog">Blog</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/resources">Resources</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/assessments">Assessments</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-on-surface font-semibold hover:text-primary" href="/contacts">Contacts</Link>
               <hr className="border-outline-variant/30" />
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/impact-dashboard" className="bg-primary/10 text-primary text-center py-3 font-bold rounded-DEFAULT text-xs uppercase tracking-wider">
-                View Live Impact
+                VIEW LIVE IMPACT
               </Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="bg-primary text-white text-center py-3 font-bold rounded-DEFAULT text-xs uppercase tracking-wider">
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="bg-primary text-white text-center py-3 font-bold rounded-DEFAULT">
                 CYBERNOVR ACADEMY
               </Link>
             </div>
           )}
         </nav>
 
-        {/* Global Page Layout Container Slot */}
-        <main className="min-h-screen w-full max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop">
-          {children}
-        </main>
+        {/* Global Page Injection Slot */}
+        <main className="min-h-screen">{children}</main>
 
         {/* [Module 7: Footer Layout] */}
-        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 mt-16">
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 px-8 md:px-16 lg:px-24">
+          <div className="max-w-[1728px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="space-y-6">
               <Link className="block" href="/">
                 <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
@@ -143,8 +142,8 @@ export default function RootLayout({
             </div>
           </div>
           
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop border-t border-outline-variant/10 pt-8 text-xs text-on-surface-variant/50">
-            <p className="text-center sm:text-left">
+          <div className="max-w-[1728px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p className="text-on-surface-variant/50 text-center sm:text-left">
               © 2026 Cybernovr Intelligence. All rights reserved. Institutional-grade cybersecurity.
             </p>
           </div>

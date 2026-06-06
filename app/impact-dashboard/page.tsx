@@ -34,7 +34,7 @@ export default function CEAPImpactDashboard() {
         setOrganizations(activeOrgs);
         setStories(activeStories);
 
-        // Calculate metrics dynamically based on spreadsheet row footprints [cite: 279]
+        // Calculate metrics dynamically based on spreadsheet row footprints
         const uniqueInstitutionsCount = new Set(activeGraduates.map(g => g.institution?.trim()).filter(Boolean)).size;
         const successfullyPlacedCount = activeGraduates.filter(g => {
           const trackStatus = g.career_status?.trim().toLowerCase();
@@ -69,11 +69,11 @@ export default function CEAPImpactDashboard() {
   }
 
   return (
-    /* Responsive layout padding adjusted: matches px-margin-desktop on wide screens, drops down to 0 on tablet viewports */
-    <div className="pt-32 pb-16 px-0 md:px-margin-desktop max-w-[1536px] mx-auto space-y-8 min-h-screen">
+    /* UPDATED: Applied matching uniform responsive dimensions and screen rhythm parameters perfectly matching navbar */
+    <div className="pt-32 pb-16 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-8 min-h-screen w-full">
       
       {/* Top Header Section */}
-      <header className="bg-white border border-outline-variant/30 rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-sm mx-6 md:mx-0">
+      <header className="bg-white border border-outline-variant/30 rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-sm">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary/10 text-primary font-mono text-xs uppercase tracking-wider font-semibold">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -83,21 +83,21 @@ export default function CEAPImpactDashboard() {
             CEAP Strategic Impact Dashboard
           </h1>
           <p className="text-on-surface-variant text-xs md:text-sm max-w-4xl leading-relaxed">
-            <strong>Objective:</strong> Establish CEAP as a data-driven authority in cybersecurity training[cite: 213, 278, 279].<br />
-            <strong>Core Value Proposition:</strong> Transitioning from simple training delivery to longitudinal impact tracking[cite: 278, 279]. We are not just educating; we are building a measurable, secure talent pipeline[cite: 279].
+            <strong>Objective:</strong> Establish CEAP as a data-driven authority in cybersecurity training.<br />
+            <strong>Core Value Proposition:</strong> Transitioning from simple training delivery to longitudinal impact tracking. We are not just educating; we are building a measurable, secure talent pipeline.
           </p>
         </div>
       </header>
 
       {/* Quantitative Reach Metrics */}
-      <section className="space-y-3 mx-6 md:mx-0">
+      <section className="space-y-3">
         <h2 className="text-xs font-black uppercase tracking-widest text-on-surface-variant/40 px-1">Lens 1 — Quantitative Reach (The Scale)</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-3">
           <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-on-surface-variant/50 uppercase tracking-wider">Scale Metrics</p>
               <h3 className="text-3xl font-black text-on-surface mt-1">{metrics.participants}</h3>
-              <span className="text-[11px] font-semibold text-on-surface-variant/70">Total Individuals Trained [cite: 279]</span>
+              <span className="text-[11px] font-semibold text-on-surface-variant/70">Total Individuals Trained</span>
             </div>
             <div className="w-10 h-10 bg-primary/10 text-primary rounded flex items-center justify-center">
               <span className="material-symbols-outlined">groups</span>
@@ -108,7 +108,7 @@ export default function CEAPImpactDashboard() {
             <div>
               <p className="text-xs font-bold text-on-surface-variant/50 uppercase tracking-wider">Educational Base</p>
               <h3 className="text-3xl font-black text-on-surface mt-1">{metrics.institutions}</h3>
-              <span className="text-[11px] font-semibold text-on-surface-variant/70">Institutions Trained [cite: 279]</span>
+              <span className="text-[11px] font-semibold text-on-surface-variant/70">Institutions Trained</span>
             </div>
             <div className="w-10 h-10 bg-primary/10 text-primary rounded flex items-center justify-center">
               <span className="material-symbols-outlined">school</span>
@@ -119,7 +119,7 @@ export default function CEAPImpactDashboard() {
             <div>
               <p className="text-xs font-bold text-on-surface-variant/50 uppercase tracking-wider">Alliances</p>
               <h3 className="text-3xl font-black text-on-surface mt-1">{metrics.partners}</h3>
-              <span className="text-[11px] font-semibold text-on-surface-variant/70">Organizations Partnered [cite: 382]</span>
+              <span className="text-[11px] font-semibold text-on-surface-variant/70">Organizations Partnered</span>
             </div>
             <div className="w-10 h-10 bg-primary/10 text-primary rounded flex items-center justify-center">
               <span className="material-symbols-outlined">corporate_fare</span>
@@ -129,12 +129,12 @@ export default function CEAPImpactDashboard() {
       </section>
 
       {/* Progress Bars */}
-      <section className="grid gap-6 grid-cols-1 md:grid-cols-2 mx-6 md:mx-0">
+      <section className="grid gap-6 grid-cols-1 md:grid-cols-2">
         <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xs font-black uppercase tracking-widest text-on-surface-variant/40">Lens 2: Career Transformation (The Growth)</h2>
-              <p className="text-[11px] text-on-surface-variant mt-0.5">Percentage of graduates who transitioned into cyber roles or earned promotions[cite: 279].</p>
+              <p className="text-[11px] text-on-surface-variant mt-0.5">Percentage of graduates who transitioned into cyber roles or earned promotions.</p>
             </div>
             <span className="text-xl font-black text-primary bg-primary/10 px-2.5 py-1 rounded-lg">{metrics.transformationPct}%</span>
           </div>
@@ -147,7 +147,7 @@ export default function CEAPImpactDashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xs font-black uppercase tracking-widest text-on-surface-variant/40">Lens 3: Security Behavior Index (The Outcome)</h2>
-              <p className="text-[11px] text-on-surface-variant mt-0.5">Measured habit improvements (phishing simulation mitigations, MFA adoption)[cite: 269].</p>
+              <p className="text-[11px] text-on-surface-variant mt-0.5">Measured habit improvements (phishing simulation mitigations, MFA adoption).</p>
             </div>
             <span className="text-xl font-black text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">84%</span>
           </div>
@@ -158,14 +158,14 @@ export default function CEAPImpactDashboard() {
       </section>
 
       {/* Main Relational Directory Window Split with Snapshot Switcher Toggles */}
-      <section className="grid gap-6 grid-cols-1 lg:grid-cols-3 items-start mx-6 md:mx-0">
+      <section className="grid gap-6 grid-cols-1 lg:grid-cols-3 items-start">
         
         {/* Left Side: Directory Table Box */}
         <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm lg:col-span-2 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant/10 pb-4">
             <div>
               <h2 className="text-sm font-extrabold text-on-surface tracking-tight">Ecosystem Integration Directory</h2>
-              <p className="text-[11px] text-on-surface-variant mt-0.5">Relational matrix view syncing raw repository snapshots[cite: 279, 382].</p>
+              <p className="text-[11px] text-on-surface-variant mt-0.5">Relational matrix view syncing raw repository snapshots.</p>
             </div>
             
             {/* INTERACTIVE MODE TOGGLE BUTTON MODULE */}
@@ -207,7 +207,7 @@ export default function CEAPImpactDashboard() {
                 <tbody className="divide-y divide-outline-variant/10 text-xs text-on-surface-variant bg-white">
                   {graduates.length === 0 ? (
                     <tr>
-                      <td colSpan={4} className="py-12 text-center text-on-surface-variant/40 italic">No tracking records identified inside graduates pool[cite: 279].</td>
+                      <td colSpan={4} className="py-12 text-center text-on-surface-variant/40 italic">No tracking records identified inside graduates pool.</td>
                     </tr>
                   ) : (
                     graduates.map((student, i) => {
@@ -244,7 +244,7 @@ export default function CEAPImpactDashboard() {
                 <tbody className="divide-y divide-outline-variant/10 text-xs text-on-surface-variant bg-white">
                   {organizations.length === 0 ? (
                     <tr>
-                      <td colSpan={3} className="py-12 text-center text-on-surface-variant/40 italic">No tracking records identified inside organization repository[cite: 382].</td>
+                      <td colSpan={3} className="py-12 text-center text-on-surface-variant/40 italic">No tracking records identified inside organization repository.</td>
                     </tr>
                   ) : (
                     organizations.map((org, i) => (
@@ -253,7 +253,7 @@ export default function CEAPImpactDashboard() {
                         <td className="py-3.5 px-3 font-mono text-[10px] text-primary font-bold uppercase tracking-wider">{org.sector || 'Enterprise'}</td>
                         <td className="py-3.5 px-3">
                           <span className="inline-flex items-center gap-1 border border-purple-100 bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-bold text-[9px] uppercase tracking-wider">
-                            Active Alliance [cite: 382]
+                            Active Alliance
                           </span>
                         </td>
                       </tr>
@@ -269,20 +269,20 @@ export default function CEAPImpactDashboard() {
         <div className="space-y-4 lg:col-span-1">
           <div className="px-1">
             <h2 className="text-xs font-black uppercase tracking-widest text-on-surface-variant/40">Slide 4: Impact Story Spotlights</h2>
-            <p className="text-[11px] text-on-surface-variant mt-0.5">Verified longitudinal qualitative transformations[cite: 279].</p>
+            <p className="text-[11px] text-on-surface-variant mt-0.5">Verified longitudinal qualitative transformations.</p>
           </div>
           
           <div className="space-y-4 max-h-[420px] overflow-y-auto pr-1">
             {stories.length === 0 ? (
               <div className="bg-white p-5 rounded-xl border border-outline-variant/20 text-center text-xs text-on-surface-variant/40 italic">
-                No qualitative stories logged inside data node[cite: 279].
+                No qualitative stories logged inside data node.
               </div>
             ) : (
               stories.map((story, i) => (
                 <div key={i} className="bg-white p-4 rounded-xl border border-outline-variant/30 shadow-sm space-y-2 hover:border-primary/20 transition-all">
                   <div className="flex items-center justify-between border-b border-outline-variant/10 pb-1">
                     <h4 className="font-bold text-xs text-on-surface">{story.fullname || 'Anonymous Graduate'}</h4>
-                    <span className="text-[9px] font-mono font-bold text-primary uppercase bg-primary/5 px-1.5 py-0.5 rounded border border-primary/10">Verified Win [cite: 279]</span>
+                    <span className="text-[9px] font-mono font-bold text-primary uppercase bg-primary/5 px-1.5 py-0.5 rounded border border-primary/10">Verified Win</span>
                   </div>
                   <p className="text-on-surface-variant text-[11px] leading-relaxed italic">"{story.narrative || 'No narrative content provided.'}"</p>
                 </div>
