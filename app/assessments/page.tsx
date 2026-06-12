@@ -40,7 +40,7 @@ export default function AssessmentsMasterPage() {
   // State store for tracking staff knowledge test answers
   const [staffAnswers, setStaffAnswers] = useState<Record<number, string>>({});
 
-  // 20 Core Technical Questions
+  // All 20 Real Technical Knowledge Questions
   const staffQuestions: TechnicalQuestion[] = [
     { q: "What script/command in MSF console is used to find vulnerabilities and gain access to a system by exploiting weak points?", options: ["db_nmap", "search", "db_autopwn", "exploit"], answer: "db_autopwn", explanation: "db_autopwn is a Metasploit console command that automatically exploits vulnerabilities found during scanning." },
     { q: "What is the best approach to apply patching?", options: ["Manual Patching", "Automatic Patching", "Mixture", "Other"], answer: "Mixture", explanation: "A mixture of manual and automatic patching is considered best practice, allowing for both control and efficiency." },
@@ -63,6 +63,9 @@ export default function AssessmentsMasterPage() {
     { q: "What is the biggest concern for an organisation after the mega-breach?", options: ["Business email compromise", "Personal account hacks", "Dark web exposure", "Credential phishing"], answer: "Dark web exposure", explanation: "Dark web exposure of sensitive data often has the longest-lasting consequences." },
     { q: "After reading about the 16B password leak, what's your next step?", options: ["Change all my passwords", "Enable MFA everywhere", "Check if I'm affected", "I'm not sure what to do"], answer: "Enable MFA everywhere", explanation: "Enabling Multi-Factor Authentication (MFA) provides the most immediate security improvement after a breach." }
   ];
+
+  // FIXED: Explicitly safe array layout lookup reference variable mapped to pass compilation
+  const currentQuestion = staffQuestions[currentStep] || { q: "", options: [], answer: "", explanation: "" };
 
   const toggleCheckboxMetric = (field: keyof typeof barometerAnswers, value: string) => {
     const currentList = barometerAnswers[field] as string[];
@@ -423,6 +426,7 @@ export default function AssessmentsMasterPage() {
             </div>
 
             <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xl">
+              {/* FIXED: References clean runtime structure pointer resolution pass */}
               <h3 className="text-base md:text-lg font-bold text-zinc-900 leading-snug">{currentQuestion.q}</h3>
             </div>
 
