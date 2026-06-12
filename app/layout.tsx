@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import "./globals.css";
 
-// Separate the interactive side-effects to keep the Root Layout a clean Server Component
 import NavigationAndConsent from "./NavigationAndConsent";
 
 export const metadata = {
@@ -20,6 +19,8 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        {/* FontAwesome for clean social media branding icons */}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         
@@ -29,44 +30,56 @@ export default function RootLayout({
         {/* Global Page Injection Node Slot */}
         <main className="min-h-screen">{children}</main>
 
-        {/* [Module 7: Footer Layout Component] */}
-        <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 px-8 md:px-16 lg:px-24">
-          <div className="max-w-[1728px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="space-y-6">
+        {/* [Module 7: Footer Layout Component] - ENHANCED DIMENSIONS & VISIBILITY (#16, #41, #105) */}
+        <footer className="bg-inverse-surface text-white border-t border-white/10 py-20 px-6 sm:px-12 lg:px-margin-desktop w-full">
+          <div className="max-w-[1536px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            {/* Brand column */}
+            <div className="md:col-span-4 space-y-6">
               <Link className="block" href="/">
-                <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
+                {/* INCREASED LOGO SIZE (#44) */}
+                <img src="/logo.png" alt="CYBERNOVR" className="h-14 w-auto object-contain brightness-0 invert" />
               </Link>
-              <p className="text-on-surface-variant max-w-xs text-sm leading-relaxed">
-                Institutional-grade cybersecurity intelligence and response. Protecting the world&apos;s most critical digital infrastructures.
+              <p className="text-white/70 max-w-sm text-sm leading-relaxed">
+                Institutional-grade cybersecurity intelligence and response. Protecting the world's most critical digital infrastructures.
               </p>
+              {/* SOCIAL MEDIA ICONS ON FOOTER (#18, #45, #104) */}
+              <div className="flex items-center gap-4 text-white/60 pt-2">
+                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="X (Twitter)"><i className="fab fa-x-twitter"></i></a>
+                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
+                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+              </div>
             </div>
             
-            <div>
-              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Navigation</h5>
-              <ul className="space-y-3 text-sm font-medium">
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/about">About Us</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/assessments">Assessments</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/incident-response">Incident Response</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/resources">Resources Hub</Link></li>
-                <li><Link className="text-on-surface-variant hover:text-primary transition-colors" href="/contacts">Contacts</Link></li>
+            {/* Navigation links */}
+            <div className="md:col-span-3 space-y-4">
+              <h5 className="uppercase tracking-widest text-primary font-black text-xs">Navigation</h5>
+              <ul className="space-y-3 text-sm font-medium text-white/80">
+                <li><Link className="hover:text-primary transition-colors" href="/about">About Us</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/academy">Cybernovr Academy</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/assessments">Assessments</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/contacts">Contacts</Link></li>
               </ul>
             </div>
             
-            <div>
-              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Compliance</h5>
-              <ul className="space-y-3 text-sm font-medium">
-                <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-                <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-                <li><a className="text-on-surface-variant hover:text-primary transition-colors" href="#">SLA Agreements</a></li>
+            {/* Compliance links */}
+            <div className="md:col-span-2 space-y-4">
+              <h5 className="uppercase tracking-widest text-primary font-black text-xs">Compliance</h5>
+              <ul className="space-y-3 text-sm font-medium text-white/80">
+                <li><a className="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#">SLA Agreements</a></li>
               </ul>
             </div>
             
-            <div>
-              <h5 className="uppercase tracking-widest text-primary mb-6 font-bold text-sm">Stay Updated</h5>
-              <p className="text-on-surface-variant mb-4 text-sm">Receive elite threat intelligence directly to your inbox.</p>
-              <div className="flex items-center border-b border-outline-variant pb-2">
-                <input className="bg-transparent border-0 w-full text-sm focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40" placeholder="Enter your email" type="email" />
+            {/* Threat Intel Field */}
+            <div className="md:col-span-3 space-y-4">
+              <h5 className="uppercase tracking-widest text-primary font-black text-xs">Stay Updated</h5>
+              <p className="text-white/70 text-sm">Receive elite threat intelligence directly to your inbox.</p>
+              <div className="flex items-center border-b border-white/20 pb-2">
+                <input className="bg-transparent border-0 w-full text-sm focus:ring-0 text-white placeholder:text-white/30 outline-none" placeholder="Enter your email" type="email" />
                 <button className="text-primary hover:translate-x-1 transition-transform">
                   <span className="material-symbols-outlined">send</span>
                 </button>
@@ -74,8 +87,9 @@ export default function RootLayout({
             </div>
           </div>
           
-          <div className="max-w-[1728px] mx-auto border-t border-outline-variant/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-            <p className="text-on-surface-variant/50 text-center sm:text-left">
+          {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
+          <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
               © 2026 Cybernovr Intelligence. All rights reserved. Institutional-grade cybersecurity.
             </p>
           </div>

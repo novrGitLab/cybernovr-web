@@ -1,18 +1,19 @@
 "use client";
 import React, { useState } from "react";
+import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, ShieldAlert } from "lucide-react";
 
 export default function ContactUsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const locations = [
-    { text: "108 4625 Varsity Drive NW, Calgary, AB T3A 0Z9" },
-    { text: "17 Sunday Adigun Street, AlaUSA Ikeja, Lagos." }
+    { text: "4625 Varsity Drive NW, Calgary, AB T3A 0Z9, Canada" },
+    { text: "17 Sunday Adigun Street, Alausa, Ikeja, Lagos, Nigeria" }
   ];
 
   const faqData = [
     {
-      q: "What services does cybernovr offer?",
-      a: "cybernovr offers a comprehensive range of cybersecurity services, including professional consulting, risk management, penetration testing, incident response, compliance, and virtual CISO services. We tailor our solutions to meet the specific needs of your organization."
+      q: "What services does Cybernovr offer?",
+      a: "Cybernovr offers a comprehensive range of cybersecurity services, including professional consulting, risk management, penetration testing, incident response, compliance, and virtual CISO services. We tailor our solutions to meet the specific needs of your organization."
     },
     {
       q: "How can I request a security assessment?",
@@ -33,155 +34,173 @@ export default function ContactUsPage() {
   ];
 
   return (
-    <div className="pt-32 md:pt-40 pb-section-gap px-6 md:px-margin-desktop max-w-[1536px] mx-auto space-y-20">
+    <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
       
+      {/* Top Header Section */}
+      <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
+        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+          Operations Gateway
+        </span>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
+          Connect With Us
+        </h1>
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
+          Ready to establish unshakeable cybersecurity resilience for your asset matrix.
+        </p>
+      </div>
+
       {/* Dynamic Main Grid Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
         
-        {/* Left Side: "Send Us a Message" Interactive Form Field Matrix with Cyberpunk Dark Theme */}
-        <div className="lg:col-span-7 bg-[#191c1e] p-6 md:p-10 rounded-xl border border-white/10 shadow-2xl space-y-6">
-          <h2 className="text-2xl font-extrabold text-white tracking-tight">Send Us a Message</h2>
+        {/* Left Side: "Send Us a Message" Form Field Matrix */}
+        <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-10 rounded-2xl border border-zinc-900 shadow-2xl space-y-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.12)]">
+          <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Send Us a Message</h2>
           
           <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert("Message sent successfully."); }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-white/60">Name *</label>
+                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Name *</label>
                 <input 
-                  type="text" placeholder="Your Name" required
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                  type="text" placeholder="Your full name" required
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-white/60">Email *</label>
+                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Email *</label>
                 <input 
-                  type="email" placeholder="your@email.com" required
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                  type="email" placeholder="you@company.com" required
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-white/60">Company</label>
+                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company</label>
                 <input 
-                  type="text" placeholder="Your Company"
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                  type="text" placeholder="Enterprise entity"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-white/60">Phone</label>
+                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Phone</label>
                 <input 
-                  type="tel" placeholder="Your Phone Number"
-                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                  type="tel" placeholder="Contact number"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
-            </div>
-
-            <div className="space-y-1">
-              <label className="text-xs font-bold text-white/60">Service of Interest</label>
-              <select className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all appearance-none cursor-pointer">
-                <option value="" className="bg-[#191c1e] text-white">Select a Service</option>
-                <option value="resilience" className="bg-[#191c1e] text-white">Cybersecurity Resilience</option>
-                <option value="grc" className="bg-[#191c1e] text-white">Governance and Compliance (GRC)</option>
-                <option value="risk" className="bg-[#191c1e] text-white">Risk Management</option>
-                <option value="dns" className="bg-[#191c1e] text-white">DNS Security</option>
-              </select>
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-white/60">Message *</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Service of Interest</label>
+              <div className="relative">
+                <select className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal">
+                  <option value="" className="bg-zinc-950 text-white">Select a Service</option>
+                  <option value="resilience" className="bg-zinc-950 text-white">Cybersecurity Resilience Verification</option>
+                  <option value="grc" className="bg-zinc-950 text-white">Governance, Risk and Compliance (GRC)</option>
+                  <option value="vapt" className="bg-zinc-950 text-white">Vulnerability Assessment &amp; Penetration Testing (VAPT)</option>
+                  <option value="data-protection" className="bg-zinc-950 text-white">NDPC Licensed Data Protection Auditing</option>
+                </select>
+                <ChevronDown className="h-4 w-4 text-zinc-400 absolute right-4 top-3.5 pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Message *</label>
               <textarea 
-                rows={5} placeholder="Tell us about your security needs" required
-                className="w-full bg-white/5 border border-white/10 rounded p-4 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
+                rows={5} placeholder="Describe system criteria metrics or architecture parameters..." required
+                className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
               />
             </div>
 
-            <button type="submit" className="w-full bg-primary text-white py-4 font-bold rounded hover:bg-primary-container active:scale-[0.99] transition-all text-sm uppercase tracking-wider shadow-sm">
+            <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-xs uppercase tracking-widest font-mono">
               Send Message
             </button>
           </form>
         </div>
 
         {/* Right Side: Static Information Registry */}
-        <div className="lg:col-span-5 space-y-8 lg:pl-4">
+        <div className="lg:col-span-5 space-y-8 lg:pl-4 w-full">
           <div className="space-y-2">
-            <h2 className="text-2xl font-extrabold text-on-surface tracking-tight">Contact Information</h2>
-            <p className="text-sm text-on-surface-variant leading-relaxed">
-              Have questions or need assistance? Our team is here to help. Contact us using the information below.
+            <h2 className="text-xl md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">Contact Information</h2>
+            <p className="text-sm text-zinc-500 leading-relaxed font-normal">
+              Have system criteria questions or need administrative assistance? Our operational defense architecture teams are available.
             </p>
           </div>
 
           <div className="space-y-6">
             {/* Location Group */}
             <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                <span className="material-symbols-outlined text-xl">location_on</span>
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
+                <MapPin className="h-5 w-5" />
               </div>
-              <div className="space-y-2 text-sm text-on-surface-variant font-medium pt-1.5">
-                <p className="font-bold text-on-surface text-base mb-1">Our Location</p>
+              <div className="space-y-2 text-xs md:text-sm text-zinc-600 font-normal pt-1">
+                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Our Locations</p>
                 {locations.map((loc, i) => (
-                  <p key={i} className="leading-tight">{loc.text}</p>
+                  <p key={i} className="leading-relaxed">{loc.text}</p>
                 ))}
               </div>
             </div>
 
             {/* Phone Group */}
             <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                <span className="material-symbols-outlined text-xl">phone</span>
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
+                <Phone className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1.5">
-                <p className="font-bold text-on-surface text-base">Phone</p>
-                <p className="text-sm font-mono font-bold text-on-surface-variant">+234 806-120-0000, +234 814-378-8857</p>
+              <div className="space-y-1 pt-1 text-xs md:text-sm">
+                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Phone Inquiries</p>
+                <p className="font-mono font-bold text-zinc-700 leading-relaxed select-all">+234-806-120-0000 — Primary Communications</p>
+                <p className="font-mono font-bold text-red-700 leading-relaxed select-all">+1-443-985-3735 — International Operations</p>
               </div>
             </div>
 
             {/* Email Group */}
             <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                <span className="material-symbols-outlined text-xl">mail</span>
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
+                <Mail className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1.5">
-                <p className="font-bold text-on-surface text-base">Email</p>
-                <p className="text-sm font-mono font-semibold text-primary select-all">info@cybernovr.com</p>
+              <div className="space-y-1 pt-1 text-xs md:text-sm">
+                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Email Endpoints</p>
+                <p className="font-mono font-bold text-red-700 select-all hover:underline cursor-pointer">info@cybernovr.com</p>
+                <p className="font-mono font-bold text-zinc-500 select-all">kazeem@cybernovr.com</p>
               </div>
             </div>
 
-            {/* Business Hours */}
+            {/* Business Hours Group */}
             <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                <span className="material-symbols-outlined text-xl">schedule</span>
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
+                <Clock className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1.5">
-                <p className="font-bold text-on-surface text-base">Business Hours</p>
-                <p className="text-sm text-on-surface-variant font-medium">Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <div className="space-y-1 pt-1 text-xs md:text-sm">
+                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Business Hours</p>
+                <p className="text-zinc-600 font-medium">Monday - Friday: 8:00 AM - 5:00 PM</p>
               </div>
             </div>
           </div>
 
-          <hr className="border-outline-variant/20" />
+          <hr className="border-zinc-200" />
 
-          {/* Emergency Escalation Target Call */}
-          <div className="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 space-y-3">
-            <h4 className="text-sm font-black text-primary uppercase tracking-wider flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
-              Emergency Support
+          {/* Emergency Escalation Unit */}
+          <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+            <h4 className="text-xs uppercase font-mono font-black tracking-widest text-red-700 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse"></span>
+              24/7 Incident Response
             </h4>
-            <p className="text-xs text-on-surface-variant leading-relaxed">
-              For urgent security incidents requiring immediate assistance, please call our 24/7 emergency response line:
+            <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+              For active breach remediation or urgent system threat intervention, route metrics straight to our high-priority tactical line:
             </p>
-            <p className="text-xl font-mono font-black text-primary select-all">+234 814-378-8857</p>
+            <p className="text-xl font-mono font-black text-red-700 select-all tracking-tight">+234-901-699-1201</p>
           </div>
         </div>
 
       </div>
 
       {/* FAQ Accordion Sub-Section */}
-      <section className="pt-8 border-t border-outline-variant/20 space-y-10">
+      <section className="pt-8 border-t border-zinc-200 space-y-10">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-extrabold text-on-surface tracking-tight">Frequently Asked Questions</h2>
-          <p className="text-sm text-on-surface-variant max-w-xl mx-auto">
-            Find answers to common questions about our services and how we can help your organization.
+          <h2 className="text-2xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">Frequently Asked Questions</h2>
+          <p className="text-sm text-zinc-500 max-w-xl mx-auto font-normal">
+            Find answers to standard questions about our services and framework criteria mapping configurations.
           </p>
         </div>
 
@@ -189,18 +208,16 @@ export default function ContactUsPage() {
           {faqData.map((faq, index) => {
             const isOpen = openFaq === index;
             return (
-              <div key={index} className="bg-white border border-outline-variant/30 rounded-lg shadow-sm overflow-hidden">
+              <div key={index} className="bg-white border-2 border-zinc-200 rounded-xl shadow-sm overflow-hidden transition-all">
                 <button 
                   onClick={() => setOpenFaq(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-surface-container-lowest hover:bg-surface-container-low/40 transition-colors focus:outline-none"
+                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-zinc-50/40 hover:bg-zinc-50 transition-colors focus:outline-none"
                 >
-                  <span className="font-bold text-sm md:text-base text-on-surface">{faq.q}</span>
-                  <span className="material-symbols-outlined text-on-surface-variant shrink-0 transition-transform duration-200" style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
-                    expand_more
-                  </span>
+                  <span className="font-bold text-sm md:text-base text-zinc-900">{faq.q}</span>
+                  <ChevronDown className="h-4 w-4 text-zinc-400 shrink-0 transition-transform duration-200" style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-2 text-xs md:text-sm text-on-surface-variant leading-relaxed bg-white border-t border-outline-variant/10 animate-fadeIn">
+                  <div className="px-6 pb-5 pt-2 text-xs md:text-sm text-zinc-600 leading-relaxed bg-white border-t border-zinc-100 font-normal">
                     {faq.a}
                   </div>
                 )}
