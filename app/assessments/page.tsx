@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, ShieldCheck, Layers, Activity, CheckCircle2, RotateCcw, ArrowRight, X, AlertTriangle, Shield, Check, HelpCircle } from "lucide-react";
+import { Sparkles, ShieldCheck, Layers, Activity, CheckCircle2, RotateCcw, ArrowRight, X, AlertTriangle, Shield, Check } from "lucide-react";
 
 interface TechnicalQuestion {
   q: string;
@@ -40,7 +40,7 @@ export default function AssessmentsMasterPage() {
   // State store for tracking staff knowledge test answers
   const [staffAnswers, setStaffAnswers] = useState<Record<number, string>>({});
 
-  // 20 Core Technical Questions exactly as pooled
+  // 20 Core Technical Questions
   const staffQuestions: TechnicalQuestion[] = [
     { q: "What script/command in MSF console is used to find vulnerabilities and gain access to a system by exploiting weak points?", options: ["db_nmap", "search", "db_autopwn", "exploit"], answer: "db_autopwn", explanation: "db_autopwn is a Metasploit console command that automatically exploits vulnerabilities found during scanning." },
     { q: "What is the best approach to apply patching?", options: ["Manual Patching", "Automatic Patching", "Mixture", "Other"], answer: "Mixture", explanation: "A mixture of manual and automatic patching is considered best practice, allowing for both control and efficiency." },
@@ -60,7 +60,7 @@ export default function AssessmentsMasterPage() {
     { q: "Which of the following is not an email related hacking tool?", options: ["Mail Password", "Mail PassView", "Sendinc", "Email Finder Pro"], answer: "Sendinc", explanation: "Sendinc is a legitimate email service, unlike the others which are associated with extracting or discovering email credentials." },
     { q: "Which one of these is a symmetric encryption algorithm?", options: ["DSA", "ECC", "DES", "RSA"], answer: "DES", explanation: "DES (Data Encryption Standard) uses the same key for encryption and decryption, making it a symmetric algorithm." },
     { q: "Which of the following encryption methods is considered the most secure for data-at-rest?", options: ["AES-128", "RSA", "AES-256", "Triple DES"], answer: "AES-256", explanation: "AES-256 is widely regarded as the strongest commonly used encryption standard for protecting stored data." },
-    { q: "What is the biggest concern for an organisation after the mega-breach?", options: ["Business email compromise", "Personal account hacks", "Dark web exposure", "Credential phishing"], align: "left", answer: "Dark web exposure", explanation: "Dark web exposure of sensitive data often has the longest-lasting consequences." },
+    { q: "What is the biggest concern for an organisation after the mega-breach?", options: ["Business email compromise", "Personal account hacks", "Dark web exposure", "Credential phishing"], answer: "Dark web exposure", explanation: "Dark web exposure of sensitive data often has the longest-lasting consequences." },
     { q: "After reading about the 16B password leak, what's your next step?", options: ["Change all my passwords", "Enable MFA everywhere", "Check if I'm affected", "I'm not sure what to do"], answer: "Enable MFA everywhere", explanation: "Enabling Multi-Factor Authentication (MFA) provides the most immediate security improvement after a breach." }
   ];
 
@@ -113,7 +113,6 @@ export default function AssessmentsMasterPage() {
 
   const riskModel = getRiskMetricTier(finalComputedScore);
 
-  // FIXED: Standardized helper signature explicit name declaration to clear type reference errors
   const openScopingForm = (assessmentTitle: string) => {
     setScopingTargetTitle(assessmentTitle);
     setScopingDone(false);
@@ -373,7 +372,7 @@ export default function AssessmentsMasterPage() {
 
                 <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xl pt-4">
                   <label className="flex items-start gap-3 cursor-pointer text-xs text-zinc-600 leading-relaxed font-normal">
-                    <input type="checkbox" required checked={barometerAnswers.consent} onChange={(e) => setBarometerAnswers({...barometerAnswers, consent: e.checked})} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
+                    <input type="checkbox" required checked={barometerAnswers.consent} onChange={(e) => setBarometerAnswers({...barometerAnswers, consent: e.target.checked})} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                     <span>We consent to the collection, use, and disclosure by <strong>CYBERNOVR</strong> of all information provided in this Form or in support of this Form for the purposes of public policy analysis or formulation, public data analytics, assessing our suitability for any grant or assistance schemes, advising us on digitalisation, and/or where necessary in the public interest.</span>
                   </label>
                 </div>
