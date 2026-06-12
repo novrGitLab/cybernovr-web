@@ -22,29 +22,25 @@ export default function AssessmentsMasterPage() {
   const [scopingTitle, setScopingTargetTitle] = useState("");
   const [scopingDone, setScopingDone] = useState(false);
 
-  // =========================================================================
-  // STATE STORE FOR TRACKING ORGANATIONAL BAROMETER ANSWERS
-  // =========================================================================
+  // State store for tracking organizational barometer answers
   const [selectedSector, setSelectedSector] = useState("");
   const [barometerAnswers, setBarometerAnswers] = useState({
-    q1: "", // Strategy Policy (Yes/No)
-    q2: [] as string[], // Employees Defense Meaures (Checkboxes)
-    q3: "", // Continuous Improvement (Yes/No)
-    q4: [] as string[], // Defined Resources Parameters (Checkboxes)
-    q5: "", // Supply Chain Strategy (Yes/No)
-    q6: [] as string[], // Asset Risk Measures (Checkboxes)
-    q7: [] as string[], // Addressed Risk Vectors (Checkboxes)
-    q8: [] as string[], // Incident Capabilities (Checkboxes)
-    q9: "", // National Initiatives (Yes/No)
-    consent: false // Corporate Legal Consent Hook
+    q1: "", 
+    q2: [] as string[], 
+    q3: "", 
+    q4: [] as string[], 
+    q5: "", 
+    q6: [] as string[], 
+    q7: [] as string[], 
+    q8: [] as string[], 
+    q9: "", 
+    consent: false 
   });
 
-  // =========================================================================
-  // STATE STORE FOR TRACKING STAFF KNOWLEDGE TEST ANSWERS
-  // =========================================================================
+  // State store for tracking staff knowledge test answers
   const [staffAnswers, setStaffAnswers] = useState<Record<number, string>>({});
 
-  // All 20 Real Technical Questions exactly as pooled
+  // 20 Core Technical Questions exactly as pooled
   const staffQuestions: TechnicalQuestion[] = [
     { q: "What script/command in MSF console is used to find vulnerabilities and gain access to a system by exploiting weak points?", options: ["db_nmap", "search", "db_autopwn", "exploit"], answer: "db_autopwn", explanation: "db_autopwn is a Metasploit console command that automatically exploits vulnerabilities found during scanning." },
     { q: "What is the best approach to apply patching?", options: ["Manual Patching", "Automatic Patching", "Mixture", "Other"], answer: "Mixture", explanation: "A mixture of manual and automatic patching is considered best practice, allowing for both control and efficiency." },
@@ -64,11 +60,10 @@ export default function AssessmentsMasterPage() {
     { q: "Which of the following is not an email related hacking tool?", options: ["Mail Password", "Mail PassView", "Sendinc", "Email Finder Pro"], answer: "Sendinc", explanation: "Sendinc is a legitimate email service, unlike the others which are associated with extracting or discovering email credentials." },
     { q: "Which one of these is a symmetric encryption algorithm?", options: ["DSA", "ECC", "DES", "RSA"], answer: "DES", explanation: "DES (Data Encryption Standard) uses the same key for encryption and decryption, making it a symmetric algorithm." },
     { q: "Which of the following encryption methods is considered the most secure for data-at-rest?", options: ["AES-128", "RSA", "AES-256", "Triple DES"], answer: "AES-256", explanation: "AES-256 is widely regarded as the strongest commonly used encryption standard for protecting stored data." },
-    { q: "What is the biggest concern for an organisation after the mega-breach?", options: ["Business email compromise", "Personal account hacks", "Dark web exposure", "Credential phishing"], answer: "Dark web exposure", explanation: "Dark web exposure of sensitive data often has the longest-lasting consequences." },
+    { q: "What is the biggest concern for an organisation after the mega-breach?", options: ["Business email compromise", "Personal account hacks", "Dark web exposure", "Credential phishing"], align: "left", answer: "Dark web exposure", explanation: "Dark web exposure of sensitive data often has the longest-lasting consequences." },
     { q: "After reading about the 16B password leak, what's your next step?", options: ["Change all my passwords", "Enable MFA everywhere", "Check if I'm affected", "I'm not sure what to do"], answer: "Enable MFA everywhere", explanation: "Enabling Multi-Factor Authentication (MFA) provides the most immediate security improvement after a breach." }
   ];
 
-  // Helper toggle parameters for managing multiple checkbox states
   const toggleCheckboxMetric = (field: keyof typeof barometerAnswers, value: string) => {
     const currentList = barometerAnswers[field] as string[];
     if (value === "None of the above") {
@@ -91,11 +86,9 @@ export default function AssessmentsMasterPage() {
     if (type === "staff") setStaffAnswers({});
   };
 
-  // Automated scoring logic for Quiz 2
   const staffCorrectCount = staffQuestions.filter((q, idx) => staffAnswers[idx] === q.answer).length;
   const staffScorePct = Math.round((staffCorrectCount / staffQuestions.length) * 100);
 
-  // Automated scoring logic for Quiz 1
   const calculateBarometerScore = () => {
     let positiveWeight = 0;
     if (barometerAnswers.q1 === "Yes") positiveWeight += 15;
@@ -120,6 +113,13 @@ export default function AssessmentsMasterPage() {
 
   const riskModel = getRiskMetricTier(finalComputedScore);
 
+  // FIXED: Standardized helper signature explicit name declaration to clear type reference errors
+  const openScopingForm = (assessmentTitle: string) => {
+    setScopingTargetTitle(assessmentTitle);
+    setScopingDone(false);
+    setScopingModalOpen(true);
+  };
+
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto w-full bg-white text-zinc-900 antialiased">
       
@@ -139,7 +139,6 @@ export default function AssessmentsMasterPage() {
           {/* 4 Cards Matrix Layout Viewport */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             
-            {/* Card 1: Cybersecurity Barometer */}
             <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl flex flex-col justify-between space-y-6 shadow-sm hover:border-purple-900/20 transition-all">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -158,7 +157,6 @@ export default function AssessmentsMasterPage() {
               </button>
             </div>
 
-            {/* Card 2: Staff Cybersecurity Knowledge Check */}
             <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl flex flex-col justify-between space-y-6 shadow-sm hover:border-purple-900/20 transition-all">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -177,7 +175,6 @@ export default function AssessmentsMasterPage() {
               </button>
             </div>
 
-            {/* Card 3: Cyber Resilience Assessment */}
             <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl flex flex-col justify-between space-y-6 shadow-sm hover:border-purple-900/20 transition-all">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -196,7 +193,6 @@ export default function AssessmentsMasterPage() {
               </button>
             </div>
 
-            {/* Card 4: Compliance Framework Assessment */}
             <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl flex flex-col justify-between space-y-6 shadow-sm hover:border-purple-900/20 transition-all">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -219,16 +215,12 @@ export default function AssessmentsMasterPage() {
         </>
       ) : !assessmentComplete ? (
         activePortal === "barometer" ? (
-          /* ========================================================================= */
-          /* PORTAL 1: COMPREHENSIVE ORGANIZATIONAL BAROMETER FLOW TRACK */
-          /* ========================================================================= */
           <div className="max-w-3xl mx-auto bg-white border-2 border-zinc-100 p-6 md:p-10 rounded-2xl shadow-xl space-y-8 text-left animate-fadeIn">
             <div className="flex items-center justify-between border-b border-zinc-100 pb-4">
               <span className="text-xs font-mono font-bold text-red-700 uppercase tracking-wider">Sector Strategy Path</span>
               <span className="text-xs font-mono font-black bg-zinc-900 text-white px-2.5 py-1 rounded">{currentStep + 1} / 6</span>
             </div>
 
-            {/* Step 0: Sector Identification Trigger Input */}
             {currentStep === 0 && (
               <div className="space-y-4">
                 <label className="text-base md:text-lg font-bold text-zinc-900 block">Which of the following sector does your organisation belong to? :</label>
@@ -248,7 +240,6 @@ export default function AssessmentsMasterPage() {
               </div>
             )}
 
-            {/* Step 1: Strategy Formulation & Awareness Track */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <p className="text-xs text-zinc-400 font-mono font-bold">Sector: <span className="text-red-700">{selectedSector || "General Operational"}</span></p>
@@ -278,7 +269,6 @@ export default function AssessmentsMasterPage() {
               </div>
             )}
 
-            {/* Step 2: Continuous Hardening Parameters */}
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div className="space-y-3">
@@ -308,7 +298,6 @@ export default function AssessmentsMasterPage() {
               </div>
             )}
 
-            {/* Step 3: Supply Chain Risk Management */}
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div className="space-y-3">
@@ -339,7 +328,6 @@ export default function AssessmentsMasterPage() {
               </div>
             )}
 
-            {/* Step 4: Core Domain Safeguards Matrix */}
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="space-y-3">
@@ -371,7 +359,6 @@ export default function AssessmentsMasterPage() {
               </div>
             )}
 
-            {/* Step 5: National Initiatives & Consent Validation */}
             {currentStep === 5 && (
               <div className="space-y-6">
                 <div className="space-y-3">
@@ -386,14 +373,13 @@ export default function AssessmentsMasterPage() {
 
                 <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xl pt-4">
                   <label className="flex items-start gap-3 cursor-pointer text-xs text-zinc-600 leading-relaxed font-normal">
-                    <input type="checkbox" required checked={barometerAnswers.consent} onChange={(e) => setBarometerAnswers({...barometerAnswers, consent: e.target.checked})} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
+                    <input type="checkbox" required checked={barometerAnswers.consent} onChange={(e) => setBarometerAnswers({...barometerAnswers, consent: e.checked})} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                     <span>We consent to the collection, use, and disclosure by <strong>CYBERNOVR</strong> of all information provided in this Form or in support of this Form for the purposes of public policy analysis or formulation, public data analytics, assessing our suitability for any grant or assistance schemes, advising us on digitalisation, and/or where necessary in the public interest.</span>
                   </label>
                 </div>
               </div>
             )}
 
-            {/* Navigation Steppers Button Cluster */}
             <div className="flex items-center justify-between border-t border-zinc-100 pt-6 font-mono">
               <button
                 disabled={currentStep === 0}
@@ -478,14 +464,21 @@ export default function AssessmentsMasterPage() {
 
             <div className="flex items-center justify-between pt-6 border-t border-zinc-100 font-mono">
               <button
-                onClick={handlePreviousQuestion}
+                onClick={() => currentStep > 0 && setCurrentStep(currentStep - 1)}
                 disabled={currentStep === 0}
                 className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider border-2 border-zinc-200 text-zinc-600 rounded-lg hover:bg-zinc-50 disabled:opacity-40"
               >
                 Previous
               </button>
               <button
-                onClick={handleNextQuestion}
+                onClick={() => {
+                  setShowExplanation(false);
+                  if (currentStep < staffQuestions.length - 1) {
+                    setCurrentStep(currentStep + 1);
+                  } else {
+                    setAssessmentComplete(true);
+                  }
+                }}
                 disabled={!staffAnswers.hasOwnProperty(currentStep)}
                 className="px-6 py-2.5 text-xs font-black uppercase tracking-widest bg-purple-950 text-white rounded-lg hover:bg-purple-900 transition-all disabled:opacity-50"
               >
@@ -539,7 +532,6 @@ export default function AssessmentsMasterPage() {
             )}
           </div>
 
-          {/* DYNAMIC CARD-BASED SERVICE SUGGESTIONS */}
           <div className="space-y-6">
             <h3 className="text-sm font-black text-zinc-400 uppercase tracking-widest">We recommend exploring our solutions:</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -588,9 +580,7 @@ export default function AssessmentsMasterPage() {
         </div>
       )}
 
-      {/* ========================================================================= */}
       {/* ADVISORY POPUP SCOPING CONSOLE MODAL OVERLAY */}
-      {/* ========================================================================= */}
       {scopingModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
