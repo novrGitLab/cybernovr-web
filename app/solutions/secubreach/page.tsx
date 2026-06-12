@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Zap, Search, Globe, FileLines, CheckCircle2 } from "lucide-react";
+// FIXED: Replaced 'FileLines' with the valid export name 'FileText' to pass compilation
+import { Zap, Search, Globe, FileText, CheckCircle2 } from "lucide-react";
 
 export default function SecuBreachPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -10,7 +11,7 @@ export default function SecuBreachPage() {
     { icon: Zap, t: "Zero-Touch Autonomous Operations", d: "Passive, continuous monitoring vectors that discover exposures around the clock with zero manual scheduling loops." },
     { icon: Search, t: "CVE Criticality Matching Engine", d: "Correlates the complete global NIST CVE index with custom heuristic models to score risks by real exploitability levels." },
     { icon: Globe, t: "Global Blacklist Correlation", d: "Cross-checks active asset headers with primary directories like Spamhaus, CBL, and UCEPROTECT dynamically." },
-    { icon: FileLines, t: "Creative Remediation Reports", d: "Generates step-by-step developer blueprints mapped straight from threat discovery to successful regulatory verification." }
+    { icon: FileText, t: "Creative Remediation Reports", d: "Generates step-by-step developer blueprints mapped straight from threat discovery to successful regulatory verification." }
   ];
 
   return (
@@ -74,20 +75,20 @@ export default function SecuBreachPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Full Name *</label>
-                <input type="text" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+                <input type="text" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
               </div>
               <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Corporate Email *</label>
-                <input type="email" placeholder="you@company.com" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+                <input type="email" placeholder="you@company.com" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
               </div>
             </div>
             <div className="space-y-1">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Target Domain URL *</label>
-              <input type="text" placeholder="company.com" required value={formData.url} onChange={(e) => setFormData({...formData, url: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+              <input type="text" placeholder="company.com" required value={formData.url} onChange={(e) => setFormData({...formData, url: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Target Infrastructure Parameters</label>
-              <textarea rows={4} placeholder="Detail specific application endpoints or infrastructure systems to safely target..." value={formData.targetDetails} onChange={(e) => setFormData({...formData, targetDetails: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
+              <textarea rows={4} placeholder="Detail specific application endpoints or infrastructure systems to safely target..." value={formData.targetDetails} onChange={(e) => setFormData({...formData, targetDetails: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
               Launch Perimeter Scan
