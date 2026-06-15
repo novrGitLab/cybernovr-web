@@ -35,3 +35,14 @@ body {
   background-color: var(--color-surface);
   color: var(--color-on-surface);
 }
+
+@keyframes marqueeLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marqueeLeftToRight {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeftToRight 25s linear infinite;
+}

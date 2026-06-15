@@ -112,9 +112,11 @@ export default function NavigationAndConsent() {
             
             <div className="space-y-2 pl-2 border-l border-outline-variant">
               <p className="text-xs uppercase font-black tracking-wider text-primary">Resources Node</p>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/blog">Blog</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/blog">Blog</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/news">News</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/webinars">Webinars</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/events">Event</Link>
+                            <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/whitepapers">White papers</Link>
             </div>
 
             <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold text-on-surface-variant hover:text-primary" href="/contacts">Contacts</Link>
@@ -126,10 +128,9 @@ export default function NavigationAndConsent() {
             </Link>
 
             <div className="space-y-2 p-3 bg-surface-container-low rounded-lg border border-outline-variant/30">
-              <p className="text-xs uppercase font-black tracking-wider text-primary">Academy Platform Ecosystem</p>
-              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="block text-sm font-bold text-on-surface hover:text-primary">Academy Enrollment</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} href="/impact-dashboard" className="block text-sm font-bold text-on-surface hover:text-primary">Strategic Impact Metrics</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy/assessments" className="block text-sm font-bold text-on-surface hover:text-primary">Take Knowledge Test</Link>
+              <p className="text-xs uppercase font-black tracking-wider text-primary">Cybernovr Academy</p>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="block text-sm font-bold text-on-surface hover:text-primary">CEAP</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/assessments" className="block text-sm font-bold text-on-surface hover:text-primary">Assessments</Link>
             </div>
           </div>
         )}

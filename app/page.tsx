@@ -40,9 +40,9 @@ export default function Home() {
   ];
 
   const softwareSolutions = [
-    { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png" },
-    { name: "NovrGRC", tagline: "Automated Governance & Strategy Suite", desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance.", path: "/solutions/novrgrc", logo: "novrgrc.png" },
-    { name: "SecuBreach", tagline: "Vulnerability Threat & Exposure Management", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png" },
+    { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.jpg" },
+    { name: "NovrGRC", tagline: "Automated Governance & Strategy Suite", desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance.", path: "/solutions/novrgrc", logo: "novrgrc.jpg" },
+    { name: "SecuBreach", tagline: "Vulnerability Threat & Exposure Management", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.jpg" },
     { name: "NovrRadar", tagline: "Global Live Threat IOC & IOA Engine", desc: "Advanced predictive threat analysis platform performing continuous indicator tracking.", path: "/solutions/novrradar", logo: "novrradar.png" }
   ];
 
@@ -130,7 +130,7 @@ export default function Home() {
                 Resilience is in our DNA
               </p>
               <div className="max-w-2xl space-y-4 text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
-                <p>CYBERNOVR is a cybersecurity firm dedicated to building resilience for Critical Information Infrastructures across Africa and beyond[cite: 12]. Our business is driven towards attaining a 360-degree cybersecurity resilience for your business, utilizing the core technical philosophy that "It is Possible"[cite: 2, 3, 4, 23].</p>
+                <p>CYBERNOVR is a cybersecurity firm dedicated to building resilience for Critical Information Infrastructures across Africa and beyond. Our business is driven towards attaining a 360-degree cybersecurity resilience for your business, utilizing the core technical philosophy that "It is Possible".</p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -238,10 +238,10 @@ export default function Home() {
           <div className="lg:col-span-7 space-y-4 text-left">
             <h2 className="text-2xl md:text-3xl font-black text-zinc-950 uppercase tracking-tight">About Cybernovr</h2>
             <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
-              Established in 2008, CYBERNOVR delivers comprehensive services in Governance, Risk, and Compliance (GRC) management, Critical Information Infrastructure Protection, and specialized educational frameworks[cite: 8, 9, 66, 68].
+              Established in 2008, CYBERNOVR delivers comprehensive services in Governance, Risk, and Compliance (GRC) management, Critical Information Infrastructure Protection, and specialized educational frameworks.
             </p>
             <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
-              With 17 years of national and international cybersecurity leadership, we bring verified expertise across Information Assurance and IT Security[cite: 41]. Our technical team has actively designed frameworks for central banking currencies, communication sector CSIRTs, and secure digital public infrastructures across entire states[cite: 49, 50, 53, 54].
+              With 17 years of national and international cybersecurity leadership, we bring verified expertise across Information Assurance and IT Security. Our technical team has actively designed frameworks for central banking currencies, communication sector CSIRTs, and secure digital public infrastructures across entire states.
             </p>
           </div>
           <div className="lg:col-span-5 w-full flex justify-center">
@@ -269,7 +269,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="h-10 w-auto flex items-center justify-start">
                   <img 
-                    src={`/brand/${sol.logo}`} 
+                    src={`/assets/brand/${sol.logo}`} 
                     alt={`${sol.name} Product Logo`} 
                     className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                     onError={(e) => {
@@ -362,7 +362,7 @@ export default function Home() {
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center font-mono relative z-10">
           <div>
             <h4 className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">{experienceCount}+</h4>
-            <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">Years Experience [cite: 56, 57]</p>
+            <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">Years Experience</p>
           </div>
           <div>
             <h4 className="text-3xl md:text-4xl font-black text-red-500 leading-none tracking-tight">{vulnerabilitiesCount}+</h4>
@@ -374,7 +374,7 @@ export default function Home() {
           </div>
           <div>
             <h4 className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">{projectsCount}+</h4>
-            <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">National Projects [cite: 60, 61]</p>
+            <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">National Projects</p>
           </div>
         </div>
       </section>
@@ -385,7 +385,7 @@ export default function Home() {
           <div className="space-y-1.5">
             <h2 className="text-2xl font-black text-zinc-950 uppercase tracking-tight">Our Global Partners</h2>
             <p className="text-zinc-500 max-w-xl mx-auto text-xs md:text-sm font-medium">
-              We collaborate with industry-leading technology providers to deliver elite security solutions across environments[cite: 142].
+              We collaborate with industry-leading technology providers to deliver elite security solutions across environments.
             </p>
           </div>
           
@@ -450,7 +450,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center pt-6">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-bold">Operations: Alausa, Ikeja, Lagos, Nigeria[cite: 14, 152].</span>
+          <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-bold">Operations: Alausa, Ikeja, Lagos, Nigeria.</span>
         </div>
       </section>
 
