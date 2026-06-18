@@ -36,12 +36,6 @@ export default function CorporateAboutHub() {
       img: "worker-2.jpg" 
     },
     { 
-      name: "Mr. Ibrahim Oladeji", 
-      role: "Chief Information Officer", 
-      bio: "20+ years architecting enterprise digital transformation, ERP systems, and operational efficiency across public and private sectors.",
-      img: "worker-3.jpg" 
-    },
-    { 
       name: "Mr. Karl Ugokwe", 
       role: "Senior Technical Solutions Manager", 
       bio: "Cybersecurity Specialist focused on enterprise technical solutions integrations, baseline systems architecture, and comprehensive technical account management.",
@@ -50,7 +44,7 @@ export default function CorporateAboutHub() {
   ];
 
   const interns = [
-    { name: "Technical Intern 1", role: "Threat Intelligence Intern", img: "intern-1.jpg" },
+    { name: "Abubakar Usman Damilare", role: "Threat Intelligence Intern", img: "intern-1.jpg" },
     { name: "Technical Intern 2", role: "GRC Engineering Intern", img: "intern-2.jpg" },
     { name: "Technical Intern 3", role: "Security Operations Intern", img: "intern-3.jpg" }
   ];
@@ -82,7 +76,7 @@ export default function CorporateAboutHub() {
           <div className="border-b border-zinc-100 pb-2">
             <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Our Operations Team</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {workers.map((member, i) => (
               <div key={i} className="p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300">
                 <div className="w-full aspect-[4/3] bg-zinc-100 border border-zinc-200 rounded-lg overflow-hidden relative">

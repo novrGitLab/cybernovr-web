@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-// FIXED: Restored Globe and explicitly bundled all required structural icon vector references
 import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
   const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
-  // Dynamic Animated Metrics States [cite: 56, 60]
+  // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
   const [frameworksCount, setFrameworksCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
@@ -32,21 +31,13 @@ export default function Home() {
     }
   };
 
-  const realTimeThreatStream = [
-    { origin: "SecuBreach", event: "Critical RCE Exploit identified in downstream perimeter gateway nodes.", tier: "CRITICAL" },
-    { origin: "NovrSOC", event: "Brute-force identity injection matrix intercepted and contained at 02:14 UTC.", tier: "HIGH" },
-    { origin: "NovrGRC", event: "Automated framework drift detected across external active compliance records.", tier: "INFO" },
-    { origin: "NovrAlert", event: "Active ransomware overlay vector targeting high-capacity cellular switches.", tier: "CRITICAL" }
-  ];
-
   const softwareSolutions = [
-    { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.jpg" },
-    { name: "NovrGRC", tagline: "Automated Governance & Strategy Suite", desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance.", path: "/solutions/novrgrc", logo: "novrgrc.jpg" },
-    { name: "SecuBreach", tagline: "Vulnerability Threat & Exposure Management", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.jpg" },
+    { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png" },
+    { name: "NovrGRC", tagline: "Automated Governance & Strategy Suite", desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance.", path: "/solutions/novrgrc", logo: "novrgrc.png" },
+    { name: "SecuBreach", tagline: "Vulnerability Threat & Exposure Management", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png" },
     { name: "NovrRadar", tagline: "Global Live Threat IOC & IOA Engine", desc: "Advanced predictive threat analysis platform performing continuous indicator tracking.", path: "/solutions/novrradar", logo: "novrradar.png" }
   ];
 
-  // Configured with the exact 7 matrix targets from your interface layout screenshot
   const industryVerticals = [
     { name: "Banking", title: "Hardening High-Velocity Financial Settlement Ecosystems", desc: "Securing relational core banking databases, CBDC platform transaction flows, clearing switches, and cross-border API gateways." },
     { name: "Communication", title: "Securing High-Capacity Cellular Signaling Overlays", desc: "Setting up deep packet monitoring parameters at edge internet gateway hubs, performing 5G infrastructure threat evaluations, and operationalizing Sectoral CSIRTs natively." },
@@ -63,10 +54,8 @@ export default function Home() {
     { text: "During simulated red team adversarial campaigns, SecuBreach flagged parameter exposure vectors that traditional vulnerability assessment systems completely missed. Remarkable accuracy benchmarks.", author: "Head of Security Architecture", firm: "Fintech Settlement Gateway Group" }
   ];
 
-  // Clean, sequential nomenclature mapping for partner images
-  const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6'];
+  const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
 
-  // Smooth Ascending Metrics Counting Animation Logic
   useEffect(() => {
     let startTime: number | null = null;
     const duration = 2000;
@@ -75,10 +64,10 @@ export default function Home() {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
 
-      setExperienceCount(Math.floor(progress * 17)); // [cite: 56]
+      setExperienceCount(Math.floor(progress * 17)); 
       setVulnerabilitiesCount(Math.floor(progress * 4820));
       setFrameworksCount(Math.floor(progress * 7));
-      setProjectsCount(Math.floor(progress * 30)); // [cite: 60]
+      setProjectsCount(Math.floor(progress * 30)); 
 
       if (progress < 1) {
         requestAnimationFrame(animateMetrics);
@@ -88,7 +77,6 @@ export default function Home() {
     requestAnimationFrame(animateMetrics);
   }, []);
 
-  // Timed 8-second index slider loop for active testimonials
   useEffect(() => {
     const testimonialTimer = setInterval(() => {
       setTestimonialIndex((prev) => (prev + 1) % activeTestimonials.length);
@@ -147,9 +135,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* DYNAMIC RADAR INTERCEPT GRAPHIC COMPONENT */}
+          {/* FIXED: Removed the outer container border to render clean layout maps */}
           <div className="lg:col-span-5 w-full relative pt-12 lg:pt-0">
-            <div className="relative rounded-2xl overflow-hidden border border-purple-800/30 bg-purple-950 p-6 shadow-2xl h-[360px] flex flex-col justify-between">
+            <div className="relative rounded-2xl overflow-hidden bg-purple-950 p-6 shadow-2xl h-[360px] flex flex-col justify-between">
               
               <div className="absolute inset-0 bg-black/50 rounded-t-2xl border-b border-white/5 overflow-hidden flex items-center justify-center">
                 <div className="absolute w-72 h-72 border border-emerald-500/10 rounded-full flex items-center justify-center">
@@ -199,9 +187,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* VAPT & IS AUDIT ADVISORY INJECTED PANELS FROM CAPTURED SNIPPET */}
-      {/* ========================================================================= */}
+      {/* VAPT & IS AUDIT PANELS */}
       <section className="py-6 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/20 transition-all duration-300">
           <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -247,9 +233,11 @@ export default function Home() {
           <div className="lg:col-span-5 w-full flex justify-center">
             <div className="w-full max-w-xl rounded-2xl overflow-hidden border border-purple-800/30 bg-purple-950 shadow-2xl p-1 relative group">
               <div className="w-full aspect-[16/10] bg-zinc-950 rounded-xl flex flex-col items-center justify-center p-6 relative overflow-hidden border border-white/5">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]" />
-                <Globe className="h-10 w-10 text-red-500 opacity-60 group-hover:rotate-45 transition-transform duration-700" />
-                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mt-4 font-black">Operations Graphics Hub</span>
+              <img
+                src="/assets/team/cybernovr-team.jpg"
+                alt="Cybernovr Team"
+                className="w-full h-full object-cover object-top"
+              />
               </div>
             </div>
           </div>
@@ -265,13 +253,14 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
           {softwareSolutions.map((sol, idx) => (
-            <div key={idx} className="bg-white border-2 border-zinc-200 p-6 rounded-xl shadow-sm hover:border-red-600/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[320px] group">
+            <div key={idx} className="bg-white border-2 border-zinc-200 p-6 rounded-xl shadow-sm hover:border-red-600/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[300px] group">
               <div className="space-y-4">
-                <div className="h-10 w-auto flex items-center justify-start">
+                {/* FIXED: Cleared plaintext header name loop tracking. Hardened custom scaling bounds for specific vectors */}
+                <div className="h-12 w-full flex items-center justify-start border-b border-zinc-100 pb-2">
                   <img 
                     src={`/assets/brand/${sol.logo}`} 
-                    alt={`${sol.name} Product Logo`} 
-                    className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    alt={`${sol.name} Logo`} 
+                    className="h-7 w-auto max-w-[140px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-sol-${idx}`);
@@ -281,10 +270,9 @@ export default function Home() {
                   <span id={`fb-sol-${idx}`} className="hidden font-mono font-black text-sm uppercase tracking-wider text-purple-950">{sol.name}</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-black text-zinc-950 group-hover:text-red-600 transition-colors uppercase tracking-tight">{sol.name}</h3>
-                  <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mt-0.5">{sol.tagline}</p>
+                  <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest">{sol.tagline}</p>
                 </div>
-                <p className="text-zinc-500 text-xs md:text-sm leading-relaxed line-clamp-4 font-normal">{sol.desc}</p>
+                <p className="text-zinc-600 text-xs md:text-sm leading-relaxed line-clamp-4 font-normal">{sol.desc}</p>
               </div>
               <button 
                 onClick={scrollToContactForm} 
@@ -304,7 +292,6 @@ export default function Home() {
           <p className="text-zinc-700 text-sm md:text-base max-w-2xl mx-auto font-semibold leading-relaxed">Providing certified sovereignty in risk engineering across vital state and banking verticals.</p>
         </div>
 
-        {/* Updated Horizontal Button Bar Configured with All 7 Industry Targets */}
         <div className="flex flex-wrap items-center justify-center gap-2 border-b border-zinc-100 pb-6">
           {industryVerticals.map((ind, i) => (
             <button
@@ -379,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Global Partners Showcase Component] - INFINITE CAROUSEL ANIMATION FROM LEFT TO RIGHT */}
+      {/* [Global Partners Showcase Component] */}
       <section className="py-12 bg-white text-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto rounded-xl border border-zinc-200 shadow-sm overflow-hidden relative">
         <div className="space-y-6">
           <div className="space-y-1.5">
@@ -407,7 +394,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Contact Audit Form Container Box] - INTERACTIVE FOCUS PURPLE GLOW */}
+      {/* [Contact Form Container Box] */}
       <section id="contact-gateway" className="pb-16 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto pt-2">
         <div className="bg-zinc-950 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row border border-zinc-900 transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.15)]">
           <div className="lg:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-white/[0.02]">

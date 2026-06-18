@@ -149,8 +149,8 @@ export default function ContactUsPage() {
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
                 <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Phone Inquiries</p>
-                <p className="font-mono font-bold text-zinc-700 leading-relaxed select-all">+234-806-120-0000 — Primary Communications</p>
-                <p className="font-mono font-bold text-red-700 leading-relaxed select-all">+1-443-985-3735 — International Operations</p>
+                <p className="font-mono font-bold text-zinc-700 leading-relaxed select-all">+234-806-120-0000</p>
+                <p className="font-mono font-bold text-red-700 leading-relaxed select-all">+1-443-985-3735</p>
               </div>
             </div>
 
@@ -160,7 +160,7 @@ export default function ContactUsPage() {
                 <Mail className="h-5 w-5" />
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Email Endpoints</p>
+                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Email</p>
                 <p className="font-mono font-bold text-red-700 select-all hover:underline cursor-pointer">info@cybernovr.com</p>
                 <p className="font-mono font-bold text-zinc-500 select-all">kazeem@cybernovr.com</p>
               </div>
