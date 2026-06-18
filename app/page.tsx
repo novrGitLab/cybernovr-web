@@ -231,13 +231,13 @@ export default function Home() {
             </p>
           </div>
           <div className="lg:col-span-5 w-full flex justify-center">
-            <div className="w-full max-w-xl rounded-2xl overflow-hidden border border-purple-800/30 bg-purple-950 shadow-2xl p-1 relative group">
-              <div className="w-full aspect-[16/10] bg-zinc-950 rounded-xl flex flex-col items-center justify-center p-6 relative overflow-hidden border border-white/5">
-              <img
-                src="/assets/team/cybernovr-team.jpg"
-                alt="Cybernovr Team"
-                className="w-full h-full object-cover object-top"
-              />
+            <div className="w-full max-w-xl rounded-2xl overflow-hidden relative group">
+              <div className="w-full aspect-[16/10] bg-zinc-950 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden">
+                <img
+                  src="/assets/team/cybernovr-team.jpg"
+                  alt="Cybernovr Team"
+                  className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
               </div>
             </div>
           </div>
