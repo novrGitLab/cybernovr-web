@@ -79,7 +79,7 @@ export default function CorporateAboutHub() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {workers.map((member, i) => (
               <div key={i} className="p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300">
-                <div className="w-full aspect-[4/3] bg-zinc-100 border border-zinc-200 rounded-lg overflow-hidden relative">
+                <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative">
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
@@ -112,7 +112,7 @@ export default function CorporateAboutHub() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {interns.map((member, i) => (
               <div key={i} className="p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300">
-                <div className="w-full aspect-[4/3] bg-zinc-100 border border-zinc-200 rounded-lg overflow-hidden relative">
+                <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative">
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}

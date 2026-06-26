@@ -3,7 +3,7 @@ import React from "react";
 import { ShieldCheck, GraduationCap } from "lucide-react";
 
 export default function TheTeamPage() {
-  // Symmetrical 3-Worker Executive Portfolio Matrix
+  // STRICTLY THREE EXECUTIVE ENTRIES
   const corporateArchitects = [
     {
       name: "Dr. Kazeem Durodoye",
@@ -34,7 +34,7 @@ export default function TheTeamPage() {
     }
   ];
 
-  // Symmetrical 3-Intern Operations Portfolio Matrix
+  // STRICTLY THREE INTERN ENTRIES
   const interns = [
     { name: "Technical Intern 1", role: "Threat Intelligence Intern", img: "intern-1.jpg", label: "Operations" },
     { name: "Technical Intern 2", role: "GRC Engineering Intern", img: "intern-2.jpg", label: "Governance" },
@@ -54,7 +54,7 @@ export default function TheTeamPage() {
         </p>
       </div>
 
-      {/* Core Leadership Grid Matrix (Exactly 3 Slots) */}
+      {/* Core Leadership Grid Matrix (Locked to 3 Slots) */}
       <div className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
           <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Executive Directory</h2>
@@ -63,8 +63,8 @@ export default function TheTeamPage() {
           {corporateArchitects.map((member, i) => (
             <div key={i} className="p-5 bg-purple-950/[0.01] border border-purple-900/5 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 shadow-sm group hover:border-purple-900/10">
               <div className="space-y-4">
-                {/* Anti-Cropping Container System */}
-                <div className="w-full aspect-[4/3] bg-purple-950/[0.02] border border-zinc-100 rounded-lg overflow-hidden relative p-4 flex items-center justify-center">
+                {/* Object-Contain System for Frame Preservation */}
+                <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative flex items-center justify-center">
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
@@ -100,7 +100,7 @@ export default function TheTeamPage() {
         </div>
       </div>
 
-      {/* Interns Section Grid (Exactly 3 Slots) */}
+      {/* Interns Section Grid (Locked to 3 Slots) */}
       <div className="space-y-6 text-left pt-6">
         <div className="border-b border-zinc-100 pb-2">
           <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Technical Interns</h2>
@@ -109,7 +109,7 @@ export default function TheTeamPage() {
           {interns.map((member, i) => (
             <div key={i} className="p-5 bg-purple-950/[0.01] border border-purple-900/5 rounded-xl flex flex-col justify-between space-y-4 transition-all duration-300 shadow-sm group hover:border-purple-900/10">
               <div className="space-y-4">
-                <div className="w-full aspect-[4/3] bg-purple-950/[0.02] border border-zinc-100 rounded-lg overflow-hidden relative p-4 flex items-center justify-center">
+                <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative flex items-center justify-center">
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}

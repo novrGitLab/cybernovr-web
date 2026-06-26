@@ -196,7 +196,7 @@ export default function IndustriesMasterPage() {
         {/* Right Dashboard Statistics Grid & Graphics */}
         <div className="lg:col-span-5 space-y-6 w-full">
           {/* Rectangular Image Mask Frame Area */}
-          <div className="rounded-xl overflow-hidden border border-zinc-200 bg-zinc-50 aspect-[4/3] w-full flex items-center justify-center relative group shadow-sm">
+          <div className="rounded-xl overflow-hidden aspect-[4/3] w-full flex items-center justify-center relative group shadow-sm">
             <img 
               src={current.image} 
               alt={`${current.tabLabel} architecture deployment`} 

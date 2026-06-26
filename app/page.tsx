@@ -23,29 +23,29 @@ export default function Home() {
       alerts: "alerts@cybernovr.com"
     },
     socials: {
-      linkedin: "#",
-      x: "#",
-      instagram: "#",
-      facebook: "#",
-      tiktok: "#"
+      linkedin: "https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      x: "https://x.com/CYBERNOVR",
+      instagram: "https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==",
+      facebook: "https://www.facebook.com/profile.php?id=61577489252198",
+      tiktok: "https://www.tiktok.com/@cybernovr"
     }
   };
 
   const softwareSolutions = [
     { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png" },
-    { name: "NovrGRC", tagline: "Automated Governance & Strategy Suite", desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance.", path: "/solutions/novrgrc", logo: "novrgrc.png" },
-    { name: "SecuBreach", tagline: "Vulnerability Threat & Exposure Management", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png" },
-    { name: "NovrRadar", tagline: "Global Live Threat IOC & IOA Engine", desc: "Advanced predictive threat analysis platform performing continuous indicator tracking.", path: "/solutions/novrradar", logo: "novrradar.png" }
+    { name: "NovrGRC", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png" },
+    { name: "SecuBreach", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png" },
+    { name: "NovrRadar", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png" }
   ];
 
   const industryVerticals = [
-    { name: "Banking", title: "Hardening High-Velocity Financial Settlement Ecosystems", desc: "Securing relational core banking databases, CBDC platform transaction flows, clearing switches, and cross-border API gateways." },
-    { name: "Communication", title: "Securing High-Capacity Cellular Signaling Overlays", desc: "Setting up deep packet monitoring parameters at edge internet gateway hubs, performing 5G infrastructure threat evaluations, and operationalizing Sectoral CSIRTs natively." },
-    { name: "Fintech", title: "Continuous Risk Assessment for Digital Wallets & Gateways", desc: "Deploying automated risk quantification tools and continuous vulnerability discovery pipelines across serverless logic." },
-    { name: "Energy", title: "Protecting Operational Technology & SCADA Boundary Nodes", desc: "Isolating industrial automation matrices, telemetry logging circuits, and physical terminal relays securely using absolute air-gapped zero-trust architecture parameters." },
-    { name: "Government", title: "Sovereign Digital Public Infrastructure (DPI) Hardening", desc: "Designing comprehensive, unalterable cybersecurity frameworks for state execution programs, secure information frameworks, and country-wide networks." },
-    { name: "Education", title: "Securing Academic Infrastructure & Student Data Matrix Assets", desc: "Protecting cloud learning repositories, student database nodes, identity management platforms, and privacy profiles across institutions." },
-    { name: "Health", title: "Shielding Healthcare Information Frameworks & Medical Records", desc: "Harden cryptographic vaults handling diagnostic arrays, hospital registry endpoints, and healthcare logistics networks seamlessly." }
+    { name: "Banking", title: "Guidance on minimum cybersecurity and resilience requirements for financial sector players", desc: "Working with leading Deposit Money Banks and Payment Services Banks to secure financial transactions in Africa" },
+    { name: "Communication", title: "SECURING THE BACKBONE OF THE DIGITAL ECONOMY", desc: "We help sector players to promote a unified, consistent, and resilient cybersecurity posture across the communications industry and ensure a sector-wide capacity to anticipate, detect, respond to, and recover from cyber threats" },
+    { name: "Fintech", title: "CONTINUOUS RISK ASSESSMENT FOR DIGITAL WALLETS & PAYMENT GATEWAYS", desc: "We provide complete threat visibility of Indicators of Attack (IoA) and Exposure management to manage cybersecurity risks in the Fintech" },
+    { name: "Energy", title: "PROTECTING OPERATIONAL TECHNOLOGY & SCADA SYSTEMS", desc: "Understanding the security of information and operational technologies is key to delivering effective cyber resilience of the energy sector" },
+    { name: "Government", title: "DIGITAL PUBLIC INFRASTRUCTURE (DPI) DELIVERS A COMPLEMENT OF CRITICAL PUBLIC AND PRIVATE SERVICES", desc: "Working with sub-national governments in Nigeria, we ensure the cyber resilience of digital identity, payment networks, and data exchange platforms to enhance the integrity of DPI." },
+    { name: "Education", title: "SECURING ACADEMIC INFRASTRUCTURE & STUDENT DATA ASSETS", desc: "Protecting cloud learning repositories, student database nodes, identity management platforms, and privacy profiles across institutions." },
+    { name: "Health", title: "HEALTHCARE INFRASTRUCTURE PROTECTION AND PATIENT DATA ARE KEY TO US", desc: "Working tirelessly to harden medical record vaults, diagnostic information systems, hospital registry endpoints, and healthcare logistics networks." }
   ];
 
   const activeTestimonials = [
@@ -194,12 +194,12 @@ export default function Home() {
             <Terminal className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Vulnerability Assessment &amp; Penetration Testing (VAPT)</h3>
-            <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Technical Security &amp; Threat Validation</span>
-            <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">Comprehensive active testing of digital perimeters, cloud architectures, RESTful APIs, and core software infrastructures to safely isolate exploitable gaps before threat actors leverage them.</p>
+            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Vulnerability Assessment &amp; Threat Information</h3>
+            <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Where are my weaknesses and who's attacking me?</span>
+            <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">We empower you with knowledge of where you are vulnerable and who is attacking you, enabling you to develop a resilience framework tailored to your business. Talk to us about how.</p>
           </div>
           <button onClick={scrollToContactForm} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
-            Initialize Scoping Console <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+            Scope your VAPT <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
@@ -210,10 +210,18 @@ export default function Home() {
           <div className="space-y-2">
             <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Information Security Audits &amp; Gap Analysis</h3>
             <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Compliance Readiness &amp; Strategy Auditing</span>
-            <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">Detailed administrative and structural security posture evaluations mapping internal controls directly to regional and international legal standards (SOC 2, ISO 27001, NDPA, CBN directives).</p>
+            <div className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal space-y-1.5">
+              <p>We help you with</p>
+              <ul className="list-disc list-inside space-y-1 pl-1">
+                <li>Organization-wide awareness to ensure cyber resilience</li>
+                <li>Capabilities most important for ensuring the continuity of critical services during a cyberattack.</li>
+                <li>Need for dialogue among participants from different functional areas within</li>
+                <li>The maturity of your organization's resilience in the face of a cyber-attack</li>
+              </ul>
+            </div>
           </div>
           <button onClick={scrollToContactForm} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
-            Initialize Scoping Console <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+            Scope your audits <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </section>
@@ -227,12 +235,12 @@ export default function Home() {
               Established in 2008, CYBERNOVR delivers comprehensive services in Governance, Risk, and Compliance (GRC) management, Critical Information Infrastructure Protection, and specialized educational frameworks.
             </p>
             <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
-              With 17 years of national and international cybersecurity leadership, we bring verified expertise across Information Assurance and IT Security. Our technical team has actively designed frameworks for central banking currencies, communication sector CSIRTs, and secure digital public infrastructures across entire states.
+              With close to two decades of national and international cybersecurity leadership, we bring verified expertise across Information Assurance and IT Security. Our team has designed cyber resilience frameworks for sectors in Nigeria, to secure critical national information infrastructures.
             </p>
           </div>
           <div className="lg:col-span-5 w-full flex justify-center">
-            <div className="w-full max-w-xl rounded-2xl overflow-hidden relative group">
-              <div className="w-full aspect-[16/10] bg-zinc-950 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="w-full max-w-xl relative group">
+              <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative">
                 <img
                   src="/assets/team/cybernovr-team.jpg"
                   alt="Cybernovr Team"
@@ -289,7 +297,7 @@ export default function Home() {
       <section className="py-16 bg-white px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto rounded-xl border border-zinc-200 space-y-10 shadow-sm">
         <div className="text-center space-y-2">
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-zinc-950">Tailored Protection for Critical Sectors</h2>
-          <p className="text-zinc-700 text-sm md:text-base max-w-2xl mx-auto font-semibold leading-relaxed">Providing certified sovereignty in risk engineering across vital state and banking verticals.</p>
+          <p className="text-zinc-700 text-sm md:text-base max-w-2xl mx-auto font-semibold leading-relaxed">Working with regulators and private sector players to secure critical national information infrastructure for several sectors.</p>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2 border-b border-zinc-100 pb-6">
@@ -372,7 +380,7 @@ export default function Home() {
           <div className="space-y-1.5">
             <h2 className="text-2xl font-black text-zinc-950 uppercase tracking-tight">Our Global Partners</h2>
             <p className="text-zinc-500 max-w-xl mx-auto text-xs md:text-sm font-medium">
-              We collaborate with industry-leading technology providers to deliver elite security solutions across environments.
+              We collaborate with industry-leading technology providers to deliver professional cybersecurity solutions across industries.
             </p>
           </div>
           
@@ -401,7 +409,7 @@ export default function Home() {
             <div className="space-y-4 text-left">
               <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">Let's Secure Your Business</h2>
               <p className="text-zinc-400 italic text-sm md:text-base leading-relaxed font-semibold">
-                "In the digital age, security isn't an option—it's the foundation of existence."
+                "In the digital age, resilience isn't an option—it's the foundation of existence."
               </p>
             </div>
           </div>
@@ -421,23 +429,23 @@ export default function Home() {
                 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Phone Number *</label>
-                  <input className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal" placeholder="Contact phone layout" type="tel" required />
+                  <input className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
                 </div>
                 
                 <div className="space-y-1.5 pt-1">
                   <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
-                  <textarea rows={4} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal" placeholder="Describe architectural inquiries..."></textarea>
+                  <textarea rows={4} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal" placeholder="How may we help you?"></textarea>
                 </div>
               </div>
               
               <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono" type="submit">
-                Initialize Security Audit
+                Please Reach Out to Us
               </button>
             </form>
           </div>
         </div>
         <div className="text-center pt-6">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-bold">Operations: Alausa, Ikeja, Lagos, Nigeria.</span>
+          <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-bold">Operations: Lagos, Nigeria &amp; Calgary, Canada</span>
         </div>
       </section>
 

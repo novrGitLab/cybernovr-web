@@ -41,15 +41,15 @@ export default function RootLayout({
                 <img src="/logo.png" alt="CYBERNOVR" className="h-14 w-auto object-contain brightness-0 invert" />
               </Link>
               <p className="text-white/70 max-w-sm text-sm leading-relaxed">
-                Institutional-grade cybersecurity intelligence and response. Protecting the world's most critical digital infrastructures.
+                a leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
               </p>
               {/* SOCIAL MEDIA ICONS ON FOOTER (#18, #45, #104) */}
               <div className="flex items-center gap-4 text-white/60 pt-2">
-                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a> 
-                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
-                <a href="#" className="hover:text-primary transition-colors text-ig" aria-label="Tiktok"><i className="fab fa-tiktok"></i></a>
-                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="X"><i className="fab fa-x"></i></a>
-                <a href="#" className="hover:text-primary transition-colors text-lg" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61577489252198" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@cybernovr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Tiktok"><i className="fab fa-tiktok"></i></a>
+                <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="X"><i className="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
               </div>
             </div>
             
@@ -60,8 +60,8 @@ export default function RootLayout({
                 <li><Link className="hover:text-primary transition-colors" href="/about">About Us</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/academy">Cybernovr Academy</Link></li>
-                <li><Link className="hover:text-primary transition-colors" href="/assessments">Assessments</Link></li>
-                <li><Link className="hover:text-primary transition-colors" href="/contacts">Contacts</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/assessments">Cybersecurity Assessments</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/contacts">Contact</Link></li>
               </ul>
             </div>
             
@@ -71,14 +71,14 @@ export default function RootLayout({
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><a className="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
                 <li><a className="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">SLA Agreements</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#">Cookies Policy</a></li>
               </ul>
             </div>
             
             {/* Threat Intel Field */}
             <div className="md:col-span-3 space-y-4">
               <h5 className="uppercase tracking-widest text-primary font-black text-xs">Stay Updated</h5>
-              <p className="text-white/70 text-sm">Receive elite threat intelligence directly to your inbox.</p>
+              <p className="text-white/70 text-sm">Receive premium threat intelligence directly to your inbox.</p>
               <div className="flex items-center border-b border-white/20 pb-2">
                 <input className="bg-transparent border-0 w-full text-sm focus:ring-0 text-white placeholder:text-white/30 outline-none" placeholder="Enter your email" type="email" />
                 <button className="text-primary hover:translate-x-1 transition-transform">
@@ -91,7 +91,7 @@ export default function RootLayout({
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
-              © 2026 Cybernovr Intelligence. All rights reserved. Institutional-grade cybersecurity.
+              © 2026 Cybernovr Limited. All rights reserved. A #cyber360 resilience company
             </p>
           </div>
         </footer>
