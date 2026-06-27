@@ -8,7 +8,10 @@ export default function Home() {
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
   const [subscriberEmail, setSubscriberEmail] = useState("");
   const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [contactSubmitted, setContactSubmitted] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [flashCardIndex, setFlashCardIndex] = useState(0);
 
   // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
@@ -56,6 +59,13 @@ export default function Home() {
 
   const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
 
+  const flashCards = [
+    { tag: "Blog", title: "Understanding Zero-Day Vulnerabilities in Critical Information Infrastructure", date: "Jun 2026", path: "/resources/blog" },
+    { tag: "News", title: "Cybernovr Supports NGF Digital Public Infrastructure Resilience Initiative", date: "May 2026", path: "/resources/news" },
+    { tag: "Event", title: "CEAP Cybersecurity Training Programme — Lagos, July 2026", date: "Jul 2026", path: "/resources/events" },
+    { tag: "Webinar", title: "Defending Against APTs Across Telecom & Banking Networks", date: "Jun 2026", path: "/resources/webiner" },
+  ];
+
   useEffect(() => {
     let startTime: number | null = null;
     const duration = 2000;
@@ -64,7 +74,7 @@ export default function Home() {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
 
-      setExperienceCount(Math.floor(progress * 17)); 
+      setExperienceCount(Math.floor(progress * 18));
       setVulnerabilitiesCount(Math.floor(progress * 4820));
       setFrameworksCount(Math.floor(progress * 7));
       setProjectsCount(Math.floor(progress * 30)); 
@@ -82,6 +92,13 @@ export default function Home() {
       setTestimonialIndex((prev) => (prev + 1) % activeTestimonials.length);
     }, 8000);
     return () => clearInterval(testimonialTimer);
+  }, []);
+
+  useEffect(() => {
+    const flashTimer = setInterval(() => {
+      setFlashCardIndex((prev) => (prev + 1) % flashCards.length);
+    }, 3500);
+    return () => clearInterval(flashTimer);
   }, []);
 
   const scrollToContactForm = () => {
@@ -106,8 +123,8 @@ export default function Home() {
       
       {/* [Module 1: Hero Section] */}
       <section className="pt-24 md:pt-28 pb-6 md:pb-10 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
           <div className="lg:col-span-7 space-y-4 text-left">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-zinc-950 tracking-tight leading-none uppercase">
               Secure Your Digital <br /> Future With us
@@ -120,10 +137,10 @@ export default function Home() {
               <div className="max-w-2xl space-y-4 text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
                 <p>CYBERNOVR is a cybersecurity firm dedicated to building resilience for Critical Information Infrastructures across Africa and beyond. Our business is driven towards attaining a 360-degree cybersecurity resilience for your business, utilizing the core technical philosophy that "It is Possible".</p>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button 
-                  onClick={scrollToContactForm}
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
                   className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold rounded-md active:scale-95 transition-all text-xs uppercase tracking-widest shadow-md flex items-center justify-center gap-2 font-mono"
                 >
                   Request A Demo <ArrowRight className="h-4 w-4" />
@@ -132,56 +149,100 @@ export default function Home() {
                   Enroll At Academy
                 </Link>
               </div>
+
+              <button
+                onClick={() => setIsAlertModalOpen(true)}
+                className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 transition-colors group"
+              >
+                <Bell className="h-3.5 w-3.5" />
+                Receive Alert Broadcasts
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+              </button>
             </div>
           </div>
 
-          {/* FIXED: Removed the outer container border to render clean layout maps */}
-          <div className="lg:col-span-5 w-full relative pt-12 lg:pt-0">
-            <div className="relative rounded-2xl overflow-hidden bg-purple-950 p-6 shadow-2xl h-[360px] flex flex-col justify-between">
-              
-              <div className="absolute inset-0 bg-black/50 rounded-t-2xl border-b border-white/5 overflow-hidden flex items-center justify-center">
-                <div className="absolute w-72 h-72 border border-emerald-500/10 rounded-full flex items-center justify-center">
-                  <div className="w-52 h-52 border border-emerald-500/20 rounded-full flex items-center justify-center">
-                    <div className="w-32 h-32 border border-emerald-500/30 rounded-full flex items-center justify-center">
-                      <div className="w-12 h-12 border border-emerald-500/40 rounded-full" />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="absolute w-full h-[1px] bg-emerald-500/10" />
-                <div className="absolute h-full w-[1px] bg-emerald-500/10" />
-                <div className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-transparent via-transparent to-emerald-500/20 animate-spin" style={{ animationDuration: '4s' }} />
+          {/* Right column: radar + flashcard — height constrained to match left column */}
+          <div className="hidden lg:flex lg:col-span-5 w-full flex-col items-center justify-between py-1">
 
-                <div className="absolute top-1/4 left-1/3 z-10 text-center">
-                  <span className="w-2.5 h-2.5 bg-red-600 rounded-full block animate-ping duration-1000" />
-                  <span className="w-2 h-2 bg-red-500 rounded-full block -mt-2 shadow-[0_0_8px_#ef4444]" />
-                  <span className="font-mono text-[8px] text-red-400 font-bold block bg-black/60 px-1 rounded mt-0.5 border border-red-500/20">CRITICAL INTRUSION</span>
-                </div>
+            {/* Radar — sized to fill upper portion without overflow */}
+            <div className="relative w-80 h-80 flex items-center justify-center">
+              {/* Concentric rings */}
+              <div className="absolute w-80 h-80 border border-emerald-500/15 rounded-full" />
+              <div className="absolute w-64 h-64 border border-emerald-500/25 rounded-full" />
+              <div className="absolute w-44 h-44 border border-emerald-500/35 rounded-full" />
+              <div className="absolute w-24 h-24 border border-emerald-500/50 rounded-full" />
+              <div className="absolute w-8 h-8 border border-emerald-500/70 rounded-full" />
 
-                <div className="absolute bottom-1/3 right-1/4 z-10 text-center">
-                  <span className="w-2.5 h-2.5 bg-amber-500 rounded-full block animate-ping duration-1000" style={{ animationDelay: '0.5s' }} />
-                  <span className="w-2 h-2 bg-amber-500 rounded-full block -mt-2 shadow-[0_0_8px_#f59e0b]" />
-                  <span className="font-mono text-[8px] text-amber-400 font-bold block bg-black/60 px-1 rounded mt-0.5 border border-amber-500/20">HIGH EXPLOIT</span>
-                </div>
+              {/* Crosshairs */}
+              <div className="absolute w-80 h-[1px] bg-emerald-500/15" />
+              <div className="absolute h-80 w-[1px] bg-emerald-500/15" />
+
+              {/* Spinning sweep */}
+              <div className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-transparent via-emerald-500/5 to-emerald-500/25 animate-spin" style={{ animationDuration: '4s' }} />
+
+              {/* Second slower sweep for depth */}
+              <div className="absolute w-64 h-64 rounded-full bg-gradient-to-bl from-transparent via-transparent to-emerald-500/10 animate-spin" style={{ animationDuration: '8s' }} />
+
+              {/* Critical intrusion dot */}
+              <div className="absolute top-[28%] left-[28%] z-10 text-center">
+                <span className="w-3 h-3 bg-red-600 rounded-full block animate-ping" />
+                <span className="w-2.5 h-2.5 bg-red-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#ef4444]" />
+                <span className="font-mono text-[8px] text-red-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-red-500/30 whitespace-nowrap">CRITICAL INTRUSION</span>
               </div>
 
-              <div className="w-full relative z-20 pt-2 mt-auto bg-purple-950 flex flex-col gap-3">
-                <div className="flex items-center justify-between border-t border-white/10 pt-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                    <p className="font-mono text-[10px] font-black text-white/80 uppercase tracking-widest">Live Attack Radar</p>
-                  </div>
-                  <span className="font-mono text-[9px] bg-red-600/20 border border-red-500/30 text-red-400 px-2 py-0.5 rounded font-black tracking-wider uppercase">NovrAlert Engine</span>
-                </div>
+              {/* High exploit dot */}
+              <div className="absolute bottom-[30%] right-[20%] z-10 text-center">
+                <span className="w-3 h-3 bg-amber-500 rounded-full block animate-ping" style={{ animationDelay: '0.5s' }} />
+                <span className="w-2.5 h-2.5 bg-amber-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#f59e0b]" />
+                <span className="font-mono text-[8px] text-amber-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-amber-500/30 whitespace-nowrap">HIGH EXPLOIT</span>
+              </div>
 
-                <button 
-                  onClick={() => setIsAlertModalOpen(true)}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 font-black uppercase tracking-widest rounded-lg transition-all shadow-md flex items-center justify-center gap-2 font-mono text-xs"
-                >
-                  <Bell className="h-3.5 w-3.5" /> Receive Alert Broadcasts
-                </button>
+              {/* Recon dot */}
+              <div className="absolute top-[58%] left-[16%] z-10 text-center">
+                <span className="w-2 h-2 bg-purple-500 rounded-full block animate-ping" style={{ animationDelay: '1.2s' }} />
+                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full block -mt-2 shadow-[0_0_8px_#a855f7]" />
+                <span className="font-mono text-[7px] text-purple-600 font-bold block bg-zinc-50/95 px-1 rounded mt-1 border border-purple-500/30 whitespace-nowrap">RECON DETECTED</span>
+              </div>
+
+              {/* Live label */}
+              <div className="absolute -bottom-7 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                <span className="font-mono text-[9px] font-black text-zinc-500 uppercase tracking-widest">Live Attack Radar</span>
+                <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider uppercase">NovrAlert</span>
               </div>
             </div>
+
+            {/* Rotating flashcard — sits flush at the bottom of the column */}
+            <Link
+              href={flashCards[flashCardIndex].path}
+              className="w-full bg-white border border-zinc-200 hover:border-red-500/40 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group block"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1.5 flex-1 min-w-0">
+                  <span className={`inline-block font-mono text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
+                    flashCards[flashCardIndex].tag === 'Blog'    ? 'bg-purple-950/[0.05] border-purple-900/20 text-purple-700' :
+                    flashCards[flashCardIndex].tag === 'News'    ? 'bg-red-600/10 border-red-500/20 text-red-600' :
+                    flashCards[flashCardIndex].tag === 'Event'   ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-700' :
+                                                                   'bg-amber-500/10 border-amber-500/20 text-amber-700'
+                  }`}>
+                    {flashCards[flashCardIndex].tag}
+                  </span>
+                  <p className="text-sm font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
+                    {flashCards[flashCardIndex].title}
+                  </p>
+                  <p className="font-mono text-[9px] text-zinc-400 font-bold tracking-wider uppercase">{flashCards[flashCardIndex].date}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-zinc-300 group-hover:text-red-500 group-hover:translate-x-0.5 transition-all shrink-0 mt-1" />
+              </div>
+
+              <div className="flex items-center gap-1.5 mt-3 pt-2.5 border-t border-zinc-100">
+                {flashCards.map((_, i) => (
+                  <span key={i} className={`h-1 rounded-full transition-all duration-500 ${i === flashCardIndex ? 'w-6 bg-red-600' : 'w-2 bg-zinc-200'}`} />
+                ))}
+                <span className="ml-auto font-mono text-[8px] text-zinc-400 tracking-widest uppercase font-bold">Latest Updates</span>
+              </div>
+            </Link>
+
           </div>
 
         </div>
@@ -198,7 +259,7 @@ export default function Home() {
             <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Where are my weaknesses and who's attacking me?</span>
             <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">We empower you with knowledge of where you are vulnerable and who is attacking you, enabling you to develop a resilience framework tailored to your business. Talk to us about how.</p>
           </div>
-          <button onClick={scrollToContactForm} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsContactModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
             Scope your VAPT <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -220,7 +281,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <button onClick={scrollToContactForm} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsContactModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
             Scope your audits <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -283,7 +344,7 @@ export default function Home() {
                 <p className="text-zinc-600 text-xs md:text-sm leading-relaxed line-clamp-4 font-normal">{sol.desc}</p>
               </div>
               <button 
-                onClick={scrollToContactForm} 
+                onClick={() => setIsContactModalOpen(true)} 
                 className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-red-600 pt-4 hover:text-red-400 group-hover:gap-2.5 transition-all text-left font-mono"
               >
                 Request a Demo <ArrowRight className="h-3.5 w-3.5" />
@@ -448,6 +509,55 @@ export default function Home() {
           <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-bold">Operations: Lagos, Nigeria &amp; Calgary, Canada</span>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      {isContactModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative text-left overflow-hidden">
+            <div className="bg-zinc-950 px-8 py-6 flex items-start justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-black uppercase tracking-tight text-white">Let's Secure Your Business</h3>
+                <p className="text-xs text-zinc-400 italic font-medium">"In the digital age, resilience isn't an option—it's the foundation of existence."</p>
+              </div>
+              <button onClick={() => { setIsContactModalOpen(false); setContactSubmitted(false); }} className="text-white/50 hover:text-white transition-colors shrink-0 mt-1">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="p-8">
+              {contactSubmitted ? (
+                <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+                  <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">Request Submitted</h4>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setContactSubmitted(true); }}>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Full Name *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Your name" type="text" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Corporate Email *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="you@company.com" type="email" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Comments</label>
+                    <textarea rows={3} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal" placeholder="How may we help you?" />
+                  </div>
+                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-xs font-mono">
+                    Please Reach Out to Us
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Subscription Modal Box Portal Trigger */}
       {isAlertModalOpen && (

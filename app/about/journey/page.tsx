@@ -60,7 +60,7 @@ export default function OurJourneyPage() {
           Our Journey [cite: 40]
         </h1>
         <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
-          17 years of national and international cybersecurity leadership, committed to advancing network resilience universally[cite: 41].
+          Close to two decades of national and international cybersecurity leadership, committed to advancing network resilience universally[cite: 41].
         </p>
       </div>
 

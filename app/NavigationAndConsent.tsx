@@ -58,7 +58,7 @@ export default function NavigationAndConsent() {
               )}
             </div>
 
-            <Link className="text-[15px] text-on-surface-variant font-semibold hover:text-primary transition-colors" href="/contacts">Contacts</Link>
+            <Link className="text-[15px] text-on-surface-variant font-semibold hover:text-primary transition-colors" href="/contacts">Contact</Link>
           </div>
           
           {/* Action CTAs Cluster */}
@@ -119,7 +119,7 @@ export default function NavigationAndConsent() {
                             <Link onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-on-surface-variant hover:text-primary" href="/resources/whitepapers">White papers</Link>
             </div>
 
-            <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold text-on-surface-variant hover:text-primary" href="/contacts">Contacts</Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold text-on-surface-variant hover:text-primary" href="/contacts">Contact</Link>
             
             <hr className="border-outline-variant/30 my-2" />
             
