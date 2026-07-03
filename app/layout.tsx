@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -19,8 +20,6 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-        {/* FontAwesome for clean social media branding icons */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         
@@ -41,15 +40,15 @@ export default function RootLayout({
                 <img src="/logo.png" alt="CYBERNOVR" className="h-14 w-auto object-contain brightness-0 invert" />
               </Link>
               <p className="text-white/70 max-w-sm text-sm leading-relaxed">
-                a leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
+                A leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
               </p>
               {/* SOCIAL MEDIA ICONS ON FOOTER (#18, #45, #104) */}
-              <div className="flex items-center gap-4 text-white/60 pt-2">
-                <a href="https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61577489252198" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
-                <a href="https://www.tiktok.com/@cybernovr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Tiktok"><i className="fab fa-tiktok"></i></a>
-                <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="X"><i className="fab fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <div className="flex items-center gap-3 text-white pt-1">
+                <a href="https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="LinkedIn"><FaLinkedinIn size={20} /></a>
+                <a href="https://www.facebook.com/profile.php?id=61577489252198" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Facebook"><FaFacebookF size={20} /></a>
+                <a href="https://www.tiktok.com/@cybernovr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Tiktok"><FaTiktok size={20} /></a>
+                <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="X"><FaXTwitter size={20} /></a>
+                <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram"><FaInstagram size={20} /></a>
               </div>
             </div>
             
@@ -59,7 +58,7 @@ export default function RootLayout({
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><Link className="hover:text-primary transition-colors" href="/about">About Us</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
-                <li><Link className="hover:text-primary transition-colors" href="/academy">Cybernovr Academy</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/academy">Novr Academy</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/assessments">Cybersecurity Assessments</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/contacts">Contact</Link></li>
               </ul>

@@ -108,7 +108,7 @@ export default function SolutionsHubPage() {
       {/* Proprietary Software Solutions Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
             Proprietary Platforms &amp; Software Solutions
           </h2>
           <button 
@@ -153,7 +153,7 @@ export default function SolutionsHubPage() {
       {/* Professional Advisory Matrix Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
             Professional Security Advisory Services
           </h2>
           <button 
@@ -234,6 +234,8 @@ export default function SolutionsHubPage() {
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
                       <input 
                         type="tel" required placeholder="Contact phone layout"
+                        inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
+                        onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }}
                         value={formData.phone} onChange={(e) => setFormFields({...formData, phone: e.target.value})}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                       />

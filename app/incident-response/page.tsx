@@ -42,7 +42,7 @@ export default function IncidentResponsePage() {
       </div>
 
       {/* Emergency Hotline Alert Banner */}
-      <div className="bg-zinc-950 border-l-[6px] border-red-600 rounded-r-xl p-8 text-white mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden shadow-2xl border border-zinc-900 text-left">
+      <div className="bg-zinc-950 border-l-[6px] border-red-600 rounded-xl p-8 text-white mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden shadow-2xl border border-zinc-900 text-left">
         <div className="space-y-2 relative z-10">
           <span className="text-[9px] font-mono font-black tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase flex items-center gap-1.5 w-fit">
             <AlertOctagon className="h-3 w-3 animate-pulse" /> Critical Crisis Alert

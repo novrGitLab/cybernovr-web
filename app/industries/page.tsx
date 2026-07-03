@@ -1,9 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ShieldCheck, ArrowRight } from "lucide-react";
 
 export default function IndustriesMasterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [imgFailed, setImgFailed] = useState(false);
+
+  useEffect(() => {
+    setImgFailed(false);
+  }, [activeIndex]);
 
   const industryData = [
     {
@@ -72,7 +77,7 @@ export default function IndustriesMasterPage() {
         "Legacy protocol structural payload audits.",
         "Predictive physical anomaly analytics."
       ],
-      image: "/assets/industries/energy.jpg"
+      image: "/assets/industries/Energy.webp"
     },
     {
       tabLabel: "Government",
@@ -89,7 +94,7 @@ export default function IndustriesMasterPage() {
         "Hardened secure civic registry networks.",
         "Inter-agency national crisis playbook alignment."
       ],
-      image: "/assets/industries/government.jpg"
+      image: "/assets/industries/government.webp"
     },
     {
       tabLabel: "Education",
@@ -198,16 +203,13 @@ export default function IndustriesMasterPage() {
           {/* Rectangular Image Mask Frame Area */}
           <div className="rounded-xl overflow-hidden aspect-[4/3] w-full flex items-center justify-center relative group shadow-sm">
             <img 
+              key={activeIndex}
               src={current.image} 
               alt={`${current.tabLabel} architecture deployment`} 
-              className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" 
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-                const fb = document.getElementById(`fb-ind-view-${activeIndex}`);
-                if (fb) fb.style.display = 'flex';
-              }}
+              className={`w-full h-full object-cover ${imgFailed ? 'hidden' : ''}`}
+              onError={() => setImgFailed(true)}
             />
-            <div id={`fb-ind-view-${activeIndex}`} className="hidden absolute inset-0 items-center justify-center font-mono text-xs uppercase text-zinc-400 tracking-widest font-bold bg-zinc-50">
+            <div className={`${imgFailed ? 'flex' : 'hidden'} absolute inset-0 items-center justify-center font-mono text-xs uppercase text-zinc-400 tracking-widest font-bold bg-zinc-50`}>
               {current.tabLabel} SYSTEM VISUALIZATION
             </div>
           </div>
