@@ -45,11 +45,11 @@ export default function RootLayout({
               </p>
               {/* SOCIAL MEDIA ICONS ON FOOTER (#18, #45, #104) */}
               <div className="flex items-center gap-3 text-white/60 pt-1">
-                <a href="https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61577489252198" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
-                <a href="https://www.tiktok.com/@cybernovr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Tiktok"><i className="fab fa-tiktok"></i></a>
-                <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="X"><i className="fab fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors w-5 h-5 flex items-center justify-center" aria-label="LinkedIn"><i className="fab fa-linkedin text-lg"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61577489252198" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors w-5 h-5 flex items-center justify-center" aria-label="Facebook"><i className="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.tiktok.com/@cybernovr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors w-5 h-5 flex items-center justify-center" aria-label="Tiktok"><i className="fab fa-tiktok text-lg"></i></a>
+                <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors w-5 h-5 flex items-center justify-center" aria-label="X"><i className="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors w-5 h-5 flex items-center justify-center" aria-label="Instagram"><i className="fab fa-instagram text-lg"></i></a>
               </div>
             </div>
             
