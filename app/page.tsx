@@ -23,6 +23,7 @@ export default function Home() {
   const [frameworksCount, setFrameworksCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
+  const [graduatesCount, setGraduatesCount] = useState(0);
 
   const COMPANY_CONTACTS = {
     emails: {
@@ -83,6 +84,7 @@ export default function Home() {
       setVulnerabilitiesCount(Math.floor(progress * 4820));
       setFrameworksCount(Math.floor(progress * 7));
       setProjectsCount(Math.floor(progress * 30)); 
+      setGraduatesCount(Math.floor(progress * 200)); 
 
       if (progress < 1) {
         requestAnimationFrame(animateMetrics);
@@ -421,7 +423,7 @@ export default function Home() {
       {/* [Module 6: Statistics Banner] */}
       <section className="w-full bg-purple-950 text-white border-y border-purple-900/30 py-12 shadow-inner relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2rem]" />
-        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center font-mono relative z-10">
+        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 grid grid-cols-2 lg:grid-cols-5 gap-8 text-center font-mono relative z-10">
           <div>
             <h4 className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">{experienceCount}+</h4>
             <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">Years Experience</p>
@@ -437,6 +439,10 @@ export default function Home() {
           <div>
             <h4 className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">{projectsCount}+</h4>
             <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">National Projects</p>
+          </div>
+          <div>
+            <h4 className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">{graduatesCount}+</h4>
+            <p className="text-[9px] text-purple-300 uppercase tracking-widest mt-2 font-black">Academy Graduates</p>
           </div>
         </div>
       </section>
