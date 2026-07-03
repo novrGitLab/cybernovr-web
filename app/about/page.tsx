@@ -8,7 +8,7 @@ export default function CorporateAboutHub() {
     {
       title: "Our Journey",
       subtitle: "Our Horizons & Milestones",
-      desc: "Since 2008, we&apos;ve been committed to advancing cybersecurity for organizations of all sizes.",
+      desc: "Since 2008, we've been committed to advancing cybersecurity for organizations of all sizes.",
       link: "/about/journey",
       icon: Milestone
     },
@@ -99,7 +99,7 @@ export default function CorporateAboutHub() {
         {/* Core Workers Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Our Management Team</h2>
+            <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Our Management Team</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {workers.map((member, i) => (
@@ -108,7 +108,7 @@ export default function CorporateAboutHub() {
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
-                    className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-rect-worker-${i}`);
@@ -132,7 +132,7 @@ export default function CorporateAboutHub() {
         {/* Technical Interns Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">Technical Interns</h2>
+            <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Technical Interns</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {interns.map((member, i) => (
@@ -141,7 +141,7 @@ export default function CorporateAboutHub() {
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
-                    className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-rect-intern-${i}`);

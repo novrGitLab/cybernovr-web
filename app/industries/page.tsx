@@ -198,9 +198,10 @@ export default function IndustriesMasterPage() {
           {/* Rectangular Image Mask Frame Area */}
           <div className="rounded-xl overflow-hidden aspect-[4/3] w-full flex items-center justify-center relative group shadow-sm">
             <img 
+              key={activeIndex}
               src={current.image} 
               alt={`${current.tabLabel} architecture deployment`} 
-              className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" 
+              className="w-full h-full object-cover" 
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
                 const fb = document.getElementById(`fb-ind-view-${activeIndex}`);

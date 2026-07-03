@@ -31,7 +31,7 @@ export default function CorporateCareersPage() {
       {/* Module: Core Cultural Values */}
       <section className="space-y-8 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Our Corporate Values</h2>
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Our Corporate Values</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {organizationalValues.map((val, idx) => {
@@ -52,7 +52,7 @@ export default function CorporateCareersPage() {
       {/* Updated Module: Open Vacancies */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
         </div>
         
         <div className="p-8 border-2 border-purple-900/10 rounded-xl bg-purple-950/[0.02] space-y-4">

@@ -68,7 +68,7 @@ export default function TheTeamPage() {
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
-                    className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="max-h-full max-w-full object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-team-worker-${i}`);
@@ -113,7 +113,7 @@ export default function TheTeamPage() {
                   <img 
                     src={`/assets/team/${member.img}`} 
                     alt={member.name}
-                    className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="max-h-full max-w-full object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-team-intern-${i}`);

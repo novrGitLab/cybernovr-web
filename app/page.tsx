@@ -322,7 +322,7 @@ export default function Home() {
       </section>
 
       {/* [Module 3: Our Software Solutions] */}
-      <section className="py-10 pt-2 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto text-center space-y-8">
+      <section className="py-10 pt-8 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto text-center space-y-8">
         <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-zinc-950">Our Software Solutions</h2>
           <div className="w-12 h-1 bg-red-600 mx-auto rounded"></div>
