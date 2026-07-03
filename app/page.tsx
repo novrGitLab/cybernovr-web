@@ -214,7 +214,7 @@ export default function Home() {
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                   <span className="font-mono text-[9px] font-black text-zinc-500 uppercase tracking-widest">Live Attack Radar</span>
                 </div>
-                <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider uppercase">NovrALERT</span>
+                <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider">NovrALERT</span>
               </div>
             </div>
 
