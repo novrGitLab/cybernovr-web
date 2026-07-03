@@ -255,8 +255,8 @@ export default function Home() {
       </section>
 
       {/* VAPT & IS AUDIT PANELS */}
-      <section className="py-6 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/20 transition-all duration-300">
+      <section className="py-6 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col space-y-4 hover:border-purple-900/20 transition-all duration-300">
           <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
             <Terminal className="h-5 w-5" />
           </div>
@@ -265,12 +265,12 @@ export default function Home() {
             <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Where are my weaknesses and who's attacking me?</span>
             <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">We empower you with knowledge of where you are vulnerable and who is attacking you, enabling you to develop a resilience framework tailored to your business. Talk to us about how.</p>
           </div>
-          <button onClick={() => setIsVaptModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsVaptModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto">
             Scope your VAPT <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/20 transition-all duration-300">
+        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col space-y-4 hover:border-purple-900/20 transition-all duration-300">
           <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
             <ShieldCheck className="h-5 w-5" />
           </div>
@@ -287,7 +287,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <button onClick={() => setIsAuditModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsAuditModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto">
             Scope your audits <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
