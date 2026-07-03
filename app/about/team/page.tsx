@@ -11,7 +11,7 @@ export default function TheTeamPage() {
       label: "Executive Leadership",
       about: "30+ years of ICT experience. World Bank Consultant on Cybersecurity for the Nigeria Communications Sector. Led the development of the National Cybersecurity Policy & Strategy, NCC-CSIRT, and the eNaira platform.",
       certs: "CISM · CGEIT · MCB · PMP · Ph.D Information Systems (Univ. of Ibadan) · Fellow: NCS, CPCRN, ASIST, Canadian IT Professionals",
-      img: "worker-1.jpg",
+      img: "worker-1.png",
       type: "executive"
     },
     {

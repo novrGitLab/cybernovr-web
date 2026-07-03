@@ -156,14 +156,6 @@ export default function Home() {
                   Enroll At Academy
                 </Link>
               </div>
-
-              <button
-                onClick={() => setIsAlertModalOpen(true)}
-                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold rounded-md active:scale-95 transition-all text-xs uppercase tracking-widest shadow-md font-mono"
-              >
-                <Bell className="h-4 w-4" />
-                Receive Alert Broadcasts
-              </button>
             </div>
           </div>
 
@@ -219,6 +211,14 @@ export default function Home() {
                 <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider">NovrALERT</span>
               </div>
             </div>
+
+            <button
+              onClick={() => setIsAlertModalOpen(true)}
+              className="mt-14 mb-2 inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2 font-bold rounded-md active:scale-95 transition-all text-[10px] uppercase tracking-widest shadow-md font-mono"
+            >
+              <Bell className="h-3 w-3" />
+              Receive Alert Broadcasts
+            </button>
 
             {/* Rotating flashcard — sits flush at the bottom of the column */}
             <Link
@@ -309,7 +309,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-5 w-full flex justify-center">
             <div className="w-full max-w-xl relative group">
-              <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative">
+              <div className="w-full aspect-[5/4] rounded-2xl overflow-hidden relative">
                 <img
                   src="/assets/team/cybernovr-team.jpg"
                   alt="Cybernovr Team"
@@ -333,11 +333,11 @@ export default function Home() {
             <div key={idx} className="bg-white border-2 border-zinc-200 p-6 rounded-xl shadow-sm hover:border-red-600/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[300px] group">
               <div className="space-y-4">
                 {/* FIXED: Cleared plaintext header name loop tracking. Hardened custom scaling bounds for specific vectors */}
-                <div className="h-12 w-full flex items-center justify-start border-b border-zinc-100 pb-2">
+                <div className="h-16 w-full flex items-center justify-start border-b border-zinc-100 pb-2">
                   <img 
                     src={`/assets/brand/${sol.logo}`} 
                     alt={`${sol.name} Logo`} 
-                    className="h-7 w-auto max-w-[140px] object-contain"
+                    className="h-10 w-auto max-w-[160px] object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-sol-${idx}`);
@@ -502,7 +502,7 @@ export default function Home() {
                 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Phone Number *</label>
-                  <input className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                  <input className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal" placeholder="Contact Phone Number" type="tel" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} required />
                 </div>
                 
                 <div className="space-y-1.5 pt-1">
@@ -555,7 +555,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
-                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} required />
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Comments</label>
@@ -648,7 +648,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
-                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">Assessment Type *</label>
@@ -713,7 +713,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
-                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} required />
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">Comments</label>

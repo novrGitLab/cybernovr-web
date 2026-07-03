@@ -27,7 +27,7 @@ export default function CorporateAboutHub() {
       name: "Dr. Kazeem Durodoye", 
       role: "CEO — Managing Director", 
       bio: "30+ years ICT experience. World Bank Consultant on Cybersecurity for Nigeria Communications Sector. Led National Cybersecurity Policy & Strategy, NCC-CSIRT, eNaira.",
-      img: "worker-1.jpg" 
+      img: "worker-1.png" 
     },
     { 
       name: "Akinwale Mayomi Aisida", 

@@ -86,6 +86,8 @@ export default function ContactUsPage() {
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Phone</label>
                 <input 
                   type="tel" placeholder="Contact number"
+                  inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
+                  onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }}
                   className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
@@ -149,8 +151,8 @@ export default function ContactUsPage() {
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
                 <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Phone Inquiries</p>
-                <p className="font-mono font-bold text-zinc-700 leading-relaxed select-all">+234-806-120-0000</p>
-                <p className="font-mono font-bold text-red-700 leading-relaxed select-all">+1-443-985-3735</p>
+                <a href="tel:+2348061200000" className="font-mono font-bold text-zinc-700 leading-relaxed hover:underline block">+234-806-120-0000</a>
+                <a href="tel:+14439853735" className="font-mono font-bold text-red-700 leading-relaxed hover:underline block">+1-443-985-3735</a>
               </div>
             </div>
 
@@ -161,8 +163,8 @@ export default function ContactUsPage() {
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
                 <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">Email</p>
-                <p className="font-mono font-bold text-red-700 select-all hover:underline cursor-pointer">info@cybernovr.com</p>
-                <p className="font-mono font-bold text-zinc-500 select-all">kazeem@cybernovr.com</p>
+                <a href="mailto:info@cybernovr.com" className="font-mono font-bold text-red-700 hover:underline cursor-pointer block">info@cybernovr.com</a>
+                <a href="mailto:kazeem@cybernovr.com" className="font-mono font-bold text-zinc-500 hover:underline cursor-pointer block">kazeem@cybernovr.com</a>
               </div>
             </div>
 
@@ -189,7 +191,7 @@ export default function ContactUsPage() {
             <p className="text-xs text-zinc-600 leading-relaxed font-normal">
               For active breach remediation or urgent system threat intervention, route metrics straight to our high-priority tactical line:
             </p>
-            <p className="text-xl font-mono font-black text-red-700 select-all tracking-tight">+234-901-699-1201</p>
+            <a href="tel:+2349016991201" className="text-xl font-mono font-black text-red-700 hover:underline tracking-tight">+234-901-699-1201</a>
           </div>
         </div>
 

@@ -10,13 +10,14 @@ export default function NavigationAndConsent() {
   
   const [isAcademyDropdownOpen, setIsAcademyDropdownOpen] = useState(false);
   const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(pathname.startsWith("/resources"));
 
   const isActive = (href: string) => pathname === href;
   const isResourcesActive = pathname.startsWith("/resources");
   const isAcademyActive = pathname.startsWith("/academy");
 
   const desktopLinkClass = (href: string) =>
-    `text-[15px] font-semibold transition-colors pb-1 border-b-2 ${
+    `text-[13px] font-semibold transition-colors pb-1 border-b-2 ${
       isActive(href)
         ? "text-primary border-primary"
         : "text-on-surface-variant border-transparent hover:text-primary"
@@ -68,11 +69,11 @@ export default function NavigationAndConsent() {
         <div className="flex justify-between items-center w-full h-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
           
           <Link className="flex items-center" href="/">
-            <img src="/logo.png" alt="CYBERNOVR" className="h-11 md:h-13 w-auto object-contain" />
+            <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
           </Link>
           
           {/* Desktop Links Stack */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-7">
             <Link className={desktopLinkClass("/about")} href="/about">About</Link>
             <Link className={desktopLinkClass("/solutions")} href="/solutions">Solutions</Link>
             <Link className={desktopLinkClass("/industries")} href="/industries">Industries</Link>
@@ -83,15 +84,16 @@ export default function NavigationAndConsent() {
               onMouseEnter={() => setIsResourcesDropdownOpen(true)}
               onMouseLeave={() => setIsResourcesDropdownOpen(false)}
             >
-              <button className={`text-[15px] font-semibold transition-colors flex items-center gap-1 h-20 pb-1 border-b-2 ${
+              <button className={`text-[13px] font-semibold transition-colors pb-1 border-b-2 flex items-center gap-1 ${
                 isResourcesActive
                   ? "text-primary border-primary"
                   : "text-on-surface-variant border-transparent hover:text-primary"
               }`}>
                 Resources <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
               </button>
+              <div className="absolute top-full left-0 w-full h-2" />
               {isResourcesDropdownOpen && (
-                <div className="absolute top-16 left-0 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-48 text-left animate-fadeIn">
+                <div className="absolute top-full left-0 mt-0 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-48 text-left animate-fadeIn">
                   <Link className={dropdownLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
                   <Link className={dropdownLinkClass("/resources/news")} href="/resources/news">News</Link>
                   <Link className={dropdownLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
@@ -105,9 +107,9 @@ export default function NavigationAndConsent() {
           </div>
           
           {/* Action CTAs Cluster */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5 ml-6">
             
-            <Link href="/incident-response" className={`border-2 px-5 py-2.5 text-xs font-black tracking-widest rounded-md uppercase transition-all shadow-sm text-center ${
+            <Link href="/incident-response" className={`border-2 px-4 py-2 text-xs font-black tracking-widest rounded-md uppercase transition-all shadow-sm text-center whitespace-nowrap ${
               isActive("/incident-response")
                 ? "bg-red-600 text-white border-red-600"
                 : "border-red-600 bg-red-50 text-red-700 hover:bg-red-600 hover:text-white"
@@ -121,7 +123,7 @@ export default function NavigationAndConsent() {
               onMouseEnter={() => setIsAcademyDropdownOpen(true)}
               onMouseLeave={() => setIsAcademyDropdownOpen(false)}
             >
-              <button className={`px-5 py-3 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 h-11 ${
+              <button className={`px-4 py-2 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 h-11 whitespace-nowrap ${
                 isAcademyActive
                   ? "bg-primary text-white brightness-110"
                   : "bg-primary text-white hover:brightness-110 active:scale-95"
@@ -160,13 +162,25 @@ export default function NavigationAndConsent() {
             <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileLinkClass("/solutions")} href="/solutions">Solutions</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileLinkClass("/industries")} href="/industries">Industries</Link>
             
-            <div className="space-y-2 pl-2 border-l border-outline-variant">
-              <p className={`text-xs uppercase font-black tracking-wider ${isResourcesActive ? "text-primary" : "text-primary"}`}>Resources Node</p>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/news")} href="/resources/news">News</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/events")} href="/resources/events">Events</Link>
-              <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
+            <div>
+              <button 
+                onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+                className={`text-base font-bold transition-colors flex items-center justify-between w-full ${
+                  isResourcesActive ? "text-primary" : "text-on-surface-variant hover:text-primary"
+                }`}
+              >
+                Resources
+                <span className={`material-symbols-outlined text-xl transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`}>expand_more</span>
+              </button>
+              {isMobileResourcesOpen && (
+                <div className="space-y-2 pl-2 mt-2 border-l border-outline-variant">
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/news")} href="/resources/news">News</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/events")} href="/resources/events">Events</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
+                </div>
+              )}
             </div>
 
             <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileLinkClass("/contacts")} href="/contacts">Contact</Link>
