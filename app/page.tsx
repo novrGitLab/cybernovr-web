@@ -579,7 +579,7 @@ export default function Home() {
                   <div className="w-10 h-10 bg-red-600/10 border border-red-500/30 rounded-xl flex items-center justify-center text-red-500">
                     <Bell className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-black uppercase tracking-tight pt-1">NovrAlert</h3>
+                  <h3 className="text-lg font-black uppercase tracking-tight pt-1">NovrALERT</h3>
                   <p className="text-xs text-purple-200 leading-relaxed font-medium">
                     Intelligence feeds will route directly through <span className="font-mono text-red-400">{COMPANY_CONTACTS.emails.alerts}</span>.
                   </p>
