@@ -6,47 +6,47 @@ export default function OurJourneyPage() {
     {
       year: "2008",
       title: "First Cybersecurity Conference",
-      desc: "Co-organised the first Cybersecurity conference in Nigeria, setting a foundational baseline for regional operational dialogue[cite: 42, 43]."
+      desc: "Co-organised the first Cybersecurity conference in Nigeria, setting a foundational baseline for regional operational dialogue."
     },
     {
       year: "2009-2012",
-      title: "Global Inclusivity Scaling",
-      desc: "Several Business Processes re-engineering projects executed to successfully incorporate robust cybersecurity frameworks for core financial sector players across Africa and Asia[cite: 129]."
+      title: "Re-Engineering for Resilience",
+      desc: "Several Business Processes re-engineering projects executed to successfully incorporate robust cybersecurity frameworks for core financial sector players across Africa and Asia."
     },
     {
       year: "2013",
       title: "National Cybersecurity Policy",
-      desc: "Actively participated in the formal development and architectural structuring of the landmark National Cybersecurity Policy and Strategy for the Office of the National Security Adviser (ONSA)[cite: 45]."
+      desc: "Participated in the development of the National Cybersecurity Policy and Strategy for the Office of the National Security Adviser (ONSA)."
     },
     {
       year: "2018 to Date",
       title: "Corporate Cybersecurity & GRC",
-      desc: "Developed comprehensive cybersecurity GRC Strategy models for tier-1 Payment Systems companies, commercial Banks, and other global corporate organisations."
+      desc: "Developed cybersecurity strategies for leading Payment Systems companies, Deposit Money Banks, and other global corporate organisations."
     },
     {
       year: "2020",
       title: "Sectoral CSIRT Establishment",
-      desc: "Participated directly in the technical setup and comprehensive operationalisation of the Sectoral CSIRT for the Nigerian Communication Sector[cite: 49]."
+      desc: "Development and operationalisation of the Sectoral CSIRT for the Nigerian Communication Sector."
     },
     {
       year: "2021",
       title: "eNaira Programme Management",
-      desc: "Strategic design of the Programme Management framework for the eNaira digital asset engine for the Central Bank of Nigeria (CBN), fully incorporating hardened cybersecurity verification boundaries[cite: 50]."
+      desc: "Programme Management for the Central Bank of Nigeria Digital Currency (eNaira) fully incorporating cybersecurity."
     },
     {
       year: "2022",
       title: "ZIASS Limited Founded",
-      desc: "Incorporated ZIASS Limited to pioneer advanced security engineering[cite: 51]. The firm subsequently rebranded as CYBERNOVR in May 2025 to scale global operations[cite: 55]."
+      desc: "Incorporated ZIASS Limited to develop frontline cybersecurity products and manage professional cybersecurity services. ZIASS was rebranded as CYBERNOVR in May 2025."
     },
     {
       year: "2024",
       title: "Digital Public Infrastructure",
-      desc: "Developed secure Digital Public Infrastructure (incorporating baseline Cybersecurity Requirements) for all Nigerian States as a milestone project of the Nigerian Governors Forum (NGF)[cite: 53]."
+      desc: "Developed secure Digital Public Infrastructure (incorporating baseline Cybersecurity Requirements) for all Nigerian States as a milestone project of the Nigerian Governors Forum (NGF)."
     },
     {
       year: "2025",
-      title: "Communication Sector Framework",
-      desc: "Executed further advanced cybersecurity development works and frameworks for the Nigerian Communication Sector and the National Cybersecurity Coordination Centre (NCCC)[cite: 54]."
+      title: "Sectoral Cyber Resilience Framework",
+      desc: "Executed further cybersecurity professional works and development of resilience frameworks for the Nigerian Communications Sector and the National Cybersecurity Coordination Centre (NCCC)."
     }
   ];
 
@@ -57,10 +57,10 @@ export default function OurJourneyPage() {
       {/* Header Panel */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
-          Our Journey [cite: 40]
+          Our Journey
         </h1>
         <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
-          Close to two decades of national and international cybersecurity leadership, committed to advancing network resilience universally[cite: 41].
+          Almost two decades of providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building for critical stakeholders.
         </p>
       </div>
 

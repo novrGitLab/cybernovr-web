@@ -12,6 +12,11 @@ export default function Home() {
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [flashCardIndex, setFlashCardIndex] = useState(0);
+  const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
+  const [vaptSubmitted, setVaptSubmitted] = useState(false);
+  const [vaptScope, setVaptScope] = useState("");
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+  const [auditSubmitted, setAuditSubmitted] = useState(false);
 
   // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
@@ -35,10 +40,10 @@ export default function Home() {
   };
 
   const softwareSolutions = [
-    { name: "NovrSOC", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png" },
-    { name: "NovrGRC", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png" },
-    { name: "SecuBreach", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png" },
-    { name: "NovrRadar", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png" }
+    { name: "NovrSOC (by Cybernovr)", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png", shortName: "NovrSOC" },
+    { name: "NovrGRC (by Cybernovr)", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png", shortName: "NovrGRC" },
+    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png", shortName: "SecuBreach" },
+    { name: "NovrRadar (by Cybernovr)", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png", shortName: "NovrRadar" }
   ];
 
   const industryVerticals = [
@@ -152,11 +157,10 @@ export default function Home() {
 
               <button
                 onClick={() => setIsAlertModalOpen(true)}
-                className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 transition-colors group"
+                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold rounded-md active:scale-95 transition-all text-xs uppercase tracking-widest shadow-md font-mono"
               >
-                <Bell className="h-3.5 w-3.5" />
+                <Bell className="h-4 w-4" />
                 Receive Alert Broadcasts
-                <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
               </button>
             </div>
           </div>
@@ -205,10 +209,12 @@ export default function Home() {
               </div>
 
               {/* Live label */}
-              <div className="absolute -bottom-7 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                <span className="font-mono text-[9px] font-black text-zinc-500 uppercase tracking-widest">Live Attack Radar</span>
-                <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider uppercase">NovrAlert</span>
+              <div className="absolute -bottom-12 flex flex-col items-center gap-1">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                  <span className="font-mono text-[9px] font-black text-zinc-500 uppercase tracking-widest">Live Attack Radar</span>
+                </div>
+                <span className="font-mono text-[8px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider uppercase">NovrALERT</span>
               </div>
             </div>
 
@@ -255,11 +261,11 @@ export default function Home() {
             <Terminal className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Vulnerability Assessment &amp; Threat Information</h3>
+            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">VAPT Scope Request</h3>
             <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Where are my weaknesses and who's attacking me?</span>
             <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">We empower you with knowledge of where you are vulnerable and who is attacking you, enabling you to develop a resilience framework tailored to your business. Talk to us about how.</p>
           </div>
-          <button onClick={() => setIsContactModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsVaptModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
             Scope your VAPT <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -269,19 +275,19 @@ export default function Home() {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Information Security Audits &amp; Gap Analysis</h3>
+            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">Audit &amp; Gap Analysis</h3>
             <span className="text-[10px] font-mono font-black tracking-widest text-red-600 block uppercase">Compliance Readiness &amp; Strategy Auditing</span>
-            <div className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal space-y-1.5">
-              <p>We help you with</p>
-              <ul className="list-disc list-inside space-y-1 pl-1">
-                <li>Organization-wide awareness to ensure cyber resilience</li>
-                <li>Capabilities most important for ensuring the continuity of critical services during a cyberattack.</li>
-                <li>Need for dialogue among participants from different functional areas within</li>
-                <li>The maturity of your organization's resilience in the face of a cyber-attack</li>
+            <div className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">
+              <p className="mb-2">We help you with</p>
+              <ul className="space-y-1.5">
+                <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5 shrink-0">•</span>Organization-wide awareness to ensure cyber resilience</li>
+                <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5 shrink-0">•</span>Capabilities most important for ensuring the continuity of critical services during a cyberattack</li>
+                <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5 shrink-0">•</span>Need for dialogue among participants from different functional areas within</li>
+                <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5 shrink-0">•</span>The maturity of your organization's resilience in the face of a cyber-attack</li>
               </ul>
             </div>
           </div>
-          <button onClick={() => setIsContactModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
+          <button onClick={() => setIsAuditModalOpen(true)} className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group">
             Scope your audits <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -305,7 +311,7 @@ export default function Home() {
                 <img
                   src="/assets/team/cybernovr-team.jpg"
                   alt="Cybernovr Team"
-                  className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
@@ -329,14 +335,14 @@ export default function Home() {
                   <img 
                     src={`/assets/brand/${sol.logo}`} 
                     alt={`${sol.name} Logo`} 
-                    className="h-7 w-auto max-w-[140px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="h-7 w-auto max-w-[140px] object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById(`fb-sol-${idx}`);
                       if (fallback) fallback.style.display = 'block';
                     }}
                   />
-                  <span id={`fb-sol-${idx}`} className="hidden font-mono font-black text-sm uppercase tracking-wider text-purple-950">{sol.name}</span>
+                  <span id={`fb-sol-${idx}`} className="hidden font-mono font-black text-base uppercase tracking-wider text-purple-950">{sol.shortName}</span>
                 </div>
                 <div>
                   <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest">{sol.tagline}</p>
@@ -452,7 +458,7 @@ export default function Home() {
                   key={`${partner}-${i}`}
                   src={`/assets/partners/${partner}.png`}
                   alt="Technology partner mark"
-                  className="h-8 md:h-10 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer max-w-[140px]"
+                  className="h-8 md:h-10 w-auto object-contain hover:scale-105 transition-all duration-300 cursor-pointer max-w-[140px]"
                   onError={(e) => {
                     (e.target as HTMLElement).style.display = 'none';
                   }}
@@ -500,7 +506,7 @@ export default function Home() {
               </div>
               
               <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono" type="submit">
-                Please Reach Out to Us
+                Submit
               </button>
             </form>
           </div>
@@ -573,7 +579,7 @@ export default function Home() {
                   <div className="w-10 h-10 bg-red-600/10 border border-red-500/30 rounded-xl flex items-center justify-center text-red-500">
                     <Bell className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-black uppercase tracking-tight pt-1">Subscribe to Threat Alerts</h3>
+                  <h3 className="text-lg font-black uppercase tracking-tight pt-1">NovrAlert</h3>
                   <p className="text-xs text-purple-200 leading-relaxed font-medium">
                     Intelligence feeds will route directly through <span className="font-mono text-red-400">{COMPANY_CONTACTS.emails.alerts}</span>.
                   </p>
@@ -588,8 +594,8 @@ export default function Home() {
                       className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium"
                     />
                   </div>
-                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
-                    Activate Threat Monitoring
+                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2">
+                    Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" />
                   </button>
                 </form>
               </>
@@ -600,6 +606,119 @@ export default function Home() {
                 <p className="text-xs text-purple-200 max-w-xs mx-auto font-medium">Threat feed monitoring pipelines are initializing.</p>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* VAPT Scope Request Modal */}
+      {isVaptModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative text-left overflow-hidden">
+            <div className="bg-zinc-950 px-8 py-6 flex items-start justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-black uppercase tracking-tight text-white">VAPT Scope Request</h3>
+                <p className="text-xs text-zinc-400 italic font-medium">"Know your weaknesses before attackers do."</p>
+              </div>
+              <button onClick={() => { setIsVaptModalOpen(false); setVaptSubmitted(false); }} className="text-white/50 hover:text-white transition-colors shrink-0 mt-1">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-8">
+              {vaptSubmitted ? (
+                <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+                  <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">Request Submitted</h4>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setVaptSubmitted(true); }}>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Full Name *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Your name" type="text" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Corporate Email *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="you@company.com" type="email" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">Assessment Type *</label>
+                    <div className="flex flex-wrap gap-4">
+                      <label className="flex items-center gap-2 text-sm text-zinc-700 cursor-pointer">
+                        <input type="checkbox" className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500" />
+                        SAST
+                      </label>
+                      <label className="flex items-center gap-2 text-sm text-zinc-700 cursor-pointer">
+                        <input type="checkbox" className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500" />
+                        DAST
+                      </label>
+                      <label className="flex items-center gap-2 text-sm text-zinc-700 cursor-pointer">
+                        <input type="checkbox" className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500" />
+                        Both
+                      </label>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">Scope Description</label>
+                    <textarea rows={4} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal" placeholder="Please describe the scope of your VAPT." />
+                  </div>
+                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-xs font-mono">
+                    Submit
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Audit & Gap Analysis Modal */}
+      {isAuditModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative text-left overflow-hidden">
+            <div className="bg-zinc-950 px-8 py-6 flex items-start justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-black uppercase tracking-tight text-white">Audit &amp; Gap Analysis</h3>
+                <p className="text-xs text-zinc-400 italic font-medium">"Compliance readiness and strategy auditing."</p>
+              </div>
+              <button onClick={() => { setIsAuditModalOpen(false); setAuditSubmitted(false); }} className="text-white/50 hover:text-white transition-colors shrink-0 mt-1">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-8">
+              {auditSubmitted ? (
+                <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+                  <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">Request Submitted</h4>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setAuditSubmitted(true); }}>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Full Name *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Your name" type="text" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Corporate Email *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="you@company.com" type="email" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">Phone Number *</label>
+                    <input className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal" placeholder="Contact Phone Number" type="tel" required />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">Comments</label>
+                    <textarea rows={4} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal" placeholder="What are your audit & gap analysis requests?" />
+                  </div>
+                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-xs font-mono">
+                    Submit
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       )}

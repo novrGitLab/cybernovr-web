@@ -1,27 +1,27 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Milestone, Briefcase } from "lucide-react";
+import { ArrowRight, Milestone, Briefcase, Eye, Target, BookmarkCheck } from "lucide-react";
 
 export default function CorporateAboutHub() {
   const corporateSectors = [
     {
       title: "Our Journey",
-      subtitle: "Phase Horizons & Milestones",
-      desc: "Track the historical timeline, strategic structural frameworks, and national security audits built since inception.",
+      subtitle: "Our Horizons & Milestones",
+      desc: "Since 2008, we&apos;ve been committed to advancing cybersecurity for organizations of all sizes.",
       link: "/about/journey",
       icon: Milestone
     },
     {
       title: "Careers",
-      subtitle: "Active Open Vacancies",
-      desc: "Join the continuous ranks. Explore remote product engineering, UI/UX roles, and secure mission listings.",
+      subtitle: "Open Vacancies",
+      desc: "We welcome you to the world of possibilities, where we give you all the freedom to achieve your best",
       link: "/about/careers",
       icon: Briefcase
     }
   ];
 
-  // Restored and aligned all four core management experts, including Mr. Karl Ugokwe [cite: 1, 104, 112, 120]
+  // Core management experts
   const workers = [
     { 
       name: "Dr. Kazeem Durodoye", 
@@ -32,7 +32,7 @@ export default function CorporateAboutHub() {
     { 
       name: "Akinwale Mayomi Aisida", 
       role: "Senior Product Manager", 
-      bio: "Cybersecurity Researcher, Canadian Institute of Cybersecurity, Univ. of New Brunswick. Head of Threat Intelligence team specializing in ML, AI, and deep learning.",
+      bio: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
       img: "worker-2.jpg" 
     },
     { 
@@ -54,17 +54,42 @@ export default function CorporateAboutHub() {
       
       {/* Institutional Header Block */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">
-        <div className="flex flex-wrap items-center gap-4 mb-4">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase">INSIDE</h1>
-          <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
-        </div>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
-          Resilience is in our DNA [cite: 1, 5]
-        </p>
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">About Cybernovr</h1>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed mt-4 font-normal">
-          Cybernovr provides unshakeable, institutional-grade digital defense metrics across global networks. Navigate through our designated timeline history profile, elite technical staff directories, or explore your career entry paths within our engineering centers below.
+          At Cybernovr, we take a holistic and comprehensive approach to cyber resilience. It&apos;s not just about one or two aspects of security or recovery program, but a 360-degree view encompassing all facets of your organization&apos;s digital ecosystem and its ability to withstand and bounce back from cyber incidents. Welcome to our world…. #cyber360resilience
         </p>
       </div>
+
+      {/* Vision / Mission / Core Values Cards */}
+      <section className="space-y-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+            <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+              <Eye className="h-5 w-5" />
+            </div>
+            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Our Vision</h3>
+            <p className="text-sm font-bold text-zinc-900 leading-tight uppercase tracking-tight">To achieve resilience of your Critical Information Infrastructure.</p>
+          </div>
+          <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+            <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+              <Target className="h-5 w-5" />
+            </div>
+            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Our Mission</h3>
+            <p className="text-xs text-zinc-600 leading-relaxed font-medium">To work with you to strengthen the resilience of your information assets. We will pinpoint your unique risks, prioritise your defences and help you achieve cybersecurity resilience of your critical services.</p>
+          </div>
+          <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+            <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+              <BookmarkCheck className="h-5 w-5" />
+            </div>
+            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Core Values</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Customer Delight", "Integrity", "Innovation", "People", "Resilience"].map((val) => (
+                <span key={val} className="text-[10px] font-mono font-bold text-red-700 bg-red-50 border border-red-200 px-2 py-1 rounded">{val}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ========================================================================= */}
       {/* EXECUTIVE TEAM LAYOUTS - RECTANGULAR, PROFESSIONAL SUBTLE PURPLE ACCENT */}
@@ -74,7 +99,7 @@ export default function CorporateAboutHub() {
         {/* Core Workers Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Our Operations Team</h2>
+            <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Our Management Team</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {workers.map((member, i) => (
@@ -107,7 +132,7 @@ export default function CorporateAboutHub() {
         {/* Technical Interns Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">Design &amp; Technical Interns</h2>
+            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">Technical Interns</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {interns.map((member, i) => (
@@ -139,8 +164,8 @@ export default function CorporateAboutHub() {
         {/* Full Team Gallery Navigation Call */}
         <div className="border-2 border-purple-900/10 bg-purple-950/[0.02] p-6 md:p-8 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm">
           <div className="space-y-1">
-            <h3 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Cybernovr Operations Collective</h3>
-            <p className="text-xs text-zinc-500 font-medium">Bespoke technical directories mapping our inter-disciplinary engineering and product management ranks.</p>
+            <h3 className="text-base font-bold text-zinc-900 uppercase tracking-tight">What Drives Us</h3>
+            <p className="text-xs text-zinc-500 font-medium">Attaining a 360-degree cybersecurity resilience for your business. We keep thinking because we know It is POSSIBLE.</p>
           </div>
           <Link href="/about/team" className="text-red-700 hover:text-red-600 font-bold uppercase text-xs tracking-widest font-mono flex items-center gap-2 whitespace-nowrap pt-1 sm:pt-0 group">
             View Full Team Profile <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

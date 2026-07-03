@@ -4,7 +4,7 @@ import { Briefcase, Eye, Target, BookmarkCheck } from "lucide-react";
 
 export default function CorporateCareersPage() {
   const organizationalValues = [
-    { title: "Customer Delight", desc: "Committed to absolute satisfaction — we won't stop until clients are delighted and their critical infrastructure metrics are protected.", icon: BookmarkCheck },
+    { title: "Customer Delight", desc: "Committed to absolute satisfaction — we won&apos;t stop until clients are delighted and their critical infrastructure metrics are protected.", icon: BookmarkCheck },
     { title: "Integrity", desc: "Unwavering honesty and transparent architectural metrics with clients and internally.", icon: Target },
     { title: "Innovation", desc: "Relentless innovation; cutting-edge solutions, sandboxed lab environments, and continuous technical capacity learning.", icon: Eye },
     { title: "People", desc: "Our team is the driving force; we nurture the highest technical quality standards across engineering operations.", icon: Briefcase },
@@ -52,14 +52,16 @@ export default function CorporateCareersPage() {
       {/* Updated Module: Open Vacancies */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Open Vacancies</h2>
+          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
         </div>
         
-        {/* Clean status display card matching the standardized institutional aesthetic */}
-        <div className="p-10 border-2 border-dashed border-zinc-200 rounded-xl bg-purple-950/[0.01] flex flex-col items-center justify-center text-center space-y-3">
-          <h4 className="text-base font-bold text-zinc-900 uppercase tracking-wide">No Active Vacancies Available</h4>
-          <p className="text-xs text-zinc-500 max-w-md leading-relaxed font-medium">
-            All operational engineering squads and framework deployment desks are currently fully occupied. Future roster intakes occur during standard quarter framework evaluation loops.
+        <div className="p-8 border-2 border-purple-900/10 rounded-xl bg-purple-950/[0.02] space-y-4">
+          <div className="space-y-1">
+            <h4 className="text-base font-bold text-zinc-900 uppercase tracking-wide">Head, Business Development</h4>
+            <p className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase">Full-Time · Lagos, Nigeria</p>
+          </div>
+          <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+            We require the services of an experienced candidate to take our products, initiatives, and services to market. [They] will lead a dynamic team of product and technical sales team members to achieve our corporate marketing and sales objectives. A Master&apos;s degree and 5-7 years of business development experience in banking or fintech are required. Send a cover letter and resume to info@cybernovr.com
           </p>
         </div>
       </section>

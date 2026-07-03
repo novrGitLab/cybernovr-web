@@ -66,7 +66,7 @@ export default function NavigationAndConsent() {
             
             {/* INCIDENT RESPONSE PROMOTED BUTTON NODE (#30, #72) */}
             <Link href="/incident-response" className="border-2 border-red-600 bg-red-50 text-red-700 hover:bg-red-600 hover:text-white px-5 py-2.5 text-xs font-black tracking-widest rounded-md uppercase transition-all shadow-sm text-center">
-              Incident Response 24/7
+              24/7 Incident Response
             </Link>
 
             {/* CYBERNOVR ACADEMY SUBMENU HUB (#20, #31, #47, #75) */}
@@ -76,7 +76,7 @@ export default function NavigationAndConsent() {
               onMouseLeave={() => setIsAcademyDropdownOpen(false)}
             >
               <button className="bg-primary text-white px-5 py-3 text-xs font-black tracking-widest rounded-md uppercase hover:brightness-110 active:scale-95 transition-all flex items-center gap-1.5 h-11">
-                Cybernovr Academy <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+                Novr Academy <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
               </button>
               {isAcademyDropdownOpen && (
                 <div className="absolute top-11 right-0 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-56 text-left z-50 animate-fadeIn">
@@ -124,11 +124,11 @@ export default function NavigationAndConsent() {
             <hr className="border-outline-variant/30 my-2" />
             
             <Link onClick={() => setIsMobileMenuOpen(false)} href="/incident-response" className="border border-red-600 bg-red-50 text-red-700 text-center py-3 font-black tracking-widest text-xs rounded-md uppercase">
-              Incident Response 24/7
+              24/7 Incident Response
             </Link>
 
             <div className="space-y-2 p-3 bg-surface-container-low rounded-lg border border-outline-variant/30">
-              <p className="text-xs uppercase font-black tracking-wider text-primary">Cybernovr Academy</p>
+              <p className="text-xs uppercase font-black tracking-wider text-primary">Novr Academy</p>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className="block text-sm font-bold text-on-surface hover:text-primary">CEAP</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/assessments" className="block text-sm font-bold text-on-surface hover:text-primary">Assessments</Link>
             </div>

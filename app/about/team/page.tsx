@@ -10,7 +10,7 @@ export default function TheTeamPage() {
       role: "CEO — Managing Director",
       label: "Executive Leadership",
       about: "30+ years of ICT experience. World Bank Consultant on Cybersecurity for the Nigeria Communications Sector. Led the development of the National Cybersecurity Policy & Strategy, NCC-CSIRT, and the eNaira platform.",
-      certs: "CISM · CGEIT · MCP · PMP · Ph.D Information Systems (Univ. of Ibadan) · Fellow: NCS, CPCRN, ASIST, Canadian IT Professionals",
+      certs: "CISM · CGEIT · MCB · PMP · Ph.D Information Systems (Univ. of Ibadan) · Fellow: NCS, CPCRN, ASIST, Canadian IT Professionals",
       img: "worker-1.jpg",
       type: "executive"
     },
@@ -18,7 +18,7 @@ export default function TheTeamPage() {
       name: "Akinwale Mayomi Aisida",
       role: "Senior Product Manager",
       label: "Threat Intelligence",
-      about: "Cybersecurity Researcher at the Canadian Institute of Cybersecurity, University of New Brunswick. Heads the core Threat Intelligence division specializing in ML, AI, and deep learning algorithms.",
+      about: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
       certs: "PyTorch · Keras · TensorFlow · Python · scikit-learn · Expert in Intrusion Detection, Zero-day Attacks, and Threat Intelligence",
       img: "worker-2.jpg",
       type: "executive"
