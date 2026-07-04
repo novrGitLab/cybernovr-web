@@ -60,7 +60,9 @@ export default function Home() {
   const activeTestimonials = [
     { text: "The CEAP Academy has completely transformed our operational security posture. Cybernovr doesn't just provide software; they provide a foundation of knowledge and vigilance that feels rawly integrated with our daily operations. Our systems have never been more secure.", author: "Chief Information Security Officer", firm: "International Financial Institution" },
     { text: "NovrGRC enabled our risk engineering team to drop tracking overhead times by 78%. We map compliance requirements seamlessly across regional boundaries now with total transparency.", author: "Director of Enterprise Infrastructure", firm: "Pan-African Telecom Provider" },
-    { text: "During simulated red team adversarial campaigns, SecuBreach flagged parameter exposure vectors that traditional vulnerability assessment systems completely missed. Remarkable accuracy benchmarks.", author: "Head of Security Architecture", firm: "Fintech Settlement Gateway Group" }
+    { text: "During simulated red team adversarial campaigns, SecuBreach flagged parameter exposure vectors that traditional vulnerability assessment systems completely missed. Remarkable accuracy benchmarks.", author: "Head of Security Architecture", firm: "Fintech Settlement Gateway Group" },
+    { text: "CYBEENOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBEENOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBEENOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBEENOVR for its outstanding commitment to youth development and technology education.", author: "Omoluabi-Okechukwu B.M.", firm: "Principal, Caleb International College" },
+    { text: "The Cybersecurity Program facilitated by Cybervor at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate Cybervor for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with Cybervor on more impactful initiatives in the future.", author: "Mr. Emmanuel Jaiyeoba", firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos" }
   ];
 
   const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
@@ -404,13 +406,13 @@ export default function Home() {
       </section>
 
       {/* [Module 5: CEAP Academy Testimonial Block] */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto bg-white border border-zinc-200 rounded-xl text-center relative overflow-hidden shadow-sm min-h-[260px] flex items-center justify-center">
+      <section className="py-16 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto bg-white border border-zinc-200 rounded-xl text-center relative overflow-hidden shadow-sm min-h-[320px] flex items-center justify-center">
         <div className="absolute top-6 left-6 text-zinc-100 text-9xl font-serif select-none pointer-events-none font-black leading-none">“</div>
         <div className="max-w-3xl mx-auto space-y-6 relative z-10">
           <div className="flex justify-center gap-1 text-amber-500 mb-2">
             {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
           </div>
-          <p className="text-base md:text-lg text-zinc-800 font-semibold leading-relaxed italic transition-opacity duration-500">
+          <p className="text-sm md:text-base text-zinc-800 font-semibold leading-relaxed italic transition-opacity duration-500">
             "{activeTestimonials[testimonialIndex].text}"
           </p>
           <div className="pt-2">
