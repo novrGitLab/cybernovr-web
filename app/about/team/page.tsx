@@ -15,7 +15,7 @@ export default function TheTeamPage() {
       type: "executive"
     },
     {
-      name: "Akinwale Mayomi Aisida",
+      name: "Mr. Akinwale Mayomi Aisida",
       role: "Senior Product Manager",
       label: "Threat Intelligence",
       about: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",

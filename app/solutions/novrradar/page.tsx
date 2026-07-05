@@ -19,23 +19,23 @@ export default function NovrRadarPage() {
       {/* Main Header Block */}
       <div className="border-b border-zinc-200 pb-8 text-left max-w-4xl space-y-3">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
-          Gateway Protection Engine
+          Innovative XDR Solution
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase">
           NovrRADAR
         </h1>
         <p className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest font-mono">
-          AI-Powered Passive Gateway IoC Threat Detection Solution
+          AI-powered solution to detect Indicators of Attack (IoAs)
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-4 font-normal">
-          NovrRADAR functions at primary internet gateway nodes to actively isolate active Indicators of Compromise (IoCs). By scanning network metadata patterns exclusively, it provides continuous visibility while completely safeguarding structural data privacy.
+          NovrRADAR sits at internet gateway nodes to detect and respond to Indicators of Attacks (IoAs). By scanning network metadata patterns, it provides continuous visibility across an enterprise or a nation's digital infrastructure.
         </p>
       </div>
 
       {/* Feature Cards Layout Grid */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">System Technical Elements</h2>
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">NovrRADAR Product Capabilities</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {points.map((p, idx) => {
@@ -58,9 +58,8 @@ export default function NovrRadarPage() {
       {/* Corporate High-Contrast Form Box */}
       <section className="bg-zinc-950 text-white rounded-2xl border border-zinc-900 p-8 md:p-12 shadow-2xl max-w-3xl mx-auto text-left">
         <div className="mb-8 space-y-1">
-          <span className="text-[9px] font-black font-mono tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase">TELEMETRY SCOPING</span>
-          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-2">Request Gateway Deployment Blueprint</h3>
-          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Consult with our network security experts to define your boundary parameters.</p>
+          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">Book a Demo to See NovrRADAR in Action</h3>
+          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
 
         {formSubmitted ? (
@@ -82,15 +81,15 @@ export default function NovrRadarPage() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Estimated Gateway Traffic Volume *</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company *</label>
               <input type="text" placeholder="e.g., 10Gbps / 40Gbps line metrics" required value={formData.traffic} onChange={(e) => setFormData({...formData, traffic: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Edge Routing Architecture Description</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
               <textarea rows={4} placeholder="Outline your primary edge routing architectures or edge gateway configurations..." value={formData.architecture} onChange={(e) => setFormData({...formData, architecture: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
-              Generate Integration Blueprint
+              Submit
             </button>
           </form>
         )}

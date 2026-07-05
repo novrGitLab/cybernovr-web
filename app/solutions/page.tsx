@@ -13,17 +13,17 @@ export default function SolutionsHubPage() {
   const professionalServices = [
     {
       title: "Governance & Compliance",
-      desc: "Define cybersecurity governance frameworks with holistic GRC using our specialized tools—automating risk management, policy analysis, and compliance.",
+      desc: "Our comprehensive approach to GRC is tailored to your organization's specific needs. We help your organization establish a robust governance framework, identify and manage risks, and ensure compliance with relevant regulations and standards.",
       icon: Gavel
     },
     {
       title: "CEAP Professional Training",
-      desc: "Flagship cybersecurity education program delivering intensive 10-module security frameworks, capacity development metrics, and automated sandboxed hacking simulation labs.",
+      desc: "Our flagship CEAP training provides a solid foundation in cybersecurity principles and practices. You'll learn how to protect yourself and organizations from cyber threats, understand security fundamentals, and develop the skills needed for a career in cybersecurity.",
       icon: School
     },
     {
       title: "Cybersecurity Due Diligence",
-      desc: "Security posture evaluation prior to corporate transactions. Risk profiling, penetration tests, IoC identification, and remediation cost assessment.",
+      desc: "Our due diligence assessment supports informed decision-making for investments, mergers, or acquisitions by highlighting potential cybersecurity challenges and associated remediation costs.",
       icon: ShieldAlert
     },
     {
@@ -33,7 +33,7 @@ export default function SolutionsHubPage() {
     },
     {
       title: "Data Protection (NDPC)",
-      desc: "Licensed Data Protection Compliance Organization. Providing expert DPIAs, data mapping, AI governance, privacy breach management, and official training.",
+      desc: "We are a licensed Data Protection Compliance Organization (DPCO). We provide expert DPIAs, data mapping, AI data governance, privacy breach management, and data protection training.",
       icon: Database
     },
     {
@@ -45,31 +45,31 @@ export default function SolutionsHubPage() {
 
   const proprietaryProducts = [
     {
-      name: "NovrGRC Platform",
+      name: "Governance, Risk and Compliance (GRC) Management Platform",
       logo: "novrgrc.png",
-      tagline: "Multi-Tenanted GRC Automation Suite",
-      desc: "Next-generation GRC platform providing complete visibility of cyber risks and compliance. Automates workflows, risk quantification, and real-time cyber posture scoring.",
+      tagline: "Multi-sector AI-driven GRC platform",
+      desc: "Next-generation GRC platform providing complete visibility of risks, audit, and compliance. Automates workflows, risk quantification, and real-time cyber resilience scoring.",
       path: "/solutions/novrgrc"
     },
     {
-      name: "SecuBreach",
+      name: "Vulnerability Management",
       logo: "secubreach.png",
-      tagline: "Vulnerability Threat & Exposure Management",
-      desc: "Bridges vulnerability management and regulatory compliance. Integrates NIST CVE database with ML heuristics for zero-touch passive, continuous monitoring.",
+      tagline: "Vulnerability Management Platform",
+      desc: "Intersects vulnerability management and regulatory compliance. We integrate the NIST CVE database with AI/ML heuristics for passive, metadata-based continuous monitoring.",
       path: "/solutions/secubreach"
     },
     {
-      name: "NovrSOC",
+      name: "Security Operations Centre Operations",
       logo: "novrsoc.png",
-      tagline: "AI-Powered Managed SOC (MSSP)",
-      desc: "Professional-grade 24/7/365 monitoring and threat management of your assets. High-precision threat response, automated SOAR playbooks, and digital forensics.",
+      tagline: "AI-POWERED MANAGED SOC Services",
+      desc: "24/7/365 SOC operations for threat management of your assets. High-precision threat response, automated SOAR playbooks, and a SOC analyst workbench.",
       path: "/solutions/novrsoc"
     },
     {
-      name: "NovrRADAR",
+      name: "EXTENDED DETECTION AND RESPONSE (XDR)",
       logo: "novrradar.png",
-      tagline: "Gateway IoC Threat Detection Solution",
-      desc: "An AI-powered, passive network monitoring system developed to detect Indicators of Compromise (IoCs) across digital environments analyzing metadata patterns only.",
+      tagline: "AI-powered solution to detect Indicators of Attack (IoAs)",
+      desc: "Our AI-powered innovative gateway Extended Detection and Response (XDR) solution that detects Indicators of Attack (IoAs) across an enterprise or nation's digital environment.",
       path: "/solutions/novrradar"
     }
   ];
@@ -98,10 +98,10 @@ export default function SolutionsHubPage() {
           Cybersecurity Solutions Matrix
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
-          Professional Services &amp; Systems
+          Professional Solutions
         </h1>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
-          CYBERNOVR delivers pro-grade defense architectures engineered to establish 360° resilience for Critical Information Infrastructures globally. Explore our specialized services and automated validation platforms.
+          CYBERNOVR delivers professional-grade cybersecurity solutions engineered to help organisations achieve a 360° resilience for their critical information infrastructures. Please explore our specialized solutions across SOC, GRC, vulnerability management, and Indicators of Attack platforms.
         </p>
       </div>
 
@@ -143,7 +143,7 @@ export default function SolutionsHubPage() {
                 <p className="text-zinc-300 text-xs md:text-sm leading-relaxed font-normal">{prod.desc}</p>
               </div>
               <Link href={prod.path} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-red-500 hover:text-white transition-colors pt-2 self-start font-mono group">
-                Initialize System Console <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                Book a Demo <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           ))}
@@ -154,7 +154,7 @@ export default function SolutionsHubPage() {
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
           <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
-            Professional Security Advisory Services
+            Professional Services
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Advisory Scoping")}
