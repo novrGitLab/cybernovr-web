@@ -7,10 +7,10 @@ export default function NovrGRCPage() {
   const [formData, setFormData] = useState({ name: "", email: "", domain: "", goals: "" });
 
   const modules = [
-    { title: "Risk Management Matrix", desc: "Automates multi-tier risk identification, quantification maps, mitigation treatment controls, and live asset metric tracking.", icon: ShieldAlert },
-    { title: "Compliance Mapping Suite", desc: "Maps internal network parameters instantly onto strict regulatory standards including SOC 2, ISO 27001, PCI DSS, GDPR, and NDPA.", icon: CheckSquare },
-    { title: "Audit Log Management", desc: "Maintains an unalterable audit-ready repository ledger, coordinating workflow tickets and internal verification controls cleanly.", icon: FileText },
-    { title: "Third-Party Assessment", desc: "Scores vendor parameter risks, monitors data transit liabilities, and evaluates supply chain vulnerabilities.", icon: Layers }
+    { title: "Enterprise and Operational Risk Management", desc: "Automates multi-tier risk identification, quantification maps, mitigation treatment controls, and supports organisational risk management programmes.", icon: ShieldAlert },
+    { title: "Compliance Mapping Suite", desc: "Built to help organisations to comply with Nigerian regulatory Frameworks such as CBN Cybersecurity Framework, Nigeria Data Protection Act (NDPA), and NCC Cyber Resilience Framework. We also support international frameworks such as SOC 2, ISO 27001, PCI DSS, and NIST.", icon: CheckSquare },
+    { title: "Audit Management", desc: "Audit planning, scheduling, evidence upload, and findings tracking to achieve a risk-based audit management.", icon: FileText },
+    { title: "Third-Party Risk Management", desc: "Automated vendor onboarding, risk assessment including context-based third-party risk scoring and analysis for risk-informed business decisions.", icon: Layers }
   ];
 
   return (
@@ -19,13 +19,13 @@ export default function NovrGRCPage() {
       {/* Top Heading */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-          Automated Compliance Suite
+          AI-driven GRC Platform
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           NovrGRC Platform
         </h1>
         <p className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest font-mono">
-          Next-Generation Multi-Tenanted Governance, Risk &amp; Compliance Management
+          NEXT-GENERATION GOVERNANCE, RISK &amp; COMPLIANCE MANAGEMENT PLATFORM
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-6 font-normal">
           NovrGRC delivers complete, multi-tenanted visibility of enterprise cyber risks and regulatory alignment. By blending automated risk quantification models with real-time cyber posture scoring, the platform eliminates manual auditing bottlenecks and unifies policy enforcement across disparate teams.
@@ -34,7 +34,7 @@ export default function NovrGRCPage() {
 
       {/* Modules Framework */}
       <section className="space-y-6 text-left">
-        <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">Platform Core Modules</h2>
+        <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Platform Core Modules</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {modules.map((m, idx) => {
             const Icon = m.icon;
@@ -56,9 +56,8 @@ export default function NovrGRCPage() {
       {/* Corporate High-Contrast Form Box */}
       <section className="bg-zinc-950 text-white rounded-2xl border border-zinc-900 p-8 md:p-12 shadow-2xl max-w-3xl mx-auto text-left">
         <div className="mb-8 space-y-1">
-          <span className="text-[9px] font-black font-mono tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase">PROVISIONING</span>
-          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-2">Initialize NovrGRC Access</h3>
-          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Request multi-tenant environment access logs and standard integration matrices.</p>
+          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">Request a Demo</h3>
+          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
 
         {formSubmitted ? (
@@ -80,15 +79,15 @@ export default function NovrGRCPage() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Enterprise Domain *</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company *</label>
               <input type="text" placeholder="company.com" required value={formData.domain} onChange={(e) => setFormData({...formData, domain: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Compliance Parameters</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">How May We Help?</label>
               <textarea rows={4} placeholder="Outline your regulatory baseline goals..." value={formData.goals} onChange={(e) => setFormData({...formData, goals: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
-              Initialize Compliance Audit
+              Submit
             </button>
           </form>
         )}

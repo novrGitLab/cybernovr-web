@@ -8,10 +8,10 @@ export default function SecuBreachPage() {
   const [formData, setFormData] = useState({ name: "", email: "", url: "", targetDetails: "" });
 
   const capabilities = [
-    { icon: Zap, t: "Zero-Touch Autonomous Operations", d: "Passive, continuous monitoring vectors that discover exposures around the clock with zero manual scheduling loops." },
-    { icon: Search, t: "CVE Criticality Matching Engine", d: "Correlates the complete global NIST CVE index with custom heuristic models to score risks by real exploitability levels." },
-    { icon: Globe, t: "Global Blacklist Correlation", d: "Cross-checks active asset headers with primary directories like Spamhaus, CBL, and UCEPROTECT dynamically." },
-    { icon: FileText, t: "Creative Remediation Reports", d: "Generates step-by-step developer blueprints mapped straight from threat discovery to successful regulatory verification." }
+    { icon: Zap, t: "Passive Scanning", d: "No packet injection or content access, ensuring safe monitoring." },
+    { icon: Search, t: "CVE-Driven Engine", d: "Advanced detection engine based on Common Vulnerabilities and Exposures." },
+    { icon: Globe, t: "Metadata-Only", d: "Inspection strictly via metadata to ensure legal compliance." },
+    { icon: FileText, t: "Regulatory Tagging", d: "Context-aware tagging for GDPR, HIPAA, SOX, PCI, NDPA, etc." }
   ];
 
   return (
@@ -20,23 +20,23 @@ export default function SecuBreachPage() {
       {/* Heading Header */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
-          Risk &amp; Vulnerability Platform
+          Vulnerability Management Platform
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           SecuBreach
         </h1>
         <p className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest font-mono">
-          Nigeria’s #1 Vulnerability Threat &amp; Exposure Management Solution
+          Nigeria’s #1 Vulnerability Management Solution
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-6 font-normal">
-          SecuBreach bridges the gap between raw web asset scanning and enterprise regulatory compliance mapping. By pairing passive, continuous monitoring with automated threat prioritization logic, it scans networks and web applications comprehensively to identify bugs before external adversaries do.
+          Key Benefits<br />✓ Identifies vulnerabilities without disrupting operations.<br />✓ Context-aware regulatory tagging for compliance.<br />✓ Centralized or distributed deployment options.
         </p>
       </div>
 
       {/* Grid Capability Cards */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">System Technical Elements</h2>
+          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Secure Your Infrastructure with SecuBreach</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((c, i) => {
@@ -59,9 +59,8 @@ export default function SecuBreachPage() {
       {/* Corporate High-Contrast Form Box */}
       <section className="bg-zinc-950 text-white rounded-2xl border border-zinc-900 p-8 md:p-12 shadow-2xl max-w-3xl mx-auto text-left">
         <div className="mb-8 space-y-1">
-          <span className="text-[9px] font-black font-mono tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase">SCAN PROVISIONING</span>
-          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-2">Initialize Threat Exposure Assessment</h3>
-          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Deploy SecuBreach scanners against external corporate network parameters.</p>
+          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">LEARN HOW OUR AI-POWERED VULNERABILITY MANAGEMENT SYSTEM CAN PROTECT YOUR ORGANISATION.</h3>
+          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
 
         {formSubmitted ? (
@@ -87,11 +86,11 @@ export default function SecuBreachPage() {
               <input type="text" placeholder="company.com" required value={formData.url} onChange={(e) => setFormData({...formData, url: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Target Infrastructure Parameters</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comment</label>
               <textarea rows={4} placeholder="Detail specific application endpoints or infrastructure systems to safely target..." value={formData.targetDetails} onChange={(e) => setFormData({...formData, targetDetails: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
-              Launch Perimeter Scan
+              Submit
             </button>
           </form>
         )}

@@ -7,10 +7,10 @@ export default function NovrSOCPage() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", description: "" });
 
   const pillars = [
-    { icon: Brain, title: "Self-Learning AI Engine", desc: "Advanced autonomous defense layers that detect and neutralize novel attack variants in real time across your ecosystem." },
-    { icon: Cloud, title: "Cross-Environment Coverage", desc: "Omnipresent visibility and protection engineered specifically for Cloud, Enterprise Email, OT, and hybrid network layers." },
-    { icon: ShieldAlert, title: "Threat Response Hotline", desc: "Rapid 24/7 emergency containment loops backed by elite defensive countermeasure specialists." },
-    { icon: Fingerprint, title: "Expert Digital Forensics", desc: "Comprehensive, court-admissible post-incident forensics to safely isolate breach vectors and identify threat actor profiles." }
+    { icon: Brain, title: "Threat Management", desc: "Provides threat visibility (map), incident management, alerting, and communication." },
+    { icon: Cloud, title: "Threat Response", desc: "Determine the level of risk to the organization posed by the suspect domain/URL/App." },
+    { icon: ShieldAlert, title: "Threat Advisory (NovrAlert)", desc: "Updated threat advisories and dark web alerts, including threat actors, status, and recommendations." },
+    { icon: Fingerprint, title: "Social Suite", desc: "Monitoring social media platforms and sites for trademark infringement and unauthorized accounts." }
   ];
 
   return (
@@ -19,22 +19,22 @@ export default function NovrSOCPage() {
       {/* Top Main Heading Block */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-          Flagship MSSP Platform
+          Flagship SOC Platform
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           NovrSOC
         </h1>
         <p className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest font-mono">
-          AI-Powered Autonomous Cyber Defence &amp; 24/7 Security Operations
+          AI-DRIVEN PLATFORM FOR 24/7 SOC OPERATIONS
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-6 font-normal">
-          NovrSOC delivers professional-grade, 24/7/365 monitoring and management of your digital assets against evolving threats. Powered by self-learning AI heuristics and integrated automation, it brings institutional-grade security architecture to enterprise environments with high precision and accurate protection.
+          Professional-grade 24/7/365 security monitoring, SIEM, and threat management of your assets with high-precision incident response, automated SOAR playbooks, and a digital forensic platform.
         </p>
       </div>
 
       {/* Core Technology Pillars */}
       <section className="space-y-6 text-left">
-        <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">System Capabilities</h2>
+        <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">System Capabilities</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pillars.map((p, idx) => {
             const Icon = p.icon;
@@ -56,9 +56,8 @@ export default function NovrSOCPage() {
       {/* Corporate High-Contrast Form Box */}
       <section className="bg-zinc-950 text-white rounded-2xl border border-zinc-900 p-8 md:p-12 shadow-2xl max-w-3xl mx-auto text-left">
         <div className="mb-8 space-y-1">
-          <span className="text-[9px] font-black font-mono tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase">SANDBOX PROVISIONING</span>
-          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-2">Request NovrSOC Demo Console</h3>
-          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Initialize an enterprise proof-of-concept pipeline with our security architects.</p>
+          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">Request a Demo</h3>
+          <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
 
         {formSubmitted ? (
@@ -84,11 +83,11 @@ export default function NovrSOCPage() {
               <input type="text" placeholder="Enterprise entity name" required value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Infrastructure Architecture Scope</label>
+              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
               <textarea rows={4} placeholder="Describe your asset landscape or endpoint monitoring needs..." value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
-              Deploy Sandbox Console
+              Submit
             </button>
           </form>
         )}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Milestone, Briefcase, Eye, Target, BookmarkCheck } from "lucide-react";
+import { ArrowRight, Milestone, Briefcase, Eye, Target, Heart, ShieldCheck, Lightbulb, Users, RefreshCcw } from "lucide-react";
 
 export default function CorporateAboutHub() {
   const corporateSectors = [
@@ -30,7 +30,7 @@ export default function CorporateAboutHub() {
       img: "worker-1.png" 
     },
     { 
-      name: "Akinwale Mayomi Aisida", 
+      name: "Mr. Akinwale Mayomi Aisida", 
       role: "Senior Product Manager", 
       bio: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
       img: "worker-2.jpg" 
@@ -60,9 +60,10 @@ export default function CorporateAboutHub() {
         </p>
       </div>
 
-      {/* Vision / Mission / Core Values Cards */}
+      {/* Vision / Mission / Core Values Section */}
       <section className="space-y-8 text-left">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Row 1: Vision + Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Eye className="h-5 w-5" />
@@ -75,17 +76,49 @@ export default function CorporateAboutHub() {
               <Target className="h-5 w-5" />
             </div>
             <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Our Mission</h3>
-            <p className="text-xs text-zinc-600 leading-relaxed font-medium">To work with you to strengthen the resilience of your information assets. We will pinpoint your unique risks, prioritise your defences and help you achieve cybersecurity resilience of your critical services.</p>
+            <p className="text-xs text-zinc-600 leading-relaxed font-medium">To work with you to strengthen the resilience of your information assets. We will pinpoint your unique risks, prioritise your defences and help you achieve cybersecurity resilience of your critical services. These, we will deliver to your delight.</p>
           </div>
-          <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
-            <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
-              <BookmarkCheck className="h-5 w-5" />
+        </div>
+        {/* Row 2: Core Values */}
+        <div className="space-y-6">
+          <div className="border-b border-zinc-100 pb-2">
+            <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Core Values</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+                <Heart className="h-5 w-5" />
+              </div>
+              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">Customer Delight</h4>
+              <p className="text-xs text-zinc-600 leading-relaxed font-medium">We are committed to customer satisfaction and won't stop until our clients are delighted. We take the time to understand their unique cybersecurity needs, deliver outstanding services, and prioritise the protection of their information infrastructure.</p>
             </div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Core Values</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Customer Delight", "Integrity", "Innovation", "People", "Resilience"].map((val) => (
-                <span key={val} className="text-[10px] font-mono font-bold text-red-700 bg-red-50 border border-red-200 px-2 py-1 rounded">{val}</span>
-              ))}
+            <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">Integrity</h4>
+              <p className="text-xs text-zinc-600 leading-relaxed font-medium">We are committed to unwavering honesty, transparency, and a strong moral compass to maintain trust both internally and with our clients. We acknowledge our mistakes, learn from them, and continuously strive to do what is right for our clients and society.</p>
+            </div>
+            <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+                <Lightbulb className="h-5 w-5" />
+              </div>
+              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">Innovation</h4>
+              <p className="text-xs text-zinc-600 leading-relaxed font-medium">We are committed to relentless innovation, creating cutting-edge solutions while swiftly adapting to new challenges. We foster a culture of continuous learning and challenge the norm to achieve our philosophy of "It is Possible".</p>
+            </div>
+            <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+                <Users className="h-5 w-5" />
+              </div>
+              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">People</h4>
+              <p className="text-xs text-zinc-600 leading-relaxed font-medium">We are committed to guiding our team to uphold the highest standards of quality in solutions, services, and incident response. Our people are the driving force behind our success, and we deeply appreciate their contributions.</p>
+            </div>
+            <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
+                <RefreshCcw className="h-5 w-5" />
+              </div>
+              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">Resilience</h4>
+              <p className="text-xs text-zinc-600 leading-relaxed font-medium">We are committed to achieving cybersecurity resilience on ourselves the same way we are to our clients. This commitment drives us to build robust, reliable, and adaptable systems and processes.</p>
             </div>
           </div>
         </div>
