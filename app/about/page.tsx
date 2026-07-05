@@ -45,9 +45,9 @@ export default function CorporateAboutHub() {
 
   const interns = [
     { name: "Abubakar Usman Damilare", role: "Threat Intelligence Intern", img: "intern-1.jpg" },
-    { name: "Technical Intern 2", role: "GRC Engineering Intern", img: "intern-2.jpg" },
-    { name: "Adeyemi Fisayomi", role: "Security Operations Intern", img: "intern-3.jpg" },
-    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" }
+    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" },
+    { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg" },
+    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg" }
   ];
 
   return (

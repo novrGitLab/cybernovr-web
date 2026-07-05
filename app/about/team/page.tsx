@@ -36,9 +36,10 @@ export default function TheTeamPage() {
 
   // STRICTLY THREE INTERN ENTRIES
   const interns = [
-    { name: "Technical Intern 1", role: "Threat Intelligence Intern", img: "intern-1.jpg", label: "Operations" },
-    { name: "Technical Intern 2", role: "GRC Engineering Intern", img: "intern-2.jpg", label: "Governance" },
-    { name: "Technical Intern 3", role: "Security Operations Intern", img: "intern-3.jpg", label: "Defense" }
+    { name: "Abubakar Usman Damilare", role: "Threat Intelligence Intern", img: "intern-1.jpg", label: "Operations" },
+    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png", label: "Technical" },
+    { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg", label: "Defense" },
+    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg", label: "Security" }
   ];
 
   return (
