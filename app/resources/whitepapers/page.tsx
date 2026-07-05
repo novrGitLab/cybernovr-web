@@ -5,19 +5,22 @@ import { FileDown, Shield, Database, Cpu } from "lucide-react";
 export default function ResourcesWhitePapersPage() {
   const whitepapers = [
     {
-      title: "API Shielding for High-Velocity Fintech Networks",
-      desc: "Technical framework for securing RESTful endpoints in real-time banking ecosystems, focusing on zero-trust validation.",
-      icon: Shield
+      title: "Cyber Threat Trends Report",
+      desc: "This report provides insights into the latest cyber threat trends and security recommendations.",
+      icon: Shield,
+      link: "/whitepapers/cyber-threat-trends-report.pdf"
     },
     {
-      title: "The CISO Playbook: Implementing NDPA Compliance",
-      desc: "A step-by-step roadmap for data protection officers to align corporate infrastructure with Nigeria Data Protection Act mandates.",
-      icon: Database
+      title: "NDPC Compliance Guide",
+      desc: "A comprehensive guide for organizations to align with Nigeria Data Protection Act requirements.",
+      icon: Database,
+      link: "#"
     },
     {
-      title: "Securing Industrial SCADA Control Systems",
-      desc: "Critical infrastructure protection strategies for manufacturing and power grid assets against targeted APT campaigns.",
-      icon: Cpu
+      title: "5G Infrastructure Security",
+      desc: "Critical security considerations for protecting 5G network infrastructure in Nigeria.",
+      icon: Cpu,
+      link: "#"
     }
   ];
 
@@ -25,11 +28,11 @@ export default function ResourcesWhitePapersPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-          Architectural Framework Repository
+          INDUSTRY LEADING WHITEPAPERS
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">White Papers</h1>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
-          Validated architectural blueprints, administrative templates, and compliance matrices deployed across global infrastructures.
+          Read or download whitepapers to stay ahead of emerging threats and industry trends.
         </p>
       </div>
 
@@ -47,9 +50,9 @@ export default function ResourcesWhitePapersPage() {
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">{paper.desc}</p>
                 </div>
               </div>
-              <button className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-xs uppercase tracking-wider transition-all font-mono group/btn self-start">
-                Download Technical Document <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
-              </button>
+              <a href={paper.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-xs uppercase tracking-wider transition-all font-mono group/btn self-start">
+                Download White Paper <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
+              </a>
             </div>
           );
         })}

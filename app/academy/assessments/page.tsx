@@ -114,11 +114,11 @@ export default function AssessmentsMasterPage() {
           {/* Institutional Header Block */}
           <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left mb-12">
             <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-              Resilience Telemetry
+              CYBER HEALTH CHECK
             </span>
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-2">Cyber Health Assessment Portal</h1>
             <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
-              Validate infrastructure readiness, identify exposure parameters, and turn complex risk insights into actionable technical remediation roadmaps.
+              As an individual or organisation, take these assessments to determine your knowledge and understanding of online threats, and what you can do to improve your cyber resilience.
             </p>
           </div>
 
@@ -132,11 +132,16 @@ export default function AssessmentsMasterPage() {
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Your Cybersecurity Barometer</h3>
+                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">YOUR CYBERSECURITY KNOWLEDGE BAROMETER</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Maturity Self-Check</p>
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
-                    This interactive self-check assists management in evaluating baseline understandings of network threats, security effectiveness, and general operational handling risks.
+                    This cybersecurity self-check will help you assess your understanding of online threats and identify areas where you can improve your knowledge.
                   </p>
+                  <ul className="mt-3 space-y-1">
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> Quick 10-minute assessment</li>
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> Personalized recommendations</li>
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> Actionable insights</li>
+                  </ul>
                 </div>
               </div>
               <button 
@@ -154,11 +159,16 @@ export default function AssessmentsMasterPage() {
                   <Activity className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Staff Knowledge Assessment</h3>
+                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">STAFF KNOWLEDGE ASSESSMENT</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Workforce Awareness Tracker</p>
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
-                    Evaluates workforce technical threat familiarity, identifying immediate critical knowledge gaps across engineering, security parameters, and incident handling.
+                    This interactive assessment evaluates your staff&apos;s cybersecurity awareness, helping you identify knowledge gaps and training needs.
                   </p>
+                  <ul className="mt-3 space-y-1">
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> See how your team&apos;s knowledge compares</li>
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> Get personalized training recommendations</li>
+                    <li className="text-zinc-600 text-xs font-normal flex items-center gap-1.5"><span className="w-1 h-1 bg-red-600 rounded-full shrink-0"></span> Identify knowledge gaps</li>
+                  </ul>
                 </div>
               </div>
               <button 
@@ -176,10 +186,10 @@ export default function AssessmentsMasterPage() {
                   <Layers className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Cyber Resilience Assessment</h3>
-                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Critical Infrastructure Blueprint</p>
+                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">ACCESS YOUR RESILIENCE</h3>
+                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">CRITICAL INFRASTRUCTURE BLUEPRINT</p>
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
-                    Detailed scoping focused on systemic infrastructure durability metrics. Evaluates network redundancy, payload protection parameters, and continuous failover resilience lines.
+                    Conduct cyber resilience assessments based on Ransomware Readiness, ISO 27001, Supply Chain Risks, etc.
                   </p>
                 </div>
               </div>
@@ -188,7 +198,7 @@ export default function AssessmentsMasterPage() {
                 onClick={() => openScopingForm("Cyber Resilience Assessment")}
                 className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2"
               >
-                Initialize Scoping Console <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                CONTACT US FOR ASSESSMENT <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
 
@@ -199,10 +209,10 @@ export default function AssessmentsMasterPage() {
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Compliance Framework Assessment</h3>
-                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Regulatory Mapping Matrix</p>
+                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">REGULATORY COMPLIANCE MATRIX</h3>
+                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">REGULATORY COMPLIANCE MATRIX</p>
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
-                    Pre-audit evaluation mapping control baselines against global and domestic directives: CBN, NCC, NDPC, PCI DSS, NIST CSF, and ISO 27001.
+                    Conduct cyber resilience of your infrastructure against global and domestic frameworks.
                   </p>
                 </div>
               </div>
@@ -211,7 +221,7 @@ export default function AssessmentsMasterPage() {
                 onClick={() => openScopingForm("Compliance Framework Assessment")}
                 className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2"
               >
-                Initialize Scoping Console <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                CONTACT US FOR ASSESSMENT <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
 
@@ -407,17 +417,17 @@ export default function AssessmentsMasterPage() {
             {!scopingSubmitted ? (
               <>
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">Advisory Intake</span>
+                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">ASSESSMENT REQUEST</span>
                   <h3 className="text-xl font-black uppercase tracking-tight pt-2">Initiate {scopingTargetTitle}</h3>
                   <p className="text-xs text-zinc-500 font-medium leading-relaxed">
-                    Submit your details below to schedule an extensive verification audit session or baseline risk optimization walkthrough.
+                    Submit your details below to schedule an assessment.
                   </p>
                 </div>
 
                 <form onSubmit={(e) => { e.preventDefault(); setScopingSubmitted(true); }} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
-                    <input type="text" required placeholder="Operational signature" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                    <input type="text" required placeholder="Please Enter Full Name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -432,12 +442,12 @@ export default function AssessmentsMasterPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Infrastructure Notes</label>
-                    <textarea rows={3} placeholder="Describe your asset configurations or regulatory constraints..." className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
+                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">INITIATE ASSESSMENT REQUEST</label>
+                    <textarea rows={3} placeholder="Please describe your cyber resilience assessment needs" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
                   </div>
 
                   <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
-                    Submit Scoping Request
+                    SUBMIT ASSESSMENT REQUEST
                   </button>
                 </form>
               </>
@@ -445,7 +455,7 @@ export default function AssessmentsMasterPage() {
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3 animate-fadeIn">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
                 <h3 className="text-base font-black uppercase tracking-wider">Request Logged</h3>
-                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operational advisory strategist will contact your endpoint shortly.</p>
+                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your assessment request has been received. Our team will contact you shortly.</p>
               </div>
             )}
           </div>
