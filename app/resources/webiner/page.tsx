@@ -1,13 +1,49 @@
 "use client";
 import React from "react";
-import { Video, Shield, Calendar, Play } from "lucide-react";
+import { Video, Calendar, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ResourcesWebinarsPage() {
   const webinars = [
     {
-      title: "Defending Critical Infrastructure against APTs",
-      time: "Mon, June 15, 2026 | 11:00 AM WAT",
-      desc: "A panel analyzing multi-vector strikes on telecoms and banking networks. Explore real-world case studies of nation-state actor methodologies."
+      date: "May 21, 2026",
+      title: "Protection against Election",
+      desc: "Discover how to identify and counter digital election interference tactics."
+    },
+    {
+      date: "June 18, 2026",
+      title: "Cybersecurity and Data Privacy",
+      desc: "Learn about the latest trends in cybersecurity and data privacy protection strategies."
+    },
+    {
+      date: "July 23, 2026",
+      title: "Pandemic-induced Cyberthreats Awareness",
+      desc: "Understanding the evolving cyberthreats that emerged during global health crises."
+    },
+    {
+      date: "August 20, 2026",
+      title: "Prevention of Online Gender Exploitation",
+      desc: "Learn strategies to identify and prevent online gender-based exploitation."
+    },
+    {
+      date: "September 24, 2026",
+      title: "Understanding and Countering Cyber Terrorism",
+      desc: "Comprehensive overview of cyber terrorism threats and countermeasures."
+    },
+    {
+      date: "October 22, 2026",
+      title: "Safe Social Media Practices",
+      desc: "Best practices for maintaining security and privacy while using social media platforms."
+    },
+    {
+      date: "November 19, 2026",
+      title: "Online Child Protection and Safety",
+      desc: "Essential knowledge for parents and educators to protect children in digital environments."
+    },
+    {
+      date: "December 17, 2026",
+      title: "Secure Online Banking and Financial Transactions",
+      desc: "Learn how to secure your financial activities online and prevent fraud."
     }
   ];
 
@@ -15,27 +51,27 @@ export default function ResourcesWebinarsPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-          Video Briefings &amp; Streams
+          ON-DEMAND CYBERSECURITY WEBINARS
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">Webinars</h1>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
-          On-demand digital operations panels mapping corporate security architectures and perimeter defense lines.
+          Register for upcoming cybersecurity webinars and access on-demand recordings from our experts.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
         {webinars.map((web, idx) => (
-          <div key={idx} className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center shadow-sm">
-            <div className="md:col-span-5 aspect-[16/10] bg-zinc-950 rounded-lg flex flex-col items-center justify-center p-4 border border-zinc-800 relative overflow-hidden group">
-              <Play className="h-10 w-10 text-red-600 group-hover:scale-110 transition-transform cursor-pointer" />
-              <span className="text-[8px] font-mono text-zinc-500 tracking-widest mt-2 uppercase">STREAM STREAMING READY</span>
+          <div key={idx} className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-5 shadow-sm hover:border-purple-900/30 transition-all duration-300 group">
+            <div className="space-y-3">
+              <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest">
+                <Calendar className="h-3 w-3 text-red-700" /> {web.date}
+              </div>
+              <h3 className="text-base font-bold text-zinc-900 uppercase tracking-tight leading-snug group-hover:text-red-700 transition-colors">{web.title}</h3>
+              <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">{web.desc}</p>
             </div>
-            <div className="md:col-span-7 space-y-3">
-              <span className="flex items-center gap-1 text-[9px] font-mono font-bold text-zinc-400 uppercase"><Video className="h-3 w-3 text-red-700" /> Digital Archive</span>
-              <h3 className="text-base font-bold text-zinc-900 uppercase tracking-tight">{web.title}</h3>
-              <p className="text-zinc-400 font-mono text-[10px] font-bold">{web.time}</p>
-              <p className="text-zinc-600 text-xs font-normal leading-relaxed pt-1">{web.desc}</p>
-            </div>
+            <Link href="/contacts" className="inline-flex items-center justify-center gap-1.5 border-2 border-red-600 bg-white hover:bg-red-600 text-red-700 hover:text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg transition-all font-mono shadow-sm group/btn">
+              Register Now <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         ))}
       </div>

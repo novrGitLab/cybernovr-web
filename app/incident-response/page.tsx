@@ -1,26 +1,38 @@
 "use client";
 import React from "react";
-import { AlertOctagon, ShieldAlert, Activity, RotateCcw } from "lucide-react";
+import { AlertOctagon, ShieldAlert, Database, Lock, RotateCcw, AlertTriangle } from "lucide-react";
 
 export default function IncidentResponsePage() {
   const escalationSteps = [
     {
-      phase: "01 / TRIAD",
-      title: "Immediate Triage & Isolation",
-      desc: "Our elite global operations force deploys container scripts within minutes of alert validation to instantly isolate compromised boundary segments and stop active data transit.",
+      phase: "01 / SEGMENT",
+      title: "Network Segmentation",
+      desc: "Isolate affected network segments to prevent lateral movement of threats across your infrastructure.",
       icon: ShieldAlert
     },
     {
-      phase: "02 / ANOMALY",
-      title: "Payload Extraction & Analytics",
-      desc: "Deep forensic evaluation mapping of memory dumps and system log captures to reverse-engineer attack signatures and neutralize complex malware structures.",
-      icon: Activity
+      phase: "02 / CONTAIN",
+      title: "Network Segmentation & Traffic Control",
+      desc: "Disconnect critical backups, operational technology, and core databases from infected production networks, reconfigure Firewall Rules, and restrict lateral movement by isolating compromised servers.",
+      icon: Lock
     },
     {
-      phase: "03 / MATRIX",
+      phase: "03 / PRESERVE",
+      title: "Evidence Preservation",
+      desc: "We capture volatile data and log all containment actions to store forensic data.",
+      icon: Database
+    },
+    {
+      phase: "04 / RESTORE",
       title: "System Restoration & Hardening",
-      desc: "Systematic infrastructure rebuilding using automated compliance layers, ensuring all nodes return to optimal production baselines without trace vulnerabilities.",
+      desc: "Systematically restore affected systems to operational state with hardened configurations and enhanced monitoring.",
       icon: RotateCcw
+    },
+    {
+      phase: "05 / IDENTIFY",
+      title: "Identify Root Cause & Notify",
+      desc: "Identify the Root Cause, review and notify appropriate stakeholders (management), and follow regulatory guidelines.",
+      icon: AlertTriangle
     }
   ];
 
@@ -37,7 +49,7 @@ export default function IncidentResponsePage() {
           Emergency Escalation, Rapid Containment &amp; Systemic Reconstruction
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed mt-4 font-normal">
-          When an unmapped compromise vector hits your perimeter network, speed and precision determine structural survival. Our rapid-deployment forensic task forces operate 24/7/365 out of our Lagos and Calgary operations centers to neutralize active network security threats.
+          We offer a comprehensive suite of services designed to effectively monitor, detect, respond to, and recover from threats and incidents. Our solutions cover the full spectrum of incident response readiness, ensuring that organizations are well-prepared to handle any cyber threat.
         </p>
       </div>
 
@@ -47,8 +59,8 @@ export default function IncidentResponsePage() {
           <span className="text-[9px] font-mono font-black tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase flex items-center gap-1.5 w-fit">
             <AlertOctagon className="h-3 w-3 animate-pulse" /> Critical Crisis Alert
           </span>
-          <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-1">Active Infiltration Event Underway?</h2>
-          <p className="text-xs text-zinc-400 font-medium max-w-xl">Bypass standard support logs. Activating this hotline connects you directly to a standby security responder instantly.</p>
+          <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white pt-1">ARE YOU UNDER ATTACK?</h2>
+          <p className="text-xs text-zinc-400 font-medium max-w-xl">Contact this hotline to connect to our standby SOC responder.</p>
         </div>
         <div className="text-left md:text-right relative z-10 shrink-0 space-y-1 font-mono">
           <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-black">24/7 EMERGENCY RESPONSE LINE</p>
@@ -59,7 +71,7 @@ export default function IncidentResponsePage() {
       {/* Tactical Escalation Path Panels */}
       <section className="space-y-6 text-left max-w-5xl">
         <div className="border-b border-zinc-100 pb-2">
-          <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Containment Protocol Timeline</h3>
+          <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Containment Protocol Process</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {escalationSteps.map((step, idx) => {

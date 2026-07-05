@@ -13,7 +13,7 @@ export default function ContactUsPage() {
   const faqData = [
     {
       q: "What services does Cybernovr offer?",
-      a: "Cybernovr offers a comprehensive range of cybersecurity services, including professional consulting, risk management, penetration testing, incident response, compliance, and virtual CISO services. We tailor our solutions to meet the specific needs of your organization."
+      a: "Cybernovr offers a comprehensive range of cybersecurity services, including risk management, penetration testing, incident response, compliance, and virtual SOC services. We have also developed GRC solutions, Vulnerability Management, and Extended Detection and Response (XDR) solutions. We are also partners to major OEMs like China Telecom Global, CrowdStrike, and Whalebone."
     },
     {
       q: "How can I request a security assessment?",
@@ -39,18 +39,18 @@ export default function ContactUsPage() {
       {/* Top Header Section */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-          Operations Gateway
+          WE LOVE TO HEAR FROM YOU
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           Connect With Us
         </h1>
         <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
-          Ready to establish unshakeable cybersecurity resilience for your asset matrix.
+          Get in touch with our team to discuss your cybersecurity needs.
         </p>
       </div>
 
       {/* Dynamic Main Grid Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
         
         {/* Left Side: "Send Us a Message" Form Field Matrix */}
         <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-10 rounded-2xl border border-zinc-900 shadow-2xl space-y-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.12)]">
@@ -98,10 +98,11 @@ export default function ContactUsPage() {
               <div className="relative">
                 <select className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal">
                   <option value="" className="bg-zinc-950 text-white">Select a Service</option>
-                  <option value="resilience" className="bg-zinc-950 text-white">Cybersecurity Resilience Verification</option>
-                  <option value="grc" className="bg-zinc-950 text-white">Governance, Risk and Compliance (GRC)</option>
-                  <option value="vapt" className="bg-zinc-950 text-white">Vulnerability Assessment &amp; Penetration Testing (VAPT)</option>
-                  <option value="data-protection" className="bg-zinc-950 text-white">NDPC Licensed Data Protection Auditing</option>
+                  <option value="training" className="bg-zinc-950 text-white">Cybersecurity Training</option>
+                  <option value="novrsoc" className="bg-zinc-950 text-white">NovrSOC</option>
+                  <option value="novrgrc" className="bg-zinc-950 text-white">NovrGRC</option>
+                  <option value="novrradar" className="bg-zinc-950 text-white">NovrRADAR</option>
+                  <option value="professional" className="bg-zinc-950 text-white">Professional Services</option>
                 </select>
                 <ChevronDown className="h-4 w-4 text-zinc-400 absolute right-4 top-3.5 pointer-events-none" />
               </div>
@@ -110,7 +111,7 @@ export default function ContactUsPage() {
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Message *</label>
               <textarea 
-                rows={5} placeholder="Describe system criteria metrics or architecture parameters..." required
+                rows={5} placeholder="Send your message; we will respond within 1-2 business days" required
                 className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
               />
             </div>
@@ -126,7 +127,7 @@ export default function ContactUsPage() {
           <div className="space-y-2">
             <h2 className="text-xl md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">Contact Information</h2>
             <p className="text-sm text-zinc-500 leading-relaxed font-normal">
-              Have system criteria questions or need administrative assistance? Our operational defense architecture teams are available.
+              Get in touch for an unparalleled customer experience
             </p>
           </div>
 
@@ -189,7 +190,7 @@ export default function ContactUsPage() {
               24/7 Incident Response
             </h4>
             <p className="text-xs text-zinc-600 leading-relaxed font-normal">
-              For active breach remediation or urgent system threat intervention, route metrics straight to our high-priority tactical line:
+              For active breach remediation or urgent system threat intervention, please reach out straight to our high-priority SOC line:
             </p>
             <a href="tel:+2349016991201" className="text-xl font-mono font-black text-red-700 hover:underline tracking-tight">+234-901-699-1201</a>
           </div>
@@ -202,7 +203,7 @@ export default function ContactUsPage() {
         <div className="text-center space-y-2">
           <h2 className="text-2xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">Frequently Asked Questions</h2>
           <p className="text-sm text-zinc-500 max-w-xl mx-auto font-normal">
-            Find answers to standard questions about our services and framework criteria mapping configurations.
+            Find answers to questions about our services and solutions.
           </p>
         </div>
 

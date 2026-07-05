@@ -97,7 +97,7 @@ export default function NavigationAndConsent() {
                   <Link className={dropdownLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
                   <Link className={dropdownLinkClass("/resources/news")} href="/resources/news">News</Link>
                   <Link className={dropdownLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
-                  <Link className={dropdownLinkClass("/resources/events")} href="/resources/events">Events</Link>
+                  <Link className={dropdownLinkClass("/resources/gallery")} href="/resources/gallery">Gallery</Link>
                   <Link className={dropdownLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
                 </div>
               )}
@@ -177,7 +177,7 @@ export default function NavigationAndConsent() {
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/news")} href="/resources/news">News</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
-                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/events")} href="/resources/events">Events</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/gallery")} href="/resources/gallery">Gallery</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
                 </div>
               )}
