@@ -39,14 +39,15 @@ export default function CorporateAboutHub() {
       name: "Mr. Karl Ugokwe", 
       role: "Senior Technical Solutions Manager", 
       bio: "Cybersecurity Specialist focused on enterprise technical solutions integrations, baseline systems architecture, and comprehensive technical account management.",
-      img: "worker-4.jpg" 
+      img: "worker-4.png" 
     }
   ];
 
   const interns = [
     { name: "Abubakar Usman Damilare", role: "Threat Intelligence Intern", img: "intern-1.jpg" },
     { name: "Technical Intern 2", role: "GRC Engineering Intern", img: "intern-2.jpg" },
-    { name: "Technical Intern 3", role: "Security Operations Intern", img: "intern-3.jpg" }
+    { name: "Adeyemi Fisayomi", role: "Security Operations Intern", img: "intern-3.jpg" },
+    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" }
   ];
 
   return (
