@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
-import { events } from "./resources/events/data";
 import { webinars } from "./resources/webiner/data";
 
 export default function Home() {
@@ -72,12 +71,11 @@ export default function Home() {
   const flashCards = [
     blogPosts[0] && { tag: "Blog" as const, title: blogPosts[0].title, date: blogPosts[0].date, sortDate: blogPosts[0].isoDate, path: `/resources/blog/${blogPosts[0].slug}` },
     newsBriefs[0] && { tag: "News" as const, title: newsBriefs[0].title, date: newsBriefs[0].date, sortDate: newsBriefs[0].date, path: "/resources/news" },
-    events[0] && { tag: "Event" as const, title: events[0].title, date: events[0].date, sortDate: events[0].date, path: "/resources/events" },
     webinars[0] && { tag: "Webinar" as const, title: webinars[0].title, date: webinars[0].date, sortDate: webinars[0].isoDate, path: "/resources/webiner" },
   ]
     .filter(Boolean)
     .sort((a, b) => new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime())
-    .slice(0, 4);
+    .slice(0, 3);
 
   useEffect(() => {
     let startTime: number | null = null;
@@ -290,9 +288,7 @@ export default function Home() {
                         ? "bg-purple-950/[0.05] border-purple-900/20 text-purple-700"
                         : flashCards[flashCardIndex].tag === "News"
                           ? "bg-red-600/10 border-red-500/20 text-red-600"
-                          : flashCards[flashCardIndex].tag === "Event"
-                            ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-700"
-                            : "bg-amber-500/10 border-amber-500/20 text-amber-700"
+                          : "bg-amber-500/10 border-amber-500/20 text-amber-700"
                     }`}
                   >
                     {flashCards[flashCardIndex].tag}
