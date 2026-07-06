@@ -68,9 +68,8 @@ export default function RootLayout({
             <div className="md:col-span-2 space-y-4">
               <h5 className="uppercase tracking-widest text-primary font-black text-xs">Compliance</h5>
               <ul className="space-y-3 text-sm font-medium text-white/80">
-                <li><a className="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">Cookies Policy</a></li>
+                <li><Link className="hover:text-primary transition-colors" href="/privacy">Privacy Policy</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/cookies">Cookies Policy</Link></li>
               </ul>
             </div>
             
@@ -90,7 +89,7 @@ export default function RootLayout({
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
-              © 2026 Cybernovr Limited. All rights reserved. A #cyber360 resilience company
+              © 2026 Cybernovr Limited. All rights reserved. A <span className="text-red-500">#cyber360resilience</span> company
             </p>
           </div>
         </footer>

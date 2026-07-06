@@ -1,17 +1,9 @@
 "use client";
 import React from "react";
 import { Terminal, Calendar, MapPin, ArrowRight } from "lucide-react";
+import { events } from "./data";
 
 export default function ResourcesEventsPage() {
-  const events = [
-    {
-      title: "Hands-on Vulnerability Scanning with SecuBreach",
-      time: "Thu, July 02, 2026 | 2:00 PM WAT",
-      location: "Virtual Operations Console",
-      desc: "An engineering walkthrough modeling real-time exploit discovery and remediation reporting with 98.7% accuracy benchmarks."
-    }
-  ];
-
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">

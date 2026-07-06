@@ -61,7 +61,7 @@ export default function CorporateCareersPage() {
             <p className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase">Full-Time · Lagos, Nigeria</p>
           </div>
           <p className="text-xs text-zinc-600 leading-relaxed font-medium">
-            We require the services of an experienced candidate to take our products, initiatives, and services to market. [They] will lead a dynamic team of product and technical sales team members to achieve our corporate marketing and sales objectives. A Master&apos;s degree and 5-7 years of business development experience in banking or fintech are required. Send a cover letter and resume to info@cybernovr.com
+            We require the services of an experienced candidate to take our products, initiatives, and services to market. He/She will lead a dynamic team of product and technical sales team members to achieve our corporate marketing and sales objectives. A Master&apos;s degree and 5-7 years of business development experience in banking or fintech are required. Send a cover letter and resume to info@cybernovr.com
           </p>
         </div>
       </section>
