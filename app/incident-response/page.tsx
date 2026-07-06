@@ -69,9 +69,9 @@ export default function IncidentResponsePage() {
       </div>
 
       {/* Tactical Escalation Path Panels */}
-      <section className="space-y-6 text-left max-w-5xl">
+      <section className="space-y-6 text-left ">
         <div className="border-b border-zinc-100 pb-2">
-          <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Containment Protocol Process</h3>
+          <h3 className="text-md font-black uppercase tracking-widest text-zinc-400 font-mono">Containment Protocol Process</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {escalationSteps.map((step, idx) => {
