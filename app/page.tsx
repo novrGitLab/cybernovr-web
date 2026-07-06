@@ -20,6 +20,8 @@ export default function Home() {
   const [vaptScope, setVaptScope] = useState("");
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const [auditSubmitted, setAuditSubmitted] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [prevCarouselIndex, setPrevCarouselIndex] = useState(0);
 
   // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
@@ -63,7 +65,7 @@ export default function Home() {
   const activeTestimonials = [
     { text: "CYBEENOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBEENOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBEENOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBEENOVR for its outstanding commitment to youth development and technology education.", author: "Omoluabi-Okechukwu B.M.", firm: "Principal, Caleb International College" },
     { text: "The Cybersecurity Program facilitated by Cybervor at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate Cybervor for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with Cybervor on more impactful initiatives in the future.", author: "Mr. Emmanuel Jaiyeoba", firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos" },
-    { text: "CYBERNOVR has been a trusted partner in strengthening our cybersecurity and compliance efforts. Their expertise in PCI DSS solutions and penetration testing has helped us enhance our security posture with confidence. The team is highly professional, responsive, and committed to delivering practical, high-quality solutions tailored to our needs. We are pleased with the value they bring and confidently recommend CYBERNOVR to any organisation seeking reliable cybersecurity consulting services.", author: "Sheriff Adigu", firm: "CTO, PACESELER UK" }
+    { text: "CYBERNOVR has been a trusted partner in strengthening our cybersecurity and compliance efforts. Their expertise in PCI DSS solutions and penetration testing has helped us enhance our security posture with confidence. The team is highly professional, responsive, and committed to delivering practical, high-quality solutions tailored to our needs. We are pleased with the value they bring and confidently recommend CYBERNOVR to any organisation seeking reliable cybersecurity consulting services.", author: "Sheriff Adigun", firm: "PAYCELER, UK" }
   ];
 
   const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
@@ -76,6 +78,35 @@ export default function Home() {
     .filter(Boolean)
     .sort((a, b) => new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime())
     .slice(0, 3);
+
+  const carouselImages = [
+    // { src: "/assets/carousel/cyber-event-rotary.webp", alt: "Cybernovr at community event" },
+    {
+      src: "/assets/carousel/team-training.webp",
+      alt: "IYSDC and Cybernovr train 50 teenagers in Osun",
+      desc: "IYSDC and Cybernovr Trains 50 Teenagers in Osun with Wife of the Ooni of Ife, Princess Fadekemi Adeyeye in Attendance",
+    },
+    {
+      src: "/assets/carousel/team-meeting.webp",
+      alt: "CEAP certificate presentation",
+      desc: "Cybernovr team and Gabriel Olokitun, A student of caleb internation college at the CEAP certificate presentation",
+    },
+    {
+      src: "/assets/carousel/ncc-event_with_bgc.png",
+      alt: "NCC Cybersecurity Blueprint",
+      desc: "NCC with Cybernovr Unveils Cybersecurity Blueprint to Fortify Nigeria's Telecom Backbone",
+    },
+    {
+      src: "/assets/carousel/punch-coverage.jpg",
+      alt: "Rotary Club Lagos CEAP Training",
+      desc: "President of Rotary Club of Lagos, Toki Mabogunje, with CEO Kazeem Durodoye and Students after the First CEAP Training Session for INTERAC Members Sponsored by the Rotary Club of Lagos",
+    },
+    {
+      src: "/assets/carousel/team-event.webp",
+      alt: "Ansar-ud-Deen CEAP Certificates",
+      desc: "Ansar-ud-Deen President Prince Mosediq Adeniji Kazeem SAN Presenting CEAP Certificates to Beneficiaries Attended by Distinguished Members and Stakeholders including: Former National Secretary, Alhaji Lateef Olaseinde Karim, SAN; Lagos Branch Chairman, Alhaji Kamorudeen A. Salami; Lagos Branch Secretary, Alhaji Sikiru Aregbe, Esq.; National Chairman, ADYAN, Alhaji Abdul-Rafiu Ogunlola; Division 4 Chairman, Alhaji Ganiyu O. Liadi; Alhaji Oriola; Hon. Jubril Shasore (SSA to the National President); Director of Cybernovr, Doctor Kazeen Durodoye among others.",
+    },
+  ];
 
   useEffect(() => {
     let startTime: number | null = null;
@@ -130,6 +161,14 @@ export default function Home() {
     }, 3500);
     return () => clearInterval(flashTimer);
   }, []);
+
+  useEffect(() => {
+    const carouselTimer = setInterval(() => {
+      setPrevCarouselIndex(carouselIndex);
+      setCarouselIndex((prev) => (prev + 1) % 5);
+    }, 5000);
+    return () => clearInterval(carouselTimer);
+  }, [carouselIndex]);
 
   const scrollToContactForm = () => {
     const target = document.getElementById('contact-gateway');
@@ -396,7 +435,7 @@ export default function Home() {
       {/* [Module 2: About Mini Section] */}
       <section className="py-12 my-2 bg-white max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-4 text-left pl-4 sm:pl-6 md:pl-12 lg:pl-24">
+          <div className="lg:col-span-6 space-y-4 text-left pl-4 sm:pl-6 md:pl-12 lg:pl-24">
             <h2 className="text-4xl md:text-5xl font-black text-zinc-950 uppercase tracking-tight">
               About Cybernovr
             </h2>
@@ -414,14 +453,42 @@ export default function Home() {
               national information infrastructures.
             </p>
           </div>
-          <div className="lg:col-span-5 w-full">
+          <div className="lg:col-span-6 w-full lg:pr-12">
             <div className="w-full relative group">
-              <div className="w-full aspect-[5/4] overflow-hidden relative">
-                <img
-                  src="/assets/team/cybernovr-team.jpg"
-                  alt="Cybernovr Team"
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="w-full aspect-[5/4] overflow-hidden relative rounded-xl">
+                {carouselImages.map((img, i) => {
+                  const isActive = i === carouselIndex;
+                  const isWrapping = prevCarouselIndex === carouselImages.length - 1 && carouselIndex === 0;
+                  return (
+                    <div key={i} className={`absolute inset-0 ${
+                      isWrapping
+                        ? (isActive ? "opacity-100 z-10" : "opacity-0 z-0")
+                        : `transition-opacity duration-700 ${isActive ? "opacity-100 z-10" : "opacity-0 z-0"}`
+                    }`}>
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-full object-cover object-top"
+                      />
+                      {img.desc && (
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-5">
+                          <p className="text-white text-xs font-bold leading-snug">{img.desc}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex items-center justify-center gap-1.5 mt-3">
+                {carouselImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCarouselIndex(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === carouselIndex ? "w-6 bg-red-600" : "w-2 bg-zinc-300"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>

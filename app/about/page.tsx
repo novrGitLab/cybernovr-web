@@ -43,7 +43,7 @@ export default function CorporateAboutHub() {
     },
     {
       name: "Mr. Mark O. Okechukwu",
-      role: "Senior Product Manager",
+      role: "Business Development Manager",
       bio: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
       img: "worker-3.jpeg",
     },
@@ -61,10 +61,10 @@ export default function CorporateAboutHub() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
       {/* Institutional Header Block */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">
+        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">
           About Cybernovr
         </h1>
-        <p className="text-zinc-600 text-sm md:text-base leading-relaxed mt-4 font-normal">
+        <p className="text-zinc-600 text-sm md:text-xl leading-relaxed mt-4 font-normal">
           At Cybernovr, we take a holistic and comprehensive approach to cyber
           resilience. It&apos;s not just about one or two aspects of security or
           recovery program, but a 360-degree view encompassing all facets of
@@ -82,10 +82,10 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Eye className="h-5 w-5" />
             </div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h3 className="text-base font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Vision
             </h3>
-            <p className="text-sm font-bold text-zinc-900 leading-tight uppercase tracking-tight">
+            <p className="text-lg font-bold text-zinc-900 leading-tight uppercase tracking-tight">
               To achieve resilience of your Critical Information Infrastructure.
             </p>
           </div>
@@ -93,10 +93,10 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Target className="h-5 w-5" />
             </div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h3 className="text-base font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Mission
             </h3>
-            <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+            <p className="text-lg text-zinc-600 leading-relaxed font-medium">
               To work with you to strengthen the resilience of your information
               assets. We will pinpoint your unique risks, prioritise your
               defences and help you achieve cybersecurity resilience of your
@@ -107,7 +107,7 @@ export default function CorporateAboutHub() {
         {/* Row 2: Core Values */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
+            <h2 className="text-base font-black uppercase tracking-widest text-zinc-400">
               Core Values
             </h2>
           </div>
@@ -116,10 +116,10 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Heart className="h-5 w-5" />
               </div>
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+              <h4 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
                 Customer Delight
               </h4>
-              <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+              <p className="text-base text-zinc-600 leading-relaxed font-medium">
                 We are committed to customer satisfaction and won't stop until
                 our clients are delighted. We take the time to understand their
                 unique cybersecurity needs, deliver outstanding services, and
@@ -130,10 +130,10 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+              <h4 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
                 Integrity
               </h4>
-              <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+              <p className="text-base text-zinc-600 leading-relaxed font-medium">
                 We are committed to unwavering honesty, transparency, and a
                 strong moral compass to maintain trust both internally and with
                 our clients. We acknowledge our mistakes, learn from them, and
@@ -145,10 +145,10 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Lightbulb className="h-5 w-5" />
               </div>
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+              <h4 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
                 Innovation
               </h4>
-              <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+              <p className="text-base text-zinc-600 leading-relaxed font-medium">
                 We are committed to relentless innovation, creating cutting-edge
                 solutions while swiftly adapting to new challenges. We foster a
                 culture of continuous learning and challenge the norm to achieve
@@ -159,10 +159,10 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Users className="h-5 w-5" />
               </div>
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+              <h4 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
                 People
               </h4>
-              <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+              <p className="text-base text-zinc-600 leading-relaxed font-medium">
                 We are committed to guiding our team to uphold the highest
                 standards of quality in solutions, services, and incident
                 response. Our people are the driving force behind our success,
@@ -173,10 +173,10 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <RefreshCcw className="h-5 w-5" />
               </div>
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+              <h4 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
                 Resilience
               </h4>
-              <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+              <p className="text-base text-zinc-600 leading-relaxed font-medium">
                 We are committed to achieving cybersecurity resilience on
                 ourselves the same way we are to our clients. This commitment
                 drives us to build robust, reliable, and adaptable systems and
@@ -194,7 +194,7 @@ export default function CorporateAboutHub() {
         {/* Core Workers Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
+            <h2 className="text-base font-black uppercase tracking-widest text-zinc-400">
               Our Management Team
             </h2>
           </div>
