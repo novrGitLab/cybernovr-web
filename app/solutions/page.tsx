@@ -94,13 +94,13 @@ export default function SolutionsHubPage() {
       
       {/* Top Banner Heading */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="text-[10px] font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
+        <span className="text-base font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
           Cybersecurity Solutions Matrix
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
           Professional Solutions
         </h1>
-        <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+        <p className="text-zinc-600 text-base md:text-xl leading-relaxed font-normal">
           CYBERNOVR delivers professional-grade cybersecurity solutions engineered to help organisations achieve a 360° resilience for their critical information infrastructures. Please explore our specialized solutions across SOC, GRC, vulnerability management, and Indicators of Attack platforms.
         </p>
       </div>
@@ -108,12 +108,12 @@ export default function SolutionsHubPage() {
       {/* Proprietary Software Solutions Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-xl font-black uppercase tracking-widest text-zinc-400">
             Proprietary Platforms &amp; Software Solutions
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Product Scoping")}
-            className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-md transition-all font-mono text-center"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-widest px-5 py-3 rounded-md transition-all font-mono text-center"
           >
             Request Platform Demo
           </button>
@@ -137,12 +137,12 @@ export default function SolutionsHubPage() {
                   <span id={`fb-text-${idx}`} className="hidden font-mono font-black text-red-500 text-base tracking-wider">{prod.name}</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-red-500 transition-colors uppercase">{prod.name}</h3>
-                  <p className="text-xs font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
+                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-red-500 transition-colors uppercase">{prod.name}</h3>
+                  <p className="text-base font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
                 </div>
-                <p className="text-zinc-300 text-xs md:text-sm leading-relaxed font-normal">{prod.desc}</p>
+                <p className="text-zinc-300 text-xs md:text-lg leading-relaxed font-normal">{prod.desc}</p>
               </div>
-              <Link href={prod.path} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-red-500 hover:text-white transition-colors pt-2 self-start font-mono group">
+              <Link href={prod.path} className="inline-flex items-center gap-2 text-lg font-bold uppercase tracking-widest text-red-500 hover:text-white transition-colors pt-2 self-start font-mono group">
                 Book a Demo <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -153,12 +153,12 @@ export default function SolutionsHubPage() {
       {/* Professional Advisory Matrix Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-xl font-black uppercase tracking-widest text-zinc-400">
             Professional Services
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Advisory Scoping")}
-            className="border-2 border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-md transition-all font-mono text-center"
+            className="border-2 border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-bold text-lg uppercase tracking-widest px-5 py-2.5 rounded-md transition-all font-mono text-center"
           >
             Initiate Advisory Scoping
           </button>
@@ -173,14 +173,14 @@ export default function SolutionsHubPage() {
                   <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-zinc-900 group-hover:text-red-700 transition-colors uppercase tracking-tight">
+                  <h3 className="text-lg font-bold text-zinc-900 group-hover:text-red-700 transition-colors uppercase tracking-tight">
                     {srv.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed font-normal">{srv.desc}</p>
+                  <p className="text-xs md:text-lg text-zinc-600 leading-relaxed font-normal">{srv.desc}</p>
                 </div>
                 <button 
                   onClick={() => triggerPopupForm(srv.title)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
+                  className="inline-flex items-center gap-1.5 text-lg font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
                 >
                   Contact Specialist <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>

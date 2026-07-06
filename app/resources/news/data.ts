@@ -17,14 +17,6 @@ export const newsBriefs: NewsBrief[] = [
     date: "2025-09-26"
   },
   {
-    title: "Cybernovr Highlights Cyber Security Risks for Businesses at 5th Nigerian Integrated Security Summit",
-    source: "Nigeria Communications Week",
-    desc: "Cybernovr Limited highlighted critical cyber security risks facing businesses at the 5th Nigerian Integrated Security Summit, emphasizing the need for proactive security measures.",
-    link: "https://nigeriacommunicationsweek.com.ng/2025/09/26/cybernovr-highlights-cyber-security-risks-for-businesses-at-5th-nigerian-integrated-security-summit/",
-    image: "/assets/news/newsroom.jpg",
-    date: "2025-09-26"
-  },
-  {
     title: "Lagos Students Trained in Cybersecurity Skills",
     source: "The Punch Nigeria",
     desc: "The training organised by Cybernovr Limited in partnership with the Rotary Club of Lagos, will provide the students with 10 modules covering cybersecurity basics, identity management, cyber threat awareness.",

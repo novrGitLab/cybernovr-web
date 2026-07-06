@@ -94,7 +94,7 @@ export default function CybernovrAcademyPage() {
       {/* Hero Module Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-200 pb-12 text-left">
         <div className="lg:col-span-8 space-y-4">
-          <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
+          <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
             CYBERNOVR CAPACITY BUILDING PROGRAMME
           </span>
           <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase leading-tight">
@@ -102,11 +102,11 @@ export default function CybernovrAcademyPage() {
             <br />
             Awareness Programme (CEAP)
           </h1>
-          <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
+          <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-lg font-semibold tracking-wide">
             Our flagship education and awareness program aims to empower
             students with essential cybersecurity skills and awareness.
           </p>
-          <p className="text-zinc-600 text-sm md:text-base max-w-2xl leading-relaxed font-normal">
+          <p className="text-zinc-600 text-sm md:text-xl max-w-2xl leading-relaxed font-normal">
             People are the largest security risk in your organization. CEAP is a
             structured cybersecurity training and awareness programme designed
             to equip employees, students, and individuals with the knowledge and
@@ -116,13 +116,13 @@ export default function CybernovrAcademyPage() {
           <div className="flex flex-wrap gap-4 pt-4 font-mono">
             <Link
               href="/academy/assessments"
-              className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-5 py-3.5 rounded-md transition-all shadow-md flex items-center gap-2"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-5 py-3.5 rounded-md transition-all shadow-md flex items-center gap-2"
             >
               <Sparkles className="h-4 w-4" /> Check Your Security Knowledge
             </Link>
             <Link
               href="/academy/enroll"
-              className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2"
+              className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-base font-bold uppercase tracking-widest transition-all flex items-center gap-2"
             >
               <BookOpen className="h-4 w-4 text-red-700" /> Visit Learning
               Portal
@@ -134,24 +134,24 @@ export default function CybernovrAcademyPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10">
               <GraduationCap className="h-10 w-10 text-red-500" />
-              <h3 className="text-lg font-bold uppercase tracking-wide mt-4">
+              <h3 className="text-xl font-bold uppercase tracking-wide mt-4">
                 Course Overview
               </h3>
-              <p className="text-xs text-purple-200 mt-1.5 leading-relaxed font-medium">
+              <p className="text-base text-purple-200 mt-1.5 leading-relaxed font-medium">
                 Comprehensive cybersecurity education and awareness program
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 border-t border-purple-900/30 pt-4 font-mono relative z-10">
               <div>
-                <p className="text-2xl font-black text-white">12</p>
-                <p className="text-[9px] uppercase tracking-widest text-purple-300 font-bold">
+                <p className="text-4xl font-black text-white">12</p>
+                <p className="text-sm uppercase tracking-widest text-purple-300 font-bold">
                   Modules
                 </p>
               </div>
               <div>
-                <p className="text-2xl font-black text-white">Hundreds</p>
-                <p className="text-[9px] uppercase tracking-widest text-purple-300 font-bold">
+                <p className="text-4xl font-black text-white">Hundreds</p>
+                <p className="text-sm uppercase tracking-widest text-purple-300 font-bold">
                   Nigerians Trained
                 </p>
               </div>
@@ -160,11 +160,11 @@ export default function CybernovrAcademyPage() {
           {/* Centralized Impact Console Callout Section Card */}
           <div className="p-6 mt-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
+              <h4 className="text-base font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
                 Centralized CEAP Impact Analytics
               </h4>
-              <p className="text-xs text-zinc-500 font-medium">
+              <p className="text-sm text-zinc-500 font-medium">
                 Visit our strategic impact dashboard.
               </p>
             </div>
@@ -183,20 +183,20 @@ export default function CybernovrAcademyPage() {
       <section className="bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl p-8 md:p-12 shadow-sm text-left">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-black text-zinc-900 uppercase tracking-tight">
               Start Your Cybersecurity Journey Today
             </h2>
-            <p className="text-sm text-zinc-500 font-normal leading-relaxed">
+            <p className="text-base text-zinc-500 font-normal leading-relaxed">
               Join hundreds of students who have transformed their careers with
               our Cybersecurity Education and Awareness Program (CEAP) course.
             </p>
             <div className="flex items-baseline gap-3">
               <span className="text-3xl font-black text-red-700">₦100,000</span>
-              <span className="text-lg text-zinc-400 line-through">
+              <span className="text-xl text-zinc-400 line-through">
                 ₦120,000
               </span>
             </div>
-            <div className="flex flex-wrap gap-4 text-xs font-mono text-zinc-500 font-bold">
+            <div className="flex flex-wrap gap-4 text-base font-mono text-zinc-500 font-bold">
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3" /> Duration: 4 weeks
               </span>
@@ -214,13 +214,13 @@ export default function CybernovrAcademyPage() {
               href="https://www.cybernovr.com/courses/enroll?course=68ce2cd9a05a4b67aa4d8e2d"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
             >
               Enroll Now <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight">
+            <h4 className="text-base font-bold text-zinc-900 uppercase tracking-tight">
               This course includes:
             </h4>
             <ul className="space-y-2">
@@ -231,7 +231,7 @@ export default function CybernovrAcademyPage() {
               ].map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-2 text-sm text-zinc-600"
+                  className="flex items-center gap-2 text-base text-zinc-600"
                 >
                   <CheckCircle2 className="h-4 w-4 text-red-700 shrink-0" />{" "}
                   {item}
@@ -245,7 +245,7 @@ export default function CybernovrAcademyPage() {
       {/* Course Curriculum Architecture Section */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-base font-black uppercase tracking-widest text-zinc-400">
             CEAP CURRICULUM
           </h2>
         </div>
@@ -261,7 +261,7 @@ export default function CybernovrAcademyPage() {
                   onClick={() => setOpenModule(isOpen ? null : idx)}
                   className="w-full p-4 flex items-center gap-4 text-left hover:bg-purple-950/[0.04] transition-colors"
                 >
-                  <span className="font-mono text-sm font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded shrink-0">
+                  <span className="font-mono text-base font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded shrink-0">
                     {mod.num}
                   </span>
                   <div className="flex-1 min-w-0">

@@ -36,13 +36,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Article Header */}
       <header className="max-w-3xl mx-auto text-left space-y-6 mb-12">
-        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
+        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
           {post.category}
         </span>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase leading-tight">
           {post.title}
         </h1>
-        <div className="flex flex-wrap items-center gap-4 text-xs font-mono font-bold text-zinc-400">
+        <div className="flex flex-wrap items-center gap-4 text-base font-mono font-bold text-zinc-400">
           <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5 text-red-700" /> {post.author}, {post.authorRole}</span>
           <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-red-700" /> {post.date}</span>
         </div>
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {section.heading && (
               <h2 className="text-xl md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">{section.heading}</h2>
             )}
-            <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">{section.body}</p>
+            <p className="text-zinc-600 text-sm md:text-xl leading-relaxed font-normal">{section.body}</p>
             {section.video && (
               <div className="my-8">
                 <video
@@ -95,19 +95,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* CTA Section */}
       <div className="max-w-3xl mx-auto mt-16 bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl p-8 md:p-10 text-center space-y-4">
-        <h3 className="text-lg md:text-xl font-bold text-zinc-900 uppercase tracking-tight">Reach out today!</h3>
-        <p className="text-sm text-zinc-500 max-w-lg mx-auto font-normal">
+        <h3 className="text-lg md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">Reach out today!</h3>
+        <p className="text-lg text-zinc-500 max-w-lg mx-auto font-normal">
           At Cybernovr, we work with Government and private sector operators to protect Critical National Information Infrastructure (CNII) like 5G.
         </p>
-        <Link href="/contacts" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono">
+        <Link href="/contacts" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono">
           Contact Us
         </Link>
       </div>
 
       {/* Footer CTA */}
       <div className="max-w-3xl mx-auto mt-12 text-center border-t border-zinc-200 pt-8">
-        <p className="text-sm text-zinc-500 font-normal">Enjoying Our Resources?</p>
-        <Link href="/contacts" className="inline-flex items-center gap-2 text-red-700 font-bold text-xs uppercase tracking-wider hover:text-red-600 transition-colors font-mono mt-2">
+        <p className="text-base text-zinc-500 font-normal">Enjoying Our Resources?</p>
+        <Link href="/contacts" className="inline-flex items-center gap-2 text-red-700 font-bold text-base uppercase tracking-wider hover:text-red-600 transition-colors font-mono mt-2">
           Reach out to discover more cybersecurity insights, tools, and guides.
         </Link>
       </div>

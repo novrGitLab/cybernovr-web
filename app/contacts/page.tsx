@@ -37,13 +37,13 @@ export default function ContactUsPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
       {/* Top Header Section */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
           WE LOVE TO HEAR FROM YOU
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           Connect With Us
         </h1>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-lg font-semibold tracking-wide">
           Get in touch with our team to discuss your cybersecurity needs.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function ContactUsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
         {/* Left Side: "Send Us a Message" Form Field Matrix */}
         <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-10 rounded-2xl border border-zinc-900 shadow-2xl space-y-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.12)]">
-          <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">
+          <h2 className="text-xl md:text-3xl font-black text-white uppercase tracking-tight">
             Send Us a Message
           </h2>
 
@@ -65,7 +65,7 @@ export default function ContactUsPage() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Name *
                 </label>
                 <input
@@ -76,7 +76,7 @@ export default function ContactUsPage() {
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Email *
                 </label>
                 <input
@@ -90,7 +90,7 @@ export default function ContactUsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Company
                 </label>
                 <input
@@ -100,7 +100,7 @@ export default function ContactUsPage() {
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Phone
                 </label>
                 <input
@@ -129,7 +129,7 @@ export default function ContactUsPage() {
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+              <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                 Service of Interest
               </label>
               <div className="relative">
@@ -161,7 +161,7 @@ export default function ContactUsPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">
+              <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
                 Message *
               </label>
               <textarea
@@ -174,7 +174,7 @@ export default function ContactUsPage() {
 
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-xs uppercase tracking-widest font-mono"
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-base uppercase tracking-widest font-mono"
             >
               Send Message
             </button>
@@ -184,10 +184,10 @@ export default function ContactUsPage() {
         {/* Right Side: Static Information Registry */}
         <div className="lg:col-span-5 space-y-8 lg:pl-4 w-full">
           <div className="space-y-2">
-            <h2 className="text-xl md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">
+            <h2 className="text-xl md:text-3xl font-bold text-zinc-900 uppercase tracking-tight">
               Contact Information
             </h2>
-            <p className="text-sm text-zinc-500 leading-relaxed font-normal">
+            <p className="text-base text-zinc-500 leading-relaxed font-normal">
               Get in touch for an unparalleled customer experience
             </p>
           </div>
@@ -199,11 +199,11 @@ export default function ContactUsPage() {
                 <MapPin className="h-5 w-5" />
               </div>
               <div className="space-y-2 text-xs md:text-sm text-zinc-600 font-normal pt-1">
-                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">
+                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
                   Our Locations
                 </p>
                 {locations.map((loc, i) => (
-                  <p key={i} className="leading-relaxed">
+                  <p key={i} className="leading-relaxed text-base">
                     {loc.text}
                   </p>
                 ))}
@@ -216,18 +216,18 @@ export default function ContactUsPage() {
                 <Phone className="h-5 w-5" />
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">
+                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
                   Phone Inquiries
                 </p>
                 <a
                   href="tel:+2348098120000"
-                  className="font-mono font-bold text-zinc-700 leading-relaxed hover:underline block"
+                  className="text-base font-mono font-bold text-zinc-700 leading-relaxed hover:underline block"
                 >
                   +234-809-812-0000
                 </a>
                 <a
                   href="tel:+14439853735"
-                  className="font-mono font-bold text-red-700 leading-relaxed hover:underline block"
+                  className="text-base font-mono font-bold text-red-700 leading-relaxed hover:underline block"
                 >
                   +1-443-985-3735
                 </a>
@@ -240,18 +240,18 @@ export default function ContactUsPage() {
                 <Mail className="h-5 w-5" />
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">
+                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
                   Email
                 </p>
                 <a
                   href="mailto:info@cybernovr.com"
-                  className="font-mono font-bold text-red-700 hover:underline cursor-pointer block"
+                  className="text-base font-mono font-bold text-red-700 hover:underline cursor-pointer block"
                 >
                   info@cybernovr.com
                 </a>
                 <a
                   href="mailto:kazeem@cybernovr.com"
-                  className="font-mono font-bold text-zinc-500 hover:underline cursor-pointer block"
+                  className="text-base font-mono font-bold text-zinc-500 hover:underline cursor-pointer block"
                 >
                   kazeem@cybernovr.com
                 </a>
@@ -264,10 +264,10 @@ export default function ContactUsPage() {
                 <Clock className="h-5 w-5" />
               </div>
               <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-base uppercase tracking-tight">
+                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
                   Business Hours
                 </p>
-                <p className="text-zinc-600 font-medium">
+                <p className="text-base text-zinc-600 font-medium">
                   Monday - Friday: 8:00 AM - 5:00 PM
                 </p>
               </div>
@@ -278,11 +278,11 @@ export default function ContactUsPage() {
 
           {/* Emergency Escalation Unit */}
           <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
-            <h4 className="text-xs uppercase font-mono font-black tracking-widest text-red-700 flex items-center gap-2">
+            <h4 className="text-sm uppercase font-mono font-black tracking-widest text-red-700 flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse"></span>
               24/7 Incident Response
             </h4>
-            <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+            <p className="text-base text-zinc-600 leading-relaxed font-normal">
               For active breach remediation or urgent system threat
               intervention, please reach out straight to our high-priority SOC
               line:
@@ -300,10 +300,10 @@ export default function ContactUsPage() {
       {/* FAQ Accordion Sub-Section */}
       <section className="pt-8 border-t border-zinc-200 space-y-10">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-black text-zinc-900 uppercase tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm text-zinc-500 max-w-xl mx-auto font-normal">
+          <p className="text-base text-zinc-500 max-w-xl mx-auto font-normal">
             Find answers to questions about our services and solutions.
           </p>
         </div>
@@ -320,7 +320,7 @@ export default function ContactUsPage() {
                   onClick={() => setOpenFaq(isOpen ? null : index)}
                   className="w-full text-left px-6 py-4 flex justify-between items-center bg-zinc-50/40 hover:bg-zinc-50 transition-colors focus:outline-none"
                 >
-                  <span className="font-bold text-sm md:text-base text-zinc-900">
+                  <span className="font-bold text-sm md:text-lg text-zinc-900">
                     {faq.q}
                   </span>
                   <ChevronDown
@@ -331,7 +331,7 @@ export default function ContactUsPage() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-2 text-xs md:text-sm text-zinc-600 leading-relaxed bg-white border-t border-zinc-100 font-normal">
+                  <div className="px-6 pb-5 pt-2 text-xs md:text-base text-zinc-600 leading-relaxed bg-white border-t border-zinc-100 font-normal">
                     {faq.a}
                   </div>
                 )}
