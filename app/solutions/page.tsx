@@ -94,13 +94,13 @@ export default function SolutionsHubPage() {
       
       {/* Top Banner Heading */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="text-md font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
+        <span className="text-base font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
           Cybersecurity Solutions Matrix
         </span>
         <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
           Professional Solutions
         </h1>
-        <p className="text-zinc-600 text-md md:text-xl leading-relaxed font-normal">
+        <p className="text-zinc-600 text-base md:text-xl leading-relaxed font-normal">
           CYBERNOVR delivers professional-grade cybersecurity solutions engineered to help organisations achieve a 360° resilience for their critical information infrastructures. Please explore our specialized solutions across SOC, GRC, vulnerability management, and Indicators of Attack platforms.
         </p>
       </div>
@@ -138,7 +138,7 @@ export default function SolutionsHubPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-red-500 transition-colors uppercase">{prod.name}</h3>
-                  <p className="text-md font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
+                  <p className="text-base font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
                 </div>
                 <p className="text-zinc-300 text-xs md:text-lg leading-relaxed font-normal">{prod.desc}</p>
               </div>
