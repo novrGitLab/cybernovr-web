@@ -112,9 +112,9 @@ export default function CybernovrAcademyPage() {
             <Link href="/academy/assessments" className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-5 py-3.5 rounded-md transition-all shadow-md flex items-center gap-2">
               <Sparkles className="h-4 w-4" /> Check Your Security Knowledge
             </Link>
-            <a href="https://www.cybernovr.com/courses/enroll?course=68ce2cd9a05a4b67aa4d8e2d" target="_blank" rel="noopener noreferrer" className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2">
+            <Link href="/academy/enroll" className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-red-700" /> Visit Learning Portal
-            </a>
+            </Link>
           </div>
         </div>
         

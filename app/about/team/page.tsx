@@ -16,10 +16,10 @@ export default function TheTeamPage() {
     },
     {
       name: "Mr. Akinwale Mayomi Aisida",
-      role: "Senior Product Manager",
+      role: "Head of Threat Intelligence",
       label: "Threat Intelligence",
-      about: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
-      certs: "PyTorch · Keras · TensorFlow · Python · scikit-learn · Expert in Intrusion Detection, Zero-day Attacks, and Threat Intelligence",
+      about: "Cybersecurity Researcher at the Canadian Institute of Cybersecurity, University of New Brunswick. Specializes in ML/AI-driven intrusion detection, zero-day attack identification, and threat intelligence modeling.",
+      certs: "PyTorch · Keras · TensorFlow · Python · NumPy · Pandas · scikit-learn · Matplotlib · CNNs, RNNs, LSTMs, Autoencoders",
       img: "worker-2.jpg",
       type: "executive"
     },
@@ -29,7 +29,16 @@ export default function TheTeamPage() {
       label: "Technical Solutions",
       about: "Cybersecurity Specialist focused on enterprise technical solutions integrations, baseline systems architecture, and comprehensive technical account management.",
       certs: "GCPC-ISC2 (CC) · Hagital (CC) · B.Sc · Expert in VMDR (vulnerability management detection and response) and Compliance management",
-      img: "worker-4.jpg",
+      img: "worker-4.png",
+      type: "executive"
+    },
+    {
+      name: "Mr. Ibrahim Oladeji",
+      role: "Chief Information Officer",
+      label: "Information Operations",
+      about: "Cybersecurity and information technology executive leading enterprise IT infrastructure, security operations, and digital transformation initiatives.",
+      certs: "Enterprise IT Leadership · Security Operations · Digital Transformation · Infrastructure Architecture",
+      img: "worker-3.jpeg",
       type: "executive"
     }
   ];
@@ -39,7 +48,9 @@ export default function TheTeamPage() {
     { name: "Abubakar Usman Damilare", role: "Threat Intelligence Intern", img: "intern-1.jpg", label: "Operations" },
     { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png", label: "Technical" },
     { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg", label: "Defense" },
-    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg", label: "Security" }
+    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg", label: "Security" },
+    {       name: "Chiamaka Prisca",
+      role: "CEAP Manager, Novr Academy", img: "intern-2.jpg", label: "Engineering" }
   ];
 
   return (

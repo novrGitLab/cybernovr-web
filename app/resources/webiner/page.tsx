@@ -2,51 +2,9 @@
 import React from "react";
 import { Video, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { webinars } from "./data";
 
 export default function ResourcesWebinarsPage() {
-  const webinars = [
-    {
-      date: "May 21, 2026",
-      title: "Protection against Election",
-      desc: "Discover how to identify and counter digital election interference tactics."
-    },
-    {
-      date: "June 18, 2026",
-      title: "Cybersecurity and Data Privacy",
-      desc: "Learn about the latest trends in cybersecurity and data privacy protection strategies."
-    },
-    {
-      date: "July 23, 2026",
-      title: "Pandemic-induced Cyberthreats Awareness",
-      desc: "Understanding the evolving cyberthreats that emerged during global health crises."
-    },
-    {
-      date: "August 20, 2026",
-      title: "Prevention of Online Gender Exploitation",
-      desc: "Learn strategies to identify and prevent online gender-based exploitation."
-    },
-    {
-      date: "September 24, 2026",
-      title: "Understanding and Countering Cyber Terrorism",
-      desc: "Comprehensive overview of cyber terrorism threats and countermeasures."
-    },
-    {
-      date: "October 22, 2026",
-      title: "Safe Social Media Practices",
-      desc: "Best practices for maintaining security and privacy while using social media platforms."
-    },
-    {
-      date: "November 19, 2026",
-      title: "Online Child Protection and Safety",
-      desc: "Essential knowledge for parents and educators to protect children in digital environments."
-    },
-    {
-      date: "December 17, 2026",
-      title: "Secure Online Banking and Financial Transactions",
-      desc: "Learn how to secure your financial activities online and prevent fraud."
-    }
-  ];
-
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">

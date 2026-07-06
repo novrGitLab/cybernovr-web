@@ -11,6 +11,7 @@ export interface BlogPost {
   author: string;
   authorRole: string;
   date: string;
+  isoDate: string;
   category: string;
   description: string;
   image: { src: string; alt: string };
@@ -24,6 +25,7 @@ export const blogPosts: BlogPost[] = [
     author: "Kazeem Durodoye",
     authorRole: "PhD | FNCS",
     date: "12th June, 2025",
+    isoDate: "2025-06-12",
     category: "Critical Infrastructure",
     description:
       "Nigeria\u2019s 5G deployment is driving the need for resilience among industry, academia, and government. This article explores the security challenges and attack vectors facing 5G critical infrastructure.",
