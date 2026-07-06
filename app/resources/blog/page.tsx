@@ -8,11 +8,11 @@ export default function ResourcesBlogPage() {
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
           OUR CYBERSECURITY OPINION CORNER
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">Corporate Blog</h1>
-        <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">Corporate Blog</h1>
+        <p className="text-zinc-600 text-sm md:text-xl leading-relaxed font-normal">
           In-depth technical papers, analytical deep-dives, and research writeups maintained by our experts.
         </p>
       </div>
@@ -25,16 +25,16 @@ export default function ResourcesBlogPage() {
                 <FileText className="h-5 w-5" />
               </div>
               <div>
-                <span className="inline-block font-mono text-[9px] font-black tracking-widest uppercase text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded mb-2">{post.category}</span>
-                <h3 className="text-base font-bold text-zinc-900 leading-snug group-hover:text-red-700 transition-colors uppercase tracking-tight">{post.title}</h3>
-                <div className="flex items-center gap-4 text-[10px] font-mono font-bold text-zinc-400 mt-2">
+                <span className="inline-block font-mono text-sm font-black tracking-widest uppercase text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded mb-2">{post.category}</span>
+                <h3 className="text-lg font-bold text-zinc-900 leading-snug group-hover:text-red-700 transition-colors uppercase tracking-tight">{post.title}</h3>
+                <div className="flex items-center gap-4 text-sm font-mono font-bold text-zinc-400 mt-2">
                   <span className="flex items-center gap-1"><User className="h-3 w-3" /> {post.author}</span>
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {post.date}</span>
                 </div>
-                <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-4 font-normal">{post.description}</p>
+                <p className="text-zinc-600 text-xs md:text-base leading-relaxed mt-4 font-normal">{post.description}</p>
               </div>
             </div>
-            <Link href={`/resources/blog/${post.slug}`} className="w-full bg-zinc-900 hover:bg-zinc-800 text-white py-3 rounded-lg text-xs font-black tracking-widest uppercase transition-all font-mono flex items-center justify-center gap-1.5">
+            <Link href={`/resources/blog/${post.slug}`} className="w-full bg-zinc-900 hover:bg-zinc-800 text-white py-3 rounded-lg text-base font-black tracking-widest uppercase transition-all font-mono flex items-center justify-center gap-1.5">
               Read Full Post <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </article>
