@@ -881,35 +881,33 @@ export default function Home() {
       {/* Subscription Modal Box Portal Trigger */}
       {isAlertModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-purple-950 border border-purple-800 text-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
-            <button
-              onClick={() => setIsAlertModalOpen(false)}
-              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
-            >
-              <X className="h-5 w-5" />
-            </button>
+          <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl relative text-left overflow-hidden">
+            <div className="bg-zinc-950 px-8 py-6 flex items-start justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-black uppercase tracking-tight text-white">
+                  NovrALERT
+                </h3>
+                <p className="text-xs text-zinc-400 italic font-medium">
+                  Intelligence feeds will route directly through{" "}
+                  <span className="font-mono text-red-400">
+                    {COMPANY_CONTACTS.emails.alerts}
+                  </span>
+                  .
+                </p>
+              </div>
+              <button
+                onClick={() => setIsAlertModalOpen(false)}
+                className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
 
-            {!subscriptionSuccess ? (
-              <>
-                <div className="space-y-2">
-                  <div className="w-10 h-10 bg-red-600/10 border border-red-500/30 rounded-xl flex items-center justify-center text-red-500">
-                    <Bell className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-lg font-black uppercase tracking-tight pt-1">
-                    NovrALERT
-                  </h3>
-                  <p className="text-xs text-purple-200 leading-relaxed font-medium">
-                    Intelligence feeds will route directly through{" "}
-                    <span className="font-mono text-red-400">
-                      {COMPANY_CONTACTS.emails.alerts}
-                    </span>
-                    .
-                  </p>
-                </div>
-
+            <div className="p-8">
+              {!subscriptionSuccess ? (
                 <form onSubmit={handleAlertSubscription} className="space-y-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-purple-300 font-mono">
+                    <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email
                     </label>
                     <input
@@ -918,7 +916,7 @@ export default function Home() {
                       value={subscriberEmail}
                       onChange={(e) => setSubscriberEmail(e.target.value)}
                       required
-                      className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                     />
                   </div>
                   <button
@@ -928,18 +926,18 @@ export default function Home() {
                     Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" />
                   </button>
                 </form>
-              </>
-            ) : (
-              <div className="py-8 text-center flex flex-col items-center justify-center space-y-3 animate-fadeIn">
-                <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-                <h3 className="text-base font-black uppercase tracking-wider">
-                  Subscription Successful
-                </h3>
-                <p className="text-xs text-purple-200 max-w-xs mx-auto font-medium">
-                  Threat feed monitoring pipelines are initializing.
-                </p>
-              </div>
-            )}
+              ) : (
+                <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+                  <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">
+                    Subscription Successful
+                  </h4>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
+                    Threat feed monitoring pipelines are initializing.
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

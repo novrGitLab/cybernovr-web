@@ -109,7 +109,7 @@ export default function NavigationAndConsent() {
           {/* Action CTAs Cluster */}
           <div className="hidden lg:flex items-center gap-5 ml-6">
             
-            <Link href="/incident-response" className={`border-2 px-4 py-2 text-xs font-black tracking-widest rounded-md uppercase transition-all shadow-sm text-center whitespace-nowrap ${
+            <Link href="/incident-response" className={`border-2 px-4 h-9 text-xs font-black tracking-widest rounded-md uppercase transition-all shadow-sm text-center whitespace-nowrap flex items-center ${
               isActive("/incident-response")
                 ? "bg-red-600 text-white border-red-600"
                 : "border-red-600 bg-red-50 text-red-700 hover:bg-red-600 hover:text-white"
@@ -123,7 +123,7 @@ export default function NavigationAndConsent() {
               onMouseEnter={() => setIsAcademyDropdownOpen(true)}
               onMouseLeave={() => setIsAcademyDropdownOpen(false)}
             >
-              <button className={`px-4 py-2 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 h-11 whitespace-nowrap ${
+              <button className={`px-4 h-9 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 isAcademyActive
                   ? "bg-primary text-white brightness-110"
                   : "bg-primary text-white hover:brightness-110 active:scale-95"
