@@ -70,12 +70,13 @@ export default function Home() {
   const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
 
   const flashCards = [
-    ...blogPosts.map(post => ({ tag: "Blog" as const, title: post.title, date: post.date, sortDate: post.isoDate, path: `/resources/blog/${post.slug}` })),
-    ...newsBriefs.map(news => ({ tag: "News" as const, title: news.title, date: news.date, sortDate: news.date, path: "/resources/news" })),
-    ...events.map(evt => ({ tag: "Event" as const, title: evt.title, date: evt.date, sortDate: evt.date, path: "/resources/events" })),
-    ...webinars.map(web => ({ tag: "Webinar" as const, title: web.title, date: web.date, sortDate: web.isoDate, path: "/resources/webiner" })),
+    blogPosts[0] && { tag: "Blog" as const, title: blogPosts[0].title, date: blogPosts[0].date, sortDate: blogPosts[0].isoDate, path: `/resources/blog/${blogPosts[0].slug}` },
+    newsBriefs[0] && { tag: "News" as const, title: newsBriefs[0].title, date: newsBriefs[0].date, sortDate: newsBriefs[0].date, path: "/resources/news" },
+    events[0] && { tag: "Event" as const, title: events[0].title, date: events[0].date, sortDate: events[0].date, path: "/resources/events" },
+    webinars[0] && { tag: "Webinar" as const, title: webinars[0].title, date: webinars[0].date, sortDate: webinars[0].isoDate, path: "/resources/webiner" },
   ]
-    .sort((a, b) => new Date(b.sortDate).getTime() - new Date(a.sortDate).getTime())
+    .filter(Boolean)
+    .sort((a, b) => new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime())
     .slice(0, 4);
 
   useEffect(() => {

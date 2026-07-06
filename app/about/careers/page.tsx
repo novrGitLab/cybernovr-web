@@ -50,7 +50,7 @@ export default function CorporateCareersPage() {
       </section>
 
       {/* Updated Module: Open Vacancies */}
-      <section className="space-y-6 text-left">
+      <section id="hiring" className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
           <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
         </div>

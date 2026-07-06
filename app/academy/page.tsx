@@ -127,6 +127,7 @@ export default function CybernovrAcademyPage() {
               Comprehensive cybersecurity education and awareness program
             </p>
           </div>
+          
           <div className="grid grid-cols-2 gap-4 border-t border-purple-900/30 pt-4 font-mono relative z-10">
             <div>
               <p className="text-2xl font-black text-white">12</p>
@@ -137,7 +138,9 @@ export default function CybernovrAcademyPage() {
               <p className="text-[9px] uppercase tracking-widest text-purple-300 font-bold">Nigerians Trained</p>
             </div>
           </div>
+          
         </div>
+        
       </section>
 
       {/* Pricing Card */}
@@ -174,25 +177,6 @@ export default function CybernovrAcademyPage() {
           </div>
         </div>
       </section>
-
-      {/* Centralized Impact Console Callout Section Card */}
-      <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
-        <div className="space-y-1">
-          <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
-            Centralized CEAP Impact Analytics
-          </h4>
-          <p className="text-xs text-zinc-500 font-medium">
-            Visit our strategic impact dashboard.
-          </p>
-        </div>
-        <Link 
-          href="/impact-dashboard" 
-          className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg text-center transition-all whitespace-nowrap shadow-sm font-mono flex items-center justify-center gap-2 group"
-        >
-          Visit Impact Dashboard <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </Link>
-      </div>
 
       {/* Course Curriculum Architecture Section */}
       <section className="space-y-6 text-left">
@@ -240,6 +224,25 @@ export default function CybernovrAcademyPage() {
           })}
         </div>
       </section>
+
+      {/* Centralized Impact Console Callout Section Card */}
+      <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
+        <div className="space-y-1">
+          <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+            Centralized CEAP Impact Analytics
+          </h4>
+          <p className="text-xs text-zinc-500 font-medium">
+            Visit our strategic impact dashboard.
+          </p>
+        </div>
+        <Link 
+          href="/impact-dashboard" 
+          className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg text-center transition-all whitespace-nowrap shadow-sm font-mono flex items-center justify-center gap-2 group"
+        >
+          Visit Impact Dashboard <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+      </div>
 
       {/* Live Lab Sandbox Panel */}
       <section className="bg-zinc-950 text-white rounded-2xl overflow-hidden border border-zinc-900 shadow-2xl grid grid-cols-1 lg:grid-cols-12 items-stretch text-left">
