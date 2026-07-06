@@ -16,7 +16,7 @@ export default function CorporateAboutHub() {
       title: "Careers",
       subtitle: "Open Vacancies",
       desc: "We welcome you to the world of possibilities, where we give you all the freedom to achieve your best",
-      link: "/about/careers",
+      link: "/about/careers#hiring",
       icon: Briefcase
     }
   ];

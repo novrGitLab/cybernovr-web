@@ -7,18 +7,6 @@ export interface Webinar {
 
 export const webinars: Webinar[] = [
   {
-    date: "May 21, 2026",
-    title: "Protection against Election",
-    desc: "Discover how to identify and counter digital election interference tactics.",
-    isoDate: "2026-05-21"
-  },
-  {
-    date: "June 18, 2026",
-    title: "Cybersecurity and Data Privacy",
-    desc: "Learn about the latest trends in cybersecurity and data privacy protection strategies.",
-    isoDate: "2026-06-18"
-  },
-  {
     date: "July 23, 2026",
     title: "Pandemic-induced Cyberthreats Awareness",
     desc: "Understanding the evolving cyberthreats that emerged during global health crises.",
