@@ -50,11 +50,11 @@ export default function ResourcesGalleryPage() {
 
       {/* Header */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
           Photo &amp; Video Gallery
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">Gallery</h1>
-        <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">Gallery</h1>
+        <p className="text-zinc-600 text-sm md:text-xl leading-relaxed font-normal">
           A visual showcase of our events, training sessions, and cybersecurity initiatives.
         </p>
       </div>
@@ -69,7 +69,7 @@ export default function ResourcesGalleryPage() {
           <button
             key={tab.key}
             onClick={() => { setFilter(tab.key); setLightboxIndex(null); }}
-            className={`px-5 py-2.5 rounded-md text-xs font-black uppercase tracking-wider transition-all border ${
+            className={`px-5 py-2.5 rounded-md text-base font-black uppercase tracking-wider transition-all border ${
               filter === tab.key
                 ? "bg-red-600 border-red-600 text-white shadow-sm"
                 : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:bg-zinc-100"

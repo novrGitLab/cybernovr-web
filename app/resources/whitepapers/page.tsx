@@ -27,11 +27,11 @@ export default function ResourcesWhitePapersPage() {
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
           INDUSTRY LEADING WHITEPAPERS
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">White Papers</h1>
-        <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">White Papers</h1>
+        <p className="text-zinc-600 text-sm md:text-xl leading-relaxed font-normal">
           Read or download whitepapers to stay ahead of emerging threats and industry trends.
         </p>
       </div>
@@ -46,11 +46,11 @@ export default function ResourcesWhitePapersPage() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-zinc-900 mb-2 uppercase tracking-tight leading-snug">{paper.title}</h3>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">{paper.desc}</p>
+                  <h3 className="text-lg font-bold text-zinc-900 mb-2 uppercase tracking-tight leading-snug">{paper.title}</h3>
+                  <p className="text-zinc-600 text-xs md:text-base leading-relaxed font-normal">{paper.desc}</p>
                 </div>
               </div>
-              <a href={paper.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-xs uppercase tracking-wider transition-all font-mono group/btn self-start">
+              <a href={paper.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-sm uppercase tracking-wider transition-all font-mono group/btn self-start">
                 Download White Paper <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
               </a>
             </div>
