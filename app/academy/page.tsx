@@ -143,6 +143,25 @@ export default function CybernovrAcademyPage() {
         
       </section>
 
+      {/* Centralized Impact Console Callout Section Card */}
+      <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
+        <div className="space-y-1">
+          <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+            Centralized CEAP Impact Analytics
+          </h4>
+          <p className="text-xs text-zinc-500 font-medium">
+            Visit our strategic impact dashboard.
+          </p>
+        </div>
+        <Link 
+          href="/impact-dashboard" 
+          className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg text-center transition-all whitespace-nowrap shadow-sm font-mono flex items-center justify-center gap-2 group"
+        >
+          Visit Impact Dashboard <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+      </div>
+
       {/* Pricing Card */}
       <section className="bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl p-8 md:p-12 shadow-sm text-left">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -152,8 +171,8 @@ export default function CybernovrAcademyPage() {
               Join hundreds of students who have transformed their careers with our Cybersecurity Education and Awareness Program (CEAP) course.
             </p>
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-black text-red-700">₦80,000</span>
-              <span className="text-lg text-zinc-400 line-through">₦100,000</span>
+              <span className="text-3xl font-black text-red-700">₦100,000</span>
+              <span className="text-lg text-zinc-400 line-through">₦120,000</span>
             </div>
             <div className="flex flex-wrap gap-4 text-xs font-mono text-zinc-500 font-bold">
               <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> Duration: 4 weeks</span>
@@ -224,25 +243,6 @@ export default function CybernovrAcademyPage() {
           })}
         </div>
       </section>
-
-      {/* Centralized Impact Console Callout Section Card */}
-      <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
-        <div className="space-y-1">
-          <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
-            Centralized CEAP Impact Analytics
-          </h4>
-          <p className="text-xs text-zinc-500 font-medium">
-            Visit our strategic impact dashboard.
-          </p>
-        </div>
-        <Link 
-          href="/impact-dashboard" 
-          className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg text-center transition-all whitespace-nowrap shadow-sm font-mono flex items-center justify-center gap-2 group"
-        >
-          Visit Impact Dashboard <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </Link>
-      </div>
 
       {/* Live Lab Sandbox Panel */}
       <section className="bg-zinc-950 text-white rounded-2xl overflow-hidden border border-zinc-900 shadow-2xl grid grid-cols-1 lg:grid-cols-12 items-stretch text-left">
