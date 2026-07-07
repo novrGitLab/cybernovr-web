@@ -4,7 +4,7 @@ import { Briefcase, Eye, Target, BookmarkCheck } from "lucide-react";
 
 export default function CorporateCareersPage() {
   const organizationalValues = [
-    { title: "Customer Delight", desc: "Committed to absolute satisfaction — we won&apos;t stop until clients are delighted and their critical infrastructure metrics are protected.", icon: BookmarkCheck },
+    { title: "Customer Delight", desc: "Committed to absolute satisfaction — we won't stop until clients are delighted and their critical infrastructure is protected.", icon: BookmarkCheck },
     { title: "Integrity", desc: "Unwavering honesty and transparent architectural metrics with clients and internally.", icon: Target },
     { title: "Innovation", desc: "Relentless innovation; cutting-edge solutions, sandboxed lab environments, and continuous technical capacity learning.", icon: Eye },
     { title: "People", desc: "Our team is the driving force; we nurture the highest technical quality standards across engineering operations.", icon: Briefcase },
