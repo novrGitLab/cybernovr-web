@@ -699,7 +699,7 @@ export default function Home() {
       <section className="py-12 bg-white text-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto rounded-xl border border-zinc-200 shadow-sm overflow-hidden relative">
         <div className="space-y-6">
           <div className="space-y-1.5">
-            <h2 className="text-3xl font-black text-zinc-950 uppercase tracking-tight">
+            <h2 className="text-xl md:text-3xl font-black text-zinc-950 uppercase tracking-tight">
               Our Global Partners
             </h2>
             <p className="text-zinc-500 max-w-xl mx-auto text-[13px] md:text-[15px] font-medium">
