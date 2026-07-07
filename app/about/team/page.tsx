@@ -1,8 +1,24 @@
 "use client";
-import React from "react";
+import React, { Suspense, useEffect } from "react";
 import { ShieldCheck, GraduationCap } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
-export default function TheTeamPage() {
+function TheTeamContent() {
+  const searchParams = useSearchParams();
+  const person = searchParams.get("person");
+
+  useEffect(() => {
+    if (person) {
+      const el = document.getElementById(person);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add("ring-2", "ring-red-600", "ring-offset-2");
+        setTimeout(() => {
+          el.classList.remove("ring-2", "ring-red-600", "ring-offset-2");
+        }, 2000);
+      }
+    }
+  }, [person]);
   // STRICTLY THREE EXECUTIVE ENTRIES
   const corporateArchitects = [
     {
@@ -49,6 +65,17 @@ export default function TheTeamPage() {
       img: "worker-3.jpeg",
       type: "executive",
     },
+    {
+      name: "Chiamaka Prisca",
+      role: "CEAP Manager, Novr Academy",
+      label: "Academy Operations",
+      about:
+        "Manages the Cybersecurity Education and Awareness Program (CEAP) at Novr Academy, overseeing curriculum delivery and student engagement.",
+      certs:
+        "Program Management · Cybersecurity Education · Curriculum Development · Stakeholder Engagement",
+      img: "intern-2.jpg",
+      type: "executive",
+    },
   ];
 
   // STRICTLY THREE INTERN ENTRIES
@@ -77,12 +104,6 @@ export default function TheTeamPage() {
       img: "worker-6.jpeg",
       label: "Security",
     },
-    {
-      name: "Chiamaka Prisca",
-      role: "CEAP Manager, Novr Academy",
-      img: "intern-2.jpg",
-      label: "Engineering",
-    },
   ];
 
   return (
@@ -109,6 +130,7 @@ export default function TheTeamPage() {
           {corporateArchitects.map((member, i) => (
             <div
               key={i}
+              id={member.name}
               className="p-5 bg-purple-950/[0.01] border border-purple-900/5 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 shadow-sm group hover:border-purple-900/10"
             >
               <div className="space-y-4">
@@ -173,6 +195,7 @@ export default function TheTeamPage() {
           {interns.map((member, i) => (
             <div
               key={i}
+              id={member.name}
               className="p-5 bg-purple-950/[0.01] border border-purple-900/5 rounded-xl flex flex-col justify-between space-y-4 transition-all duration-300 shadow-sm group hover:border-purple-900/10"
             >
               <div className="space-y-4">
@@ -213,5 +236,13 @@ export default function TheTeamPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function TheTeamPage() {
+  return (
+    <Suspense>
+      <TheTeamContent />
+    </Suspense>
   );
 }

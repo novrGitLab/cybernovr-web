@@ -96,7 +96,7 @@ export default function NavigationAndConsent() {
                 <div className="absolute top-full left-0 mt-0 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-48 text-left animate-fadeIn">
                   <Link className={dropdownLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
                   <Link className={dropdownLinkClass("/resources/news")} href="/resources/news">News</Link>
-                  <Link className={dropdownLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
+                  <Link className={dropdownLinkClass("/resources/webinar")} href="/resources/webinar">Webinars</Link>
                   <Link className={dropdownLinkClass("/resources/gallery")} href="/resources/gallery">Gallery</Link>
                   <Link className={dropdownLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
                 </div>
@@ -123,15 +123,29 @@ export default function NavigationAndConsent() {
               onMouseEnter={() => setIsAcademyDropdownOpen(true)}
               onMouseLeave={() => setIsAcademyDropdownOpen(false)}
             >
-              <button className={`px-4 h-9 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 whitespace-nowrap ${
-                isAcademyActive
-                  ? "bg-primary text-white brightness-110"
-                  : "bg-primary text-white hover:brightness-110 active:scale-95"
-              }`}>
+              <button 
+                onClick={() => setIsAcademyDropdownOpen(!isAcademyDropdownOpen)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setIsAcademyDropdownOpen(!isAcademyDropdownOpen);
+                  } else if (e.key === "Escape") {
+                    setIsAcademyDropdownOpen(false);
+                  }
+                }}
+                aria-expanded={isAcademyDropdownOpen}
+                aria-haspopup="true"
+                className={`px-4 h-9 text-xs font-black tracking-widest rounded-md uppercase transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                  isAcademyActive
+                    ? "bg-primary text-white brightness-110"
+                    : "bg-primary text-white hover:brightness-110 active:scale-95"
+                }`}
+              >
                 Novr Academy <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
               </button>
+              <div className="absolute top-full left-0 w-full h-2" />
               {isAcademyDropdownOpen && (
-                <div className="absolute top-11 right-0 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-56 text-left z-50 animate-fadeIn">
+                <div className="absolute top-full right-0 mt-2 bg-white border border-outline-variant/30 shadow-xl rounded-lg py-3 w-56 text-left z-50 animate-fadeIn">
                   <Link className={dropdownLinkClassBold("/academy")} href="/academy">
                      CEAP
                   </Link>
@@ -176,7 +190,7 @@ export default function NavigationAndConsent() {
                 <div className="space-y-2 pl-2 mt-2 border-l border-outline-variant">
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/blog")} href="/resources/blog">Blog</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/news")} href="/resources/news">News</Link>
-                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/webiner")} href="/resources/webiner">Webinars</Link>
+                  <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/webinar")} href="/resources/webinar">Webinars</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/gallery")} href="/resources/gallery">Gallery</Link>
                   <Link onClick={() => setIsMobileMenuOpen(false)} className={mobileSubLinkClass("/resources/whitepapers")} href="/resources/whitepapers">White Papers</Link>
                 </div>
@@ -203,6 +217,24 @@ export default function NavigationAndConsent() {
           </div>
         )}
       </nav>
+
+      {/* Cookie Consent Banner */}
+      {showCookies && (
+        <div className="fixed bottom-0 left-0 w-full z-50 bg-zinc-900 border-t border-zinc-800 shadow-2xl">
+          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-xs text-zinc-400 leading-relaxed max-w-2xl">
+              We use cookies to enhance your experience and analyze site traffic. By clicking &quot;Accept&quot;, you consent to our use of cookies. Learn more in our{" "}
+              <Link href="/cookies" className="text-red-400 hover:text-red-300 underline font-bold">Cookie Policy</Link>.
+            </p>
+            <button
+              onClick={acceptCookies}
+              className="flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-md transition-all shadow-md"
+            >
+              Accept
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

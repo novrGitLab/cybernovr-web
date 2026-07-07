@@ -93,7 +93,7 @@ export default function CybernovrAcademyPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-16 bg-white text-zinc-900 antialiased">
       {/* Hero Module Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-200 pb-12 text-left">
-        <div className="lg:col-span-8 space-y-4">
+        <div className="lg:col-span-7 space-y-4">
           <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
             CYBERNOVR CAPACITY BUILDING PROGRAMME
           </span>
@@ -129,8 +129,8 @@ export default function CybernovrAcademyPage() {
             </Link>
           </div>
         </div>
-        <div className="lg:col-span-4">
-          <div className="lg:col-span-4 bg-purple-950 text-white p-8 rounded-xl shadow-xl flex flex-col justify-between space-y-6 border border-purple-900/40 relative overflow-hidden">
+        <div className="lg:col-span-5">
+          <div className="bg-purple-950 text-white p-8 rounded-xl shadow-xl flex flex-col justify-between space-y-6 border border-purple-900/40 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10">
               <GraduationCap className="h-10 w-10 text-red-500" />
@@ -210,14 +210,12 @@ export default function CybernovrAcademyPage() {
                 <Award className="h-3 w-3" /> Lessons: 19
               </span>
             </div>
-            <a
-              href="https://www.cybernovr.com/courses/enroll?course=68ce2cd9a05a4b67aa4d8e2d"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/academy/enroll"
               className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
             >
               Enroll Now <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
           <div className="space-y-3">
             <h4 className="text-base font-bold text-zinc-900 uppercase tracking-tight">
@@ -361,10 +359,10 @@ export default function CybernovrAcademyPage() {
       {/* Academy Enrollment Intake Block Sheet */}
       <section className="bg-purple-950/[0.01] border-2 border-purple-900/5 rounded-2xl p-8 md:p-12 max-w-3xl mx-auto shadow-sm text-left">
         <div className="text-center space-y-2 mb-8">
-          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight text-zinc-900 uppercase">
             Start Your Cybersecurity Journey Today
           </h2>
-          <p className="text-xs text-zinc-500 max-w-md mx-auto font-medium">
+          <p className="text-sm text-zinc-500 max-w-md mx-auto font-medium">
             Join hundreds of students who have transformed their careers with
             our CEAP course.
           </p>
@@ -391,7 +389,7 @@ export default function CybernovrAcademyPage() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Applicant Full Name *
                 </label>
                 <input
@@ -402,7 +400,7 @@ export default function CybernovrAcademyPage() {
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Email *
                 </label>
                 <input
@@ -415,7 +413,7 @@ export default function CybernovrAcademyPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   School / Organization *
                 </label>
                 <input
@@ -426,7 +424,7 @@ export default function CybernovrAcademyPage() {
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Phone Number *
                 </label>
                 <input
@@ -455,7 +453,7 @@ export default function CybernovrAcademyPage() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-400 font-mono uppercase tracking-wider block">
+              <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider block">
                 Comment
               </label>
               <textarea
@@ -466,7 +464,7 @@ export default function CybernovrAcademyPage() {
             </div>
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-xs font-mono"
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-base font-mono"
             >
               Submit Enrollment Request
             </button>
