@@ -18,11 +18,11 @@ export default function CorporateCareersPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch text-left">
         <div className="bg-purple-950/[0.02] border border-purple-900/10 p-8 rounded-xl flex flex-col justify-center space-y-3 shadow-sm">
           <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Our Vision Blueprint</h2>
-          <h3 className="text-xl md:text-2xl font-bold text-zinc-900 leading-tight uppercase tracking-tight">To achieve resilience of your Critical Information Infrastructure.</h3>
+          <h3 className="text-lg md:text-xl font-bold text-zinc-900 leading-tight uppercase tracking-tight">To achieve resilience of your Critical Information Infrastructure.</h3>
         </div>
         <div className="bg-purple-950/[0.02] border border-purple-900/10 p-8 rounded-xl flex flex-col justify-center space-y-3 shadow-sm">
           <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400 font-mono">Our Mission Objective</h2>
-          <p className="text-xs md:text-sm text-zinc-600 leading-relaxed font-medium">
+          <p className="text-[11px] md:text-[13px] text-zinc-600 leading-relaxed font-medium">
             To work with you to strengthen the resilience of your information assets. We will pinpoint your unique risks, prioritise your defences and help you achieve cybersecurity resilience of your critical services. These, we will deliver to your delight.
           </p>
         </div>
@@ -31,7 +31,7 @@ export default function CorporateCareersPage() {
       {/* Module: Core Cultural Values */}
       <section className="space-y-8 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Our Corporate Values</h2>
+          <h2 className="text-[15px] font-black uppercase tracking-widest text-zinc-400">Our Corporate Values</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {organizationalValues.map((val, idx) => {
@@ -41,8 +41,8 @@ export default function CorporateCareersPage() {
                 <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h4 className="text-base font-bold text-zinc-900 tracking-tight">{val.title}</h4>
-                <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">{val.desc}</p>
+                <h4 className="text-[15px] font-bold text-zinc-900 tracking-tight">{val.title}</h4>
+                <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed font-normal">{val.desc}</p>
               </div>
             );
           })}
@@ -52,12 +52,12 @@ export default function CorporateCareersPage() {
       {/* Updated Module: Open Vacancies */}
       <section id="hiring" className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
+          <h2 className="text-[15px] font-black uppercase tracking-widest text-zinc-400">We Are Hiring</h2>
         </div>
         
         <div className="p-8 border-2 border-purple-900/10 rounded-xl bg-purple-950/[0.02] space-y-4">
           <div className="space-y-1">
-            <h4 className="text-base font-bold text-zinc-900 uppercase tracking-wide">Head, Business Development</h4>
+            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">Head, Business Development</h4>
             <p className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase">Full-Time · Lagos, Nigeria</p>
           </div>
           <p className="text-xs text-zinc-600 leading-relaxed font-medium">
