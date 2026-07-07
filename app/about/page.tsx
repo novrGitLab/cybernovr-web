@@ -47,6 +47,12 @@ export default function CorporateAboutHub() {
       bio: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
       img: "worker-3.jpeg",
     },
+    {
+      name: "Chiamaka Prisca",
+      role: "CEAP Manager, Novr Academy",
+      bio: "Manages the Cybersecurity Education and Awareness Program (CEAP) at Novr Academy, overseeing curriculum delivery and student engagement.",
+      img: "intern-2.jpg",
+    },
   ];
 
   const interns = [
@@ -54,7 +60,6 @@ export default function CorporateAboutHub() {
     { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" },
     { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg" },
     { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg" },
-    { name: "Chiamaka Prisca", role: "CEAP Manager, Novr Academy", img: "intern-2.jpg" }
   ];
 
   return (
@@ -200,9 +205,10 @@ export default function CorporateAboutHub() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {workers.map((member, i) => (
-              <div
+              <Link
+                href={`/about/team?person=${encodeURIComponent(member.name)}`}
                 key={i}
-                className="p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300"
+                className="block p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300 cursor-pointer"
               >
                 <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative">
                   <img
@@ -235,7 +241,7 @@ export default function CorporateAboutHub() {
                     {member.bio}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -249,9 +255,10 @@ export default function CorporateAboutHub() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {interns.map((member, i) => (
-              <div
+              <Link
+                href={`/about/team?person=${encodeURIComponent(member.name)}`}
                 key={i}
-                className="p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300"
+                className="block p-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl space-y-4 hover:border-purple-900/30 transition-all duration-300 cursor-pointer"
               >
                 <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative">
                   <img
@@ -281,7 +288,7 @@ export default function CorporateAboutHub() {
                     {member.role}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

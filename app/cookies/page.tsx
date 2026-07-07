@@ -12,11 +12,11 @@ export default function CookiePolicyPage() {
 
         {/* Header */}
         <div className="border-b border-zinc-200 pb-8">
-          <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+          <span className="inline-block font-mono text-red-700 text-sm font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
             Legal
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">Cookie Policy</h1>
-          <p className="text-zinc-500 text-sm font-medium">Last updated: May 18, 2025</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">Cookie Policy</h1>
+          <p className="text-zinc-500 text-base font-medium">Last updated: May 18, 2025</p>
         </div>
 
         {/* Intro */}
@@ -134,7 +134,7 @@ export default function CookiePolicyPage() {
 
         {/* Back link */}
         <div className="pt-6 border-t border-zinc-200">
-          <Link href="/" className="text-red-700 hover:text-red-600 font-bold uppercase text-xs tracking-widest font-mono">
+          <Link href="/" className="text-red-700 hover:text-red-600 font-bold uppercase text-sm tracking-widest font-mono">
             &larr; Back to Home
           </Link>
         </div>

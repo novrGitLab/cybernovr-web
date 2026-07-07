@@ -12,11 +12,11 @@ export default function PrivacyPolicyPage() {
 
         {/* Header */}
         <div className="border-b border-zinc-200 pb-8">
-          <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+          <span className="inline-block font-mono text-red-700 text-sm font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
             Legal
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">Privacy Policy</h1>
-          <p className="text-zinc-500 text-sm font-medium">Last updated: May 18, 2025</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">Privacy Policy</h1>
+          <p className="text-zinc-500 text-base font-medium">Last updated: May 18, 2025</p>
         </div>
 
         {/* Intro */}
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
         {/* How We Use Your Information */}
         <section className="space-y-4">
           <h2 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">How We Use Your Information</h2>
-          <ul className="list-disc list-inside text-sm text-zinc-600 leading-relaxed space-y-2">
+          <ul className="list-disc pl-5 text-sm text-zinc-600 leading-relaxed space-y-2">
             <li>Provide, operate, and maintain our website</li>
             <li>Improve, personalize, and expand our website to better serve you</li>
             <li>Understand and analyze how you use our website</li>
@@ -138,11 +138,11 @@ export default function PrivacyPolicyPage() {
           </p>
           <div className="text-sm text-zinc-600 leading-relaxed space-y-1">
             <p><strong>Email:</strong> info@cybernovr.com</p>
-            <p><strong>Tel Number (Nigeria):</strong> +234 814-378-8857</p>
+            <p><strong>Tel Number (Nigeria):</strong> +234-809-812-0000</p>
             <p><strong>Mailing Address:</strong></p>
-            <p>7 Ayinde Sanni Street, Magodo GRA, Shangisha, Lagos</p>
+            <p>17 Sunday Adigun Street, Alausa, Ikeja, Lagos, Nigeria</p>
             <p className="pt-2"><strong>ATTN: Data Protection Officer (Privacy Team Lead)</strong></p>
-            <p>7 Ayinde Sanni Street, Magodo GRA, Shangisha, Lagos</p>
+            <p>17 Sunday Adigun Street, Alausa, Ikeja, Lagos, Nigeria</p>
           </div>
         </section>
 
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-4">
           <h2 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Accessibility</h2>
           <p className="text-sm text-zinc-600 leading-relaxed">
-            If you are unable to access our form, you can request a copy in an alternative format by calling +234 814-378-8857 (Nigeria) or by emailing info@cybernovr.com
+            If you are unable to access our form, you can request a copy in an alternative format by calling +234-809-812-0000 (Nigeria) or by emailing info@cybernovr.com
           </p>
         </section>
 
@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
 
         {/* Back link */}
         <div className="pt-6 border-t border-zinc-200">
-          <Link href="/" className="text-red-700 hover:text-red-600 font-bold uppercase text-xs tracking-widest font-mono">
+          <Link href="/" className="text-red-700 hover:text-red-600 font-bold uppercase text-sm tracking-widest font-mono">
             &larr; Back to Home
           </Link>
         </div>

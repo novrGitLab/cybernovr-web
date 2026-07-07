@@ -210,7 +210,7 @@ export default function AssessmentsMasterPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">REGULATORY COMPLIANCE MATRIX</h3>
-                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">REGULATORY COMPLIANCE MATRIX</p>
+                  <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">COMPLIANCE FRAMEWORK ASSESSMENT</p>
                   <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
                     Conduct cyber resilience of your infrastructure against global and domestic frameworks.
                   </p>

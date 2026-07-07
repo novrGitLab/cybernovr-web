@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
-import { webinars } from "./resources/webiner/data";
+import { webinars } from "./resources/webinar/data";
 
 export default function Home() {
   const [selectedIndustry, setSelectedIndustry] = useState(0);
@@ -63,8 +63,8 @@ export default function Home() {
   ];
 
   const activeTestimonials = [
-    { text: "CYBEENOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBEENOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBEENOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBEENOVR for its outstanding commitment to youth development and technology education.", author: "Omoluabi-Okechukwu B.M.", firm: "Principal, Caleb International College" },
-    { text: "The Cybersecurity Program facilitated by Cybervor at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate Cybervor for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with Cybervor on more impactful initiatives in the future.", author: "Mr. Emmanuel Jaiyeoba", firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos" },
+    { text: "CYBERNOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBERNOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBERNOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBERNOVR for its outstanding commitment to youth development and technology education.", author: "Omoluabi-Okechukwu B.M.", firm: "Principal, Caleb International College" },
+    { text: "The Cybersecurity Program facilitated by CYBERNOVR at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate CYBERNOVR for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with CYBERNOVR on more impactful initiatives in the future.", author: "Mr. Emmanuel Jaiyeoba", firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos" },
     { text: "CYBERNOVR has been a trusted partner in strengthening our cybersecurity and compliance efforts. Their expertise in PCI DSS solutions and penetration testing has helped us enhance our security posture with confidence. The team is highly professional, responsive, and committed to delivering practical, high-quality solutions tailored to our needs. We are pleased with the value they bring and confidently recommend CYBERNOVR to any organisation seeking reliable cybersecurity consulting services.", author: "Sheriff Adigun", firm: "PAYCELER, UK" }
   ];
 
@@ -73,7 +73,7 @@ export default function Home() {
   const flashCards = [
     blogPosts[0] && { tag: "Blog" as const, title: blogPosts[0].title, date: blogPosts[0].date, sortDate: blogPosts[0].isoDate, path: `/resources/blog/${blogPosts[0].slug}` },
     newsBriefs[0] && { tag: "News" as const, title: newsBriefs[0].title, date: newsBriefs[0].date, sortDate: newsBriefs[0].date, path: "/resources/news" },
-    webinars[0] && { tag: "Webinar" as const, title: webinars[0].title, date: webinars[0].date, sortDate: webinars[0].isoDate, path: "/resources/webiner" },
+    webinars[0] && { tag: "Webinar" as const, title: webinars[0].title, date: webinars[0].date, sortDate: webinars[0].isoDate, path: "/resources/webinar" },
   ]
     .filter(Boolean)
     .sort((a, b) => new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime())
