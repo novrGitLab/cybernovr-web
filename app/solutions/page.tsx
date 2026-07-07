@@ -204,16 +204,16 @@ export default function SolutionsHubPage() {
             {!formSubmitted ? (
               <>
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">PROFESSIONAL SERVICES</span>
+                  <span className="text-[11px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">PROFESSIONAL SERVICES</span>
                   <h3 className="text-lg font-black uppercase tracking-tight pt-2">REQUEST FOR OUR PROFESSIONAL SERVICES</h3>
-                  <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">
+                  <p className="text-[13px] text-zinc-500 font-medium leading-relaxed">
                     Connect directly to our operations squad. Fill out the fields below to schedule a baseline systems criteria mapping engagement.
                   </p>
                 </div>
 
                 <form onSubmit={handleFormSubmission} className="space-y-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
+                    <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
                     <input 
                       type="text" required placeholder="Your name"
                       value={formData.name} onChange={(e) => setFormFields({...formData, name: e.target.value})}
@@ -223,7 +223,7 @@ export default function SolutionsHubPage() {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
+                      <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
                       <input 
                         type="email" required placeholder="you@company.com"
                         value={formData.email} onChange={(e) => setFormFields({...formData, email: e.target.value})}
@@ -231,7 +231,7 @@ export default function SolutionsHubPage() {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
+                      <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
                       <input 
                         type="tel" required placeholder="Contact Phone Number"
                         inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
@@ -243,7 +243,7 @@ export default function SolutionsHubPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Comments</label>
+                    <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Comments</label>
                     <textarea 
                       rows={3}                       placeholder="How may we help you?"
                       value={formData.notes} onChange={(e) => setFormFields({...formData, notes: e.target.value})}
@@ -253,7 +253,7 @@ export default function SolutionsHubPage() {
 
                   <button 
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
                   >
                     Submit
                   </button>

@@ -843,7 +843,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Let's Secure Your Business
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "In the digital age, resilience isn't an option - it's the
                   foundation of existence."
                 </p>
@@ -960,7 +960,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   NovrALERT
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   Intelligence feeds will route directly through{" "}
                   <span className="font-mono text-red-400">
                     {COMPANY_CONTACTS.emails.alerts}
@@ -1024,7 +1024,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   VAPT Scope Request
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "Know your weaknesses before attackers do."
                 </p>
               </div>
@@ -1167,7 +1167,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Audit &amp; Gap Analysis
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "Compliance readiness and strategy auditing."
                 </p>
               </div>
