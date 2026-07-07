@@ -179,7 +179,7 @@ export default function NavigationAndConsent() {
             <div>
               <button 
                 onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
-                className={`text-sm font-bold transition-colors flex items-center justify-between w-full ${
+                className={`text-base font-bold transition-colors flex items-center justify-between w-full ${
                   isResourcesActive ? "text-primary" : "text-on-surface-variant hover:text-primary"
                 }`}
               >
