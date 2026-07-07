@@ -322,7 +322,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3">
                 <div className="space-y-1.5 flex-1 min-w-0">
                   <span
-                    className={`inline-block font-mono text-sm font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
+                    className={`inline-block font-mono text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
                       flashCards[flashCardIndex].tag === "Blog"
                         ? "bg-purple-950/[0.05] border-purple-900/20 text-purple-700"
                         : flashCards[flashCardIndex].tag === "News"
@@ -332,10 +332,10 @@ export default function Home() {
                   >
                     {flashCards[flashCardIndex].tag}
                   </span>
-                  <p className="text-[15px] font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
+                  <p className="text-[13px] font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
                     {flashCards[flashCardIndex].title}
                   </p>
-                  <p className="font-mono text-sm text-zinc-400 font-bold tracking-wider uppercase">
+                  <p className="font-mono text-[11px] text-zinc-400 font-bold tracking-wider uppercase">
                     {flashCards[flashCardIndex].date}
                   </p>
                 </div>
@@ -349,7 +349,7 @@ export default function Home() {
                     className={`h-1 rounded-full transition-all duration-500 ${i === flashCardIndex ? "w-6 bg-red-600" : "w-2 bg-zinc-200"}`}
                   />
                 ))}
-                <span className="ml-auto font-mono text-xs text-zinc-400 tracking-widest uppercase font-bold">
+                <span className="ml-auto font-mono text-[10px] text-zinc-400 tracking-widest uppercase font-bold">
                   Latest Updates
                 </span>
               </div>
