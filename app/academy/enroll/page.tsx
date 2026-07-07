@@ -142,10 +142,10 @@ export default function AcademyEnrollPage() {
               <Phone className="h-4 w-4 text-red-600" />{" "}
               <strong>Phone Support:</strong>{" "}
               <a
-                href="tel:+2348143788857"
+                href="tel:+2348098120000"
                 className="text-red-700 hover:underline font-bold"
               >
-                +234 814-378-8857
+                +234-809-812-0000
               </a>
             </p>
             <p className="flex items-center gap-2">

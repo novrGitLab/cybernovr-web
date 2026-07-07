@@ -26,7 +26,7 @@ export default function ResourcesWhitePapersPage() {
               <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed font-normal">A comprehensive guide to protecting national critical infrastructure against evolving cyber threats, covering resilience frameworks, risk management strategies, and best practices for securing CNII sectors.</p>
             </div>
           </div>
-          <a href="/whitepapers/building-cyber-resilience-in-national-critical-infrastructure.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-[13px] uppercase tracking-wider transition-all font-mono group/btn self-start">
+          <a href="/assets/whitepapers/building-cyber-resilience-in-national-critical-infrastructure.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-[13px] uppercase tracking-wider transition-all font-mono group/btn self-start">
             Download White Paper <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
           </a>
         </div>
