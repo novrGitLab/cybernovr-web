@@ -194,7 +194,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <div className="lg:col-span-7 space-y-4 text-left">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 tracking-tight leading-none uppercase">
-              Secure Your Digital <br /> Future With us
+              Secure Your <br /> Digital <br /> Future With us
             </h1>
 
             <div className="pt-2 space-y-6">
@@ -458,13 +458,20 @@ export default function Home() {
               <div className="w-full aspect-[5/4] overflow-hidden relative rounded-xl">
                 {carouselImages.map((img, i) => {
                   const isActive = i === carouselIndex;
-                  const isWrapping = prevCarouselIndex === carouselImages.length - 1 && carouselIndex === 0;
+                  const isWrapping =
+                    prevCarouselIndex === carouselImages.length - 1 &&
+                    carouselIndex === 0;
                   return (
-                    <div key={i} className={`absolute inset-0 ${
-                      isWrapping
-                        ? (isActive ? "opacity-100 z-10" : "opacity-0 z-0")
-                        : `transition-opacity duration-700 ${isActive ? "opacity-100 z-10" : "opacity-0 z-0"}`
-                    }`}>
+                    <div
+                      key={i}
+                      className={`absolute inset-0 ${
+                        isWrapping
+                          ? isActive
+                            ? "opacity-100 z-10"
+                            : "opacity-0 z-0"
+                          : `transition-opacity duration-700 ${isActive ? "opacity-100 z-10" : "opacity-0 z-0"}`
+                      }`}
+                    >
                       <img
                         src={img.src}
                         alt={img.alt}
@@ -472,7 +479,9 @@ export default function Home() {
                       />
                       {img.desc && (
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-5">
-                          <p className="text-white text-xs font-bold leading-snug">{img.desc}</p>
+                          <p className="text-white text-xs font-bold leading-snug">
+                            {img.desc}
+                          </p>
                         </div>
                       )}
                     </div>
@@ -985,7 +994,7 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2"
                   >
                     Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" />
                   </button>
