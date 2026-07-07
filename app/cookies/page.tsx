@@ -89,7 +89,7 @@ export default function CookiePolicyPage() {
         <section className="space-y-4">
           <h2 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">How Can You Control Cookies?</h2>
           <p className="text-[13px] text-zinc-600 leading-relaxed">
-            You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the appropriate opt-out links provided in the cookie banner on our website.
+            You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking &quot;Accept&quot; or &quot;Reject All&quot; in the cookie banner on our website.
           </p>
           <p className="text-[13px] text-zinc-600 leading-relaxed">
             You can also set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser to browser, you should visit your browser&apos;s help menu for more information.

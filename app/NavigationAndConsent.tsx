@@ -63,6 +63,11 @@ export default function NavigationAndConsent() {
     setShowCookies(false);
   };
 
+  const rejectCookies = () => {
+    localStorage.setItem("cybernovr_cookie_consent", "rejected");
+    setShowCookies(false);
+  };
+
   return (
     <>
       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20">
@@ -223,15 +228,23 @@ export default function NavigationAndConsent() {
         <div className="fixed bottom-0 left-0 w-full z-50 bg-zinc-900 border-t border-zinc-800 shadow-2xl">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-0 lg:px-margin-desktop py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="text-xs text-zinc-400 leading-relaxed max-w-2xl">
-              We use cookies to enhance your experience and analyze site traffic. By clicking &quot;Accept&quot;, you consent to our use of cookies. Learn more in our{" "}
+              We use cookies to enhance your experience and analyze site traffic. You can accept or reject non-essential cookies. Learn more in our{" "}
               <Link href="/cookies" className="text-red-400 hover:text-red-300 underline font-bold">Cookie Policy</Link>.
             </p>
-            <button
-              onClick={acceptCookies}
-              className="flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-md transition-all shadow-md"
-            >
-              Accept
-            </button>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <button
+                onClick={rejectCookies}
+                className="border border-zinc-600 hover:border-zinc-400 text-zinc-300 text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-md transition-all"
+              >
+                Reject All
+              </button>
+              <button
+                onClick={acceptCookies}
+                className="bg-red-600 hover:bg-red-700 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-md transition-all shadow-md"
+              >
+                Accept
+              </button>
+            </div>
           </div>
         </div>
       )}
