@@ -184,7 +184,7 @@ export default function ContactUsPage() {
         {/* Right Side: Static Information Registry */}
         <div className="lg:col-span-5 space-y-8 lg:pl-4 w-full">
           <div className="space-y-2">
-            <h2 className="text-[13px] md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">
+            <h2 className="text-lg md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">
               Contact Information
             </h2>
             <p className="text-[13px] text-zinc-500 leading-relaxed font-normal">
