@@ -179,12 +179,12 @@ export default function NavigationAndConsent() {
             <div>
               <button 
                 onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
-                className={`text-base font-bold transition-colors flex items-center justify-between w-full ${
+                className={`text-sm font-bold transition-colors flex items-center justify-between w-full ${
                   isResourcesActive ? "text-primary" : "text-on-surface-variant hover:text-primary"
                 }`}
               >
                 Resources
-                <span className={`material-symbols-outlined text-xl transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                <span className={`material-symbols-outlined text-lg transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`}>expand_more</span>
               </button>
               {isMobileResourcesOpen && (
                 <div className="space-y-2 pl-2 mt-2 border-l border-outline-variant">
