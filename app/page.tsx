@@ -192,16 +192,16 @@ export default function Home() {
       {/* [Module 1: Hero Section] */}
       <section className="pt-24 md:pt-28 pb-6 md:pb-10 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          <div className="lg:col-span-7 space-y-4 text-left">
+          <div className="lg:col-span-7 space-y-4 text-left flex flex-col justify-center">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 tracking-tight leading-none uppercase">
               Secure Your <br /> Digital <br /> Future With us
             </h1>
 
             <div className="pt-2 space-y-6">
-              <p className="italic border-l-4 border-red-600 pl-6 py-1 text-base md:text-lg font-bold text-red-700">
+              <p className="italic border-l-4 border-red-600 pl-6 py-1 text-[15px] md:text-[17px] font-bold text-red-700">
                 #Cyber360Resilience
               </p>
-              <div className="max-w-2xl space-y-4 text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+              <div className="max-w-2xl space-y-4 text-zinc-600 text-[13px] md:text-[15px] leading-relaxed font-normal">
                 <p>
                   CYBERNOVR is a cybersecurity firm dedicated to building
                   resilience for Critical Information Infrastructures across
@@ -218,13 +218,13 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <button
                   onClick={() => setIsContactModalOpen(true)}
-                  className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold rounded-md active:scale-95 transition-all text-sm uppercase tracking-widest shadow-md flex items-center justify-center gap-2 font-mono"
+                  className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold rounded-md active:scale-95 transition-all text-[13px] uppercase tracking-widest shadow-md flex items-center justify-center gap-2 font-mono"
                 >
                   Request A Demo <ArrowRight className="h-4 w-4" />
                 </button>
                 <Link
                   href="/academy"
-                  className="w-full sm:w-auto border-2 border-zinc-200 hover:border-red-600 text-zinc-700 hover:text-red-600 px-8 py-4 font-bold rounded-md hover:bg-zinc-50 transition-all text-sm uppercase tracking-widest text-center font-mono"
+                  className="w-full sm:w-auto border-2 border-zinc-200 hover:border-red-600 text-zinc-700 hover:text-red-600 px-8 py-4 font-bold rounded-md hover:bg-zinc-50 transition-all text-[13px] uppercase tracking-widest text-center font-mono"
                 >
                   Enroll At Academy
                 </Link>
@@ -296,11 +296,11 @@ export default function Home() {
               <div className="absolute -bottom-12 flex flex-col items-center gap-1">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                  <span className="font-mono text-sm font-black text-zinc-500 uppercase tracking-widest">
+                  <span className="font-mono text-[11px] font-black text-zinc-500 uppercase tracking-widest">
                     Live Attack Radar
                   </span>
                 </div>
-                <span className="font-mono text-sm bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider">
+                <span className="font-mono text-[11px] bg-red-600/10 border border-red-500/20 text-red-600 px-1.5 py-0.5 rounded font-black tracking-wider">
                   NovrALERT
                 </span>
               </div>
@@ -308,7 +308,7 @@ export default function Home() {
 
             <button
               onClick={() => setIsAlertModalOpen(true)}
-              className="mt-14 mb-2 inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2 font-bold rounded-md active:scale-95 transition-all text-base uppercase tracking-widest shadow-md font-mono"
+              className="mt-14 mb-2 inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2 font-bold rounded-md active:scale-95 transition-all text-[11px] uppercase tracking-widest shadow-md font-mono"
             >
               <Bell className="h-3 w-3" />
               Receive Alert Broadcasts
@@ -322,7 +322,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3">
                 <div className="space-y-1.5 flex-1 min-w-0">
                   <span
-                    className={`inline-block font-mono text-sm font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
+                    className={`inline-block font-mono text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
                       flashCards[flashCardIndex].tag === "Blog"
                         ? "bg-purple-950/[0.05] border-purple-900/20 text-purple-700"
                         : flashCards[flashCardIndex].tag === "News"
@@ -332,10 +332,10 @@ export default function Home() {
                   >
                     {flashCards[flashCardIndex].tag}
                   </span>
-                  <p className="text-base font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
+                  <p className="text-[13px] font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
                     {flashCards[flashCardIndex].title}
                   </p>
-                  <p className="font-mono text-sm text-zinc-400 font-bold tracking-wider uppercase">
+                  <p className="font-mono text-[11px] text-zinc-400 font-bold tracking-wider uppercase">
                     {flashCards[flashCardIndex].date}
                   </p>
                 </div>
@@ -349,7 +349,7 @@ export default function Home() {
                     className={`h-1 rounded-full transition-all duration-500 ${i === flashCardIndex ? "w-6 bg-red-600" : "w-2 bg-zinc-200"}`}
                   />
                 ))}
-                <span className="ml-auto font-mono text-xs text-zinc-400 tracking-widest uppercase font-bold">
+                <span className="ml-auto font-mono text-[10px] text-zinc-400 tracking-widest uppercase font-bold">
                   Latest Updates
                 </span>
               </div>
@@ -371,7 +371,7 @@ export default function Home() {
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Where are my weaknesses and who's attacking me?
             </span>
-            <p className="text-zinc-600 text-xs md:text-base leading-relaxed font-normal">
+            <p className="text-zinc-600 text-[11px] md:text-[15px] leading-relaxed font-normal">
               We empower you with knowledge of where you are vulnerable and who
               is attacking you, enabling you to develop a resilience framework
               tailored to your business. Talk to us about how.
@@ -379,7 +379,7 @@ export default function Home() {
           </div>
           <button
             onClick={() => setIsVaptModalOpen(true)}
-            className="inline-flex items-center gap-1.5 text-sm font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto"
+            className="inline-flex items-center gap-1.5 text-[13px] font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto"
           >
             Scope your VAPT{" "}
             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
@@ -397,7 +397,7 @@ export default function Home() {
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Compliance Readiness &amp; Strategy Auditing
             </span>
-            <div className="text-zinc-600 text-xs md:text-base leading-relaxed font-normal">
+            <div className="text-zinc-600 text-[11px] md:text-[15px] leading-relaxed font-normal">
               <p className="mb-2">We help you with</p>
               <ul className="space-y-1.5">
                 <li className="flex items-start gap-2">
@@ -424,7 +424,7 @@ export default function Home() {
           </div>
           <button
             onClick={() => setIsAuditModalOpen(true)}
-            className="inline-flex items-center gap-1.5 text-sm font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto"
+            className="inline-flex items-center gap-1.5 text-[13px] font-black tracking-widest text-red-600 font-mono uppercase hover:text-red-500 pt-2 group mt-auto"
           >
             Scope your audits{" "}
             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
@@ -439,13 +439,13 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-black text-zinc-950 uppercase tracking-tight">
               About Cybernovr
             </h2>
-            <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
+            <p className="text-[13px] md:text-[15px] text-zinc-600 leading-relaxed font-normal">
               Established in 2008, CYBERNOVR delivers comprehensive services in
               Governance, Risk, and Compliance (GRC) management, Critical
               Information Infrastructure Protection, and specialized educational
               frameworks.
             </p>
-            <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
+            <p className="text-[13px] md:text-[15px] text-zinc-600 leading-relaxed font-normal">
               With close to two decades of national and international
               cybersecurity leadership, we bring verified expertise across
               Information Assurance and IT Security. Our team has designed cyber
@@ -544,13 +544,13 @@ export default function Home() {
                     {sol.tagline}
                   </p>
                 </div>
-                <p className="text-zinc-600 text-sm md:text-base leading-relaxed line-clamp-4 font-normal">
+                <p className="text-zinc-600 text-[13px] md:text-[15px] leading-relaxed line-clamp-4 font-normal">
                   {sol.desc}
                 </p>
               </div>
               <button
                 onClick={() => setIsContactModalOpen(true)}
-                className="inline-flex items-center gap-1.5 text-sm font-black uppercase tracking-widest text-red-600 pt-4 hover:text-red-400 group-hover:gap-2.5 transition-all text-left font-mono"
+                className="inline-flex items-center gap-1.5 text-[13px] font-black uppercase tracking-widest text-red-600 pt-4 hover:text-red-400 group-hover:gap-2.5 transition-all text-left font-mono"
               >
                 Request a Demo <ArrowRight className="h-3.5 w-3.5" />
               </button>
@@ -565,7 +565,7 @@ export default function Home() {
           <h2 className="text-xl md:text-3xl font-black uppercase tracking-tight text-zinc-950">
             Tailored Protection for Critical Sectors
           </h2>
-          <p className="text-zinc-700 text-sm md:text-base max-w-2xl mx-auto font-semibold leading-relaxed">
+          <p className="text-zinc-700 text-[13px] md:text-[15px] max-w-2xl mx-auto font-semibold leading-relaxed">
             Working with regulators and private sector players to secure
             critical national information infrastructure for several sectors.
           </p>
@@ -593,14 +593,14 @@ export default function Home() {
             <h3 className="text-xl md:text-2xl font-black text-white leading-tight uppercase tracking-tight">
               {industryVerticals[selectedIndustry].title}
             </h3>
-            <p className="text-purple-200 text-sm md:text-base leading-relaxed max-w-3xl font-normal">
+            <p className="text-purple-200 text-[13px] md:text-[15px] leading-relaxed max-w-3xl font-normal">
               {industryVerticals[selectedIndustry]?.desc}
             </p>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end relative z-10 w-full">
             <Link
               href="/solutions"
-              className="w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono"
+              className="w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono"
             >
               Review Industry Use-Case
             </Link>
@@ -702,7 +702,7 @@ export default function Home() {
             <h2 className="text-3xl font-black text-zinc-950 uppercase tracking-tight">
               Our Global Partners
             </h2>
-            <p className="text-zinc-500 max-w-xl mx-auto text-sm md:text-base font-medium">
+            <p className="text-zinc-500 max-w-xl mx-auto text-[13px] md:text-[15px] font-medium">
               We collaborate with industry-leading technology providers to
               deliver professional cybersecurity solutions across industries.
             </p>
@@ -737,7 +737,7 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
                 Let's Secure Your Business
               </h2>
-              <p className="text-zinc-400 italic text-sm md:text-base leading-relaxed font-semibold">
+              <p className="text-[13px] text-zinc-400 italic font-semibold">
                 "In the digital age, resilience isn't an option - it's the
                 foundation of existence."
               </p>
@@ -754,11 +754,11 @@ export default function Home() {
             >
               <div className="space-y-5">
                 <div className="space-y-1">
-                  <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                     Full Name *
                   </label>
                   <input
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="Your name"
                     type="text"
                     required
@@ -766,11 +766,11 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                     Corporate Email *
                   </label>
                   <input
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="you@company.com"
                     type="email"
                     required
@@ -778,11 +778,11 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                     Phone Number *
                   </label>
                   <input
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-base text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[15px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="Contact Phone Number"
                     type="tel"
                     inputMode="numeric"
@@ -807,19 +807,19 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-1.5 pt-1">
-                  <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider block">
+                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider block">
                     Comments
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
                     placeholder="How may we help you?"
                   ></textarea>
                 </div>
               </div>
 
               <button
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-sm font-mono"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono"
                 type="submit"
               >
                 Submit
@@ -843,7 +843,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Let's Secure Your Business
                 </h3>
-                <p className="text-sm text-zinc-400 italic font-medium">
+                <p className="text-[13px] text-zinc-400 italic font-medium">
                   "In the digital age, resilience isn't an option - it's the
                   foundation of existence."
                 </p>
@@ -863,7 +863,7 @@ export default function Home() {
               {contactSubmitted ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">
+                  <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
                     Request Submitted
                   </h4>
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
@@ -879,33 +879,33 @@ export default function Home() {
                   }}
                 >
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Phone Number *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
                       inputMode="numeric"
@@ -929,18 +929,18 @@ export default function Home() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Comments
                     </label>
                     <textarea
                       rows={3}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="How may we help you?"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-sm font-mono"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
                   >
                     Please Reach Out to Us
                   </button>
@@ -960,7 +960,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   NovrALERT
                 </h3>
-                <p className="text-sm text-zinc-400 italic font-medium">
+                <p className="text-[13px] text-zinc-400 italic font-medium">
                   Intelligence feeds will route directly through{" "}
                   <span className="font-mono text-red-400">
                     {COMPANY_CONTACTS.emails.alerts}
@@ -980,7 +980,7 @@ export default function Home() {
               {!subscriptionSuccess ? (
                 <form onSubmit={handleAlertSubscription} className="space-y-4">
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email
                     </label>
                     <input
@@ -989,12 +989,12 @@ export default function Home() {
                       value={subscriberEmail}
                       onChange={(e) => setSubscriberEmail(e.target.value)}
                       required
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2"
                   >
                     Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" />
                   </button>
@@ -1002,7 +1002,7 @@ export default function Home() {
               ) : (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">
+                  <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
                     Subscription Successful
                   </h4>
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
@@ -1024,7 +1024,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   VAPT Scope Request
                 </h3>
-                <p className="text-sm text-zinc-400 italic font-medium">
+                <p className="text-[13px] text-zinc-400 italic font-medium">
                   "Know your weaknesses before attackers do."
                 </p>
               </div>
@@ -1042,7 +1042,7 @@ export default function Home() {
               {vaptSubmitted ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">
+                  <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
                     Request Submitted
                   </h4>
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
@@ -1058,33 +1058,33 @@ export default function Home() {
                   }}
                 >
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Phone Number *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
                       inputMode="numeric"
@@ -1108,25 +1108,25 @@ export default function Home() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider block">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider block">
                       Assessment Type *
                     </label>
                     <div className="flex flex-wrap gap-4">
-                      <label className="flex items-center gap-2 text-base text-zinc-700 cursor-pointer">
+                      <label className="flex items-center gap-2 text-[15px] text-zinc-700 cursor-pointer">
                         <input
                           type="checkbox"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
                         />
                         SAST
                       </label>
-                      <label className="flex items-center gap-2 text-sm text-zinc-700 cursor-pointer">
+                      <label className="flex items-center gap-2 text-[13px] text-zinc-700 cursor-pointer">
                         <input
                           type="checkbox"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
                         />
                         DAST
                       </label>
-                      <label className="flex items-center gap-2 text-sm text-zinc-700 cursor-pointer">
+                      <label className="flex items-center gap-2 text-[13px] text-zinc-700 cursor-pointer">
                         <input
                           type="checkbox"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
@@ -1136,18 +1136,18 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider block">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider block">
                       Scope Description
                     </label>
                     <textarea
                       rows={4}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="Please describe the scope of your VAPT."
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-sm font-mono"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
                   >
                     Submit
                   </button>
@@ -1167,7 +1167,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Audit &amp; Gap Analysis
                 </h3>
-                <p className="text-sm text-zinc-400 italic font-medium">
+                <p className="text-[13px] text-zinc-400 italic font-medium">
                   "Compliance readiness and strategy auditing."
                 </p>
               </div>
@@ -1185,7 +1185,7 @@ export default function Home() {
               {auditSubmitted ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-                  <h4 className="text-base font-black uppercase tracking-wide text-zinc-900">
+                  <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
                     Request Submitted
                   </h4>
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
@@ -1201,33 +1201,33 @@ export default function Home() {
                   }}
                 >
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
                       required
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Phone Number *
                     </label>
                     <input
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
                       inputMode="numeric"
@@ -1251,18 +1251,18 @@ export default function Home() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider block">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider block">
                       Comments
                     </label>
                     <textarea
                       rows={4}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="What are your audit & gap analysis requests?"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-sm font-mono"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
                   >
                     Submit
                   </button>
