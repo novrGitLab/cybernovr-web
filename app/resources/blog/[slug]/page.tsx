@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <h3 className="text-xl md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">
           Reach out today!
         </h3>
-        <p className="text-lg text-zinc-500 max-w-lg mx-auto font-normal">
+        <p className="text-[15px] text-zinc-500 max-w-lg mx-auto font-normal">
           At Cybernovr, we work with Government and private sector operators to
           protect Critical National Information Infrastructure (CNII) like 5G.
         </p>
