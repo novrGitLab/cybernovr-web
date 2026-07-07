@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { ShieldCheck, GraduationCap } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-export default function TheTeamPage() {
+function TheTeamContent() {
   const searchParams = useSearchParams();
   const person = searchParams.get("person");
 
@@ -236,5 +236,13 @@ export default function TheTeamPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function TheTeamPage() {
+  return (
+    <Suspense>
+      <TheTeamContent />
+    </Suspense>
   );
 }
