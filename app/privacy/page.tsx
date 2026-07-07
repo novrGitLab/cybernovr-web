@@ -137,8 +137,8 @@ export default function PrivacyPolicyPage() {
             If you have questions or concerns about our privacy policies and practices, you can reach us through any of the following channels:
           </p>
           <div className="text-[13px] text-zinc-600 leading-relaxed space-y-1">
-            <p><strong>Email:</strong> info@cybernovr.com</p>
-            <p><strong>Tel Number (Nigeria):</strong> +234-809-812-0000</p>
+            <p><strong>Email:</strong> <a href="mailto:info@cybernovr.com" className="text-red-700 hover:underline">info@cybernovr.com</a></p>
+            <p><strong>Tel Number (Nigeria):</strong> <a href="tel:+2348098120000" className="text-red-700 hover:underline">+234-809-812-0000</a></p>
             <p><strong>Mailing Address:</strong></p>
             <p>17 Sunday Adigun Street, Alausa, Ikeja, Lagos, Nigeria</p>
             <p className="pt-2"><strong>ATTN: Data Protection Officer (Privacy Team Lead)</strong></p>
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-4">
           <h2 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">Accessibility</h2>
           <p className="text-[13px] text-zinc-600 leading-relaxed">
-            If you are unable to access our form, you can request a copy in an alternative format by calling +234-809-812-0000 (Nigeria) or by emailing info@cybernovr.com
+            If you are unable to access our form, you can request a copy in an alternative format by calling <a href="tel:+2348098120000" className="text-red-700 hover:underline">+234-809-812-0000</a> (Nigeria) or by emailing <a href="mailto:info@cybernovr.com" className="text-red-700 hover:underline">info@cybernovr.com</a>
           </p>
         </section>
 
