@@ -87,7 +87,7 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Eye className="h-5 w-5" />
             </div>
-            <h3 className="text-[15px] font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h3 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Vision
             </h3>
             <p className="text-[15px] font-bold text-zinc-900 leading-tight uppercase tracking-tight">
@@ -98,7 +98,7 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Target className="h-5 w-5" />
             </div>
-            <h3 className="text-[15px] font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h3 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Mission
             </h3>
             <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
@@ -328,7 +328,7 @@ export default function CorporateAboutHub() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest font-mono block">
+                  <span className="text-[12px] text-zinc-400 font-bold uppercase tracking-widest font-mono block">
                     {sector.subtitle}
                   </span>
                   <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">
