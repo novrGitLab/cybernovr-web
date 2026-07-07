@@ -94,19 +94,19 @@ export default function CybernovrAcademyPage() {
       {/* Hero Module Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-200 pb-12 text-left">
         <div className="lg:col-span-7 space-y-4">
-          <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
+          <span className="inline-block font-mono text-red-700 text-[11px] md:text-[15px] font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded">
             CYBERNOVR CAPACITY BUILDING PROGRAMME
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase leading-tight">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase leading-tight">
             Cybersecurity Education &amp;
             <br />
             Awareness Programme (CEAP)
           </h1>
-          <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-lg font-semibold tracking-wide">
+          <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-[13px] md:text-[15px] font-semibold tracking-wide">
             Our flagship education and awareness program aims to empower
             students with essential cybersecurity skills and awareness.
           </p>
-          <p className="text-zinc-600 text-sm md:text-xl max-w-2xl leading-relaxed font-normal">
+          <p className="text-zinc-600 text-[13px] md:text-[15px] max-w-2xl leading-relaxed font-normal">
             People are the largest security risk in your organization. CEAP is a
             structured cybersecurity training and awareness programme designed
             to equip employees, students, and individuals with the knowledge and
@@ -116,13 +116,13 @@ export default function CybernovrAcademyPage() {
           <div className="flex flex-wrap gap-4 pt-4 font-mono">
             <Link
               href="/academy/assessments"
-              className="bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-5 py-3.5 rounded-md transition-all shadow-md flex items-center gap-2"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold text-[13px] uppercase tracking-widest px-5 py-3.5 rounded-md transition-all shadow-md flex items-center gap-2"
             >
               <Sparkles className="h-4 w-4" /> Check Your Security Knowledge
             </Link>
             <Link
               href="/academy/enroll"
-              className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-base font-bold uppercase tracking-widest transition-all flex items-center gap-2"
+              className="border-2 border-zinc-200 hover:border-purple-900 text-zinc-700 px-5 py-3.5 rounded-md text-[13px] font-bold uppercase tracking-widest transition-all flex items-center gap-2"
             >
               <BookOpen className="h-4 w-4 text-red-700" /> Visit Learning
               Portal
@@ -134,10 +134,10 @@ export default function CybernovrAcademyPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10">
               <GraduationCap className="h-10 w-10 text-red-500" />
-              <h3 className="text-xl font-bold uppercase tracking-wide mt-4">
+              <h3 className="text-[15px] font-bold uppercase tracking-wide mt-4">
                 Course Overview
               </h3>
-              <p className="text-base text-purple-200 mt-1.5 leading-relaxed font-medium">
+              <p className="text-[13px] text-purple-200 mt-1.5 leading-relaxed font-medium">
                 Comprehensive cybersecurity education and awareness program
               </p>
             </div>
@@ -160,11 +160,11 @@ export default function CybernovrAcademyPage() {
           {/* Centralized Impact Console Callout Section Card */}
           <div className="p-6 mt-4 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm text-left">
             <div className="space-y-1">
-              <h4 className="text-base font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
+              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
                 Centralized CEAP Impact Analytics
               </h4>
-              <p className="text-sm text-zinc-500 font-medium">
+              <p className="text-[13px] text-zinc-500 font-medium">
                 Visit our strategic impact dashboard.
               </p>
             </div>
@@ -183,10 +183,10 @@ export default function CybernovrAcademyPage() {
       <section className="bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl p-8 md:p-12 shadow-sm text-left">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-4xl font-black text-zinc-900 uppercase tracking-tight">
+            <h2 className="text-xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">
               Start Your Cybersecurity Journey Today
             </h2>
-            <p className="text-base text-zinc-500 font-normal leading-relaxed">
+            <p className="text-[13px] text-zinc-500 font-normal leading-relaxed">
               Join hundreds of students who have transformed their careers with
               our Cybersecurity Education and Awareness Program (CEAP) course.
             </p>
@@ -196,7 +196,7 @@ export default function CybernovrAcademyPage() {
                 ₦120,000
               </span>
             </div>
-            <div className="flex flex-wrap gap-4 text-base font-mono text-zinc-500 font-bold">
+            <div className="flex flex-wrap gap-4 text-[13px] font-mono text-zinc-500 font-bold">
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3" /> Duration: 4 weeks
               </span>
@@ -212,13 +212,13 @@ export default function CybernovrAcademyPage() {
             </div>
             <Link
               href="/academy/enroll"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-base uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-[13px] uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
             >
               Enroll Now <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="space-y-3">
-            <h4 className="text-base font-bold text-zinc-900 uppercase tracking-tight">
+            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
               This course includes:
             </h4>
             <ul className="space-y-2">
@@ -229,7 +229,7 @@ export default function CybernovrAcademyPage() {
               ].map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-2 text-base text-zinc-600"
+                  className="flex items-center gap-2 text-[13px] text-zinc-600"
                 >
                   <CheckCircle2 className="h-4 w-4 text-red-700 shrink-0" />{" "}
                   {item}
@@ -243,7 +243,7 @@ export default function CybernovrAcademyPage() {
       {/* Course Curriculum Architecture Section */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-base font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-[11px] md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             CEAP CURRICULUM
           </h2>
         </div>
@@ -259,14 +259,14 @@ export default function CybernovrAcademyPage() {
                   onClick={() => setOpenModule(isOpen ? null : idx)}
                   className="w-full p-4 flex items-center gap-4 text-left hover:bg-purple-950/[0.04] transition-colors"
                 >
-                  <span className="font-mono text-base font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded shrink-0">
+                  <span className="font-mono text-[13px] font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded shrink-0">
                     {mod.num}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-bold text-zinc-900 leading-snug uppercase tracking-tight">
+                    <h4 className="text-[15px] font-bold text-zinc-900 leading-snug uppercase tracking-tight">
                       {mod.title}
                     </h4>
-                    <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
+                    <p className="text-[12px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
                       {mod.topic}
                     </p>
                   </div>
@@ -323,10 +323,10 @@ export default function CybernovrAcademyPage() {
           <span className="text-[9px] font-black font-mono tracking-widest text-red-500 bg-red-600/10 border border-red-500/20 px-2.5 py-1 rounded uppercase w-fit">
             Live Lab Sandbox
           </span>
-          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white">
+          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">
             Hands-On Ethical Hacking Lab
           </h3>
-          <p className="text-xs md:text-sm text-zinc-400 leading-relaxed max-w-xl font-medium">
+          <p className="text-[11px] md:text-[13px] text-zinc-400 leading-relaxed max-w-xl font-medium">
             Students learn defensive engineering principles through supervised
             mock infiltration scripts. Safely evaluate malware profiles, analyze
             real-time payload extractions, and configure firewalls inside
@@ -359,10 +359,10 @@ export default function CybernovrAcademyPage() {
       {/* Academy Enrollment Intake Block Sheet */}
       <section className="bg-purple-950/[0.01] border-2 border-purple-900/5 rounded-2xl p-8 md:p-12 max-w-3xl mx-auto shadow-sm text-left">
         <div className="text-center space-y-2 mb-8">
-          <h2 className="text-xl md:text-3xl font-bold tracking-tight text-zinc-900 uppercase">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
             Start Your Cybersecurity Journey Today
           </h2>
-          <p className="text-sm text-zinc-500 max-w-md mx-auto font-medium">
+          <p className="text-[15px] text-zinc-500 max-w-md mx-auto font-medium">
             Join hundreds of students who have transformed their careers with
             our CEAP course.
           </p>
@@ -371,10 +371,10 @@ export default function CybernovrAcademyPage() {
         {enrollmentSubmitted ? (
           <div className="p-8 text-center bg-purple-950/[0.02] border-2 border-dashed border-purple-900/20 rounded-xl flex flex-col items-center justify-center space-y-3">
             <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-            <h4 className="text-base font-bold text-zinc-900 uppercase tracking-wide">
+            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
               Registration Request Staged
             </h4>
-            <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
+            <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">
               Our academic operations desk will verify your institutional domain
               and transmit your curriculum access logs within 24 hours.
             </p>
@@ -389,22 +389,22 @@ export default function CybernovrAcademyPage() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Applicant Full Name *
                 </label>
                 <input
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Your full name"
                   type="text"
                   required
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Email *
                 </label>
                 <input
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="you@company.com"
                   type="email"
                   required
@@ -413,22 +413,22 @@ export default function CybernovrAcademyPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   School / Organization *
                 </label>
                 <input
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Organization footprint name"
                   type="text"
                   required
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                   Phone Number *
                 </label>
                 <input
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Contact number"
                   type="tel"
                   inputMode="numeric"
@@ -453,18 +453,18 @@ export default function CybernovrAcademyPage() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-sm font-bold text-zinc-400 font-mono uppercase tracking-wider block">
+              <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider block">
                 Comment
               </label>
               <textarea
                 rows={4}
-                className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
                 placeholder="Please describe your cybersecurity training needs"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-base font-mono"
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
             >
               Submit Enrollment Request
             </button>

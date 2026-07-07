@@ -132,8 +132,8 @@ export default function AssessmentsMasterPage() {
             <span className="inline-block font-mono text-red-700 text-xs font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
               Telemetry Assessments
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-2">Cyber Health Assessment Portal</h1>
-            <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
+            <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-2">Cyber Health Assessment Portal</h1>
+            <p className="text-zinc-600 text-[13px] md:text-[15px] leading-relaxed font-normal">
               Validate infrastructure readiness, identify exposure parameters, and turn complex risk insights into actionable technical remediation roadmaps.
             </p>
           </div>
@@ -147,14 +147,14 @@ export default function AssessmentsMasterPage() {
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Your Cybersecurity Barometer</h3>
+                  <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">Your Cybersecurity Barometer</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Organizational Maturity Audit</p>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
+                  <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed mt-3 font-normal">
                     This cybersecurity self-check will help you assess your understanding of online threats and risks, effectiveness of your security measures, and your overall maturity in handling cybersecurity risks.
                   </p>
                 </div>
               </div>
-              <button onClick={() => startAssessmentEngine("barometer")} className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
+              <button onClick={() => startAssessmentEngine("barometer")} className="inline-flex items-center gap-1.5 text-[11px] md:text-[13px] font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
                 Begin Assessment <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
@@ -165,14 +165,14 @@ export default function AssessmentsMasterPage() {
                   <Activity className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Staff Knowledge Assessment</h3>
+                  <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">Staff Knowledge Assessment</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">20-Module Core Technical Check</p>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
+                  <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed mt-3 font-normal">
                     Assess your team's cybersecurity awareness. Identify deep core configuration knowledge gaps and receive personalized training recommendations based on their technical level.
                   </p>
                 </div>
               </div>
-              <button onClick={() => startAssessmentEngine("staff")} className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
+              <button onClick={() => startAssessmentEngine("staff")} className="inline-flex items-center gap-1.5 text-[11px] md:text-[13px] font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
                 Begin Assessment <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
@@ -183,14 +183,14 @@ export default function AssessmentsMasterPage() {
                   <Layers className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Cyber Resilience Assessment</h3>
+                  <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">Cyber Resilience Assessment</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Infrastructure Posture Verification</p>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
+                  <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed mt-3 font-normal">
                     Structural protection auditing mapping failover matrices, perimeter defense layers, and unmapped zero-day exploit vulnerabilities.
                   </p>
                 </div>
               </div>
-              <button onClick={() => openScopingForm("Cyber Resilience Assessment")} className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
+              <button onClick={() => openScopingForm("Cyber Resilience Assessment")} className="inline-flex items-center gap-1.5 text-[11px] md:text-[13px] font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
                 Initialize Scoping Console <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
@@ -201,14 +201,14 @@ export default function AssessmentsMasterPage() {
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 uppercase tracking-tight">Compliance Framework Assessment</h3>
+                  <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">Compliance Framework Assessment</h3>
                   <p className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-0.5">Regulatory Control Tracking</p>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed mt-3 font-normal">
+                  <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed mt-3 font-normal">
                     Pre-audit scoping verification mapping architecture onto international parameters: CBN, NCC, NDPC, PCI DSS, NIST CSF, and ISO 27001 lines.
                   </p>
                 </div>
               </div>
-              <button onClick={() => openScopingForm("Compliance Framework Assessment")} className="inline-flex items-center gap-1.5 text-xs font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
+              <button onClick={() => openScopingForm("Compliance Framework Assessment")} className="inline-flex items-center gap-1.5 text-[11px] md:text-[13px] font-mono font-black uppercase text-red-700 hover:text-red-600 group pt-2">
                 Initialize Scoping Console <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
@@ -225,11 +225,11 @@ export default function AssessmentsMasterPage() {
 
             {currentStep === 0 && (
               <div className="space-y-4">
-                <label className="text-base md:text-lg font-bold text-zinc-900 block">Which of the following sector does your organisation belong to? :</label>
+                <label className="text-[13px] md:text-[15px] font-bold text-zinc-900 block">Which of the following sector does your organisation belong to? :</label>
                 <select 
                   value={selectedSector} 
                   onChange={(e) => setSelectedSector(e.target.value)}
-                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 font-medium cursor-pointer"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-[13px] focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 font-medium cursor-pointer"
                 >
                   <option value="">Select a sector</option>
                   <option value="Power and energy">Power and energy</option>
@@ -246,9 +246,9 @@ export default function AssessmentsMasterPage() {
               <div className="space-y-6">
                 <p className="text-xs text-zinc-400 font-mono font-bold">Sector: <span className="text-red-700">{selectedSector || "General Operational"}</span></p>
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-zinc-900">1. Has your organisation developed a cybersecurity/information security strategy or policy?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">1. Has your organisation developed a cybersecurity/information security strategy or policy?</h3>
                   {["Yes", "No"].map(opt => (
-                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-sm">
+                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-[13px]">
                       <input type="radio" name="q1" value={opt} checked={barometerAnswers.q1 === opt} onChange={(e) => setBarometerAnswers({...barometerAnswers, q1: e.target.value})} className="accent-purple-700 h-4 w-4" />
                       <span>{opt}</span>
                     </label>
@@ -256,13 +256,13 @@ export default function AssessmentsMasterPage() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h3 className="text-base font-bold text-zinc-900">2. Has your organisation implemented the following measures to equip your employees to be the first line of defence?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">2. Has your organisation implemented the following measures to equip your employees to be the first line of defence?</h3>
                   {[
                     "Cybersecurity awareness and training for all employees (either during onboarding or routine training)",
                     "Cybersecurity practices and guidelines for daily operations",
                     "None of the above"
                   ].map(opt => (
-                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-sm font-medium">
+                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-[13px] font-medium">
                       <input type="checkbox" checked={barometerAnswers.q2.includes(opt)} onChange={() => toggleCheckboxMetric("q2", opt)} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                       <span>{opt}</span>
                     </label>
@@ -274,9 +274,9 @@ export default function AssessmentsMasterPage() {
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-zinc-900">3. Has there been continuous improvement as a result of implementation of your cybersecurity strategy?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">3. Has there been continuous improvement as a result of implementation of your cybersecurity strategy?</h3>
                   {["Yes", "No"].map(opt => (
-                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-sm">
+                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-[13px]">
                       <input type="radio" name="q3" value={opt} checked={barometerAnswers.q3 === opt} onChange={(e) => setBarometerAnswers({...barometerAnswers, q3: e.target.value})} className="accent-purple-700 h-4 w-4" />
                       <span>{opt}</span>
                     </label>
@@ -284,14 +284,14 @@ export default function AssessmentsMasterPage() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h3 className="text-base font-bold text-zinc-900">4. Has your organisation defined:</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">4. Has your organisation defined:</h3>
                   {[
                     "Cybersecurity roles, responsibilities, and authorities to foster accountability",
                     "Performance assessment of cybersecurity initiatives",
                     "Budget and resources for cybersecurity",
                     "None of the above"
                   ].map(opt => (
-                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-sm font-medium">
+                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-[13px] font-medium">
                       <input type="checkbox" checked={barometerAnswers.q4.includes(opt)} onChange={() => toggleCheckboxMetric("q4", opt)} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                       <span>{opt}</span>
                     </label>
@@ -303,9 +303,9 @@ export default function AssessmentsMasterPage() {
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-zinc-900">5. Has your organisation defined cybersecurity supply chain risk management strategy?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">5. Has your organisation defined cybersecurity supply chain risk management strategy?</h3>
                   {["Yes", "No"].map(opt => (
-                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-sm">
+                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-[13px]">
                       <input type="radio" name="q5" value={opt} checked={barometerAnswers.q5 === opt} onChange={(e) => setBarometerAnswers({...barometerAnswers, q5: e.target.value})} className="accent-purple-700 h-4 w-4" />
                       <span>{opt}</span>
                     </label>
@@ -313,7 +313,7 @@ export default function AssessmentsMasterPage() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h3 className="text-base font-bold text-zinc-900">6. Has your organisation implemented the following measures to manage cybersecurity risks to your assets?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">6. Has your organisation implemented the following measures to manage cybersecurity risks to your assets?</h3>
                   {[
                     "Awareness of their assets, especially the most critical ones, and their status.",
                     "Inventoried IT assets and data are managed throughout their lifecycles",
@@ -321,7 +321,7 @@ export default function AssessmentsMasterPage() {
                     "Developed a risk management plan/strategy to mitigate cybersecurity risks",
                     "None of the above"
                   ].map(opt => (
-                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-sm font-medium">
+                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-[13px] font-medium">
                       <input type="checkbox" checked={barometerAnswers.q6.includes(opt)} onChange={() => toggleCheckboxMetric("q6", opt)} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                       <span>{opt}</span>
                     </label>
@@ -333,9 +333,9 @@ export default function AssessmentsMasterPage() {
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-zinc-900">7. Has your organisation implemented the following measures to address cybersecurity risks?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">7. Has your organisation implemented the following measures to address cybersecurity risks?</h3>
                   {["Data Protection", "ID and Access Management", "Network Security", "Personnel Security", "Endpoint Security", "Cyber-hygiene", "None of the above"].map(opt => (
-                    <label key={opt} className="flex items-center gap-3 px-4 py-2.5 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-sm font-medium">
+                    <label key={opt} className="flex items-center gap-3 px-4 py-2.5 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-[13px] font-medium">
                       <input type="checkbox" checked={barometerAnswers.q7.includes(opt)} onChange={() => toggleCheckboxMetric("q7", opt)} className="accent-purple-700 h-4 w-4 shrink-0" />
                       <span>{opt}</span>
                     </label>
@@ -343,7 +343,7 @@ export default function AssessmentsMasterPage() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h3 className="text-base font-bold text-zinc-900">8. Which of the following measures has your organisation put in place to detect, respond to, and recover from cybersecurity incidents?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">8. Which of the following measures has your organisation put in place to detect, respond to, and recover from cybersecurity incidents?</h3>
                   {[
                     "Incident Response Plan",
                     "Continuous Security Monitoring to identify cybersecurity events",
@@ -352,7 +352,7 @@ export default function AssessmentsMasterPage() {
                     "Incident Recovery Plan",
                     "None of the above"
                   ].map(opt => (
-                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-sm font-medium">
+                    <label key={opt} className="flex items-start gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 text-[13px] font-medium">
                       <input type="checkbox" checked={barometerAnswers.q8.includes(opt)} onChange={() => toggleCheckboxMetric("q8", opt)} className="accent-purple-700 h-4 w-4 mt-0.5 shrink-0" />
                       <span>{opt}</span>
                     </label>
@@ -364,9 +364,9 @@ export default function AssessmentsMasterPage() {
             {currentStep === 5 && (
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-zinc-900">9. Does your organisation take part in initiatives on cybersecurity or collaboration at the national- or sectoral-level to implement/adopt cybersecurity standards and good practices?</h3>
+                  <h3 className="text-[13px] font-bold text-zinc-900">9. Does your organisation take part in initiatives on cybersecurity or collaboration at the national- or sectoral-level to implement/adopt cybersecurity standards and good practices?</h3>
                   {["Yes", "No"].map(opt => (
-                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-sm">
+                    <label key={opt} className="flex items-center gap-3 px-4 py-3 border border-zinc-200 rounded-lg cursor-pointer hover:bg-zinc-50 font-medium text-[13px]">
                       <input type="radio" name="q9" value={opt} checked={barometerAnswers.q9 === opt} onChange={(e) => setBarometerAnswers({...barometerAnswers, q9: e.target.value})} className="accent-purple-700 h-4 w-4" />
                       <span>{opt}</span>
                     </label>
@@ -418,7 +418,7 @@ export default function AssessmentsMasterPage() {
             <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
               <div>
                 <span className="text-[10px] font-mono font-black text-red-700 uppercase tracking-widest block">Staff Check Telemetry</span>
-                <h2 className="text-base font-bold text-zinc-900 uppercase">Staff Knowledge Assessment</h2>
+                <h2 className="text-[15px] font-bold text-zinc-900 uppercase">Staff Knowledge Assessment</h2>
               </div>
               <div className="font-mono text-xs font-black bg-zinc-950 text-white px-2.5 py-1 rounded">
                 {currentStep + 1} / {staffQuestions.length}
@@ -427,7 +427,7 @@ export default function AssessmentsMasterPage() {
 
             <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xl">
               {/* FIXED: References clean runtime structure pointer resolution pass */}
-              <h3 className="text-base md:text-lg font-bold text-zinc-900 leading-snug">{currentQuestion.q}</h3>
+              <h3 className="text-[13px] md:text-[15px] font-bold text-zinc-900 leading-snug">{currentQuestion.q}</h3>
             </div>
 
             <div className="space-y-3 pt-2">
@@ -448,7 +448,7 @@ export default function AssessmentsMasterPage() {
                     key={idx}
                     disabled={showExplanation}
                     onClick={() => { setStaffAnswers({ ...staffAnswers, [currentStep]: option }); setShowExplanation(true); }}
-                    className={`w-full text-left px-5 py-4 rounded-xl border-2 text-sm md:text-base flex items-center justify-between transition-all focus:outline-none ${btnStyle}`}
+                    className={`w-full text-left px-5 py-4 rounded-xl border-2 text-[13px] flex items-center justify-between transition-all focus:outline-none ${btnStyle}`}
                   >
                     <span>{option}</span>
                     {showExplanation && correct && <Check className="h-4 w-4 text-emerald-600 shrink-0" />}
@@ -461,7 +461,7 @@ export default function AssessmentsMasterPage() {
             {showExplanation && (
               <div className="p-5 bg-blue-50 border border-blue-200 text-blue-950 rounded-xl animate-fadeIn space-y-1">
                 <span className="text-[10px] font-mono font-black text-blue-800 tracking-widest block uppercase">Explanation:</span>
-                <p className="text-xs md:text-sm leading-relaxed font-normal">{currentQuestion.explanation}</p>
+                <p className="text-[11px] md:text-[13px] leading-relaxed font-normal">{currentQuestion.explanation}</p>
               </div>
             )}
 
@@ -497,8 +497,8 @@ export default function AssessmentsMasterPage() {
         <div className="max-w-3xl mx-auto space-y-10 text-left animate-fadeIn">
           <div className="bg-purple-950/[0.01] border-2 border-purple-900/5 rounded-2xl p-8 shadow-sm space-y-6 relative overflow-hidden">
             <div className="space-y-1">
-              <h2 className="text-2xl font-black uppercase tracking-tight text-zinc-900">Assessment completed!</h2>
-              <p className="text-xs text-zinc-500 font-medium">
+              <h2 className="text-xl font-black uppercase tracking-tight text-zinc-900">Assessment completed!</h2>
+              <p className="text-[11px] md:text-[13px] text-zinc-500 font-medium">
                 {activePortal === "barometer" 
                   ? "Your corporate ecosystem parameters have been mapped safely. Review target recommendations below."
                   : `You've completed all sections of the cyber health assessment, your vulnerabilities are identified. Let's turn insights into action.`
@@ -507,13 +507,13 @@ export default function AssessmentsMasterPage() {
             </div>
 
             <div className="space-y-2 border-t border-zinc-200/60 pt-4">
-              <span className="text-sm font-bold text-zinc-800 tracking-tight block">
+              <span className="text-[13px] font-bold text-zinc-800 tracking-tight block">
                 {activePortal === "barometer" ? "Your Cyber Health Score" : "Your Cybersecurity Knowledge Score:"}
               </span>
               <div className="w-full bg-zinc-100 h-3 rounded-full overflow-hidden border border-zinc-200/40">
                 <div className="bg-purple-950 h-full rounded-full transition-all duration-1000 ease-out" style={{ width: `${finalComputedScore}%` }}></div>
               </div>
-              <p className="text-sm font-mono font-black text-purple-950 pt-1">
+              <p className="text-[13px] font-mono font-black text-purple-950 pt-1">
                 Score: <span className="text-red-700">{finalComputedScore}.0%</span>
                 {activePortal === "staff" && <span className="text-xs text-zinc-400 font-sans font-normal block mt-1">You answered {staffCorrectCount} out of 20 correctly.</span>}
               </p>
@@ -523,7 +523,7 @@ export default function AssessmentsMasterPage() {
               <span className="text-[10px] font-mono font-black tracking-widest uppercase block">
                 {activePortal === "barometer" ? `Risk Level: ${riskModel.level}` : `Training Level:`}
               </span>
-              <p className="text-xs md:text-sm font-semibold leading-relaxed">{riskModel.desc}</p>
+              <p className="text-[11px] md:text-[13px] font-semibold leading-relaxed">{riskModel.desc}</p>
             </div>
 
             {activePortal === "staff" && (
@@ -536,7 +536,7 @@ export default function AssessmentsMasterPage() {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-sm font-black text-zinc-400 uppercase tracking-widest">We recommend exploring our solutions:</h3>
+            <h3 className="text-[13px] font-black text-zinc-400 uppercase tracking-widest">We recommend exploring our solutions:</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div className="p-6 bg-white border-2 border-zinc-200 rounded-xl shadow-sm flex flex-col justify-between space-y-6 group hover:border-purple-800/40 transition-all duration-300">
@@ -545,8 +545,8 @@ export default function AssessmentsMasterPage() {
                     <AlertTriangle className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-base font-black text-zinc-950 uppercase tracking-tight">Risk Management</h4>
-                    <p className="text-zinc-500 text-xs font-normal leading-relaxed">Comprehensive risk assessment and management services to identify, evaluate, and mitigate security risks.</p>
+                    <h4 className="text-[15px] font-black text-zinc-950 uppercase tracking-tight">Risk Management</h4>
+                    <p className="text-zinc-500 text-[11px] md:text-[13px] font-normal leading-relaxed">Comprehensive risk assessment and management services to identify, evaluate, and mitigate security risks.</p>
                   </div>
                 </div>
                 <Link href="/solutions" className="inline-flex items-center gap-1 text-xs font-mono font-black text-purple-950 group-hover:text-red-700 uppercase pt-2">
@@ -560,8 +560,8 @@ export default function AssessmentsMasterPage() {
                     <Shield className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-base font-black text-zinc-950 uppercase tracking-tight">Cybersecurity Resilience</h4>
-                    <p className="text-zinc-500 text-xs font-normal leading-relaxed">Our team of cybersecurity experts provides tailored consulting services to help you identify and address your security challenges.</p>
+                    <h4 className="text-[15px] font-black text-zinc-950 uppercase tracking-tight">Cybersecurity Resilience</h4>
+                    <p className="text-zinc-500 text-[11px] md:text-[13px] font-normal leading-relaxed">Our team of cybersecurity experts provides tailored consulting services to help you identify and address your security challenges.</p>
                   </div>
                 </div>
                 <Link href="/solutions" className="inline-flex items-center gap-1 text-xs font-mono font-black text-purple-950 group-hover:text-red-700 uppercase pt-2">
@@ -595,33 +595,33 @@ export default function AssessmentsMasterPage() {
               <>
                 <div className="space-y-1">
                   <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">Advisory Scoping</span>
-                  <h3 className="text-xl font-black uppercase tracking-tight pt-2">Initiate {scopingTitle}</h3>
-                  <p className="text-xs text-zinc-500 font-medium leading-relaxed">Schedule an engineering walkthrough with an analytics coordinator directly within our team matrix channels.</p>
+                  <h3 className="text-[15px] font-black uppercase tracking-tight pt-2">Initiate {scopingTitle}</h3>
+                  <p className="text-[11px] md:text-[13px] text-zinc-500 font-medium leading-relaxed">Schedule an engineering walkthrough with an analytics coordinator directly within our team matrix channels.</p>
                 </div>
 
                 <form onSubmit={(e) => { e.preventDefault(); setScopingDone(true); }} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
-                    <input type="text" required placeholder="Operational signature name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                    <input type="text" required placeholder="Operational signature name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
-                      <input type="email" required placeholder="you@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="email" required placeholder="you@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
-                      <input type="tel" required placeholder="Contact phone layout" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="tel" required placeholder="Contact phone layout" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">System Parameters / Notes</label>
-                    <textarea rows={3} placeholder="Describe infrastructure target metrics or regulatory compliance constraints..." className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
+                    <textarea rows={3} placeholder="Describe infrastructure target metrics or regulatory compliance constraints..." className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
                   </div>
 
-                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
+                  <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
                     Submit Scoping Request
                   </button>
                 </form>
@@ -629,8 +629,8 @@ export default function AssessmentsMasterPage() {
             ) : (
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3 animate-fadeIn">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-                <h3 className="text-base font-black uppercase tracking-wider">Request Logged</h3>
-                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operational advisory coordinator will contact your domain endpoint shortly.</p>
+                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Logged</h3>
+                <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operational advisory coordinator will contact your domain endpoint shortly.</p>
               </div>
             )}
           </div>
