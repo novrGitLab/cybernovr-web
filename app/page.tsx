@@ -699,7 +699,7 @@ export default function Home() {
       <section className="py-12 bg-white text-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1536px] mx-auto rounded-xl border border-zinc-200 shadow-sm overflow-hidden relative">
         <div className="space-y-6">
           <div className="space-y-1.5">
-            <h2 className="text-3xl font-black text-zinc-950 uppercase tracking-tight">
+            <h2 className="text-xl md:text-3xl font-black text-zinc-950 uppercase tracking-tight">
               Our Global Partners
             </h2>
             <p className="text-zinc-500 max-w-xl mx-auto text-[13px] md:text-[15px] font-medium">
@@ -843,7 +843,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Let's Secure Your Business
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "In the digital age, resilience isn't an option - it's the
                   foundation of existence."
                 </p>
@@ -960,7 +960,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   NovrALERT
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   Intelligence feeds will route directly through{" "}
                   <span className="font-mono text-red-400">
                     {COMPANY_CONTACTS.emails.alerts}
@@ -1024,7 +1024,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   VAPT Scope Request
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "Know your weaknesses before attackers do."
                 </p>
               </div>
@@ -1167,7 +1167,7 @@ export default function Home() {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white">
                   Audit &amp; Gap Analysis
                 </h3>
-                <p className="text-[13px] text-zinc-400 italic font-medium">
+                <p className="text-[15px] text-zinc-400 italic font-medium">
                   "Compliance readiness and strategy auditing."
                 </p>
               </div>

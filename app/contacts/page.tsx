@@ -37,13 +37,13 @@ export default function ContactUsPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
       {/* Top Header Section */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="inline-block font-mono text-red-700 text-base font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
+        <span className="inline-block font-mono text-red-700 text-[11px] md:text-[15px] font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
           WE LOVE TO HEAR FROM YOU
         </span>
-        <h1 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
           Connect With Us
         </h1>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-lg font-semibold tracking-wide">
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-[13px] md:text-[15px] font-semibold tracking-wide">
           Get in touch with our team to discuss your cybersecurity needs.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function ContactUsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
         {/* Left Side: "Send Us a Message" Form Field Matrix */}
         <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-10 rounded-2xl border border-zinc-900 shadow-2xl space-y-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.12)]">
-          <h2 className="text-xl md:text-3xl font-black text-white uppercase tracking-tight">
+          <h2 className="text-[13px] md:text-[15px] font-black text-white uppercase tracking-tight">
             Send Us a Message
           </h2>
 
@@ -65,42 +65,42 @@ export default function ContactUsPage() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Name *
                 </label>
                 <input
                   type="text"
                   placeholder="Your full name"
                   required
-                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Email *
                 </label>
                 <input
                   type="email"
                   placeholder="you@company.com"
                   required
-                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Company
                 </label>
                 <input
                   type="text"
                   placeholder="Company Name"
-                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                   Phone
                 </label>
                 <input
@@ -123,17 +123,17 @@ export default function ContactUsPage() {
                       e.preventDefault();
                     }
                   }}
-                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
               </div>
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+              <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                 Service of Interest
               </label>
               <div className="relative">
-                <select className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal">
+                <select className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal">
                   <option value="" className="bg-zinc-950 text-white">
                     Select a Service
                   </option>
@@ -161,20 +161,20 @@ export default function ContactUsPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-bold text-zinc-300 font-mono uppercase tracking-wider">
+              <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
                 Message *
               </label>
               <textarea
                 rows={5}
                 placeholder="Send your message; we will respond within 1-2 business days"
                 required
-                className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
+                className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-base uppercase tracking-widest font-mono"
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-[13px] uppercase tracking-widest font-mono"
             >
               Send Message
             </button>
@@ -184,10 +184,10 @@ export default function ContactUsPage() {
         {/* Right Side: Static Information Registry */}
         <div className="lg:col-span-5 space-y-8 lg:pl-4 w-full">
           <div className="space-y-2">
-            <h2 className="text-xl md:text-3xl font-bold text-zinc-900 uppercase tracking-tight">
+            <h2 className="text-lg md:text-2xl font-bold text-zinc-900 uppercase tracking-tight">
               Contact Information
             </h2>
-            <p className="text-base text-zinc-500 leading-relaxed font-normal">
+            <p className="text-[13px] text-zinc-500 leading-relaxed font-normal">
               Get in touch for an unparalleled customer experience
             </p>
           </div>
@@ -198,12 +198,12 @@ export default function ContactUsPage() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
                 <MapPin className="h-5 w-5" />
               </div>
-              <div className="space-y-2 text-xs md:text-sm text-zinc-600 font-normal pt-1">
-                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
+              <div className="space-y-2 text-[13px] text-zinc-600 font-normal pt-1">
+                <p className="font-bold text-zinc-900 text-[15px] uppercase tracking-tight">
                   Our Locations
                 </p>
                 {locations.map((loc, i) => (
-                  <p key={i} className="leading-relaxed text-base">
+                  <p key={i} className="leading-relaxed text-[13px]">
                     {loc.text}
                   </p>
                 ))}
@@ -215,19 +215,19 @@ export default function ContactUsPage() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
                 <Phone className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
+              <div className="space-y-1 pt-1 text-[13px]">
+                <p className="font-bold text-zinc-900 text-[15px] uppercase tracking-tight">
                   Phone Inquiries
                 </p>
                 <a
                   href="tel:+2348098120000"
-                  className="text-base font-mono font-bold text-zinc-700 leading-relaxed hover:underline block"
+                  className="text-[13px] font-mono font-bold text-zinc-700 leading-relaxed hover:underline block"
                 >
                   +234-809-812-0000
                 </a>
                 <a
                   href="tel:+14439853735"
-                  className="text-base font-mono font-bold text-red-700 leading-relaxed hover:underline block"
+                  className="text-[13px] font-mono font-bold text-red-700 leading-relaxed hover:underline block"
                 >
                   +1-443-985-3735
                 </a>
@@ -239,19 +239,19 @@ export default function ContactUsPage() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
                 <Mail className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
+              <div className="space-y-1 pt-1 text-[13px]">
+                <p className="font-bold text-zinc-900 text-[15px] uppercase tracking-tight">
                   Email
                 </p>
                 <a
                   href="mailto:info@cybernovr.com"
-                  className="text-base font-mono font-bold text-red-700 hover:underline cursor-pointer block"
+                  className="text-[13px] font-mono font-bold text-red-700 hover:underline cursor-pointer block"
                 >
                   info@cybernovr.com
                 </a>
                 <a
                   href="mailto:kazeem@cybernovr.com"
-                  className="text-base font-mono font-bold text-zinc-500 hover:underline cursor-pointer block"
+                  className="text-[13px] font-mono font-bold text-zinc-500 hover:underline cursor-pointer block"
                 >
                   kazeem@cybernovr.com
                 </a>
@@ -263,11 +263,11 @@ export default function ContactUsPage() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700 shrink-0">
                 <Clock className="h-5 w-5" />
               </div>
-              <div className="space-y-1 pt-1 text-xs md:text-sm">
-                <p className="font-bold text-zinc-900 text-lg uppercase tracking-tight">
+              <div className="space-y-1 pt-1 text-[13px]">
+                <p className="font-bold text-zinc-900 text-[15px] uppercase tracking-tight">
                   Business Hours
                 </p>
-                <p className="text-base text-zinc-600 font-medium">
+                <p className="text-[13px] text-zinc-600 font-medium">
                   Monday - Friday: 8:00 AM - 5:00 PM
                 </p>
               </div>
@@ -282,14 +282,14 @@ export default function ContactUsPage() {
               <span className="w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse"></span>
               24/7 Incident Response
             </h4>
-            <p className="text-base text-zinc-600 leading-relaxed font-normal">
+            <p className="text-[13px] text-zinc-600 leading-relaxed font-normal">
               For active breach remediation or urgent system threat
               intervention, please reach out straight to our high-priority SOC
               line:
             </p>
             <a
               href="tel:+2349016991201"
-              className="text-xl font-mono font-black text-red-700 hover:underline tracking-tight"
+              className="text-lg font-mono font-black text-red-700 hover:underline tracking-tight"
             >
               +234-901-699-1201
             </a>
@@ -300,10 +300,10 @@ export default function ContactUsPage() {
       {/* FAQ Accordion Sub-Section */}
       <section className="pt-8 border-t border-zinc-200 space-y-10">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl md:text-4xl font-black text-zinc-900 uppercase tracking-tight">
+          <h2 className="text-xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-base text-zinc-500 max-w-xl mx-auto font-normal">
+          <p className="text-[13px] text-zinc-500 max-w-xl mx-auto font-normal">
             Find answers to questions about our services and solutions.
           </p>
         </div>
@@ -320,7 +320,7 @@ export default function ContactUsPage() {
                   onClick={() => setOpenFaq(isOpen ? null : index)}
                   className="w-full text-left px-6 py-4 flex justify-between items-center bg-zinc-50/40 hover:bg-zinc-50 transition-colors focus:outline-none"
                 >
-                  <span className="font-bold text-sm md:text-lg text-zinc-900">
+                  <span className="font-bold text-[13px] md:text-[15px] text-zinc-900">
                     {faq.q}
                   </span>
                   <ChevronDown
@@ -331,7 +331,7 @@ export default function ContactUsPage() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-2 text-xs md:text-base text-zinc-600 leading-relaxed bg-white border-t border-zinc-100 font-normal">
+                  <div className="px-6 pb-5 pt-2 text-[11px] md:text-[13px] text-zinc-600 leading-relaxed bg-white border-t border-zinc-100 font-normal">
                     {faq.a}
                   </div>
                 )}

@@ -94,13 +94,13 @@ export default function SolutionsHubPage() {
       
       {/* Top Banner Heading */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
-        <span className="text-base font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
+        <span className="text-[11px] md:text-[15px] font-mono font-black tracking-widest text-red-700 uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded w-fit block mb-4">
           Cybersecurity Solutions Matrix
         </span>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
+        <h1 className="text-2xl md:text-5xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4 leading-none">
           Professional Solutions
         </h1>
-        <p className="text-zinc-600 text-base md:text-xl leading-relaxed font-normal">
+        <p className="text-zinc-600 text-[13px] md:text-[17px] leading-relaxed font-normal">
           CYBERNOVR delivers professional-grade cybersecurity solutions engineered to help organisations achieve a 360° resilience for their critical information infrastructures. Please explore our specialized solutions across SOC, GRC, vulnerability management, and Indicators of Attack platforms.
         </p>
       </div>
@@ -108,12 +108,12 @@ export default function SolutionsHubPage() {
       {/* Proprietary Software Solutions Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-xl font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-[13px] md:text-base font-black uppercase tracking-widest text-zinc-400">
             Proprietary Platforms &amp; Software Solutions
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Product Scoping")}
-            className="bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-widest px-5 py-3 rounded-md transition-all font-mono text-center"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold text-[13px] md:text-[15px] uppercase tracking-widest px-5 py-3 rounded-md transition-all font-mono text-center"
           >
             Request Platform Demo
           </button>
@@ -134,15 +134,15 @@ export default function SolutionsHubPage() {
                       if (fb) fb.style.display = 'block';
                     }}
                   />
-                  <span id={`fb-text-${idx}`} className="hidden font-mono font-black text-red-500 text-base tracking-wider">{prod.name}</span>
+                  <span id={`fb-text-${idx}`} className="hidden font-mono font-black text-red-500 text-[15px] tracking-wider">{prod.name}</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-red-500 transition-colors uppercase">{prod.name}</h3>
-                  <p className="text-base font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
+                  <h3 className="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-red-500 transition-colors uppercase">{prod.name}</h3>
+                  <p className="text-[13px] md:text-[15px] font-bold text-red-500 uppercase tracking-widest mt-0.5 font-mono">{prod.tagline}</p>
                 </div>
-                <p className="text-zinc-300 text-xs md:text-lg leading-relaxed font-normal">{prod.desc}</p>
+                <p className="text-zinc-300 text-[11px] md:text-[15px] leading-relaxed font-normal">{prod.desc}</p>
               </div>
-              <Link href={prod.path} className="inline-flex items-center gap-2 text-lg font-bold uppercase tracking-widest text-red-500 hover:text-white transition-colors pt-2 self-start font-mono group">
+              <Link href={prod.path} className="inline-flex items-center gap-2 text-[13px] md:text-[15px] font-bold uppercase tracking-widest text-red-500 hover:text-white transition-colors pt-2 self-start font-mono group">
                 Book a Demo <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -153,14 +153,14 @@ export default function SolutionsHubPage() {
       {/* Professional Advisory Matrix Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-xl font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-[13px] md:text-base font-black uppercase tracking-widest text-zinc-400">
             Professional Services
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Advisory Scoping")}
-            className="border-2 border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-bold text-lg uppercase tracking-widest px-5 py-2.5 rounded-md transition-all font-mono text-center"
+            className="border-2 border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-bold text-[13px] md:text-[15px] uppercase tracking-widest px-5 py-2.5 rounded-md transition-all font-mono text-center"
           >
-            Initiate Advisory Scoping
+            REQUEST PROFESSIONAL SERVICES
           </button>
         </div>
 
@@ -173,14 +173,14 @@ export default function SolutionsHubPage() {
                   <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-zinc-900 group-hover:text-red-700 transition-colors uppercase tracking-tight">
+                  <h3 className="text-[13px] md:text-[15px] font-bold text-zinc-900 group-hover:text-red-700 transition-colors uppercase tracking-tight">
                     {srv.title}
                   </h3>
-                  <p className="text-xs md:text-lg text-zinc-600 leading-relaxed font-normal">{srv.desc}</p>
+                  <p className="text-[11px] md:text-[15px] text-zinc-600 leading-relaxed font-normal">{srv.desc}</p>
                 </div>
                 <button 
                   onClick={() => triggerPopupForm(srv.title)}
-                  className="inline-flex items-center gap-1.5 text-lg font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
+                  className="inline-flex items-center gap-1.5 text-[13px] md:text-[15px] font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
                 >
                   Contact Specialist <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -204,65 +204,65 @@ export default function SolutionsHubPage() {
             {!formSubmitted ? (
               <>
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">SCOPING CONSOLE</span>
-                  <h3 className="text-xl font-black uppercase tracking-tight pt-2">Initiate {selectedService}</h3>
-                  <p className="text-xs text-zinc-500 font-medium leading-relaxed">
+                  <span className="text-[11px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">PROFESSIONAL SERVICES</span>
+                  <h3 className="text-lg font-black uppercase tracking-tight pt-2">REQUEST FOR OUR PROFESSIONAL SERVICES</h3>
+                  <p className="text-[13px] text-zinc-500 font-medium leading-relaxed">
                     Connect directly to our operations squad. Fill out the fields below to schedule a baseline systems criteria mapping engagement.
                   </p>
                 </div>
 
                 <form onSubmit={handleFormSubmission} className="space-y-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
+                    <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
                     <input 
-                      type="text" required placeholder="Your operational signature name"
+                      type="text" required placeholder="Your name"
                       value={formData.name} onChange={(e) => setFormFields({...formData, name: e.target.value})}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                     />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
+                      <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
                       <input 
                         type="email" required placeholder="you@company.com"
                         value={formData.email} onChange={(e) => setFormFields({...formData, email: e.target.value})}
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
+                      <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
                       <input 
-                        type="tel" required placeholder="Contact phone layout"
+                        type="tel" required placeholder="Contact Phone Number"
                         inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
                         onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }}
                         value={formData.phone} onChange={(e) => setFormFields({...formData, phone: e.target.value})}
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">System Parameters / Notes</label>
+                    <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Comments</label>
                     <textarea 
-                      rows={3} placeholder="Describe infrastructure target metrics or criteria profiles..."
+                      rows={3}                       placeholder="How may we help you?"
                       value={formData.notes} onChange={(e) => setFormFields({...formData, notes: e.target.value})}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none"
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none"
                     />
                   </div>
 
                   <button 
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
                   >
-                    Submit Scoping Request
+                    Submit
                   </button>
                 </form>
               </>
             ) : (
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-                <h3 className="text-base font-black uppercase tracking-wider">Request Logged</h3>
+                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Logged</h3>
                 <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operations specialist will contact your endpoint shortly.</p>
               </div>
             )}

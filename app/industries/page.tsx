@@ -151,12 +151,12 @@ export default function IndustriesMasterPage() {
       {/* Institutional Header Block */}
       <div className="border-b border-zinc-200 pb-10 mb-12 max-w-4xl text-left">
         <div className="flex flex-wrap items-center gap-3 mb-4">
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 uppercase">INDUSTRIES WE SERVE</h1>
+          <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase">INDUSTRIES WE SERVE</h1>
         </div>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-lg font-semibold tracking-wide">
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
           Cyber resilience for critical ecosystems
         </p>
-        <p className="text-zinc-600 text-base md:text-lg leading-relaxed mt-4 font-normal">
+        <p className="text-zinc-600 text-[13px] md:text-[15px] leading-relaxed mt-4 font-normal">
           Select an industrial sector to experience our threat response approaches and tailored technical defenses for critical economic sectors.
         </p>
       </div>
@@ -167,7 +167,7 @@ export default function IndustriesMasterPage() {
           <button
             key={idx}
             onClick={() => setActiveIndex(idx)}
-            className={`px-5 py-2.5 rounded-md text-sm font-mono font-black tracking-wider transition-all uppercase border ${
+            className={`px-5 py-2.5 rounded-md text-[13px] font-mono font-black tracking-wider transition-all uppercase border ${
               activeIndex === idx
                 ? "bg-red-600 border-red-600 text-white shadow-sm"
                 : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:bg-zinc-100"
@@ -183,24 +183,24 @@ export default function IndustriesMasterPage() {
         
         {/* Left Informational Block */}
         <div className="lg:col-span-7 space-y-6 text-left">
-          <h2 className="text-2xl md:text-4xl font-bold text-zinc-900 tracking-tight leading-tight uppercase">
+          <h2 className="text-xl md:text-3xl font-bold text-zinc-900 tracking-tight leading-tight uppercase">
             {current.title}
           </h2>
-          <p className="text-red-700 italic font-semibold text-base md:text-lg border-l-2 border-red-700 pl-4 py-0.5">
+          <p className="text-red-700 italic font-semibold text-[13px] md:text-[15px] border-l-2 border-red-700 pl-4 py-0.5">
             {current.tagline}
           </p>
-          <p className="text-zinc-600 text-sm md:text-lg leading-relaxed max-w-2xl font-normal">
+          <p className="text-zinc-600 text-[13px] md:text-[15px] leading-relaxed max-w-2xl font-normal">
             {current.desc}
           </p>
 
           {/* Bullet Feature Lists */}
           <div className="bg-purple-950/[0.01] border-2 border-purple-900/5 p-6 md:p-8 rounded-xl max-w-2xl shadow-sm">
-            <h4 className="text-base uppercase font-mono font-black tracking-widest text-zinc-400 mb-4">
+            <h4 className="text-[15px] uppercase font-mono font-black tracking-widest text-zinc-400 mb-4">
               {current.bulletTitle}
             </h4>
             <ul className="space-y-4">
               {current.bullets.map((bullet, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs md:text-base font-medium text-zinc-700">
+                <li key={idx} className="flex items-start gap-3 text-[11px] md:text-[13px] font-medium text-zinc-700">
                   <ShieldCheck className="h-5 w-5 text-red-700 shrink-0 mt-0.5" />
                   <span>{bullet}</span>
                 </li>
@@ -220,7 +220,7 @@ export default function IndustriesMasterPage() {
               className={`w-full h-full object-cover ${imgFailed ? 'hidden' : ''}`}
               onError={() => setImgFailed(true)}
             />
-            <div className={`${imgFailed ? 'flex' : 'hidden'} absolute inset-0 items-center justify-center font-mono text-base uppercase text-zinc-400 tracking-widest font-bold bg-zinc-50`}>
+            <div className={`${imgFailed ? 'flex' : 'hidden'} absolute inset-0 items-center justify-center font-mono text-[13px] uppercase text-zinc-400 tracking-widest font-bold bg-zinc-50`}>
               {current.tabLabel} SYSTEM VISUALIZATION
             </div>
           </div>
@@ -228,12 +228,12 @@ export default function IndustriesMasterPage() {
           {/* Condensed Metric Block Row */}
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-purple-950/[0.02] p-5 border border-purple-900/10 rounded-xl text-center shadow-sm">
-              <h3 className="text-2xl md:text-4xl font-mono font-black text-red-700 leading-none mb-1">{current.stat1}</h3>
-              <p className="text-sm  font-bold text-zinc-400 uppercase tracking-wider font-mono">{current.stat1Label}</p>
+              <h3 className="text-xl md:text-3xl font-mono font-black text-red-700 leading-none mb-1">{current.stat1}</h3>
+              <p className="text-[13px] font-bold text-zinc-400 uppercase tracking-wider font-mono">{current.stat1Label}</p>
             </div>
             <div className="bg-purple-950/[0.02] p-5 border border-purple-900/10 rounded-xl text-center shadow-sm">
-              <h3 className={`text-2xl md:text-4xl font-mono font-black leading-none mb-1 ${current.stat2Red ? 'text-red-700' : 'text-zinc-900'}`}>{current.stat2}</h3>
-              <p className="text-sm font-bold text-zinc-400 uppercase tracking-wider font-mono">{current.stat2Label}</p>
+              <h3 className={`text-xl md:text-3xl font-mono font-black leading-none mb-1 ${current.stat2Red ? 'text-red-700' : 'text-zinc-900'}`}>{current.stat2}</h3>
+              <p className="text-[13px] font-bold text-zinc-400 uppercase tracking-wider font-mono">{current.stat2Label}</p>
             </div>
           </div>
         </div>

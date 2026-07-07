@@ -56,10 +56,10 @@ export default function OurJourneyPage() {
       
       {/* Header Panel */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
           Our Journey
         </h1>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-[15px] font-semibold tracking-wide">
           Almost two decades of providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building for critical stakeholders.
         </p>
       </div>
@@ -76,10 +76,10 @@ export default function OurJourneyPage() {
                 <span className="font-mono text-xs font-black text-red-700 uppercase block mb-1 tracking-widest">
                   {milestone.year}
                 </span>
-                <h3 className="text-base font-bold text-zinc-900 mb-2 leading-tight uppercase tracking-tight">
+                <h3 className="text-[15px] font-bold text-zinc-900 mb-2 leading-tight uppercase tracking-tight">
                   {milestone.title}
                 </h3>
-                <p className="text-zinc-600 text-xs md:text-sm leading-relaxed font-normal">
+                <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed font-normal">
                   {milestone.desc}
                 </p>
               </div>

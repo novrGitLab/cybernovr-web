@@ -110,10 +110,10 @@ function TheTeamContent() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-16 bg-white text-zinc-900 antialiased">
       {/* Structural Heading */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
           Key Management
         </h1>
-        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-base font-semibold tracking-wide">
+        <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-[15px] font-semibold tracking-wide">
           Experienced leadership driving cybersecurity resilience across Africa
           and beyond.
         </p>
@@ -122,7 +122,7 @@ function TheTeamContent() {
       {/* Core Leadership Grid Matrix (Locked to 3 Slots) */}
       <div className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
             Executive Directory
           </h2>
         </div>
@@ -159,20 +159,20 @@ function TheTeamContent() {
                   </span>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
+                  <h3 className="text-[15px] font-bold text-zinc-900 tracking-tight">
                     {member.name}
                   </h3>
                   <p className="text-xs font-mono font-bold text-red-700 uppercase tracking-wider">
                     {member.role}
                   </p>
-                  <p className="text-zinc-600 text-xs md:text-sm leading-relaxed pt-1 font-normal">
+                  <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed pt-1 font-normal">
                     {member.about}
                   </p>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-zinc-200/60 space-y-2">
-                <span className="text-[9px] uppercase tracking-wider font-bold text-zinc-400 block font-mono">
+                <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-400 block font-mono">
                   Credentials
                 </span>
                 <p className="text-[11px] font-mono font-medium text-zinc-700 leading-normal bg-zinc-50 p-3 rounded-lg border border-zinc-200">
@@ -187,7 +187,7 @@ function TheTeamContent() {
       {/* Interns Section Grid (Locked to 3 Slots) */}
       <div className="space-y-6 text-left pt-6">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
             Technical Interns
           </h2>
         </div>
@@ -223,7 +223,7 @@ function TheTeamContent() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-zinc-900 tracking-tight">
+                  <h3 className="text-[15px] font-bold text-zinc-900 tracking-tight">
                     {member.name}
                   </h3>
                   <p className="text-xs font-mono font-bold text-red-700 uppercase tracking-wider mt-0.5">
