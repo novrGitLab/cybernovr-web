@@ -153,14 +153,14 @@ export default function SolutionsHubPage() {
       {/* Professional Advisory Matrix Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-lg font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-base font-black uppercase tracking-widest text-zinc-400">
             Professional Services
           </h2>
           <button 
             onClick={() => triggerPopupForm("General Advisory Scoping")}
             className="border-2 border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-bold text-[15px] uppercase tracking-widest px-5 py-2.5 rounded-md transition-all font-mono text-center"
           >
-            Initiate Advisory Scoping
+            REQUEST PROFESSIONAL SERVICES
           </button>
         </div>
 
@@ -180,7 +180,7 @@ export default function SolutionsHubPage() {
                 </div>
                 <button 
                   onClick={() => triggerPopupForm(srv.title)}
-                  className="inline-flex items-center gap-1.5 text-[15px] font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-widest text-red-700 hover:text-red-600 transition-all self-start font-mono group"
                 >
                   Contact Specialist <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -204,8 +204,8 @@ export default function SolutionsHubPage() {
             {!formSubmitted ? (
               <>
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">SCOPING CONSOLE</span>
-                  <h3 className="text-lg font-black uppercase tracking-tight pt-2">Initiate {selectedService}</h3>
+                  <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">PROFESSIONAL SERVICES</span>
+                  <h3 className="text-lg font-black uppercase tracking-tight pt-2">REQUEST FOR OUR PROFESSIONAL SERVICES</h3>
                   <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">
                     Connect directly to our operations squad. Fill out the fields below to schedule a baseline systems criteria mapping engagement.
                   </p>
@@ -215,7 +215,7 @@ export default function SolutionsHubPage() {
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
                     <input 
-                      type="text" required placeholder="Your operational signature name"
+                      type="text" required placeholder="Your name"
                       value={formData.name} onChange={(e) => setFormFields({...formData, name: e.target.value})}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                     />
@@ -233,7 +233,7 @@ export default function SolutionsHubPage() {
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
                       <input 
-                        type="tel" required placeholder="Contact phone layout"
+                        type="tel" required placeholder="Contact Phone Number"
                         inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
                         onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }}
                         value={formData.phone} onChange={(e) => setFormFields({...formData, phone: e.target.value})}
@@ -243,9 +243,9 @@ export default function SolutionsHubPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">System Parameters / Notes</label>
+                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Comments</label>
                     <textarea 
-                      rows={3} placeholder="Describe infrastructure target metrics or criteria profiles..."
+                      rows={3}                       placeholder="How may we help you?"
                       value={formData.notes} onChange={(e) => setFormFields({...formData, notes: e.target.value})}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none"
                     />
@@ -255,7 +255,7 @@ export default function SolutionsHubPage() {
                     type="submit"
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
                   >
-                    Submit Scoping Request
+                    Submit
                   </button>
                 </form>
               </>
