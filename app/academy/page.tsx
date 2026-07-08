@@ -144,13 +144,13 @@ export default function CybernovrAcademyPage() {
 
             <div className="grid grid-cols-2 gap-4 border-t border-purple-900/30 pt-4 font-mono relative z-10">
               <div>
-                <p className="text-4xl font-black text-white">12</p>
+                <p className="sm:text-xl md:text-3xl font-black text-white">12</p>
                 <p className="text-sm uppercase tracking-widest text-purple-300 font-bold">
                   Modules
                 </p>
               </div>
               <div>
-                <p className="text-4xl font-black text-white">Hundreds</p>
+                <p className="sm:text-xl md:text-3xl font-black text-white">Hundreds</p>
                 <p className="text-sm uppercase tracking-widest text-purple-300 font-bold">
                   Nigerians Trained
                 </p>
@@ -335,7 +335,7 @@ export default function CybernovrAcademyPage() {
         </div>
 
         <div className="lg:col-span-5 bg-black/40 p-6 md:p-8 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-zinc-800 overflow-x-auto">
-          <div className="w-full min-w-[280px] bg-black/60 font-mono text-[11px] md:text-xs p-5 rounded-xl border border-zinc-800 shadow-inner space-y-3 text-red-500 whitespace-nowrap">
+          <div className="w-full min-w-[280px] bg-black/60 font-mono text-[11px] md:text-xs p-5 rounded-xl border border-zinc-800 shadow-inner space-y-3 text-red-500 break-words">
             <p className="text-zinc-700 tracking-tight block">
               // INITIALIZING SECURITY EDUCATION PROTOCOL...
             </p>
