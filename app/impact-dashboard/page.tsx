@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Users, GraduationCap, Building, ShieldCheck, HelpCircle } from "lucide-react";
+import { Users, GraduationCap, Building, ShieldCheck } from "lucide-react";
 
 export default function CEAPImpactDashboard() {
   const [loading, setLoading] = useState(true);
   const [graduates, setGraduates] = useState<any[]>([]);
   const [organizations, setOrganizations] = useState<any[]>([]);
+  const [filteredOrgs, setFilteredOrgs] = useState<any[]>([]);
   const [stories, setStories] = useState<any[]>([]);
   const [dashboardViewMode, setDashboardViewMode] = useState<"students" | "organizations">("students");
 
@@ -14,9 +15,8 @@ export default function CEAPImpactDashboard() {
   const [animatedInstitutions, setAnimatedInstitutions] = useState(0);
   const [animatedPartners, setAnimatedPartners] = useState(0);
   const [animatedTransformation, setAnimatedTransformation] = useState(0);
-  const [animatedOutcome, setAnimatedOutcome] = useState(0);
 
-  const GOOGLE_DATABASE_ENDPOINT = "https://sheetdb.io/api/v1/0vxudqmh2jcnx";
+  const GOOGLE_DATABASE_ENDPOINT = "https://sheetdb.io/api/v1/17jannicwz0ob";
 
   useEffect(() => {
     async function evaluateRelationalEcosystemData() {
@@ -35,11 +35,30 @@ export default function CEAPImpactDashboard() {
         const activeOrgs = Array.isArray(organizationsData) ? organizationsData : [];
         const activeStories = Array.isArray(storiesData) ? storiesData : [];
 
+        // Filter out the TOTAL row from organizations
+        const filteredOrgsList = activeOrgs.filter(org => org.organization_name && !org.organization_name.toLowerCase().includes('total'));
+
         setGraduates(activeGraduates);
         setOrganizations(activeOrgs);
+        setFilteredOrgs(filteredOrgsList);
         setStories(activeStories);
 
-        const uniqueInstitutionsCount = new Set(activeGraduates.map(g => g.institution?.trim()).filter(Boolean)).size || 1;
+        // Total Individuals Trained = sum of participants from organizations sheet
+        const totalParticipants = filteredOrgsList.reduce((sum, org) => {
+          const participants = parseInt(org.participants) || 0;
+          return sum + participants;
+        }, 0);
+
+        // Institutions Engaged = education-related organizations only
+        const educationInstitutions = filteredOrgsList.filter(org => {
+          const sector = org.sector?.trim().toLowerCase() || '';
+          return sector.includes('education');
+        });
+        const institutionsCount = educationInstitutions.length || 1;
+
+        // Organizations Partnered = all organizations (including non-education)
+        const organizationsCount = filteredOrgsList.length || 1;
+
         const successfullyPlacedCount = activeGraduates.filter(g => {
           const trackStatus = g.career_status?.trim().toLowerCase();
           return trackStatus === 'employed' || trackStatus === 'transitioned' || trackStatus === 'active';
@@ -55,11 +74,10 @@ export default function CEAPImpactDashboard() {
           if (!startTimestamp) startTimestamp = timestamp;
           const deltaProgress = Math.min((timestamp - startTimestamp) / animationRuntime, 1);
 
-          setAnimatedParticipants(Math.floor(deltaProgress * activeGraduates.length));
-          setAnimatedInstitutions(Math.floor(deltaProgress * uniqueInstitutionsCount));
-          setAnimatedPartners(Math.floor(deltaProgress * activeOrgs.length));
+          setAnimatedParticipants(Math.floor(deltaProgress * totalParticipants));
+          setAnimatedInstitutions(Math.floor(deltaProgress * institutionsCount));
+          setAnimatedPartners(Math.floor(deltaProgress * organizationsCount));
           setAnimatedTransformation(Math.floor(deltaProgress * transformationPctValue));
-          setAnimatedOutcome(Math.floor(deltaProgress * 84));
 
           if (deltaProgress < 1) {
             requestAnimationFrame(triggerFrameIncrements);
@@ -147,149 +165,129 @@ export default function CEAPImpactDashboard() {
         </div>
       </section>
 
-      {/* Progress Bars Indicators */}
-      <section className="grid gap-6 grid-cols-1 md:grid-cols-2 text-left">
-        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-4 shadow-sm">
-          <div className="flex items-start justify-between">
-            <div className="space-y-1">
-              <h2 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Career Transformation</h2>
-              <p className="text-xs text-zinc-500 font-normal leading-relaxed">Percentage of graduates who transitioned into cyber roles or earned active promotions.</p>
-            </div>
-            <span className="text-lg font-mono font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded-md">{animatedTransformation}%</span>
-          </div>
-          <div className="w-full bg-zinc-100 h-2 rounded-full overflow-hidden border border-zinc-200/40">
-            <div className="bg-red-600 h-full rounded-full transition-all duration-500" style={{ width: `${animatedTransformation}%` }}></div>
-          </div>
-        </div>
-
-        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-4 shadow-sm">
-          <div className="flex items-start justify-between">
-            <div className="space-y-1">
-              <h2 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Security Behavior Index</h2>
-              <p className="text-xs text-zinc-500 font-normal leading-relaxed">Measured habit enhancements, phishing simulation block rates, and MFA adoption metrics.</p>
-            </div>
-            <span className="text-lg font-mono font-black text-zinc-900 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded-md">{animatedOutcome}%</span>
-          </div>
-          <div className="w-full bg-zinc-100 h-2 rounded-full overflow-hidden border border-zinc-200/40">
-            <div className="bg-purple-950 h-full rounded-full transition-all duration-500" style={{ width: `${animatedOutcome}%` }}></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Relational Directory Window Split with Snapshot Switcher Toggles */}
-      <section className="grid gap-8 grid-cols-1 lg:grid-cols-12 items-start pt-4">
+      {/* Two-Column Layout: Left = Career + Directory, Right = Impact Stories */}
+      <section className="grid gap-6 grid-cols-1 lg:grid-cols-2 lg:grid-rows-[430px] text-left">
         
-        {/* Left Side: Directory Table Box */}
-        <div className="bg-white border-2 border-zinc-100 p-6 rounded-xl shadow-sm lg:col-span-8 space-y-4 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-4">
-            <div>
-              <h2 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Ecosystem Integration Directory</h2>
-              <p className="text-xs text-zinc-400 font-mono">Relational matrix view syncing raw repository snapshots.</p>
+        {/* Left Column: Career Transformation + Ecosystem Directory */}
+        <div className="space-y-6 overflow-y-auto pr-1 min-h-0">
+          <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-4 shadow-sm">
+            <div className="flex items-start justify-between">
+              <div className="space-y-1">
+                <h2 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Career Transformation</h2>
+                <p className="text-xs text-zinc-500 font-normal leading-relaxed">Percentage of graduates who transitioned into cyber roles or earned active promotions.</p>
+              </div>
+              <span className="text-lg font-mono font-black text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded-md">{animatedTransformation}%</span>
             </div>
-            
-            {/* Switcher Toggle Module */}
-            <div className="flex items-center bg-zinc-50 p-1 rounded-lg border border-zinc-200 self-start sm:self-center font-mono">
-              <button 
-                onClick={() => setDashboardViewMode("students")}
-                className={`px-4 py-1.5 rounded text-[10px] font-black uppercase tracking-wider transition-all ${
-                  dashboardViewMode === "students" 
-                    ? "bg-red-600 text-white shadow-sm" 
-                    : "text-zinc-500 hover:text-zinc-800"
-                }`}
-              >
-                Students Pool
-              </button>
-              <button 
-                onClick={() => setDashboardViewMode("organizations")}
-                className={`px-4 py-1.5 rounded text-[10px] font-black uppercase tracking-wider transition-all ${
-                  dashboardViewMode === "organizations" 
-                    ? "bg-red-600 text-white shadow-sm" 
-                    : "text-zinc-500 hover:text-zinc-800"
-                }`}
-              >
-                Orgs Node
-              </button>
+            <div className="w-full bg-zinc-100 h-2 rounded-full overflow-hidden border border-zinc-200/40">
+              <div className="bg-red-600 h-full rounded-full transition-all duration-500" style={{ width: `${animatedTransformation}%` }}></div>
             </div>
           </div>
 
-          <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 max-h-[400px]">
-            {dashboardViewMode === "students" ? (
-              <table className="w-full text-left border-collapse min-w-[500px]">
-                <thead>
-                  <tr className="border-b border-zinc-200 text-[9px] font-bold text-zinc-400 uppercase tracking-widest bg-white sticky top-0 z-10 font-mono">
-                    <th className="py-3 px-4">Student Trained</th>
-                    <th className="py-3 px-3">Pre-Role</th>
-                    <th className="py-3 px-3">Current Track</th>
-                    <th className="py-3 px-3">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200/60 text-xs text-zinc-600 bg-white font-medium">
-                  {graduates.length === 0 ? (
-                    <tr>
-                      <td colSpan={4} className="py-12 text-center text-zinc-400 italic font-normal">No tracking records identified inside graduates pool.</td>
+          <div className="bg-white border-2 border-zinc-100 p-6 rounded-xl shadow-sm space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-4">
+              <div>
+                <h2 className="text-base font-bold text-zinc-900 uppercase tracking-tight">Ecosystem Integration Directory</h2>
+                <p className="text-xs text-zinc-400 font-mono">Relational matrix view syncing raw repository snapshots.</p>
+              </div>
+              
+              <div className="flex items-center bg-zinc-50 p-1 rounded-lg border border-zinc-200 self-start sm:self-center font-mono">
+                <button 
+                  onClick={() => setDashboardViewMode("students")}
+                  className={`px-4 py-1.5 rounded text-[10px] font-black uppercase tracking-wider transition-all ${
+                    dashboardViewMode === "students" 
+                      ? "bg-red-600 text-white shadow-sm" 
+                      : "text-zinc-500 hover:text-zinc-800"
+                  }`}
+                >
+                  Students Pool
+                </button>
+                <button 
+                  onClick={() => setDashboardViewMode("organizations")}
+                  className={`px-4 py-1.5 rounded text-[10px] font-black uppercase tracking-wider transition-all ${
+                    dashboardViewMode === "organizations" 
+                      ? "bg-red-600 text-white shadow-sm" 
+                      : "text-zinc-500 hover:text-zinc-800"
+                  }`}
+                >
+                  Orgs Node
+                </button>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 max-h-[400px]">
+              {dashboardViewMode === "students" ? (
+                <table className="w-full text-left border-collapse min-w-[500px]">
+                  <thead>
+                    <tr className="border-b border-zinc-200 text-[9px] font-bold text-zinc-400 uppercase tracking-widest bg-white sticky top-0 z-10 font-mono">
+                      <th className="py-3 px-4">Student Trained</th>
+                      <th className="py-3 px-3">Pre-Role</th>
+                      <th className="py-3 px-3">Current Track</th>
+                      <th className="py-3 px-3">Status</th>
                     </tr>
-                  ) : (
-                    graduates.map((student, i) => {
-                      const status = student.career_status || 'Seeking';
-                      const isEmployed = status.toLowerCase() === 'employed' || status.toLowerCase() === 'active' || status.toLowerCase() === 'graduated';
-                      return (
-                        <tr key={i} className="hover:bg-purple-950/[0.01] transition-colors">
-                          <td className="py-3.5 px-4 font-bold text-zinc-900 uppercase tracking-tight">{student.fullname || '—'}</td>
-                          <td className="py-3.5 px-3 font-mono text-[10px] text-zinc-400">{student.pre_training_role || 'Baseline'}</td>
-                          <td className="py-3.5 px-3 text-zinc-900/80 font-semibold">{student.current_role || 'Cyber Candidate'}</td>
-                          <td className="py-3.5 px-3">
-                            <span className={`inline-flex items-center border px-2 py-0.5 rounded font-mono font-bold text-[9px] uppercase tracking-wider ${
-                              isEmployed ? 'bg-purple-950/[0.04] text-red-700 border-purple-900/10' : 'bg-zinc-50 text-zinc-400 border-zinc-200'
-                            }`}>
-                              {status}
-                            </span>
-                          </td>
-                        </tr>
-                      );
-                    })
-                  )}
-                </tbody>
-              </table>
-            ) : (
-              <table className="w-full text-left border-collapse min-w-[500px]">
-                <thead>
-                  <tr className="border-b border-zinc-200 text-[9px] font-bold text-zinc-400 uppercase tracking-widest bg-white sticky top-0 z-10 font-mono">
-                    <th className="py-3 px-4">Partner Entity</th>
-                    <th className="py-3 px-3">Sector Classification</th>
-                    <th className="py-3 px-3">Integration</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200/60 text-xs text-zinc-600 bg-white font-medium">
-                  {organizations.length === 0 ? (
-                    <tr>
-                      <td colSpan={3} className="py-12 text-center text-zinc-400 italic font-normal">No tracking records identified inside organization repository.</td>
-                    </tr>
-                  ) : (
-                    organizations.map((org, i) => (
-                      <tr key={i} className="hover:bg-purple-950/[0.01] transition-colors">
-                        <td className="py-3.5 px-4 font-bold text-zinc-900 uppercase tracking-tight">{org.organization_name || org.name || '—'}</td>
-                        <td className="py-3.5 px-3 font-mono text-[10px] text-red-700 font-bold uppercase tracking-wider">{org.sector || 'Enterprise'}</td>
-                        <td className="py-3.5 px-3">
-                          <span className="inline-flex items-center border border-purple-900/10 bg-purple-950/[0.04] text-red-700 px-2 py-0.5 rounded font-mono font-bold text-[9px] uppercase tracking-wider">
-                            Active Alliance
-                          </span>
-                        </td>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200/60 text-xs text-zinc-600 bg-white font-medium">
+                    {graduates.length === 0 ? (
+                      <tr>
+                        <td colSpan={4} className="py-12 text-center text-zinc-400 italic font-normal">No tracking records identified inside graduates pool.</td>
                       </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            )}
+                    ) : (
+                      graduates.map((student, i) => {
+                        const status = student.career_status || 'Seeking';
+                        const isEmployed = status.toLowerCase() === 'employed' || status.toLowerCase() === 'active' || status.toLowerCase() === 'graduated';
+                        return (
+                          <tr key={i} className="hover:bg-purple-950/[0.01] transition-colors">
+                            <td className="py-3.5 px-4 font-bold text-zinc-900 uppercase tracking-tight">{student.fullname || '—'}</td>
+                            <td className="py-3.5 px-3 font-mono text-[10px] text-zinc-400">{student.pre_training_role || 'Baseline'}</td>
+                            <td className="py-3.5 px-3 text-zinc-900/80 font-semibold">{student.current_role || 'Cyber Candidate'}</td>
+                            <td className="py-3.5 px-3">
+                              <span className={`inline-flex items-center border px-2 py-0.5 rounded font-mono font-bold text-[9px] uppercase tracking-wider ${
+                                isEmployed ? 'bg-purple-950/[0.04] text-red-700 border-purple-900/10' : 'bg-zinc-50 text-zinc-400 border-zinc-200'
+                              }`}>
+                                {status}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </table>
+              ) : (
+                <table className="w-full text-left border-collapse min-w-[500px]">
+                  <thead>
+                    <tr className="border-b border-zinc-200 text-[9px] font-bold text-zinc-400 uppercase tracking-widest bg-white sticky top-0 z-10 font-mono">
+                      <th className="py-3 px-4">Partner Entity</th>
+                      <th className="py-3 px-3">Sector Classification</th>
+                      <th className="py-3 px-3">Participants</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200/60 text-xs text-zinc-600 bg-white font-medium">
+                    {filteredOrgs.length === 0 ? (
+                      <tr>
+                        <td colSpan={3} className="py-12 text-center text-zinc-400 italic font-normal">No tracking records identified inside organization repository.</td>
+                      </tr>
+                    ) : (
+                      filteredOrgs.map((org, i) => (
+                        <tr key={i} className="hover:bg-purple-950/[0.01] transition-colors">
+                          <td className="py-3.5 px-4 font-bold text-zinc-900 uppercase tracking-tight">{org.organization_name || org.name || '—'}</td>
+                          <td className="py-3.5 px-3 font-mono text-[10px] text-red-700 font-bold uppercase tracking-wider">{org.sector || 'Enterprise'}</td>
+                          <td className="py-3.5 px-3 font-mono text-[11px] text-zinc-900 font-bold">{org.participants || '—'}</td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Right Side: Spotlights Column */}
-        <div className="space-y-4 lg:col-span-4 text-left">
+        {/* Right Column: Impact Stories Portfolio */}
+        <div className="space-y-4 overflow-y-auto pr-1 min-h-0">
           <div className="border-b border-zinc-100 pb-2">
             <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">Impact Stories Portfolio</h2>
           </div>
-          
-          <div className="space-y-4 max-h-[400px] overflow-y-auto pr-1">
+          <div className="space-y-4">
             {stories.length === 0 ? (
               <div className="bg-white p-5 rounded-xl border-2 border-zinc-100 text-center text-xs text-zinc-400 italic font-normal">
                 No qualitative stories logged inside data node.
@@ -309,6 +307,7 @@ export default function CEAPImpactDashboard() {
             )}
           </div>
         </div>
+
       </section>
 
     </div>
