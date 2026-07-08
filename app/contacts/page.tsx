@@ -249,12 +249,6 @@ export default function ContactUsPage() {
                 </p>
                 <div className="flex items-center gap-2">
                   <a
-                    href="tel:+2348098120000"
-                    className="text-[13px] font-mono font-bold text-zinc-700 leading-relaxed hover:underline"
-                  >
-                    +234-809-812-0000
-                  </a>
-                  <a
                     href="https://wa.me/2348098120000"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -262,6 +256,12 @@ export default function ContactUsPage() {
                     title="Chat on WhatsApp"
                   >
                     <FaWhatsapp className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="tel:+2348098120000"
+                    className="text-[13px] font-mono font-bold text-zinc-700 leading-relaxed hover:underline"
+                  >
+                    +234-809-812-0000
                   </a>
                 </div>
                 <a
