@@ -53,20 +53,16 @@ export default function ResourcesNewsPage() {
           Subscribe to our newsletter to receive the latest cybersecurity news and insights directly in your inbox.
         </p>
         {state.succeeded ? (
-          <div className="py-6 text-center flex flex-col items-center justify-center space-y-3">
-            <CheckCircle2 className="h-10 w-10 text-emerald-600 animate-bounce" />
-            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
+          <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+            <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+            <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
               Request Submitted
             </h4>
-            <p className="text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">
+            <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
               Our team will be in touch within 24 hours.
             </p>
-            <button
-              type="button"
-              onClick={reset}
-              className="mt-4 text-[13px] font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
-            >
-              Subscribe Another Email
+            <button onClick={() => reset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+              Submit Another Request
             </button>
           </div>
         ) : (
@@ -76,8 +72,8 @@ export default function ResourcesNewsPage() {
             name="email"
             className="flex-1 bg-white border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal"
           />
-          <button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-md font-mono whitespace-nowrap">
-            Subscribe
+          <button type="submit" disabled={state.submitting} className="bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-md font-mono whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
+            {state.submitting ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
         )}

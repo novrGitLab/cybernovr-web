@@ -370,20 +370,16 @@ export default function CybernovrAcademyPage() {
         </div>
 
         {state.succeeded ? (
-          <div className="p-8 text-center bg-purple-950/[0.02] border-2 border-dashed border-purple-900/20 rounded-xl flex flex-col items-center justify-center space-y-3">
-            <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
+          <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+            <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+            <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
               Request Submitted
             </h4>
-            <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">
+            <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
               Our team will be in touch within 24 hours.
             </p>
-            <button
-              type="button"
-              onClick={reset}
-              className="mt-4 text-[13px] font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
-            >
-              Submit Another
+            <button onClick={() => reset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+              Submit Another Request
             </button>
           </div>
         ) : (
@@ -473,9 +469,10 @@ export default function CybernovrAcademyPage() {
             </div>
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
+              disabled={state.submitting}
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Enrollment Request
+              {state.submitting ? "Submitting..." : "Submit Enrollment Request"}
             </button>
           </form>
         )}
