@@ -108,7 +108,7 @@ export default function SolutionsHubPage() {
       {/* Proprietary Software Solutions Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-[13px] md:text-base font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             Proprietary Platforms &amp; Software Solutions
           </h2>
           <button 
@@ -153,7 +153,7 @@ export default function SolutionsHubPage() {
       {/* Professional Advisory Matrix Section */}
       <section className="space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-100 pb-3">
-          <h2 className="text-[13px] md:text-base font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             Professional Services
           </h2>
           <button 

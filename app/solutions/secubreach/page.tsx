@@ -36,7 +36,7 @@ export default function SecuBreachPage() {
       {/* Grid Capability Cards */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Secure Your Infrastructure with SecuBreach</h2>
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">Secure Your Infrastructure with SecuBreach</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((c, i) => {

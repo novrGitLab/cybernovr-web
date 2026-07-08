@@ -34,7 +34,7 @@ export default function NovrGRCPage() {
 
       {/* Modules Framework */}
       <section className="space-y-6 text-left">
-        <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">Platform Core Modules</h2>
+        <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">Platform Core Modules</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {modules.map((m, idx) => {
             const Icon = m.icon;

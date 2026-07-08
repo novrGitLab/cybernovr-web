@@ -109,7 +109,7 @@ export default function CEAPImpactDashboard() {
       {/* Quantitative Reach Metrics */}
       <section className="space-y-4 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Quantitative Reach (Scale Metrics)</h2>
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">Quantitative Reach (Scale Metrics)</h2>
         </div>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-3">
           <div className="bg-purple-950/[0.01] border-2 border-purple-900/5 p-6 rounded-xl flex items-center justify-between shadow-sm">
@@ -286,7 +286,7 @@ export default function CEAPImpactDashboard() {
         {/* Right Side: Spotlights Column */}
         <div className="space-y-4 lg:col-span-4 text-left">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-xs font-black uppercase tracking-widest text-zinc-400">Impact Stories Portfolio</h2>
+            <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">Impact Stories Portfolio</h2>
           </div>
           
           <div className="space-y-4 max-h-[400px] overflow-y-auto pr-1">
