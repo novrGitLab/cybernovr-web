@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "@formspree/react";
 import { EyeOff, Activity, ShieldAlert, Radio, CheckCircle2 } from "lucide-react";
 
 export default function NovrRadarPage() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", traffic: "", architecture: "" });
+  const [state, handleSubmit, reset] = useForm("novrradarDemo");
 
   const points = [
     { icon: EyeOff, t: "Passive Monitoring", d: "Deploys non-intrusively directly at main internet gateway boundaries without altering network traffic speed benchmarks." },
@@ -62,31 +62,34 @@ export default function NovrRadarPage() {
           <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
 
-        {formSubmitted ? (
+        {state.succeeded ? (
           <div className="p-8 text-center bg-purple-950/[0.02] border-2 border-dashed border-purple-900/20 rounded-xl flex flex-col items-center justify-center space-y-3">
             <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-            <p className="text-base font-bold text-white uppercase tracking-wider font-mono">Integration Ticket Staged</p>
-            <p className="text-xs text-zinc-400 max-w-sm leading-relaxed font-medium">Our gateway infrastructure engineers will schedule an operations briefing within 24 hours.</p>
+            <p className="text-base font-bold text-white uppercase tracking-wider font-mono">Request Submitted</p>
+            <p className="text-xs text-zinc-400 max-w-sm leading-relaxed font-medium">Our team will be in touch within 24 hours.</p>
+            <button type="button" onClick={() => reset()} className="mt-4 bg-zinc-800 hover:bg-zinc-700 text-white py-3 px-6 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
+              Submit Another Request
+            </button>
           </div>
         ) : (
-          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setFormSubmitted(true); }}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Full Name *</label>
-                <input type="text" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+                <input type="text" name="name" placeholder="Your name" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
               </div>
               <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Corporate Email *</label>
-                <input type="email" placeholder="you@company.com" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+                <input type="email" name="email" placeholder="you@company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
               </div>
             </div>
             <div className="space-y-1">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company *</label>
-              <input type="text" placeholder="e.g., 10Gbps / 40Gbps line metrics" required value={formData.traffic} onChange={(e) => setFormData({...formData, traffic: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+              <input type="text" name="company" placeholder="e.g., 10Gbps / 40Gbps line metrics" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
-              <textarea rows={4} placeholder="Outline your primary edge routing architectures or edge gateway configurations..." value={formData.architecture} onChange={(e) => setFormData({...formData, architecture: e.target.value})} className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
+              <textarea name="comments" rows={4} placeholder="Outline your primary edge routing architectures or edge gateway configurations..." className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono">
               Submit

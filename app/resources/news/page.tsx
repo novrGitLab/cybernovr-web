@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
-import { ArrowRight, Mail } from "lucide-react";
+import React, { useState } from "react";
+import { useForm } from "@formspree/react";
+import { ArrowRight, Mail, CheckCircle2 } from "lucide-react";
 import { newsBriefs } from "./data";
 
 export default function ResourcesNewsPage() {
+  const [state, handleSubmit, reset] = useForm("newsletterSubscription");
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
@@ -50,15 +52,35 @@ export default function ResourcesNewsPage() {
         <p className="text-[13px] text-zinc-500 max-w-md mx-auto font-normal">
           Subscribe to our newsletter to receive the latest cybersecurity news and insights directly in your inbox.
         </p>
-        <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-4" onSubmit={(e) => { e.preventDefault(); alert("Thank you for subscribing!"); }}>
+        {state.succeeded ? (
+          <div className="py-6 text-center flex flex-col items-center justify-center space-y-3">
+            <CheckCircle2 className="h-10 w-10 text-emerald-600 animate-bounce" />
+            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
+              Request Submitted
+            </h4>
+            <p className="text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">
+              Our team will be in touch within 24 hours.
+            </p>
+            <button
+              type="button"
+              onClick={reset}
+              className="mt-4 text-[13px] font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
+            >
+              Subscribe Another Email
+            </button>
+          </div>
+        ) : (
+        <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-4" onSubmit={handleSubmit}>
           <input 
             type="email" placeholder="Enter your email address" required
+            name="email"
             className="flex-1 bg-white border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal"
           />
           <button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-md font-mono whitespace-nowrap">
             Subscribe
           </button>
         </form>
+        )}
       </section>
     </div>
   );

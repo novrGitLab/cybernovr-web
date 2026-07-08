@@ -1,0 +1,152 @@
+{
+  "forms": {
+    "securityAudit": {
+      "name": "Security Audit Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "contactRequest": {
+      "name": "Contact Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "novralertSubscription": {
+      "name": "NovrALERT Subscription",
+      "fields": {
+        "email": { "type": "email", "required": true }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "vaptScope": {
+      "name": "VAPT Scope Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "assessmentType": { "type": "text", "required": true },
+        "scope": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "auditGap": {
+      "name": "Audit & Gap Analysis Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "contactMessage": {
+      "name": "Contact Message",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "company": { "type": "text" },
+        "phone": { "type": "text" },
+        "service": { "type": "text" },
+        "message": { "type": "text", "required": true }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "professionalServices": {
+      "name": "Professional Services Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "novrgrcDemo": {
+      "name": "NovrGRC Demo Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "company": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "novrsocDemo": {
+      "name": "NovrSOC Demo Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "company": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "novrradarDemo": {
+      "name": "NovrRADAR Demo Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "company": { "type": "text", "required": true },
+        "comments": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "secubreachScan": {
+      "name": "SecuBreach Scan Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "targetUrl": { "type": "url", "required": true },
+        "comment": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "academyEnrollment": {
+      "name": "Academy Enrollment Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "school": { "type": "text", "required": true },
+        "phone": { "type": "text", "required": true },
+        "comment": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "assessmentScoping": {
+      "name": "Assessment Scoping Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "notes": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "academyAssessment": {
+      "name": "Academy Assessment Request",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text", "required": true },
+        "request": { "type": "text" }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "newsletterSubscription": {
+      "name": "Newsletter Subscription",
+      "fields": {
+        "email": { "type": "email", "required": true }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    }
+  }
+}

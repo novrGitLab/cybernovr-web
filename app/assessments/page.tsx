@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { Sparkles, ShieldCheck, Layers, Activity, CheckCircle2, RotateCcw, ArrowRight, X, AlertTriangle, Shield, Check } from "lucide-react";
 
 interface TechnicalQuestion {
@@ -20,7 +21,7 @@ export default function AssessmentsMasterPage() {
   // Scoping Contact Popup Modal States
   const [scopingModalOpen, setScopingModalOpen] = useState(false);
   const [scopingTitle, setScopingTargetTitle] = useState("");
-  const [scopingDone, setScopingDone] = useState(false);
+  const [state, handleSubmit, reset] = useForm("assessmentScoping");
 
   // State store for tracking organizational barometer answers
   const [selectedSector, setSelectedSector] = useState("");
@@ -118,7 +119,6 @@ export default function AssessmentsMasterPage() {
 
   const openScopingForm = (assessmentTitle: string) => {
     setScopingTargetTitle(assessmentTitle);
-    setScopingDone(false);
     setScopingModalOpen(true);
   };
 
@@ -587,11 +587,11 @@ export default function AssessmentsMasterPage() {
       {scopingModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
-            <button onClick={() => setScopingModalOpen(false)} className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors">
+            <button onClick={() => { reset(); setScopingModalOpen(false); }} className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors">
               <X className="h-5 w-5" />
             </button>
 
-            {!scopingDone ? (
+            {!state.succeeded ? (
               <>
                 <div className="space-y-1">
                   <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">Advisory Scoping</span>
@@ -599,26 +599,26 @@ export default function AssessmentsMasterPage() {
                   <p className="text-[11px] md:text-[13px] text-zinc-500 font-medium leading-relaxed">Schedule an engineering walkthrough with an analytics coordinator directly within our team matrix channels.</p>
                 </div>
 
-                <form onSubmit={(e) => { e.preventDefault(); setScopingDone(true); }} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
-                    <input type="text" required placeholder="Operational signature name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                    <input type="text" required name="name" placeholder="Operational signature name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
-                      <input type="email" required placeholder="you@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="email" required name="email" placeholder="you@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
-                      <input type="tel" required placeholder="Contact phone layout" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="tel" required name="phone" placeholder="Contact phone layout" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">System Parameters / Notes</label>
-                    <textarea rows={3} placeholder="Describe infrastructure target metrics or regulatory compliance constraints..." className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
+                    <textarea rows={3} name="notes" placeholder="Describe infrastructure target metrics or regulatory compliance constraints..." className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
                   </div>
 
                   <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
@@ -629,8 +629,15 @@ export default function AssessmentsMasterPage() {
             ) : (
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3 animate-fadeIn">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Logged</h3>
-                <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operational advisory coordinator will contact your domain endpoint shortly.</p>
+                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Submitted</h3>
+                <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                <button
+                  type="button"
+                  onClick={() => { reset(); setScopingModalOpen(false); }}
+                  className="mt-4 text-[13px] font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
+                >
+                  Submit Another
+                </button>
               </div>
             )}
           </div>

@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { GraduationCap, CheckCircle2, ArrowRight, Lock, Sparkles, BookOpen, Clock, Award, BarChart3, ChevronDown } from "lucide-react";
 
 export default function CybernovrAcademyPage() {
-  const [enrollmentSubmitted, setEnrollmentSubmitted] = useState(false);
+  const [state, handleSubmit, reset] = useForm("academyEnrollment");
   const [openModule, setOpenModule] = useState<number | null>(null);
 
   const courseModules = [
@@ -368,24 +369,27 @@ export default function CybernovrAcademyPage() {
           </p>
         </div>
 
-        {enrollmentSubmitted ? (
+        {state.succeeded ? (
           <div className="p-8 text-center bg-purple-950/[0.02] border-2 border-dashed border-purple-900/20 rounded-xl flex flex-col items-center justify-center space-y-3">
             <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
             <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
-              Registration Request Staged
+              Request Submitted
             </h4>
             <p className="text-[11px] md:text-[13px] text-zinc-500 max-w-xs mx-auto font-medium">
-              Our academic operations desk will verify your institutional domain
-              and transmit your curriculum access logs within 24 hours.
+              Our team will be in touch within 24 hours.
             </p>
+            <button
+              type="button"
+              onClick={reset}
+              className="mt-4 text-[13px] font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
+            >
+              Submit Another
+            </button>
           </div>
         ) : (
           <form
             className="space-y-5"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setEnrollmentSubmitted(true);
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="space-y-1">
@@ -396,6 +400,7 @@ export default function CybernovrAcademyPage() {
                   className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Your full name"
                   type="text"
+                  name="name"
                   required
                 />
               </div>
@@ -407,6 +412,7 @@ export default function CybernovrAcademyPage() {
                   className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="you@company.com"
                   type="email"
+                  name="email"
                   required
                 />
               </div>
@@ -420,6 +426,7 @@ export default function CybernovrAcademyPage() {
                   className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Organization footprint name"
                   type="text"
+                  name="school"
                   required
                 />
               </div>
@@ -431,6 +438,7 @@ export default function CybernovrAcademyPage() {
                   className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                   placeholder="Contact number"
                   type="tel"
+                  name="phone"
                   inputMode="numeric"
                   pattern="[0-9+\-\s()]+"
                   title="Please enter a valid phone number"
@@ -460,6 +468,7 @@ export default function CybernovrAcademyPage() {
                 rows={4}
                 className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
                 placeholder="Please describe your cybersecurity training needs"
+                name="comment"
               />
             </div>
             <button

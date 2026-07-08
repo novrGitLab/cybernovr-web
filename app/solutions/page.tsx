@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 // FIXED: restored Next.js routing reference component to prevent compilation crashes
 import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { ArrowRight, Gavel, School, ShieldAlert, BadgeCheck, Database, Terminal, X, CheckCircle2 } from "lucide-react";
 
 export default function SolutionsHubPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("");
-  const [formSubmitted, setFormSuccess] = useState(false);
-  const [formData, setFormFields] = useState({ name: "", email: "", phone: "", notes: "" });
+  const [state, handleSubmit, reset] = useForm("professionalServices");
 
   const professionalServices = [
     {
@@ -77,16 +77,6 @@ export default function SolutionsHubPage() {
   const triggerPopupForm = (serviceTitle: string) => {
     setSelectedService(serviceTitle);
     setIsFormOpen(true);
-  };
-
-  const handleFormSubmission = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSuccess(true);
-    setTimeout(() => {
-      setIsFormOpen(false);
-      setFormSuccess(false);
-      setFormFields({ name: "", email: "", phone: "", notes: "" });
-    }, 2500);
   };
 
   return (
@@ -195,13 +185,13 @@ export default function SolutionsHubPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
             <button 
-              onClick={() => setIsFormOpen(false)}
+              onClick={() => { reset(); setIsFormOpen(false); }}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {!formSubmitted ? (
+            {!state.succeeded ? (
               <>
                 <div className="space-y-1">
                   <span className="text-[11px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">PROFESSIONAL SERVICES</span>
@@ -211,12 +201,12 @@ export default function SolutionsHubPage() {
                   </p>
                 </div>
 
-                <form onSubmit={handleFormSubmission} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
                     <input 
                       type="text" required placeholder="Your name"
-                      value={formData.name} onChange={(e) => setFormFields({...formData, name: e.target.value})}
+                      name="name"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                     />
                   </div>
@@ -226,7 +216,7 @@ export default function SolutionsHubPage() {
                       <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
                       <input 
                         type="email" required placeholder="you@company.com"
-                        value={formData.email} onChange={(e) => setFormFields({...formData, email: e.target.value})}
+                        name="email"
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                       />
                     </div>
@@ -236,7 +226,7 @@ export default function SolutionsHubPage() {
                         type="tel" required placeholder="Contact Phone Number"
                         inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number"
                         onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }}
-                        value={formData.phone} onChange={(e) => setFormFields({...formData, phone: e.target.value})}
+                        name="phone"
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                       />
                     </div>
@@ -246,14 +236,15 @@ export default function SolutionsHubPage() {
                     <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Comments</label>
                     <textarea 
                       rows={3}                       placeholder="How may we help you?"
-                      value={formData.notes} onChange={(e) => setFormFields({...formData, notes: e.target.value})}
+                      name="comments"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none"
                     />
                   </div>
 
                   <button 
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono"
+                    disabled={state.submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono disabled:opacity-50"
                   >
                     Submit
                   </button>
@@ -262,8 +253,15 @@ export default function SolutionsHubPage() {
             ) : (
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Logged</h3>
-                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your request parameters have been logged. An operations specialist will contact your endpoint shortly.</p>
+                <h3 className="text-[15px] font-black uppercase tracking-wider">Request Submitted</h3>
+                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                <button
+                  type="button"
+                  onClick={() => { reset(); setIsFormOpen(false); }}
+                  className="mt-4 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 font-bold rounded text-[13px] uppercase tracking-widest font-mono transition-all"
+                >
+                  Submit Another
+                </button>
               </div>
             )}
           </div>
