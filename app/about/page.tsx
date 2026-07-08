@@ -112,7 +112,7 @@ export default function CorporateAboutHub() {
         {/* Row 2: Core Values */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-[15px] font-black uppercase tracking-widest text-zinc-400">
+            <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
               Core Values
             </h2>
           </div>
@@ -157,7 +157,8 @@ export default function CorporateAboutHub() {
                 We are committed to relentless innovation, creating cutting-edge
                 solutions while swiftly adapting to new challenges. We foster a
                 culture of continuous learning and challenge the norm to achieve
-                our philosophy of <span className="text-red-700">"It is Possible"</span>.
+                our philosophy of{" "}
+                <span className="text-red-700">"It is Possible"</span>.
               </p>
             </div>
             <div className="bg-purple-950/[0.02] border border-purple-900/10 p-6 rounded-xl space-y-3 shadow-sm">
@@ -199,7 +200,7 @@ export default function CorporateAboutHub() {
         {/* Core Workers Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-[15px] font-black uppercase tracking-widest text-zinc-400">
+            <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
               Our Management Team
             </h2>
           </div>
@@ -249,7 +250,7 @@ export default function CorporateAboutHub() {
         {/* Technical Interns Matrix */}
         <div className="space-y-6">
           <div className="border-b border-zinc-100 pb-2">
-            <h2 className="text-[15px] font-black uppercase tracking-widest text-zinc-400">
+            <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
               Technical Interns
             </h2>
           </div>
@@ -301,7 +302,8 @@ export default function CorporateAboutHub() {
             </h3>
             <p className="text-xs text-zinc-500 font-medium">
               Attaining a 360-degree cybersecurity resilience for your business.
-              We keep thinking because we know <span className="text-red-700 font-bold">It is POSSIBLE</span>.
+              We keep thinking because we know{" "}
+              <span className="text-red-700 font-bold">It is POSSIBLE</span>.
             </p>
           </div>
           <Link

@@ -35,7 +35,7 @@ export default function NovrRadarPage() {
       {/* Feature Cards Layout Grid */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">NovrRADAR Product Capabilities</h2>
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">NovrRADAR Product Capabilities</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {points.map((p, idx) => {

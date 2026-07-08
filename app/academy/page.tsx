@@ -243,7 +243,7 @@ export default function CybernovrAcademyPage() {
       {/* Course Curriculum Architecture Section */}
       <section className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-[11px] md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             CEAP CURRICULUM
           </h2>
         </div>

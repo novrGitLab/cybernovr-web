@@ -39,7 +39,7 @@ export default function CorporateCareersPage() {
       {/* Module: Core Cultural Values */}
       <section className="space-y-8 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             Our Corporate Values
           </h2>
         </div>
@@ -69,7 +69,7 @@ export default function CorporateCareersPage() {
       {/* Updated Module: Open Vacancies */}
       <section id="hiring" className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             We Are Hiring
           </h2>
         </div>

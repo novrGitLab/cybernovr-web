@@ -122,7 +122,7 @@ function TheTeamContent() {
       {/* Core Leadership Grid Matrix (Locked to 3 Slots) */}
       <div className="space-y-6 text-left">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             Executive Directory
           </h2>
         </div>
@@ -187,7 +187,7 @@ function TheTeamContent() {
       {/* Interns Section Grid (Locked to 3 Slots) */}
       <div className="space-y-6 text-left pt-6">
         <div className="border-b border-zinc-100 pb-2">
-          <h2 className="text-sm font-black uppercase tracking-widest text-zinc-400">
+          <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">
             Technical Interns
           </h2>
         </div>

@@ -34,7 +34,7 @@ export default function NovrSOCPage() {
 
       {/* Core Technology Pillars */}
       <section className="space-y-6 text-left">
-        <h2 className="text-md font-black uppercase tracking-widest text-zinc-400">System Capabilities</h2>
+        <h2 className="text-sm md:text-[15px] font-black uppercase tracking-widest text-zinc-400">System Capabilities</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pillars.map((p, idx) => {
             const Icon = p.icon;
