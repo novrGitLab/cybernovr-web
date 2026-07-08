@@ -61,7 +61,7 @@ function TheTeamContent() {
       about:
         "Cybersecurity Practitioner with a background in Mathematics/Statistics. Google Certified Digital Marketer. Passionate about cybersecurity, risk management, and helping organizations build secure, resilient digital environments through innovative security solutions.",
       certs:
-        "Enterprise IT Leadership · Security Operations · Digital Transformation · Infrastructure Architecture",
+        "Cybersecurity · Risk Management · Mathematics & Statistics · Digital Marketing",
       img: "worker-3.jpeg",
       type: "executive",
     },
