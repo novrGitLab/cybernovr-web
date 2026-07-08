@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useForm } from "@formspree/react";
 import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export default function ContactUsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -246,12 +247,23 @@ export default function ContactUsPage() {
                 <p className="font-bold text-zinc-900 text-[15px] uppercase tracking-tight">
                   Phone Inquiries
                 </p>
-                <a
-                  href="tel:+2348098120000"
-                  className="text-[13px] font-mono font-bold text-zinc-700 leading-relaxed hover:underline block"
-                >
-                  +234-809-812-0000
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:+2348098120000"
+                    className="text-[13px] font-mono font-bold text-zinc-700 leading-relaxed hover:underline"
+                  >
+                    +234-809-812-0000
+                  </a>
+                  <a
+                    href="https://wa.me/2348098120000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700 transition-colors"
+                    title="Chat on WhatsApp"
+                  >
+                    <FaWhatsapp className="h-5 w-5" />
+                  </a>
+                </div>
                 <a
                   href="tel:+14439853735"
                   className="text-[13px] font-mono font-bold text-red-700 leading-relaxed hover:underline block"
