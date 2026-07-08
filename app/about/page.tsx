@@ -60,6 +60,7 @@ export default function CorporateAboutHub() {
     { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" },
     { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg" },
     { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg" },
+    { name: "Mr. Adeniran-Taiwo Luciano Eniade", role: "Penetration Tester", img: "worker-10.jpg" },
   ];
 
   return (

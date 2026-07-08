@@ -104,6 +104,12 @@ function TheTeamContent() {
       img: "worker-6.jpeg",
       label: "Security",
     },
+    {
+      name: "Mr. Adeniran-Taiwo Luciano Eniade",
+      role: "Penetration Tester",
+      img: "worker-10.jpg",
+      label: "Offensive Security",
+    },
   ];
 
   return (
