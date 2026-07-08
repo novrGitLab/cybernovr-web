@@ -44,7 +44,7 @@ export default function CorporateAboutHub() {
     {
       name: "Mr. Mark O. Okechukwu",
       role: "Business Development Manager",
-      bio: "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
+      bio: "Cybersecurity Practitioner with a background in Mathematics/Statistics. Google Certified Digital Marketer. Passionate about cybersecurity, risk management, and helping organizations build secure, resilient digital environments through innovative security solutions.",
       img: "worker-3.jpeg",
     },
     {

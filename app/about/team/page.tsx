@@ -59,7 +59,7 @@ function TheTeamContent() {
       role: "Business Development Manager",
       label: "Information Operations",
       about:
-        "30+ years of ICT experience. World Bank Consultant on Cybersecurity. UNODC Consultant on security technologies. Led several national technology projects for ONSA, NCC, CBN, etc.",
+        "Cybersecurity Practitioner with a background in Mathematics/Statistics. Google Certified Digital Marketer. Passionate about cybersecurity, risk management, and helping organizations build secure, resilient digital environments through innovative security solutions.",
       certs:
         "Enterprise IT Leadership · Security Operations · Digital Transformation · Infrastructure Architecture",
       img: "worker-3.jpeg",
