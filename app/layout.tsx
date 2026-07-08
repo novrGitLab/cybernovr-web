@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { Toaster } from "sonner";
 import Providers from "./Providers";
+import FooterNewsletter from "./FooterNewsletter";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -24,7 +26,8 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         <Providers>
-        
+        <Toaster position="top-right" richColors />
+
         {/* Mounts interactive navigation rows & cookie banners gracefully */}
         <NavigationAndConsent />
 
@@ -79,12 +82,7 @@ export default function RootLayout({
             <div className="md:col-span-3 space-y-4">
               <h5 className="uppercase tracking-widest text-primary font-black text-xs">Stay Updated</h5>
               <p className="text-white/70 text-sm">Receive premium threat intelligence directly to your inbox.</p>
-              <div className="flex items-center border-b border-white/20 pb-2">
-                <input className="bg-transparent border-0 w-full text-sm focus:ring-0 text-white placeholder:text-white/30 outline-none" placeholder="Enter your email" type="email" />
-                <button className="text-primary hover:translate-x-1 transition-transform">
-                  <span className="material-symbols-outlined">send</span>
-                </button>
-              </div>
+              <FooterNewsletter />
             </div>
           </div>
           

@@ -824,10 +824,11 @@ export default function Home() {
               </div>
 
               <button
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
+                disabled={securityState.submitting}
               >
-                Submit
+                {securityState.submitting ? "Submitting..." : "Submit"}
               </button>
             </form>
             )}
@@ -950,9 +951,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
+                    disabled={contactState.submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Please Reach Out to Us
+                    {contactState.submitting ? "Submitting..." : "Please Reach Out to Us"}
                   </button>
                 </form>
               )}
@@ -1003,9 +1005,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2"
+                    disabled={alertState.submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" />
+                    {alertState.submitting ? "Submitting..." : <>Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" /></>}
                   </button>
                 </form>
               ) : (
@@ -1170,9 +1173,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
+                    disabled={vaptState.submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit
+                    {vaptState.submitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
               )}
@@ -1289,9 +1293,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono"
+                    disabled={auditState.submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit
+                    {auditState.submitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
               )}
