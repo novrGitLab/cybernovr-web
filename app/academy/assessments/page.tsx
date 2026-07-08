@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { Sparkles, ShieldCheck, Layers, Activity, CheckCircle2, RotateCcw, ArrowRight, X, AlertTriangle, Shield, Check, HelpCircle } from "lucide-react";
 
 // Types definition interfaces
@@ -22,7 +23,7 @@ export default function AssessmentsMasterPage() {
   // Scoping Console Call-To-Action Form States
   const [scopingModalOpen, setScopingModalOpen] = useState(false);
   const [scopingTargetTitle, setScopingTargetTitle] = useState("");
-  const [scopingSubmitted, setScopingSubmitted] = useState(false);
+  const [state, handleSubmit, reset] = useForm("academyAssessment");
 
   // Quiz 1: Your Cybersecurity Barometer Data Matrix
   const barometerQuestions: Question[] = [
@@ -101,7 +102,6 @@ export default function AssessmentsMasterPage() {
 
   const openScopingForm = (assessmentTitle: string) => {
     setScopingTargetTitle(assessmentTitle);
-    setScopingSubmitted(false);
     setScopingModalOpen(true);
   };
 
@@ -408,13 +408,13 @@ export default function AssessmentsMasterPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
             <button 
-              onClick={() => setScopingModalOpen(false)}
+              onClick={() => { reset(); setScopingModalOpen(false); }}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {!scopingSubmitted ? (
+            {!state.succeeded ? (
               <>
                 <div className="space-y-1">
                   <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">ASSESSMENT REQUEST</span>
@@ -424,26 +424,26 @@ export default function AssessmentsMasterPage() {
                   </p>
                 </div>
 
-                <form onSubmit={(e) => { e.preventDefault(); setScopingSubmitted(true); }} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
-                    <input type="text" required placeholder="Please Enter Full Name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                    <input type="text" required name="name" placeholder="Please Enter Full Name" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Corporate Email *</label>
-                      <input type="email" required placeholder="name@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="email" required name="email" placeholder="name@company.com" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">Phone Number *</label>
-                      <input type="tel" required placeholder="Contact endpoint" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
+                      <input type="tel" required name="phone" placeholder="Contact endpoint" inputMode="numeric" pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" onKeyDown={(e) => { if (!/[0-9+\-\s()]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight'].includes(e.key)) { e.preventDefault(); } }} className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal" />
                     </div>
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono">INITIATE ASSESSMENT REQUEST</label>
-                    <textarea rows={3} placeholder="Please describe your cyber resilience assessment needs" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
+                    <textarea rows={3} name="request" placeholder="Please describe your cyber resilience assessment needs" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
                   </div>
 
                   <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono">
@@ -454,8 +454,15 @@ export default function AssessmentsMasterPage() {
             ) : (
               <div className="py-8 text-center flex flex-col items-center justify-center space-y-3 animate-fadeIn">
                 <CheckCircle2 className="h-12 w-12 text-emerald-600 animate-bounce" />
-                <h3 className="text-base font-black uppercase tracking-wider">Request Logged</h3>
-                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Your assessment request has been received. Our team will contact you shortly.</p>
+                <h3 className="text-base font-black uppercase tracking-wider">Request Submitted</h3>
+                <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">Our team will be in touch within 24 hours.</p>
+                <button
+                  type="button"
+              onClick={() => { reset(); setScopingModalOpen(false); }}
+                  className="mt-4 text-xs font-bold text-red-700 underline hover:text-red-600 transition-colors font-mono"
+                >
+                  Submit Another
+                </button>
               </div>
             )}
           </div>

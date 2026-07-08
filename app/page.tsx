@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
+import { useForm } from "@formspree/react";
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
 import { webinars } from "./resources/webinar/data";
@@ -9,19 +10,20 @@ import { webinars } from "./resources/webinar/data";
 export default function Home() {
   const [selectedIndustry, setSelectedIndustry] = useState(0);
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
-  const [subscriberEmail, setSubscriberEmail] = useState("");
-  const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [flashCardIndex, setFlashCardIndex] = useState(0);
-  const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
-  const [vaptSubmitted, setVaptSubmitted] = useState(false);
-  const [vaptScope, setVaptScope] = useState("");
-  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
-  const [auditSubmitted, setAuditSubmitted] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [prevCarouselIndex, setPrevCarouselIndex] = useState(0);
+
+  // Formspree hooks
+  const [securityState, securityHandleSubmit, securityReset] = useForm("securityAudit");
+  const [contactState, contactHandleSubmit, contactReset] = useForm("contactRequest");
+  const [alertState, alertHandleSubmit, alertReset] = useForm("novralertSubscription");
+  const [vaptState, vaptHandleSubmit, vaptReset] = useForm("vaptScope");
+  const [auditState, auditHandleSubmit, auditReset] = useForm("auditGap");
 
   // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
@@ -173,18 +175,6 @@ export default function Home() {
   const scrollToContactForm = () => {
     const target = document.getElementById('contact-gateway');
     if (target) target.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleAlertSubscription = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (subscriberEmail) {
-      setSubscriptionSuccess(true);
-      setTimeout(() => {
-        setIsAlertModalOpen(false);
-        setSubscriptionSuccess(false);
-        setSubscriberEmail("");
-      }, 2500);
-    }
   };
 
   return (
@@ -745,12 +735,23 @@ export default function Home() {
           </div>
 
           <div className="lg:w-1/2 bg-white/[0.04] p-8 md:p-16 text-left">
+            {securityState.succeeded ? (
+              <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+                <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+                <h4 className="text-[15px] font-black uppercase tracking-wide text-white">
+                  Request Submitted
+                </h4>
+                <p className="text-xs text-zinc-400 max-w-xs mx-auto font-medium">
+                  Our team will be in touch within 24 hours.
+                </p>
+                <button onClick={() => securityReset()} className="text-[13px] text-red-400 hover:text-red-300 font-mono font-bold uppercase tracking-wider mt-2">
+                  Submit Another Request
+                </button>
+              </div>
+            ) : (
             <form
               className="space-y-6"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Security audit request submitted safely.");
-              }}
+              onSubmit={securityHandleSubmit}
             >
               <div className="space-y-5">
                 <div className="space-y-1">
@@ -758,6 +759,7 @@ export default function Home() {
                     Full Name *
                   </label>
                   <input
+                    name="name"
                     className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="Your name"
                     type="text"
@@ -770,6 +772,7 @@ export default function Home() {
                     Corporate Email *
                   </label>
                   <input
+                    name="email"
                     className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="you@company.com"
                     type="email"
@@ -782,6 +785,7 @@ export default function Home() {
                     Phone Number *
                   </label>
                   <input
+                    name="phone"
                     className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[15px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                     placeholder="Contact Phone Number"
                     type="tel"
@@ -811,6 +815,7 @@ export default function Home() {
                     Comments
                   </label>
                   <textarea
+                    name="comments"
                     rows={4}
                     className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
                     placeholder="How may we help you?"
@@ -825,6 +830,7 @@ export default function Home() {
                 Submit
               </button>
             </form>
+            )}
           </div>
         </div>
         <div className="text-center pt-6">
@@ -851,7 +857,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsContactModalOpen(false);
-                  setContactSubmitted(false);
+                  contactReset();
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -860,7 +866,7 @@ export default function Home() {
             </div>
 
             <div className="p-8">
-              {contactSubmitted ? (
+              {contactState.succeeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -869,20 +875,21 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
+                  <button onClick={() => contactReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                    Submit Another Request
+                  </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setContactSubmitted(true);
-                  }}
+                  onSubmit={contactHandleSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
+                      name="name"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
@@ -894,6 +901,7 @@ export default function Home() {
                       Corporate Email *
                     </label>
                     <input
+                      name="email"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
@@ -905,6 +913,7 @@ export default function Home() {
                       Phone Number *
                     </label>
                     <input
+                      name="phone"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
@@ -933,6 +942,7 @@ export default function Home() {
                       Comments
                     </label>
                     <textarea
+                      name="comments"
                       rows={3}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="How may we help you?"
@@ -977,17 +987,16 @@ export default function Home() {
             </div>
 
             <div className="p-8">
-              {!subscriptionSuccess ? (
-                <form onSubmit={handleAlertSubscription} className="space-y-4">
+              {!alertState.succeeded ? (
+                <form onSubmit={alertHandleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email
                     </label>
                     <input
+                      name="email"
                       type="email"
                       placeholder="analyst@secure-domain.com"
-                      value={subscriberEmail}
-                      onChange={(e) => setSubscriberEmail(e.target.value)}
                       required
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                     />
@@ -1006,8 +1015,11 @@ export default function Home() {
                     Subscription Successful
                   </h4>
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
-                    Threat feed monitoring pipelines are initializing.
+                    You will receive threat intelligence updates.
                   </p>
+                  <button onClick={() => alertReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                    Subscribe Another Email
+                  </button>
                 </div>
               )}
             </div>
@@ -1031,7 +1043,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsVaptModalOpen(false);
-                  setVaptSubmitted(false);
+                  vaptReset();
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -1039,7 +1051,7 @@ export default function Home() {
               </button>
             </div>
             <div className="p-8">
-              {vaptSubmitted ? (
+              {vaptState.succeeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -1048,20 +1060,21 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
+                  <button onClick={() => vaptReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                    Submit Another Request
+                  </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setVaptSubmitted(true);
-                  }}
+                  onSubmit={vaptHandleSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
+                      name="name"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
@@ -1073,6 +1086,7 @@ export default function Home() {
                       Corporate Email *
                     </label>
                     <input
+                      name="email"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
@@ -1084,6 +1098,7 @@ export default function Home() {
                       Phone Number *
                     </label>
                     <input
+                      name="phone"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
@@ -1114,21 +1129,28 @@ export default function Home() {
                     <div className="flex flex-wrap gap-4">
                       <label className="flex items-center gap-2 text-[15px] text-zinc-700 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
+                          name="assessmentType"
+                          value="SAST"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
+                          required
                         />
                         SAST
                       </label>
                       <label className="flex items-center gap-2 text-[13px] text-zinc-700 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
+                          name="assessmentType"
+                          value="DAST"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
                         />
                         DAST
                       </label>
                       <label className="flex items-center gap-2 text-[13px] text-zinc-700 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
+                          name="assessmentType"
+                          value="Both"
                           className="w-4 h-4 rounded border-zinc-300 text-red-600 focus:ring-red-500"
                         />
                         Both
@@ -1140,6 +1162,7 @@ export default function Home() {
                       Scope Description
                     </label>
                     <textarea
+                      name="scope"
                       rows={4}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="Please describe the scope of your VAPT."
@@ -1174,7 +1197,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsAuditModalOpen(false);
-                  setAuditSubmitted(false);
+                  auditReset();
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -1182,7 +1205,7 @@ export default function Home() {
               </button>
             </div>
             <div className="p-8">
-              {auditSubmitted ? (
+              {auditState.succeeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -1191,20 +1214,21 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
+                  <button onClick={() => auditReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                    Submit Another Request
+                  </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setAuditSubmitted(true);
-                  }}
+                  onSubmit={auditHandleSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
                     </label>
                     <input
+                      name="name"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Your name"
                       type="text"
@@ -1216,6 +1240,7 @@ export default function Home() {
                       Corporate Email *
                     </label>
                     <input
+                      name="email"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="you@company.com"
                       type="email"
@@ -1227,6 +1252,7 @@ export default function Home() {
                       Phone Number *
                     </label>
                     <input
+                      name="phone"
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                       placeholder="Contact Phone Number"
                       type="tel"
@@ -1255,6 +1281,7 @@ export default function Home() {
                       Comments
                     </label>
                     <textarea
+                      name="comments"
                       rows={4}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all resize-none font-normal"
                       placeholder="What are your audit & gap analysis requests?"

@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, ShieldAlert } from "lucide-react";
+import { useForm } from "@formspree/react";
+import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 export default function ContactUsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [state, handleSubmit, reset] = useForm("contactMessage");
 
   const locations = [
     { text: "4625 Varsity Drive NW, Calgary, AB T3A 0Z9, Canada" },
@@ -56,12 +58,27 @@ export default function ContactUsPage() {
             Send Us a Message
           </h2>
 
+          {state.succeeded ? (
+            <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
+              <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
+              <h4 className="text-[15px] font-black uppercase tracking-wide text-white">
+                Request Submitted
+              </h4>
+              <p className="text-xs text-zinc-400 max-w-xs mx-auto font-medium">
+                Our team will be in touch within 24 hours.
+              </p>
+              <button
+                type="button"
+                onClick={reset}
+                className="mt-4 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 font-bold rounded text-[13px] uppercase tracking-widest font-mono transition-all"
+              >
+                Submit Another
+              </button>
+            </div>
+          ) : (
           <form
             className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Message sent successfully.");
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
@@ -70,6 +87,7 @@ export default function ContactUsPage() {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your full name"
                   required
                   className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
@@ -81,6 +99,7 @@ export default function ContactUsPage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="you@company.com"
                   required
                   className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
@@ -95,6 +114,7 @@ export default function ContactUsPage() {
                 </label>
                 <input
                   type="text"
+                  name="company"
                   placeholder="Company Name"
                   className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
                 />
@@ -105,6 +125,7 @@ export default function ContactUsPage() {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Contact number"
                   inputMode="numeric"
                   pattern="[0-9+\-\s()]+"
@@ -133,7 +154,10 @@ export default function ContactUsPage() {
                 Service of Interest
               </label>
               <div className="relative">
-                <select className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal">
+                <select
+                  name="service"
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all appearance-none cursor-pointer font-normal"
+                >
                   <option value="" className="bg-zinc-950 text-white">
                     Select a Service
                   </option>
@@ -166,6 +190,7 @@ export default function ContactUsPage() {
               </label>
               <textarea
                 rows={5}
+                name="message"
                 placeholder="Send your message; we will respond within 1-2 business days"
                 required
                 className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
@@ -174,11 +199,13 @@ export default function ContactUsPage() {
 
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-[13px] uppercase tracking-widest font-mono"
+              disabled={state.submitting}
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-[13px] uppercase tracking-widest font-mono disabled:opacity-50"
             >
               Send Message
             </button>
           </form>
+          )}
         </div>
 
         {/* Right Side: Static Information Registry */}

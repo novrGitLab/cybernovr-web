@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import Providers from "./Providers";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -22,6 +23,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
+        <Providers>
         
         {/* Mounts interactive navigation rows & cookie banners gracefully */}
         <NavigationAndConsent />
@@ -93,6 +95,7 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        </Providers>
       </body>
     </html>
   );
