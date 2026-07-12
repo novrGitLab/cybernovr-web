@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { Toaster } from "sonner";
 import Providers from "./Providers";
 import FooterNewsletter from "./FooterNewsletter";
@@ -83,9 +84,38 @@ export default function RootLayout({
               <h5 className="uppercase tracking-widest text-primary font-black text-xs">Stay Updated</h5>
               <p className="text-white/70 text-sm">Receive premium threat intelligence directly to your inbox.</p>
               <FooterNewsletter />
+
+              <div className="pt-4 space-y-3 text-sm text-white/70">
+                <div className="flex items-start gap-2">
+                  <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
+                  <p>4625 Varsity Drive NW, Calgary, AB T3A 0Z9, Canada</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
+                  <p>17 Sunday Adigun Street, Alausa, Ikeja, Lagos, Nigeria</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Phone size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div className="space-y-1">
+                    <p className="flex items-center gap-2">
+                      <a href="https://wa.me/2348098120000" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <FaWhatsapp size={14} />
+                      </a>
+                      <a href="tel:+2348098120000" className="hover:text-primary transition-colors">+234-809-812-0000</a>
+                    </p>
+                    <p>
+                      <a href="tel:+14439853735" className="hover:text-primary transition-colors">+1-443-985-3735</a>
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Mail size={16} className="text-primary mt-0.5 shrink-0" />
+                  <a href="mailto:info@cybernovr.com" className="hover:text-primary transition-colors">info@cybernovr.com</a>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
