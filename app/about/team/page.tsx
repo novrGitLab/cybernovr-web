@@ -29,7 +29,7 @@ function TheTeamContent() {
         "30+ years of ICT experience. World Bank Consultant on Cybersecurity for the Nigeria Communications Sector. Led the development of the National Cybersecurity Policy & Strategy, NCC-CSIRT, and the eNaira platform.",
       certs:
         "CISM · CGEIT · MCB · PMP · Ph.D Information Systems (Univ. of Ibadan) · Fellow: NCS, CPCRN, ASIST, Canadian IT Professionals",
-      img: "worker-1.png",
+      img: "worker-1.webp",
       type: "executive",
     },
     {
@@ -40,7 +40,7 @@ function TheTeamContent() {
         "Cybersecurity Researcher at the Canadian Institute of Cybersecurity, University of New Brunswick. Specializes in ML/AI-driven intrusion detection, zero-day attack identification, and threat intelligence modeling.",
       certs:
         "PyTorch · Keras · TensorFlow · Python · NumPy · Pandas · scikit-learn · Matplotlib · CNNs, RNNs, LSTMs, Autoencoders",
-      img: "worker-2.jpg",
+      img: "worker-2.webp",
       type: "executive",
     },
     {
@@ -51,7 +51,7 @@ function TheTeamContent() {
         "Cybersecurity Specialist focused on enterprise technical solutions integrations, baseline systems architecture, and comprehensive technical account management.",
       certs:
         "GCPC-ISC2 (CC) · Hagital (CC) · B.Sc · Expert in VMDR (vulnerability management detection and response) and Compliance management",
-      img: "worker-4.png",
+      img: "worker-4.webp",
       type: "executive",
     },
     {
@@ -62,7 +62,7 @@ function TheTeamContent() {
         "Cybersecurity Practitioner with a background in Mathematics/Statistics. Google Certified Digital Marketer. Passionate about cybersecurity, risk management, and helping organizations build secure, resilient digital environments through innovative security solutions.",
       certs:
         "Cybersecurity · Risk Management · Mathematics & Statistics · Digital Marketing",
-      img: "worker-3.jpeg",
+      img: "worker-3.webp",
       type: "executive",
     },
     {
@@ -73,7 +73,7 @@ function TheTeamContent() {
         "Manages the Cybersecurity Education and Awareness Program (CEAP) at Novr Academy, overseeing curriculum delivery and student engagement.",
       certs:
         "Program Management · Cybersecurity Education · Curriculum Development · Stakeholder Engagement",
-      img: "intern-2.jpg",
+      img: "intern-2.webp",
       type: "executive",
     },
   ];
@@ -83,31 +83,31 @@ function TheTeamContent() {
     {
       name: "Abubakar Usman Damilare",
       role: "Programming and Application Development Intern",
-      img: "intern-1.jpg",
+      img: "intern-1.webp",
       label: "Operations",
     },
     {
       name: "Adebayo Adedeji Enoch",
       role: "IT Lead",
-      img: "worker-5.png",
+      img: "worker-5.webp",
       label: "Technical",
     },
     {
       name: "Adeyemi Fisayomi",
       role: "Technical Intern",
-      img: "intern-3.jpg",
+      img: "intern-3.webp",
       label: "Defense",
     },
     {
       name: "Chukwuezugo Monwuba",
       role: "Cybersecurity Intern",
-      img: "worker-6.jpeg",
+      img: "worker-6.webp",
       label: "Security",
     },
     {
       name: "Mr. Adeniran-Taiwo Luciano Eniade",
       role: "Penetration Tester",
-      img: "worker-9.jpeg",
+      img: "worker-9.webp",
       label: "Offensive Security",
     },
   ];

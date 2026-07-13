@@ -50,7 +50,7 @@ export default function Home() {
   const softwareSolutions = [
     { name: "NovrSOC (by Cybernovr)", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png", shortName: "NovrSOC" },
     { name: "NovrGRC (by Cybernovr)", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png", shortName: "NovrGRC" },
-    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png", shortName: "SecuBreach" },
+    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.webp", shortName: "SecuBreach" },
     { name: "NovrRadar (by Cybernovr)", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png", shortName: "NovrRadar" }
   ];
 
@@ -96,12 +96,12 @@ export default function Home() {
       desc: "Cybernovr team and Gabriel Olokitun, A student of caleb internation college at the CEAP certificate presentation",
     },
     {
-      src: "/assets/carousel/ncc-event_with_bgc.png",
+      src: "/assets/carousel/ncc-event_with_bgc.webp",
       alt: "NCC Cybersecurity Blueprint",
       desc: "NCC with Cybernovr Unveils Cybersecurity Blueprint to Fortify Nigeria's Telecom Backbone",
     },
     {
-      src: "/assets/carousel/punch-coverage.jpg",
+      src: "/assets/carousel/punch-coverage.webp",
       alt: "Rotary Club Lagos CEAP Training",
       desc: "President of Rotary Club of Lagos, Toki Mabogunje, with CEO Kazeem Durodoye and Students after the First CEAP Training Session for INTERAC Members Sponsored by the Rotary Club of Lagos",
     },

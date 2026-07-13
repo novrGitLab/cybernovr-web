@@ -65,7 +65,7 @@ export default function IndustriesMasterPage() {
         "Regulatory Compliance: We help leading sector players to meet the evolving speed of compliance to regulatory frameworks and provisions to achieve baseline security and operational standards",
         "Risk Management: We help leading sector players to understand the threats and risks they face in their day-to-day operations"
       ],
-      image: "/assets/industries/fintech.jpg"
+      image: "/assets/industries/fintech.webp"
     },
     {
       tabLabel: "Energy",
@@ -84,7 +84,7 @@ export default function IndustriesMasterPage() {
         "Rapid Disaster Recovery: We ensure that industrial control systems can be restored safely and quickly using tested backup files, emergency response procedures, and incident playbooks.",
         "Adapting and Improving: By using international frameworks like ISO 62443, enhance architectures, policies, and operational strategies to harden the OT environment against attack vectors."
       ],
-      image: "/assets/industries/Energy.jpg"
+      image: "/assets/industries/Energy.webp"
     },
     {
       tabLabel: "Government",

@@ -53,7 +53,7 @@ export default function SolutionsHubPage() {
     },
     {
       name: "Vulnerability Management",
-      logo: "secubreach.png",
+      logo: "secubreach.webp",
       tagline: "Vulnerability Management Platform",
       desc: "Intersects vulnerability management and regulatory compliance. We integrate the NIST CVE database with AI/ML heuristics for passive, metadata-based continuous monitoring.",
       path: "/solutions/secubreach"
