@@ -327,7 +327,7 @@ export default function Home() {
                   <p className="text-[13px] font-bold text-zinc-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
                     {flashCards[flashCardIndex].title}
                   </p>
-                  <p className="font-mono text-[11px] text-zinc-400 font-bold tracking-wider uppercase">
+                  <p className="font-mono text-[11px] text-zinc-500 font-bold tracking-wider uppercase">
                     {flashCards[flashCardIndex].date}
                   </p>
                 </div>
@@ -464,11 +464,13 @@ export default function Home() {
                           : `transition-opacity duration-700 ${isActive ? "opacity-100 z-10" : "opacity-0 z-0"}`
                       }`}
                     >
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="w-full h-full object-cover object-top"
-                      />
+              <img
+                src={img.src}
+                alt={img.alt}
+                width={800}
+                height={600}
+                className="w-full h-full object-cover object-top"
+              />
                       {img.desc && (
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-5">
                           <p className="text-white text-xs font-bold leading-snug">
@@ -485,6 +487,7 @@ export default function Home() {
                   <button
                     key={i}
                     onClick={() => setCarouselIndex(i)}
+                    aria-label={`Go to slide ${i + 1}`}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
                       i === carouselIndex ? "w-6 bg-red-600" : "w-2 bg-zinc-300"
                     }`}
@@ -618,7 +621,7 @@ export default function Home() {
             <h4 className="text-sm md:text-base font-black text-zinc-950 uppercase tracking-wider">
               {activeTestimonials[testimonialIndex].author}
             </h4>
-            <p className="text-sm font-mono font-black text-red-500 tracking-widest uppercase mt-0.5">
+            <p className="text-sm font-mono font-black text-red-600 tracking-widest uppercase mt-0.5">
               {activeTestimonials[testimonialIndex].firm}
             </p>
           </div>
@@ -706,7 +709,10 @@ export default function Home() {
                 <img
                   key={`${partner}-${i}`}
                   src={`/assets/partners/${partner}.png`}
-                  alt="Technology partner mark"
+                  alt={`Partner logo ${partner}`}
+                  width={140}
+                  height={40}
+                  loading="lazy"
                   className="h-8 md:h-10 w-auto object-contain hover:scale-105 transition-all duration-300 cursor-pointer max-w-[140px]"
                   onError={(e) => {
                     (e.target as HTMLElement).style.display = "none";
