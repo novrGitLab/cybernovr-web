@@ -115,7 +115,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          
+
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
