@@ -11,8 +11,9 @@ export default function FooterNewsletter() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "newsletterSubscription");
       formData.append("form_source", "Footer");
       await submitWeb3Form(formData);
@@ -20,7 +21,7 @@ export default function FooterNewsletter() {
       toast.success("Subscribed! You will receive threat intelligence updates.", {
         duration: 5000,
       });
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Subscription error:", err);
     } finally {

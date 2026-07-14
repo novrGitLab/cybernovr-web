@@ -10,13 +10,14 @@ export default function NovrSOCPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "novrsocDemo");
       formData.append("form_source", "NovrSOC Page");
       await submitWeb3Form(formData);
       setSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
