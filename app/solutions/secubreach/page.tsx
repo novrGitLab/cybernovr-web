@@ -90,7 +90,7 @@ export default function SecuBreachPage() {
             </div>
             <div className="space-y-1">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Target Domain URL *</label>
-              <input type="text" name="targetUrl" placeholder="company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
+              <input type="url" name="targetUrl" placeholder="https://company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comment</label>
