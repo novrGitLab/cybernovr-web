@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 export default function NavigationAndConsent() {
   const pathname = usePathname();
@@ -94,7 +95,7 @@ export default function NavigationAndConsent() {
                   ? "text-primary border-primary"
                   : "text-on-surface-variant border-transparent hover:text-primary"
               }`}>
-                Resources <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+                Resources <ChevronDown className="w-4 h-4" />
               </button>
               <div className="absolute top-full left-0 w-full h-2" />
               {isResourcesDropdownOpen && (
@@ -146,7 +147,7 @@ export default function NavigationAndConsent() {
                     : "bg-primary text-white hover:brightness-110 active:scale-95"
                 }`}
               >
-                Novr Academy <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+                Novr Academy <ChevronDown className="w-4 h-4" />
               </button>
               <div className="absolute top-full left-0 w-full h-2" />
               {isAcademyDropdownOpen && (
@@ -168,9 +169,7 @@ export default function NavigationAndConsent() {
             className="lg:hidden text-on-surface p-2"
             aria-label="Toggle navigation menu"
           >
-            <span className="material-symbols-outlined text-3xl">
-              {isMobileMenuOpen ? "close" : "menu"}
-            </span>
+            {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
 
@@ -189,7 +188,7 @@ export default function NavigationAndConsent() {
                 }`}
               >
                 Resources
-                <span className={`material-symbols-outlined text-lg transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                <ChevronDown className={`w-5 h-5 transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`} />
               </button>
               {isMobileResourcesOpen && (
                 <div className="space-y-2 pl-2 mt-2 border-l border-outline-variant">
