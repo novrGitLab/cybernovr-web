@@ -1,11 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "@formspree/react";
+import { submitWeb3Form } from "@/app/web3forms";
 import { ArrowRight, Mail, CheckCircle2 } from "lucide-react";
 import { newsBriefs } from "./data";
 
 export default function ResourcesNewsPage() {
-  const [state, handleSubmit, reset] = useForm("newsletterSubscription");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const form = e.currentTarget;
+    try {
+      const formData = new FormData(form);
+      formData.append("form_name", "newsletterSubscription");
+      formData.append("form_source", "News Page");
+      await submitWeb3Form(formData);
+      setSucceeded(true);
+      form.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-12 bg-white text-zinc-900 antialiased">
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
@@ -54,7 +73,7 @@ export default function ResourcesNewsPage() {
         <p className="text-[13px] text-zinc-500 max-w-md mx-auto font-normal">
           Subscribe to our newsletter to receive the latest cybersecurity news and insights directly in your inbox.
         </p>
-        {state.succeeded ? (
+        {succeeded ? (
           <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
             <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
             <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -63,7 +82,7 @@ export default function ResourcesNewsPage() {
             <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
               Our team will be in touch within 24 hours.
             </p>
-            <button onClick={() => reset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+            <button onClick={() => setSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
               Submit Another Request
             </button>
           </div>
@@ -74,8 +93,8 @@ export default function ResourcesNewsPage() {
             name="email"
             className="flex-1 bg-white border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-normal"
           />
-          <button type="submit" disabled={state.submitting} className="bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-md font-mono whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
-            {state.submitting ? "Subscribing..." : "Subscribe"}
+          <button type="submit" disabled={submitting} className="bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-md font-mono whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
+            {submitting ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
         )}

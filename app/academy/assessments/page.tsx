@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useForm } from "@formspree/react";
+import { submitWeb3Form } from "@/app/web3forms";
 import { Sparkles, ShieldCheck, Layers, Activity, CheckCircle2, RotateCcw, ArrowRight, X, AlertTriangle, Shield, Check, HelpCircle } from "lucide-react";
 
 // Types definition interfaces
@@ -23,7 +23,26 @@ export default function AssessmentsMasterPage() {
   // Scoping Console Call-To-Action Form States
   const [scopingModalOpen, setScopingModalOpen] = useState(false);
   const [scopingTargetTitle, setScopingTargetTitle] = useState("");
-  const [state, handleSubmit, reset] = useForm("academyAssessment");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const form = e.currentTarget;
+    try {
+      const formData = new FormData(form);
+      formData.append("form_name", "academyAssessment");
+      formData.append("form_source", "Academy Assessments Page");
+      await submitWeb3Form(formData);
+      setSucceeded(true);
+      form.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   // Quiz 1: Your Cybersecurity Barometer Data Matrix
   const barometerQuestions: Question[] = [
@@ -408,13 +427,13 @@ export default function AssessmentsMasterPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
             <button 
-              onClick={() => { reset(); setScopingModalOpen(false); }}
+              onClick={() => { setSucceeded(false); setScopingModalOpen(false); }}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {!state.succeeded ? (
+            {!succeeded ? (
               <>
                 <div className="space-y-1">
                   <span className="text-[9px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">ASSESSMENT REQUEST</span>
@@ -446,8 +465,8 @@ export default function AssessmentsMasterPage() {
                     <textarea rows={3} name="request" placeholder="How may we help you?" className="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-normal" />
                   </div>
 
-                  <button type="submit" disabled={state.submitting} className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono disabled:opacity-50 disabled:cursor-not-allowed">
-                    {state.submitting ? "Submitting..." : "SUBMIT ASSESSMENT REQUEST"}
+                  <button type="submit" disabled={submitting} className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono disabled:opacity-50 disabled:cursor-not-allowed">
+                    {submitting ? "Submitting..." : "SUBMIT ASSESSMENT REQUEST"}
                   </button>
                 </form>
               </>
@@ -460,7 +479,7 @@ export default function AssessmentsMasterPage() {
                 <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                   Our team will be in touch within 24 hours.
                 </p>
-                <button onClick={() => reset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                <button onClick={() => setSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
                   Submit Another Request
                 </button>
               </div>
