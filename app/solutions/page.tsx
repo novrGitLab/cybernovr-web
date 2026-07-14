@@ -202,6 +202,28 @@ export default function SolutionsHubPage() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="serviceType" value={selectedService} />
+                  <input type="hidden" name="formSource" value="Professional Services" />
+
+                  <div className="space-y-1">
+                    <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Service Type *</label>
+                    <select
+                      name="serviceCategory"
+                      required
+                      value={selectedService}
+                      onChange={(e) => setSelectedService(e.target.value)}
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
+                    >
+                      <option value="">Select a service...</option>
+                      <option value="Governance & Compliance">Governance & Compliance</option>
+                      <option value="CEAP Professional Training">CEAP Professional Training</option>
+                      <option value="Cybersecurity Due Diligence">Cybersecurity Due Diligence</option>
+                      <option value="Compliance Management">Compliance Management</option>
+                      <option value="Data Protection (NDPC)">Data Protection (NDPC)</option>
+                      <option value="Penetration Testing & Red Teaming">Penetration Testing & Red Teaming</option>
+                    </select>
+                  </div>
+
                   <div className="space-y-1">
                     <label className="text-[13px] font-black uppercase tracking-wider text-zinc-400 font-mono">Full Name *</label>
                     <input 
