@@ -94,7 +94,7 @@ export default function SecuBreachPage() {
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comment</label>
-              <textarea name="comment" rows={4} placeholder="Detail specific application endpoints or infrastructure systems to safely target..." className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-medium" />
+              <textarea name="comments" rows={4} placeholder="Detail specific application endpoints or infrastructure systems to safely target..." className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all resize-none font-medium" />
             </div>
             <button type="submit" disabled={state.submitting} className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono disabled:opacity-50 disabled:cursor-not-allowed">
               {state.submitting ? "Submitting..." : "Submit"}

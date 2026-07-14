@@ -63,6 +63,9 @@
     "professionalServices": {
       "name": "Professional Services Request",
       "fields": {
+        "serviceType": { "type": "text", "required": true },
+        "formSource": { "type": "text" },
+        "serviceCategory": { "type": "text", "required": true },
         "name": { "type": "text", "required": true },
         "email": { "type": "email", "required": true },
         "phone": { "type": "text", "required": true },
@@ -145,6 +148,17 @@
       "name": "Newsletter Subscription",
       "fields": {
         "email": { "type": "email", "required": true }
+      },
+      "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
+    },
+    "webinarInquiry": {
+      "name": "Webinar Registration",
+      "fields": {
+        "webinarTitle": { "type": "text", "required": true },
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text" },
+        "comments": { "type": "text" }
       },
       "actions": [{ "type": "email", "to": "info@cybernovr.com" }]
     }

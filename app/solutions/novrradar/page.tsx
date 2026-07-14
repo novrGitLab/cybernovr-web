@@ -89,7 +89,7 @@ export default function NovrRadarPage() {
             </div>
             <div className="space-y-1">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company *</label>
-              <input type="text" name="company" placeholder="e.g., 10Gbps / 40Gbps line metrics" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
+              <input type="text" name="company" placeholder="Your company name" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
