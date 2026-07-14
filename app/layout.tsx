@@ -41,7 +41,7 @@ export default function RootLayout({
             {/* Brand column */}
             <div className="md:col-span-4 space-y-6">
               <Link className="block" href="/">
-                <img src="/logo-white.png" alt="CYBERNOVR" className="h-14 w-auto object-contain" />
+                <img src="/logo-white.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
               </Link>
               <p className="text-white/70 max-w-sm text-sm leading-relaxed">
                 A leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
