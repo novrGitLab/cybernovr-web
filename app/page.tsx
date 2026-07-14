@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
+import { ShieldAlert, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
 import { submitWeb3Form } from "./web3forms";
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
@@ -267,7 +267,7 @@ export default function Home() {
       setCarouselIndex((prev) => (prev + 1) % 5);
     }, 5000);
     return () => clearInterval(carouselTimer);
-  }, [carouselIndex]);
+  }, []);
 
   const scrollToContactForm = () => {
     const target = document.getElementById('contact-gateway');

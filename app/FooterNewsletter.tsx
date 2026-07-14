@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { submitWeb3Form } from "@/app/web3forms";
 import { toast } from "sonner";
+import { Send } from "lucide-react";
 
 export default function FooterNewsletter() {
   const [submitting, setSubmitting] = useState(false);
@@ -51,7 +52,7 @@ export default function FooterNewsletter() {
         disabled={submitting}
         className="text-primary hover:translate-x-1 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <span className="material-symbols-outlined">send</span>
+        <Send className="w-5 h-5" />
       </button>
     </form>
   );
