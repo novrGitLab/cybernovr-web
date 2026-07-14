@@ -43,7 +43,7 @@ export default function IncidentResponsePage() {
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase">INCIDENT RESPONSE BY</h1>
-          <img src="/logo.png" alt="CYBERNOVR" className="h-10 w-auto object-contain" />
+          <img src="/logo.png" alt="CYBERNOVR" width={1080} height={247} className="h-10 w-auto object-contain" />
         </div>
         <p className="italic text-red-700 border-l-2 border-red-700 pl-4 py-0.5 text-[13px] md:text-[15px] font-semibold tracking-wide">
           Emergency Escalation, Rapid Containment &amp; Systemic Reconstruction

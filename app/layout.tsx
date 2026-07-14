@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Inter } from "next/font/google";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Toaster } from "sonner";
@@ -8,6 +9,13 @@ import FooterNewsletter from "./FooterNewsletter";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata = {
   title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
@@ -20,9 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">

@@ -117,6 +117,8 @@ export default function SolutionsHubPage() {
                   <img 
                     src={`/brand/${prod.logo}`} 
                     alt={`${prod.name} Logo`} 
+                    width={160}
+                    height={48}
                     className="h-8 w-auto object-contain brightness-0 invert" 
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';

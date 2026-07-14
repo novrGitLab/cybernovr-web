@@ -145,6 +145,8 @@ function TheTeamContent() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="max-h-full max-w-full object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
@@ -209,6 +211,8 @@ function TheTeamContent() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="max-h-full max-w-full object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";

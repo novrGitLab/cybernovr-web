@@ -217,6 +217,8 @@ export default function IndustriesMasterPage() {
               key={activeIndex}
               src={current.image} 
               alt={`${current.tabLabel} architecture deployment`} 
+              width={800}
+              height={600}
               className={`w-full h-full object-cover ${imgFailed ? 'hidden' : ''}`}
               onError={() => setImgFailed(true)}
             />

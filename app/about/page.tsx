@@ -216,6 +216,8 @@ export default function CorporateAboutHub() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
@@ -266,6 +268,8 @@ export default function CorporateAboutHub() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";

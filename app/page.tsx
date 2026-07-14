@@ -357,9 +357,9 @@ export default function Home() {
             <Terminal className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
+            <h2 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
               VAPT Scope Request
-            </h3>
+            </h2>
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Where are my weaknesses and who's attacking me?
             </span>
@@ -383,9 +383,9 @@ export default function Home() {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
+            <h2 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
               Audit &amp; Gap Analysis
-            </h3>
+            </h2>
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Compliance Readiness &amp; Strategy Auditing
             </span>
@@ -520,6 +520,8 @@ export default function Home() {
                   <img
                     src={`/assets/brand/${sol.logo}`}
                     alt={`${sol.name} Logo`}
+                    width={160}
+                    height={48}
                     className="h-10 w-auto max-w-[160px] object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";

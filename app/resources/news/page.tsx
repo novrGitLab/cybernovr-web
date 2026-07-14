@@ -26,6 +26,8 @@ export default function ResourcesNewsPage() {
                 <img 
                   src={news.image} 
                   alt={news.title}
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
