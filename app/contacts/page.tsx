@@ -1,12 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "@formspree/react";
+import { submitWeb3Form } from "@/app/web3forms";
 import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, ShieldAlert, CheckCircle2 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 
 export default function ContactUsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [state, handleSubmit, reset] = useForm("contactMessage");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "contactMessage");
+      formData.append("form_source", "Contacts Page");
+      await submitWeb3Form(formData);
+      setSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const locations = [
     { text: "4625 Varsity Drive NW, Calgary, AB T3A 0Z9, Canada" },
@@ -59,7 +77,7 @@ export default function ContactUsPage() {
             Send Us a Message
           </h2>
 
-          {state.succeeded ? (
+          {succeeded ? (
             <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
               <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
               <h4 className="text-[15px] font-black uppercase tracking-wide text-white">
@@ -70,7 +88,7 @@ export default function ContactUsPage() {
               </p>
               <button
                 type="button"
-                onClick={reset}
+                onClick={() => setSucceeded(false)}
                 className="mt-4 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 font-bold rounded text-[13px] uppercase tracking-widest font-mono transition-all"
               >
                 Submit Another
@@ -200,7 +218,7 @@ export default function ContactUsPage() {
 
             <button
               type="submit"
-              disabled={state.submitting}
+              disabled={submitting}
               className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black rounded shadow-xl transition-all text-[13px] uppercase tracking-widest font-mono disabled:opacity-50"
             >
               Send Message

@@ -1,20 +1,40 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useForm } from "@formspree/react";
+import React, { useState } from "react";
+import { submitWeb3Form } from "@/app/web3forms";
 import { toast } from "sonner";
 
 export default function FooterNewsletter() {
-  const [state, handleSubmit, reset] = useForm("newsletterSubscription");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
 
-  useEffect(() => {
-    if (state.succeeded) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "newsletterSubscription");
+      formData.append("form_source", "Footer");
+      await submitWeb3Form(formData);
+      setSucceeded(true);
       toast.success("Subscribed! You will receive threat intelligence updates.", {
         duration: 5000,
       });
-      reset();
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Subscription error:", err);
+    } finally {
+      setSubmitting(false);
     }
-  }, [state.succeeded, reset]);
+  };
+
+  if (succeeded) {
+    return (
+      <div className="text-emerald-400 text-sm font-medium py-2">
+        Subscribed! You will receive threat intelligence updates.
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center border-b border-white/20 pb-2">
@@ -27,7 +47,7 @@ export default function FooterNewsletter() {
       />
       <button
         type="submit"
-        disabled={state.submitting}
+        disabled={submitting}
         className="text-primary hover:translate-x-1 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span className="material-symbols-outlined">send</span>

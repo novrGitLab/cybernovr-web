@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Monitor, FileSpreadsheet, ShieldAlert, Globe, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
-import { useForm } from "@formspree/react";
+import { submitWeb3Form } from "./web3forms";
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
 import { webinars } from "./resources/webinar/data";
@@ -18,12 +18,102 @@ export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [prevCarouselIndex, setPrevCarouselIndex] = useState(0);
 
-  // Formspree hooks
-  const [securityState, securityHandleSubmit, securityReset] = useForm("securityAudit");
-  const [contactState, contactHandleSubmit, contactReset] = useForm("contactRequest");
-  const [alertState, alertHandleSubmit, alertReset] = useForm("novralertSubscription");
-  const [vaptState, vaptHandleSubmit, vaptReset] = useForm("vaptScope");
-  const [auditState, auditHandleSubmit, auditReset] = useForm("auditGap");
+  // Form states
+  const [securitySubmitting, setSecuritySubmitting] = useState(false);
+  const [securitySucceeded, setSecuritySucceeded] = useState(false);
+  const [contactSubmitting, setContactSubmitting] = useState(false);
+  const [contactSucceeded, setContactSucceeded] = useState(false);
+  const [alertSubmitting, setAlertSubmitting] = useState(false);
+  const [alertSucceeded, setAlertSucceeded] = useState(false);
+  const [vaptSubmitting, setVaptSubmitting] = useState(false);
+  const [vaptSucceeded, setVaptSucceeded] = useState(false);
+  const [auditSubmitting, setAuditSubmitting] = useState(false);
+  const [auditSucceeded, setAuditSucceeded] = useState(false);
+
+  const handleSecuritySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSecuritySubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "securityAudit");
+      formData.append("form_source", "Home Page - Security Audit");
+      await submitWeb3Form(formData);
+      setSecuritySucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setSecuritySubmitting(false);
+    }
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setContactSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "contactRequest");
+      formData.append("form_source", "Home Page - Contact Modal");
+      await submitWeb3Form(formData);
+      setContactSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setContactSubmitting(false);
+    }
+  };
+
+  const handleAlertSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setAlertSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "novralertSubscription");
+      formData.append("form_source", "Home Page - NovrALERT Modal");
+      await submitWeb3Form(formData);
+      setAlertSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setAlertSubmitting(false);
+    }
+  };
+
+  const handleVaptSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setVaptSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "vaptScope");
+      formData.append("form_source", "Home Page - VAPT Modal");
+      await submitWeb3Form(formData);
+      setVaptSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setVaptSubmitting(false);
+    }
+  };
+
+  const handleAuditSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setAuditSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "auditGap");
+      formData.append("form_source", "Home Page - Audit Modal");
+      await submitWeb3Form(formData);
+      setAuditSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setAuditSubmitting(false);
+    }
+  };
 
   // Dynamic Animated Metrics States
   const [vulnerabilitiesCount, setVulnerabilitiesCount] = useState(0);
@@ -745,7 +835,7 @@ export default function Home() {
           </div>
 
           <div className="lg:w-1/2 bg-white/[0.04] p-8 md:p-16 text-left">
-            {securityState.succeeded ? (
+            {securitySucceeded ? (
               <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                 <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                 <h4 className="text-[15px] font-black uppercase tracking-wide text-white">
@@ -754,14 +844,14 @@ export default function Home() {
                 <p className="text-xs text-zinc-400 max-w-xs mx-auto font-medium">
                   Our team will be in touch within 24 hours.
                 </p>
-                <button onClick={() => securityReset()} className="text-[13px] text-red-400 hover:text-red-300 font-mono font-bold uppercase tracking-wider mt-2">
+                <button onClick={() => setSecuritySucceeded(false)} className="text-[13px] text-red-400 hover:text-red-300 font-mono font-bold uppercase tracking-wider mt-2">
                   Submit Another Request
                 </button>
               </div>
             ) : (
             <form
               className="space-y-6"
-              onSubmit={securityHandleSubmit}
+              onSubmit={handleSecuritySubmit}
             >
               <div className="space-y-5">
                 <div className="space-y-1">
@@ -836,9 +926,9 @@ export default function Home() {
               <button
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
-                disabled={securityState.submitting}
+                disabled={securitySubmitting}
               >
-                {securityState.submitting ? "Submitting..." : "Submit"}
+                {securitySubmitting ? "Submitting..." : "Submit"}
               </button>
             </form>
             )}
@@ -868,7 +958,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsContactModalOpen(false);
-                  contactReset();
+                  setContactSucceeded(false);
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -877,7 +967,7 @@ export default function Home() {
             </div>
 
             <div className="p-8">
-              {contactState.succeeded ? (
+              {contactSucceeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -886,14 +976,14 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => contactReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button onClick={() => setContactSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
                     Submit Another Request
                   </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={contactHandleSubmit}
+                  onSubmit={handleContactSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
@@ -961,10 +1051,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    disabled={contactState.submitting}
+                    disabled={contactSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {contactState.submitting ? "Submitting..." : "Please Reach Out to Us"}
+                    {contactSubmitting ? "Submitting..." : "Please Reach Out to Us"}
                   </button>
                 </form>
               )}
@@ -999,8 +1089,8 @@ export default function Home() {
             </div>
 
             <div className="p-8">
-              {!alertState.succeeded ? (
-                <form onSubmit={alertHandleSubmit} className="space-y-4">
+              {!alertSucceeded ? (
+                <form onSubmit={handleAlertSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email
@@ -1015,10 +1105,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    disabled={alertState.submitting}
+                    disabled={alertSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {alertState.submitting ? "Submitting..." : <>Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" /></>}
+                    {alertSubmitting ? "Submitting..." : <>Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" /></>}
                   </button>
                 </form>
               ) : (
@@ -1030,7 +1120,7 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     You will receive threat intelligence updates.
                   </p>
-                  <button onClick={() => alertReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button onClick={() => setAlertSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
                     Subscribe Another Email
                   </button>
                 </div>
@@ -1056,7 +1146,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsVaptModalOpen(false);
-                  vaptReset();
+                  setVaptSucceeded(false);
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -1064,7 +1154,7 @@ export default function Home() {
               </button>
             </div>
             <div className="p-8">
-              {vaptState.succeeded ? (
+              {vaptSucceeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -1073,14 +1163,14 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => vaptReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button onClick={() => setVaptSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
                     Submit Another Request
                   </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={vaptHandleSubmit}
+                  onSubmit={handleVaptSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
@@ -1183,10 +1273,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    disabled={vaptState.submitting}
+                    disabled={vaptSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {vaptState.submitting ? "Submitting..." : "Submit"}
+                    {vaptSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
               )}
@@ -1211,7 +1301,7 @@ export default function Home() {
               <button
                 onClick={() => {
                   setIsAuditModalOpen(false);
-                  auditReset();
+                  setAuditSucceeded(false);
                 }}
                 className="text-white/50 hover:text-white transition-colors shrink-0 mt-1"
               >
@@ -1219,7 +1309,7 @@ export default function Home() {
               </button>
             </div>
             <div className="p-8">
-              {auditState.succeeded ? (
+              {auditSucceeded ? (
                 <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
                   <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
@@ -1228,14 +1318,14 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => auditReset()} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button onClick={() => setAuditSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
                     Submit Another Request
                   </button>
                 </div>
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={auditHandleSubmit}
+                  onSubmit={handleAuditSubmit}
                 >
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
@@ -1303,10 +1393,10 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    disabled={auditState.submitting}
+                    disabled={auditSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {auditState.submitting ? "Submitting..." : "Submit"}
+                    {auditSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
               )}
