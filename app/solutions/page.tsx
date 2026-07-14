@@ -215,19 +215,12 @@ export default function SolutionsHubPage() {
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[13px] text-zinc-900 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all"
                     >
                       <option value="">Select a service...</option>
-                      <optgroup label="Professional Services">
-                        <option value="Governance & Compliance">Governance & Compliance</option>
-                        <option value="CEAP Professional Training">CEAP Professional Training</option>
-                        <option value="Cybersecurity Due Diligence">Cybersecurity Due Diligence</option>
-                        <option value="Compliance Management">Compliance Management</option>
-                        <option value="Data Protection (NDPC)">Data Protection (NDPC)</option>
-                        <option value="Penetration Testing & Red Teaming">Penetration Testing & Red Teaming</option>
-                      </optgroup>
-                      <optgroup label="Platform Demos">
-                        <option value="General Product Scoping">General Product Scoping</option>
-                        <option value="General Advisory Scoping">General Advisory Scoping</option>
-                      </optgroup>
-                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Governance & Compliance">Governance & Compliance</option>
+                      <option value="CEAP Professional Training">CEAP Professional Training</option>
+                      <option value="Cybersecurity Due Diligence">Cybersecurity Due Diligence</option>
+                      <option value="Compliance Management">Compliance Management</option>
+                      <option value="Data Protection (NDPC)">Data Protection (NDPC)</option>
+                      <option value="Penetration Testing & Red Teaming">Penetration Testing & Red Teaming</option>
                     </select>
                   </div>
 
