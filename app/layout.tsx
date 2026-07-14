@@ -41,8 +41,10 @@ export default function RootLayout({
             {/* Brand column */}
             <div className="md:col-span-4 space-y-6">
               <Link className="block" href="/">
-                {/* INCREASED LOGO SIZE (#44) */}
-                <img src="/logo.png" alt="CYBERNOVR" className="h-14 w-auto object-contain" />
+                <div className="relative h-14 w-fit">
+                  <img src="/logo.png" alt="CYBERNOVR" className="h-14 w-auto object-contain brightness-0 invert" />
+                  <div className="absolute top-[10%] left-[78%] h-[80%] w-[10%] rounded-full" style={{ background: "conic-gradient(from 135deg, #ef4444 0deg, #ef4444 90deg, #7C3AED 90deg, #7C3AED 270deg, transparent 270deg)" }} />
+                </div>
               </Link>
               <p className="text-white/70 max-w-sm text-sm leading-relaxed">
                 A leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
