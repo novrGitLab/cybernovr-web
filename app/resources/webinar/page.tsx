@@ -1,17 +1,35 @@
 "use client";
 import React, { useState } from "react";
 import { Video, Calendar, ArrowRight, X, CheckCircle2 } from "lucide-react";
-import { useForm } from "@formspree/react";
+import { submitWeb3Form } from "@/app/web3forms";
 import { webinars } from "./data";
 
 export default function ResourcesWebinarsPage() {
   const [selectedWebinar, setSelectedWebinar] = useState("");
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [state, handleSubmit, reset] = useForm("webinarInquiry");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
 
   const openForm = (webinarTitle: string) => {
     setSelectedWebinar(webinarTitle);
     setIsFormOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("form_name", "webinarInquiry");
+      formData.append("form_source", "Webinar Page");
+      await submitWeb3Form(formData);
+      setSucceeded(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("Form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -51,13 +69,13 @@ export default function ResourcesWebinarsPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-sm">
           <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative text-left space-y-6">
             <button
-              onClick={() => { reset(); setIsFormOpen(false); }}
+                  onClick={() => { setSucceeded(false); setIsFormOpen(false); }}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {!state.succeeded ? (
+            {!succeeded ? (
               <>
                 <div className="space-y-1">
                   <span className="text-[11px] font-black font-mono tracking-widest text-red-700 bg-purple-950/[0.04] border border-purple-900/10 px-2.5 py-1 rounded uppercase">Webinar Registration</span>
@@ -118,10 +136,10 @@ export default function ResourcesWebinarsPage() {
 
                   <button
                     type="submit"
-                    disabled={state.submitting}
+                    disabled={submitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono disabled:opacity-50"
                   >
-                    {state.submitting ? "Submitting..." : "Register"}
+                    {submitting ? "Submitting..." : "Register"}
                   </button>
                 </form>
               </>
@@ -132,7 +150,7 @@ export default function ResourcesWebinarsPage() {
                 <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">You will receive webinar access details at your email address.</p>
                 <button
                   type="button"
-                  onClick={() => { reset(); setIsFormOpen(false); }}
+              onClick={() => { setSucceeded(false); setIsFormOpen(false); }}
                   className="mt-4 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 font-bold rounded text-[13px] uppercase tracking-widest font-mono transition-all"
                 >
                   Close
