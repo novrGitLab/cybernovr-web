@@ -74,7 +74,7 @@ export default function NavigationAndConsent() {
         <div className="flex justify-between items-center w-full h-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
           
           <Link className="flex items-center" href="/">
-            <img src="/logo.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto object-contain" />
+            <img src="/logo.png" alt="CYBERNOVR" width={1080} height={247} className="h-10 md:h-12 w-auto object-contain" />
           </Link>
           
           {/* Desktop Links Stack */}

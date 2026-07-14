@@ -27,40 +27,40 @@ export default function CorporateAboutHub() {
       name: "Dr. Kazeem Durodoye",
       role: "CEO — Managing Director",
       bio: "30+ years ICT experience. World Bank Consultant on Cybersecurity for Nigeria Communications Sector. Led National Cybersecurity Policy & Strategy, NCC-CSIRT, eNaira.",
-      img: "worker-1.png",
+      img: "worker-1.webp",
     },
     {
       name: "Mr. Akinwale Mayomi Aisida",
       role: "Head of Threat Intelligence",
       bio: "Cybersecurity Researcher at the Canadian Institute of Cybersecurity, University of New Brunswick. Specializes in ML/AI-driven intrusion detection, zero-day attack identification, and threat intelligence modeling.",
-      img: "worker-2.jpg",
+      img: "worker-2.webp",
     },
     {
       name: "Mr. Karl Ugokwe",
       role: "Senior Technical Solutions Manager",
       bio: "Cybersecurity Specialist focused on enterprise technical solutions integrations, baseline systems architecture, and comprehensive technical account management.",
-      img: "worker-4.png",
+      img: "worker-4.webp",
     },
     {
       name: "Mr. Mark O. Okechukwu",
       role: "Business Development Manager",
       bio: "Cybersecurity Practitioner with a background in Mathematics/Statistics. Google Certified Digital Marketer. Passionate about cybersecurity, risk management, and helping organizations build secure, resilient digital environments through innovative security solutions.",
-      img: "worker-3.jpeg",
+      img: "worker-3.webp",
     },
     {
       name: "Chiamaka Prisca",
       role: "CEAP Manager, Novr Academy",
       bio: "Manages the Cybersecurity Education and Awareness Program (CEAP) at Novr Academy, overseeing curriculum delivery and student engagement.",
-      img: "intern-2.jpg",
+      img: "intern-2.webp",
     },
   ];
 
   const interns = [
-    { name: "Abubakar Usman Damilare", role: "Programming and Application Development Intern", img: "intern-1.jpg" },
-    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.png" },
-    { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.jpg" },
-    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.jpeg" },
-    { name: "Mr. Adeniran-Taiwo Luciano Eniade", role: "Penetration Tester", img: "worker-9.jpeg" },
+    { name: "Abubakar Usman Damilare", role: "Programming and Application Development Intern", img: "intern-1.webp" },
+    { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.webp" },
+    { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.webp" },
+    { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.webp" },
+    { name: "Mr. Adeniran-Taiwo Luciano Eniade", role: "Penetration Tester", img: "worker-9.webp" },
   ];
 
   return (
@@ -216,6 +216,8 @@ export default function CorporateAboutHub() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
@@ -266,6 +268,8 @@ export default function CorporateAboutHub() {
                   <img
                     src={`/assets/team/${member.img}`}
                     alt={member.name}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";

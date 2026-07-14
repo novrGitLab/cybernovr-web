@@ -50,7 +50,7 @@ export default function Home() {
   const softwareSolutions = [
     { name: "NovrSOC (by Cybernovr)", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png", shortName: "NovrSOC" },
     { name: "NovrGRC (by Cybernovr)", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png", shortName: "NovrGRC" },
-    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.png", shortName: "SecuBreach" },
+    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.webp", shortName: "SecuBreach" },
     { name: "NovrRadar (by Cybernovr)", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png", shortName: "NovrRadar" }
   ];
 
@@ -96,12 +96,12 @@ export default function Home() {
       desc: "Cybernovr team and Gabriel Olokitun, A student of caleb internation college at the CEAP certificate presentation",
     },
     {
-      src: "/assets/carousel/ncc-event_with_bgc.png",
+      src: "/assets/carousel/ncc-event_with_bgc.webp",
       alt: "NCC Cybersecurity Blueprint",
       desc: "NCC with Cybernovr Unveils Cybersecurity Blueprint to Fortify Nigeria's Telecom Backbone",
     },
     {
-      src: "/assets/carousel/punch-coverage.jpg",
+      src: "/assets/carousel/punch-coverage.webp",
       alt: "Rotary Club Lagos CEAP Training",
       desc: "President of Rotary Club of Lagos, Toki Mabogunje, with CEO Kazeem Durodoye and Students after the First CEAP Training Session for INTERAC Members Sponsored by the Rotary Club of Lagos",
     },
@@ -357,9 +357,9 @@ export default function Home() {
             <Terminal className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
+            <h2 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
               VAPT Scope Request
-            </h3>
+            </h2>
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Where are my weaknesses and who's attacking me?
             </span>
@@ -383,9 +383,9 @@ export default function Home() {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
+            <h2 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">
               Audit &amp; Gap Analysis
-            </h3>
+            </h2>
             <span className="text-sm font-mono font-black tracking-widest text-red-600 block uppercase">
               Compliance Readiness &amp; Strategy Auditing
             </span>
@@ -520,6 +520,8 @@ export default function Home() {
                   <img
                     src={`/assets/brand/${sol.logo}`}
                     alt={`${sol.name} Logo`}
+                    width={160}
+                    height={48}
                     className="h-10 w-auto max-w-[160px] object-contain"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";

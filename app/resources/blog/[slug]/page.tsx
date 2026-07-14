@@ -62,6 +62,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <img
             src={post.image.src}
             alt={post.image.alt}
+            width={1200}
+            height={630}
             className="w-full h-auto object-cover max-h-[500px]"
           />
         </div>
@@ -103,6 +105,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <img
                     src={section.image.src}
                     alt={section.image.alt}
+                    width={1200}
+                    height={630}
                     className="w-full h-auto object-cover max-h-[400px]"
                   />
                 </div>

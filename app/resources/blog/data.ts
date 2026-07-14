@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     category: "Critical Infrastructure",
     description:
       "Nigeria\u2019s 5G deployment is driving the need for resilience among industry, academia, and government. This article explores the security challenges and attack vectors facing 5G critical infrastructure.",
-    image: { src: "/assets/blog/securing-5g.jpg", alt: "5G Infrastructure Security" },
+    image: { src: "/assets/blog/securing-5g.webp", alt: "5G Infrastructure Security" },
     sections: [
       {
         body: "Nigeria auctioned the 3.5 gigahertz (GHz) spectrum on the 10th of December 2021, which provided the regulatory platform to deploy the Fifth Generation (5G) mobile technology in September 2022. The launch and ubiquity of use cases of 5G, especially in powering critical services, are driving the need for resilience of 5G among industry, academia, and the government of Nigeria.",
