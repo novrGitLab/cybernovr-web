@@ -33,13 +33,14 @@ export default function Home() {
   const handleSecuritySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSecuritySubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "securityAudit");
       formData.append("form_source", "Home Page - Security Audit");
       await submitWeb3Form(formData);
       setSecuritySucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
@@ -50,13 +51,14 @@ export default function Home() {
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setContactSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "contactRequest");
       formData.append("form_source", "Home Page - Contact Modal");
       await submitWeb3Form(formData);
       setContactSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
@@ -67,13 +69,14 @@ export default function Home() {
   const handleAlertSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAlertSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "novralertSubscription");
       formData.append("form_source", "Home Page - NovrALERT Modal");
       await submitWeb3Form(formData);
       setAlertSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
@@ -84,13 +87,14 @@ export default function Home() {
   const handleVaptSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setVaptSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "vaptScope");
       formData.append("form_source", "Home Page - VAPT Modal");
       await submitWeb3Form(formData);
       setVaptSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
@@ -101,13 +105,14 @@ export default function Home() {
   const handleAuditSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAuditSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "auditGap");
       formData.append("form_source", "Home Page - Audit Modal");
       await submitWeb3Form(formData);
       setAuditSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {

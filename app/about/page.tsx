@@ -88,9 +88,9 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Eye className="h-5 w-5" />
             </div>
-            <h3 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h2 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Vision
-            </h3>
+            </h2>
             <p className="text-[15px] font-bold text-zinc-900 leading-tight uppercase tracking-tight">
               To achieve resilience of your Critical Information Infrastructure.
             </p>
@@ -99,9 +99,9 @@ export default function CorporateAboutHub() {
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
               <Target className="h-5 w-5" />
             </div>
-            <h3 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
+            <h2 className="text-[12px] font-black uppercase tracking-widest text-zinc-400 font-mono">
               Our Mission
-            </h3>
+            </h2>
             <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
               To work with you to strengthen the resilience of your information
               assets. We will pinpoint your unique risks, prioritise your
@@ -122,9 +122,9 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Heart className="h-5 w-5" />
               </div>
-              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
+              <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
                 Customer Delight
-              </h4>
+              </h3>
               <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
                 We are committed to customer satisfaction and won't stop until
                 our clients are delighted. We take the time to understand their
@@ -136,9 +136,9 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
+              <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
                 Integrity
-              </h4>
+              </h3>
               <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
                 We are committed to unwavering honesty, transparency, and a
                 strong moral compass to maintain trust both internally and with
@@ -151,9 +151,9 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Lightbulb className="h-5 w-5" />
               </div>
-              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
+              <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
                 Innovation
-              </h4>
+              </h3>
               <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
                 We are committed to relentless innovation, creating cutting-edge
                 solutions while swiftly adapting to new challenges. We foster a
@@ -166,9 +166,9 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <Users className="h-5 w-5" />
               </div>
-              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
+              <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
                 People
-              </h4>
+              </h3>
               <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
                 We are committed to guiding our team to uphold the highest
                 standards of quality in solutions, services, and incident
@@ -180,9 +180,9 @@ export default function CorporateAboutHub() {
               <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 rounded-lg flex items-center justify-center text-red-700">
                 <RefreshCcw className="h-5 w-5" />
               </div>
-              <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
+              <h3 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
                 Resilience
-              </h4>
+              </h3>
               <p className="text-[15px] text-zinc-600 leading-relaxed font-medium">
                 We are committed to achieving cybersecurity resilience on
                 ourselves the same way we are to our clients. This commitment
@@ -235,9 +235,9 @@ export default function CorporateAboutHub() {
                   </div>
                 </div>
                 <div className="pt-1">
-                  <h4 className="text-[15px] font-bold text-zinc-900 tracking-tight">
-                    {member.name}
-                  </h4>
+                    <h3 className="text-[15px] font-bold text-zinc-900 tracking-tight">
+                      {member.name}
+                    </h3>
                   <p className="text-xs text-red-700 font-mono font-bold tracking-wider mt-0.5 uppercase">
                     {member.role}
                   </p>
@@ -287,9 +287,9 @@ export default function CorporateAboutHub() {
                   </div>
                 </div>
                 <div className="pt-1">
-                  <h4 className="text-[15px] font-bold text-zinc-900 tracking-tight">
-                    {member.name}
-                  </h4>
+                    <h3 className="text-[15px] font-bold text-zinc-900 tracking-tight">
+                      {member.name}
+                    </h3>
                   <p className="text-xs text-red-700 font-mono font-bold tracking-wider mt-0.5 uppercase">
                     {member.role}
                   </p>
@@ -351,7 +351,7 @@ export default function CorporateAboutHub() {
                   href={sector.link}
                   className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold uppercase text-xs tracking-widest font-mono group"
                 >
-                  Learn More{" "}
+                  Learn more about {sector.title}{" "}
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

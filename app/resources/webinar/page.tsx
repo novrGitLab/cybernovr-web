@@ -18,13 +18,14 @@ export default function ResourcesWebinarsPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const form = e.currentTarget;
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
       formData.append("form_name", "webinarInquiry");
       formData.append("form_source", "Webinar Page");
       await submitWeb3Form(formData);
       setSucceeded(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       console.error("Form submission error:", err);
     } finally {
