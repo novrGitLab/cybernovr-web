@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "@formspree/react";
-// FIXED: Replaced 'FileLines' with the valid export name 'FileText' to pass compilation
 import { Zap, Search, Globe, FileText, CheckCircle2 } from "lucide-react";
 
 export default function SecuBreachPage() {
   const [state, handleSubmit, reset] = useForm("secubreachScan");
+  const [urlError, setUrlError] = useState("");
 
   const capabilities = [
     { icon: Zap, t: "Passive Scanning", d: "No packet injection or content access, ensuring safe monitoring." },
@@ -13,6 +13,34 @@ export default function SecuBreachPage() {
     { icon: Globe, t: "Metadata-Only", d: "Inspection strictly via metadata to ensure legal compliance." },
     { icon: FileText, t: "Regulatory Tagging", d: "Context-aware tagging for GDPR, HIPAA, SOX, PCI, NDPA, etc." }
   ];
+
+  const validateAndSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setUrlError("");
+
+    const form = e.currentTarget;
+    const urlInput = form.elements.namedItem("targetUrl") as HTMLInputElement;
+    let url = urlInput.value.trim();
+
+    // Auto-prepend https:// if no protocol
+    if (!/^https?:\/\//i.test(url)) {
+      url = "https://" + url;
+    }
+
+    // Validate URL format
+    try {
+      const parsed = new URL(url);
+      if (!parsed.hostname.includes(".")) {
+        setUrlError("Please enter a valid domain (e.g., company.com)");
+        return;
+      }
+      // Update the input with normalized URL
+      urlInput.value = url;
+      handleSubmit(e);
+    } catch {
+      setUrlError("Please enter a valid domain (e.g., company.com, www.company.com)");
+    }
+  };
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
@@ -26,7 +54,7 @@ export default function SecuBreachPage() {
           SecuBreach
         </h1>
         <p className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest font-mono">
-          Nigeria’s #1 Vulnerability Management Solution
+          Nigeria&apos;s #1 Vulnerability Management Solution
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-6 font-normal">
           Key Benefits<br />✓ Identifies vulnerabilities without disrupting operations.<br />✓ Context-aware regulatory tagging for compliance.<br />✓ Centralized or distributed deployment options.
@@ -77,7 +105,7 @@ export default function SecuBreachPage() {
             </button>
           </div>
         ) : (
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={validateAndSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Full Name *</label>
@@ -90,7 +118,8 @@ export default function SecuBreachPage() {
             </div>
             <div className="space-y-1">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Target Domain URL *</label>
-              <input type="url" name="targetUrl" placeholder="https://company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
+              <input type="text" name="targetUrl" placeholder="company.com or https://company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 transition-all font-medium" />
+              {urlError && <p className="text-red-400 text-xs mt-1 font-mono">{urlError}</p>}
             </div>
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comment</label>
