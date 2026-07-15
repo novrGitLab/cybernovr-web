@@ -85,6 +85,7 @@ export default function RootLayout({
                 <li><Link className="hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/academy">Novr Academy</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/assessments">Cybersecurity Assessments</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/about/careers#hiring">Careers</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/contacts">Contact</Link></li>
               </ul>
             </div>
