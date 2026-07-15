@@ -90,6 +90,13 @@ export default function SolutionsHubPage() {
       tagline: "AI-powered solution to detect Indicators of Attack (IoAs)",
       desc: "Our AI-powered innovative gateway Extended Detection and Response (XDR) solution that detects Indicators of Attack (IoAs) across an enterprise or nation's digital environment.",
       path: "/solutions/novrradar"
+    },
+    {
+      name: "NovrALERT",
+      logo: "novralert.png",
+      tagline: "Personalized Cybersecurity Threat Intelligence",
+      desc: "AI-powered subscription-based threat intelligence delivering curated alerts, advisories, and dark web monitoring tailored to your industry, topics, and location.",
+      path: "/solutions/novralert"
     }
   ];
 
