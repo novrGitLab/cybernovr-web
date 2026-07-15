@@ -18,8 +18,23 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.cybernovr.com"),
   title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
   description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+  openGraph: {
+    title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
+    description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+    url: "https://www.cybernovr.com",
+    siteName: "CYBERNOVR",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
+    description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -64,7 +79,7 @@ export default function RootLayout({
             
             {/* Navigation links */}
             <div className="md:col-span-3 space-y-4">
-              <h5 className="uppercase tracking-widest text-white font-black text-xs">Navigation</h5>
+              <p className="uppercase tracking-widest text-white font-black text-xs">Navigation</p>
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><Link className="hover:text-primary transition-colors" href="/about">About Us</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/solutions">Our Solutions</Link></li>
@@ -76,7 +91,7 @@ export default function RootLayout({
             
             {/* Compliance links */}
             <div className="md:col-span-2 space-y-4">
-              <h5 className="uppercase tracking-widest text-white font-black text-xs">Compliance</h5>
+              <p className="uppercase tracking-widest text-white font-black text-xs">Compliance</p>
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><Link className="hover:text-primary transition-colors" href="/privacy">Privacy Policy</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/cookies">Cookies Policy</Link></li>
@@ -85,7 +100,7 @@ export default function RootLayout({
             
             {/* Threat Intel Field */}
             <div className="md:col-span-3 space-y-4">
-              <h5 className="uppercase tracking-widest text-white font-black text-xs">Stay Updated</h5>
+              <p className="uppercase tracking-widest text-white font-black text-xs">Stay Updated</p>
               <p className="text-white/70 text-sm">Receive premium threat intelligence directly to your inbox.</p>
               <FooterNewsletter />
 

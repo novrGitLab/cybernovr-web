@@ -1,10 +1,37 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowLeft, Clock, User } from "lucide-react";
 import { blogPosts, getBlogPostBySlug } from "../data";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
+  if (!post) return {};
+  return {
+    title: `${post.title} | CYBERNOVR Blog`,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `https://www.cybernovr.com/resources/blog/${post.slug}`,
+      siteName: "CYBERNOVR",
+      type: "article",
+      publishedTime: post.isoDate,
+      authors: [post.author],
+      images: [{ url: post.image.src, alt: post.image.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.image.src],
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
