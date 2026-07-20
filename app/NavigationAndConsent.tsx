@@ -155,6 +155,9 @@ export default function NavigationAndConsent() {
                   <Link className={dropdownLinkClassBold("/academy")} href="/academy">
                      CEAP
                   </Link>
+                  <Link className={dropdownLinkClassBold("/academy")} href="/academy">
+                     CEAP Summer 2026
+                  </Link>
                   <Link className={dropdownLinkClassBold("/academy/assessments")} href="/academy/assessments">
                     Assessment
                   </Link>
