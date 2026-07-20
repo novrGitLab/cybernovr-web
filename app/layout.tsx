@@ -6,6 +6,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { Toaster } from "sonner";
 import Providers from "./Providers";
 import FooterNewsletter from "./FooterNewsletter";
+import GoogleTagManager from "./GoogleTagManager";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -59,6 +60,7 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
 
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
+        <GoogleTagManager />
         <Providers>
         <Toaster position="top-right" richColors />
 
