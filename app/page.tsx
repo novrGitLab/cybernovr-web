@@ -565,37 +565,37 @@ export default function Home() {
       </section>
 
 {/* CEAP BANNER — Summer 2026 */}
-      <section className="">
-        <div className="bg-purple-950 text-white border border-purple-900/40 p-8 md:p-12 shadow-2xl relative overflow-hidden">
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none" />
+      <section className="w-full">
+        <div className="bg-purple-950 text-white border-y border-purple-900/40 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-0 animate-[bannerGridPulse_3s_ease-in-out_infinite_forwards]" />
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-transparent to-purple-950 pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="relative z-10 max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Content */}
             <div className="lg:col-span-8 space-y-5 text-left">
               {/* Badge */}
-              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded">
+              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.1s_forwards]">
                 CEAP Summer 2026
               </span>
 
               {/* Title */}
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.2s_forwards]">
                 Essentials of Cybersecurity
               </h3>
 
               {/* Subtitle */}
-              <p className="text-purple-200 text-[13px] md:text-[15px] font-normal">
+              <p className="text-purple-200 text-[13px] md:text-[15px] font-normal opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.35s_forwards]">
                 9-Week Live Program for Kids &amp; Teens (Ages 12–17)
               </p>
 
               {/* Tagline */}
-              <p className="italic border-l-4 border-red-500 pl-4 py-1 text-[13px] md:text-[15px] font-semibold text-red-400">
+              <p className="italic border-l-4 border-red-500 pl-4 py-1 text-[13px] md:text-[15px] font-semibold text-red-400 opacity-0 animate-[bannerFadeSlideLeft_0.5s_ease-out_0.5s_forwards]">
                 Give your child a real skill this summer
               </p>
 
               {/* Feature pills */}
-              <div className="flex flex-wrap gap-3 pt-1">
+              <div className="flex flex-wrap gap-3 pt-1 opacity-0 animate-[bannerFadeScale_0.4s_ease-out_0.6s_forwards]">
                 <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
                   <GraduationCap className="h-3.5 w-3.5 text-red-400" />
                   8 Core Domains + Capstone Project
@@ -607,7 +607,7 @@ export default function Home() {
               </div>
 
               {/* Event details */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-purple-300 uppercase tracking-widest">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-purple-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.75s_forwards]">
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-3.5 w-3.5 text-red-400" />
                   Starts: Mon 3rd Aug
@@ -620,7 +620,7 @@ export default function Home() {
             </div>
 
             {/* Right: CTAs */}
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end w-full">
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end w-full opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.85s_forwards]">
               <Link
                 href="/academy/enroll"
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono flex items-center justify-center gap-2 group"
@@ -629,7 +629,7 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/academy"
+                href="/academy/ceap-summer-2026"
                 className="w-full border-2 border-purple-600 hover:border-white text-purple-200 hover:text-white font-bold text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all font-mono"
               >
                 View Curriculum

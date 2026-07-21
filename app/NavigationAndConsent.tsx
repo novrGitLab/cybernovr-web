@@ -155,7 +155,7 @@ export default function NavigationAndConsent() {
                   <Link className={dropdownLinkClassBold("/academy")} href="/academy">
                      CEAP
                   </Link>
-                  <Link className={dropdownLinkClassBold("/academy")} href="/academy">
+                  <Link className={dropdownLinkClassBold("/academy/ceap-summer-2026")} href="/academy/ceap-summer-2026">
                      CEAP Summer 2026
                   </Link>
                   <Link className={dropdownLinkClassBold("/academy/assessments")} href="/academy/assessments">
@@ -219,6 +219,7 @@ export default function NavigationAndConsent() {
             <div className="space-y-2 p-3 bg-surface-container-low rounded-lg border border-outline-variant/30">
               <p className={`text-xs uppercase font-black tracking-wider ${isAcademyActive ? "text-primary" : "text-primary"}`}>Novr Academy</p>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy" className={mobileSubLinkClass("/academy")}>CEAP</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy/ceap-summer-2026" className={mobileSubLinkClass("/academy/ceap-summer-2026")}>CEAP Summer 2026</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/academy/assessments" className={mobileSubLinkClass("/academy/assessments")}>Assessments</Link>
             </div>
           </div>
