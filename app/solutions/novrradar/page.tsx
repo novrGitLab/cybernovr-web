@@ -1,30 +1,23 @@
-"use client";
-import React, { useState } from "react";
-import { submitWeb3Form } from "@/app/web3forms";
-import { EyeOff, Activity, ShieldAlert, Radio, CheckCircle2 } from "lucide-react";
+import type { Metadata } from "next";
+import { EyeOff, Activity, ShieldAlert, Radio } from "lucide-react";
+import NovrRadarForm from "@/components/forms/NovrRadarForm";
+
+export const metadata: Metadata = {
+  title: "NovrRadar — AI-Powered XDR & Threat Detection Platform | CyberNovr",
+  description: "AI-powered Extended Detection and Response platform. Continuous monitoring of Indicators of Attack across enterprise digital infrastructure.",
+  openGraph: {
+    title: "NovrRadar — XDR Platform | CyberNovr",
+    description: "AI-powered XDR solution for continuous threat detection.",
+    url: "https://www.cybernovr.com/solutions/novrradar",
+    siteName: "CyberNovr",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "NovrRadar — XDR Platform", description: "AI-powered XDR for continuous threat detection." },
+  alternates: { canonical: "https://www.cybernovr.com/solutions/novrradar" },
+  robots: { index: true, follow: true },
+};
 
 export default function NovrRadarPage() {
-  const [submitting, setSubmitting] = useState(false);
-  const [succeeded, setSucceeded] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const form = e.currentTarget;
-    try {
-      const formData = new FormData(form);
-      formData.append("form_name", "novrradarDemo");
-      formData.append("form_source", "NovrRADAR Page");
-      await submitWeb3Form(formData);
-      setSucceeded(true);
-      form.reset();
-    } catch (err) {
-      console.error("Form submission error:", err);
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   const points = [
     { icon: EyeOff, t: "Passive Monitoring", d: "Deploys non-intrusively directly at main internet gateway boundaries without altering network traffic speed benchmarks." },
     { icon: Activity, t: "Metadata Analysis Only", d: "Safely dissects raw IP values, ports, protocols, and routing flow architectures to identify systematic threat signatures." },
@@ -47,7 +40,7 @@ export default function NovrRadarPage() {
           AI-powered solution to detect Indicators of Attack (IoAs)
         </p>
         <p className="text-zinc-600 text-sm md:text-base leading-relaxed pt-4 font-normal">
-          NovrRADAR sits at internet gateway nodes to detect and respond to Indicators of Attacks (IoAs). By scanning network metadata patterns, it provides continuous visibility across an enterprise or a nation's digital infrastructure.
+          NovrRADAR sits at internet gateway nodes to detect and respond to Indicators of Attacks (IoAs). By scanning network metadata patterns, it provides continuous visibility across an enterprise or a nation&apos;s digital infrastructure.
         </p>
       </div>
 
@@ -80,45 +73,7 @@ export default function NovrRadarPage() {
           <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">Book a Demo to See NovrRADAR in Action</h3>
           <p className="text-xs text-zinc-400 font-medium leading-relaxed">Please complete this form. A member of our team will reach out to schedule a demo.</p>
         </div>
-
-        {succeeded ? (
-          <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
-            <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-            <h4 className="text-[15px] font-black uppercase tracking-wide text-zinc-900">
-              Request Submitted
-            </h4>
-            <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
-              Our team will be in touch within 24 hours.
-            </p>
-            <button onClick={() => setSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
-              Submit Another Request
-            </button>
-          </div>
-        ) : (
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Full Name *</label>
-                <input type="text" name="name" placeholder="Your name" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Corporate Email *</label>
-                <input type="email" name="email" placeholder="you@company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
-              </div>
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider">Company *</label>
-              <input type="text" name="company" placeholder="Your company name" required className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all font-medium" />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-xs font-bold text-zinc-300 font-mono uppercase tracking-wider block">Comments</label>
-              <textarea name="comments" rows={4} placeholder="Outline your primary edge routing architectures or edge gateway configurations..." className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600 transition-all resize-none font-medium" />
-            </div>
-            <button type="submit"               disabled={submitting} className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono disabled:opacity-50 disabled:cursor-not-allowed">
-              {submitting ? "Submitting..." : "Submit"}
-            </button>
-          </form>
-        )}
+        <NovrRadarForm />
       </section>
 
     </div>

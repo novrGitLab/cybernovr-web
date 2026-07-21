@@ -59,6 +59,41 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
 
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "CyberNovr",
+          url: "https://www.cybernovr.com",
+          logo: "https://www.cybernovr.com/assets/icon/cybernovr-white.svg",
+          description: "Cybersecurity company protecting critical infrastructure with premium intelligence solutions.",
+          sameAs: [
+            "https://twitter.com/CYBERNOVR",
+            "https://www.linkedin.com/company/cybernovr-limited",
+            "https://www.facebook.com/profile.php?id=61577489252198",
+            "https://www.instagram.com/cybernovr",
+          ],
+          contactPoint: [
+            { "@type": "ContactPoint", telephone: "+234-809-812-0000", contactType: "customer service" },
+            { "@type": "ContactPoint", telephone: "+1-443-985-3735", contactType: "customer service" },
+          ],
+          address: [
+            { "@type": "PostalAddress", streetAddress: "4625 Varsity Drive NW", addressLocality: "Calgary", addressRegion: "AB", postalCode: "T3A 0Z9", addressCountry: "CA" },
+            { "@type": "PostalAddress", streetAddress: "17 Sunday Adigun Street, Alausa", addressLocality: "Ikeja, Lagos", addressCountry: "NG" },
+          ],
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "CyberNovr",
+          url: "https://www.cybernovr.com",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://www.cybernovr.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }) }} />
+      </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         <GoogleTagManager />
         <Providers>
