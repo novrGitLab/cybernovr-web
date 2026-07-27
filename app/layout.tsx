@@ -148,6 +148,7 @@ export default function RootLayout({
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><Link className="hover:text-primary transition-colors" href="/privacy">Privacy Policy</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/cookies">Cookies Policy</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/isms">ISMS Policy</Link></li>
               </ul>
             </div>
             
