@@ -1,8 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { ArrowLeft, ArrowRight, Clock, User, AlertTriangle, Info, Lightbulb, HelpCircle } from "lucide-react";
 import { blogPosts, getBlogPostBySlug, type BlogInlineLink } from "../data";
+import { getBlogPostingJsonLd, getFaqJsonLd } from "./schema";
+
+const FivePillarsDiagram = dynamic(() => import("./FivePillarsDiagram"), {
+  ssr: true,
+  loading: () => (
+    <div className="my-10 h-[180px] rounded-xl bg-purple-950/[0.02] border border-zinc-200 animate-pulse" />
+  ),
+});
 
 const SITE_URL = "https://www.cybernovr.com";
 
@@ -70,61 +79,6 @@ function renderBodyWithLinks(body: string, links?: BlogInlineLink[]): React.Reac
   return <>{segments}</>;
 }
 
-function FivePillarsDiagram() {
-  const pillars = [
-    { n: "1", name: "Governance & Risk", map: "ISO 27001 Cl. 5\u201310 \u00b7 NIST GV" },
-    { n: "2", name: "Identify & Protect", map: "ISO 27001 Annex A \u00b7 NIST PR" },
-    { n: "3", name: "Detect", map: "NIST DE \u00b7 SIEM / SOC" },
-    { n: "4", name: "Respond & Recover", map: "ISO 27035 \u00b7 NIST RS / RC" },
-    { n: "5", name: "Third-Party Risk", map: "NIST GV.SC \u00b7 ISO A.5.19" },
-  ];
-  const boxW = 240;
-  const boxH = 180;
-  const gap = 12;
-  const totalW = pillars.length * boxW + (pillars.length - 1) * gap;
-  return (
-    <figure className="my-10 space-y-3">
-      <div className="w-full overflow-x-auto rounded-xl border border-zinc-200 bg-purple-950/[0.02] p-4">
-        <svg
-          viewBox={`0 0 ${totalW} ${boxH}`}
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="The five pillars of the CBN 2026 cybersecurity framework: Governance and Risk; Identify and Protect; Detect; Respond and Recover; Third-Party Risk."
-          className="w-full h-auto min-w-[720px]"
-        >
-          {pillars.map((p, i) => {
-            const x = i * (boxW + gap);
-            return (
-              <g key={p.n} transform={`translate(${x},0)`}>
-                <rect width={boxW} height={boxH} rx={12} fill="#faf5ff" stroke="#581c87" strokeOpacity="0.25" />
-                <path d={`M 0 36 L ${boxW} 36 L ${boxW} 48 Q ${boxW} 36 ${boxW - 12} 36 Z`} fill="#3b0764" />
-                <rect x={0} y={0} width={boxW} height={36} rx={12} fill="#3b0764" />
-                <rect x={0} y={24} width={boxW} height={12} fill="#3b0764" />
-                <text x={boxW / 2} y={23} textAnchor="middle" fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace" fontSize="13" fontWeight="700" fill="#fde047">
-                  PILLAR {p.n}
-                </text>
-                <text x={boxW / 2} y={80} textAnchor="middle" fontFamily="ui-sans-serif, system-ui, sans-serif" fontSize="15" fontWeight="700" fill="#18181b">
-                  {p.name}
-                </text>
-                <text x={boxW / 2} y={110} textAnchor="middle" fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace" fontSize="10" fill="#52525b">
-                  {p.map}
-                </text>
-                <line x1={36} y1={140} x2={boxW - 36} y2={140} stroke="#b91c1c" strokeWidth="1" strokeOpacity="0.4" />
-                <text x={boxW / 2} y={160} textAnchor="middle" fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace" fontSize="9" fontWeight="700" fill="#b91c1c" letterSpacing="2">
-                  MANDATORY
-                </text>
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-      <figcaption className="text-[11px] text-zinc-500 font-mono text-center">
-        Figure 1 \u2014 The five pillars of the CBN 2026 cybersecurity framework, mapped to ISO 27001 and NIST CSF 2.0 control families. All five pillars are mandatory for tier-1 DMBs.
-      </figcaption>
-    </figure>
-  );
-}
-
 function CalloutBox({ type, text }: { type: "note" | "warning" | "tip"; text: string }) {
   const styles: Record<typeof type, { border: string; bg: string; icon: React.ReactNode; label: string; labelColor: string }> = {
     note: {
@@ -161,46 +115,6 @@ function CalloutBox({ type, text }: { type: "note" | "warning" | "tip"; text: st
   );
 }
 
-function buildBlogPostingJsonLd(post: ReturnType<typeof getBlogPostBySlug>, postUrl: string) {
-  if (!post) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    image: [`${SITE_URL}${post.image.src}`],
-    datePublished: post.isoDate,
-    dateModified: post.lastUpdated,
-    author: {
-      "@type": "Person",
-      name: post.author,
-      jobTitle: post.authorRole,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "CYBERNOVR",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
-    articleSection: post.category,
-    keywords: post.keywords.join(", "),
-  };
-}
-
-function buildFaqJsonLd(post: ReturnType<typeof getBlogPostBySlug>) {
-  if (!post || !post.faqs || post.faqs.length === 0) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: post.faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-}
-
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }): Promise<React.ReactElement> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
@@ -219,9 +133,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     );
   }
 
-  const postUrl = `${SITE_URL}/resources/blog/${post.slug}`;
-  const blogPostingJsonLd = buildBlogPostingJsonLd(post, postUrl);
-  const faqJsonLd = buildFaqJsonLd(post);
+  const blogPostingJsonLd = getBlogPostingJsonLd(post.slug);
+  const faqJsonLd = getFaqJsonLd(post.slug);
   const relatedPosts = (post.relatedSlugs || [])
     .map((s) => getBlogPostBySlug(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -231,13 +144,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {blogPostingJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: blogPostingJsonLd }}
         />
       )}
       {faqJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: faqJsonLd }}
         />
       )}
 
