@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import Providers from "./Providers";
 import FooterNewsletter from "./FooterNewsletter";
 import GoogleTagManager from "./GoogleTagManager";
+import Analytics from "./Analytics";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -96,6 +97,7 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         <GoogleTagManager />
+        <Analytics />
         <Providers>
         <Toaster position="top-right" richColors />
 
@@ -189,7 +191,7 @@ export default function RootLayout({
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
-              © 2026 Cybernovr Limited. All rights reserved. A <span className="text-red-400">#cyber360resilience</span> company
+              Â© 2026 Cybernovr Limited. All rights reserved. A <span className="text-red-400">#cyber360resilience</span> company
             </p>
           </div>
         </footer>
@@ -198,3 +200,4 @@ export default function RootLayout({
     </html>
   );
 }
+
