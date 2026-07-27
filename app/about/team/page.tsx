@@ -82,7 +82,7 @@ function TheTeamContent() {
   const interns = [
     {
       name: "Abubakar Usman Damilare",
-      role: "Programming and Application Development Intern",
+      role: "Application Development Intern",
       img: "intern-1.webp",
       label: "Operations",
     },
