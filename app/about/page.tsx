@@ -28,7 +28,7 @@ const workers = [
 ];
 
 const interns = [
-  { name: "Abubakar Usman Damilare", role: "Programming and Application Development Intern", img: "intern-1.webp" },
+  { name: "Abubakar Usman Damilare", role: "Application Development Intern", img: "intern-1.webp" },
   { name: "Adebayo Adedeji Enoch", role: "IT Lead", img: "worker-5.webp" },
   { name: "Adeyemi Fisayomi", role: "Technical Intern", img: "intern-3.webp" },
   { name: "Chukwuezugo Monwuba", role: "Cybersecurity Intern", img: "worker-6.webp" },
