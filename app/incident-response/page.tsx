@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AlertOctagon, ShieldAlert, Database, Lock, RotateCcw, AlertTriangle } from "lucide-react";
+import { AlertOctagon, ShieldAlert, Database, Lock, RotateCcw, AlertTriangle, Phone, Mail } from "lucide-react";
 
 export default function IncidentResponsePage() {
   const escalationSteps = [
@@ -64,7 +64,14 @@ export default function IncidentResponsePage() {
         </div>
         <div className="text-left md:text-right relative z-10 shrink-0 space-y-1 font-mono">
           <p className="text-[13px] text-zinc-500 uppercase tracking-widest font-black">24/7 EMERGENCY RESPONSE LINE</p>
-          <a href="tel:09016991201" className="text-xl md:text-3xl font-black text-red-500 hover:text-red-400 transition-colors select-all tracking-tight">09016991201</a>
+          <div className="flex items-center gap-2 justify-start md:justify-end">
+            <Phone className="h-4 w-4 text-red-500 shrink-0" />
+            <a href="tel:09016991201" className="text-xl md:text-3xl font-black text-red-500 hover:text-red-400 transition-colors select-all tracking-tight">09016991201</a>
+          </div>
+          <div className="flex items-center gap-2 justify-start md:justify-end">
+            <Mail className="h-4 w-4 text-zinc-400 shrink-0" />
+            <a href="mailto:info@cybernovr.com" className="text-sm md:text-base font-bold text-zinc-300 hover:text-red-400 transition-colors tracking-tight">info@cybernovr.com</a>
+          </div>
         </div>
       </div>
 
@@ -89,6 +96,32 @@ export default function IncidentResponsePage() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="mt-16 bg-zinc-950 border border-zinc-800 rounded-xl p-8 md:p-12 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-950/20 via-transparent to-purple-950/20 pointer-events-none" />
+        <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+          <h3 className="text-xl md:text-3xl font-black uppercase tracking-tight text-white">Don't Wait Until It's Too Late</h3>
+          <p className="text-zinc-400 text-[13px] md:text-[15px] leading-relaxed">
+            Every second counts during a cyber incident. Our rapid response team is ready 24/7 to help you contain threats, preserve evidence, and restore your systems. Get in touch now to strengthen your incident readiness.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a
+              href="tel:09016991201"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wider px-8 py-3.5 rounded-lg transition-colors shadow-lg"
+            >
+              <AlertOctagon className="h-4 w-4" />
+              Report an Incident
+            </a>
+            <a
+              href="/contacts"
+              className="inline-flex items-center gap-2 border border-zinc-600 hover:border-red-500 text-zinc-300 hover:text-red-400 font-bold text-sm uppercase tracking-wider px-8 py-3.5 rounded-lg transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
 
