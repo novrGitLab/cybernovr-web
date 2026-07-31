@@ -9,9 +9,6 @@ export default function IsmsPage() {
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto bg-white text-zinc-900 antialiased">
       <div className="max-w-3xl text-left space-y-10">
         <div className="border-b border-zinc-200 pb-8">
-          <span className="inline-block font-mono text-red-700 text-[11px] md:text-[15px] font-black tracking-widest uppercase bg-purple-950/[0.04] border border-purple-900/10 px-3 py-1 rounded mb-4">
-            Legal
-          </span>
           <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">
             ISMS Policy
           </h1>
