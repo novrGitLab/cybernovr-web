@@ -393,7 +393,7 @@ export default function Home() {
   useEffect(() => {
     const dismissed = localStorage.getItem("ceap-popup-dismissed");
     if (!dismissed) {
-      const timer = setTimeout(() => setIsCeapPopupOpen(true), 800);
+      const timer = setTimeout(() => setIsCeapPopupOpen(true), 300);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -463,21 +463,10 @@ export default function Home() {
               <div className="absolute w-80 h-[1px] bg-emerald-500/15" />
               <div className="absolute h-80 w-[1px] bg-emerald-500/15" />
 
-              {/* Spinning sweep */}
-              <div
-                className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-transparent via-emerald-500/5 to-emerald-500/25 animate-spin"
-                style={{ animationDuration: "4s" }}
-              />
-
-              {/* Second slower sweep for depth */}
-              <div
-                className="absolute w-64 h-64 rounded-full bg-gradient-to-bl from-transparent via-transparent to-emerald-500/10 animate-spin"
-                style={{ animationDuration: "8s" }}
-              />
 
               {/* Critical intrusion dot */}
               <div className="absolute top-[28%] left-[28%] z-10 text-center">
-                <span className="w-3 h-3 bg-red-600 rounded-full block animate-ping" />
+                <span className="w-3 h-3 bg-red-600 rounded-full block" />
                 <span className="w-2.5 h-2.5 bg-red-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#ef4444]" />
                 <span className="font-mono text-[8px] text-red-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-red-500/30 whitespace-nowrap">
                   CRITICAL INTRUSION
@@ -486,10 +475,7 @@ export default function Home() {
 
               {/* High exploit dot */}
               <div className="absolute bottom-[30%] right-[20%] z-10 text-center">
-                <span
-                  className="w-3 h-3 bg-amber-500 rounded-full block animate-ping"
-                  style={{ animationDelay: "0.5s" }}
-                />
+                <span className="w-3 h-3 bg-amber-500 rounded-full block" />
                 <span className="w-2.5 h-2.5 bg-amber-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#f59e0b]" />
                 <span className="font-mono text-[8px] text-amber-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-amber-500/30 whitespace-nowrap">
                   HIGH EXPLOIT
@@ -498,10 +484,7 @@ export default function Home() {
 
               {/* Recon dot */}
               <div className="absolute top-[58%] left-[16%] z-10 text-center">
-                <span
-                  className="w-2 h-2 bg-purple-500 rounded-full block animate-ping"
-                  style={{ animationDelay: "1.2s" }}
-                />
+                <span className="w-2 h-2 bg-purple-500 rounded-full block" />
                 <span className="w-1.5 h-1.5 bg-purple-500 rounded-full block -mt-2 shadow-[0_0_8px_#a855f7]" />
                 <span className="font-mono text-[7px] text-purple-600 font-bold block bg-zinc-50/95 px-1 rounded mt-1 border border-purple-500/30 whitespace-nowrap">
                   RECON DETECTED
@@ -587,7 +570,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
             </div>
            {/* Animated grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-0 animate-[bannerGridPulse_3s_ease-in-out_infinite_forwards]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-30" />
            <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-transparent to-zinc-950/70 pointer-events-none" />
 
           <div className="relative z-10 max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
