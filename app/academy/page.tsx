@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { submitWeb3Form } from "@/app/web3forms";
+
 import { GraduationCap, CheckCircle2, ArrowRight, Lock, Sparkles, BookOpen, Clock, Award, BarChart3, ChevronDown } from "lucide-react";
 
 export default function CybernovrAcademyPage() {
