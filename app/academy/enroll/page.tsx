@@ -1,12 +1,14 @@
+"use client";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { BookOpen, CheckCircle2, ArrowRight, Mail, Phone, Clock } from "lucide-react";
 
-export const metadata = {
-  title: "How to Enroll | CYBERNOVR Academy",
-  description: "Follow these simple steps to enroll in our Cybersecurity Education and Awareness Program (CEAP).",
-};
+function EnrollContent() {
+  const searchParams = useSearchParams();
+  const program = searchParams.get("program");
+  const isSummerCamp = program === "summer-cyber-camp";
 
-export default function AcademyEnrollPage() {
   const steps = [
     {
       num: 1,
@@ -22,8 +24,10 @@ export default function AcademyEnrollPage() {
     },
     {
       num: 3,
-      title: "Navigate to CEAP Course",
-      desc: "After verification, log into your account and find the Cybersecurity Education and Awareness Program (CEAP) course.",
+      title: `Navigate to ${isSummerCamp ? "CEAP Summer Cyber Camp" : "CEAP Course"}`,
+      desc: isSummerCamp
+        ? "After verification, log into your account and find the CEAP Summer Cyber Camp course."
+        : "After verification, log into your account and find the Cybersecurity Education and Awareness Program (CEAP) course.",
       detail: "Browse through the course catalog or use the search function"
     },
     {
@@ -49,11 +53,12 @@ export default function AcademyEnrollPage() {
             Novr Academy
           </span>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase mb-4">
-            How to Enroll in Cybersecurity Training
+            {isSummerCamp ? "How to Enroll in CEAP Summer Cyber Camp" : "How to Enroll in Cybersecurity Training"}
           </h1>
           <p className="text-zinc-600 text-sm leading-relaxed">
-            Follow these simple steps to enroll in our Cybersecurity Education
-            and Awareness Program (CEAP)
+            {isSummerCamp
+              ? "Follow these simple steps to enroll in our CEAP Summer Cyber Camp — an accelerated, hands-on cybersecurity program for ages 12–17."
+              : "Follow these simple steps to enroll in our Cybersecurity Education and Awareness Program (CEAP)"}
           </p>
         </div>
 
@@ -156,5 +161,13 @@ export default function AcademyEnrollPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AcademyEnrollPage() {
+  return (
+    <Suspense fallback={<div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto bg-white"><div className="max-w-3xl mx-auto animate-pulse space-y-8"><div className="h-8 bg-zinc-200 rounded w-3/4" /><div className="h-4 bg-zinc-200 rounded w-1/2" /><div className="space-y-6">{[1,2,3,4,5].map(i => <div key={i} className="flex gap-5"><div className="w-10 h-10 bg-zinc-200 rounded-lg" /><div className="flex-1 space-y-2"><div className="h-5 bg-zinc-200 rounded w-1/3" /><div className="h-4 bg-zinc-200 rounded w-full" /></div></div>)}</div></div></div>}>
+      <EnrollContent />
+    </Suspense>
   );
 }

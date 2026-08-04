@@ -25,6 +25,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+  const [isCeapPopupOpen, setIsCeapPopupOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [flashCardIndex, setFlashCardIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -388,6 +389,15 @@ export default function Home() {
     return () => clearInterval(carouselTimer);
   }, []);
 
+  // CEAP Popup - show on first visit, remember dismissal
+  useEffect(() => {
+    const dismissed = localStorage.getItem("ceap-popup-dismissed");
+    if (!dismissed) {
+      const timer = setTimeout(() => setIsCeapPopupOpen(true), 800);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const scrollToContactForm = () => {
     const target = document.getElementById("contact-gateway");
     if (target) target.scrollIntoView({ behavior: "smooth" });
@@ -566,10 +576,19 @@ export default function Home() {
 
 {/* CEAP BANNER — Summer 2026 */}
       <section className="w-full">
-        <div className="bg-purple-950 text-white border-y border-purple-900/40 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
-          {/* Animated grid pattern */}
+         <div className="bg-zinc-950 text-white border-y border-purple-900/40 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
+            {/* CEAP photo background */}
+            <div className="absolute inset-y-0 right-0 hidden w-full lg:block lg:w-[44%] pointer-events-none">
+              <img
+                src="/assets/ceap/vitaly-gariev-_Am5E9vcsu8-unsplash.jpg"
+                alt=""
+                className="h-full w-full object-cover opacity-55"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
+            </div>
+           {/* Animated grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-0 animate-[bannerGridPulse_3s_ease-in-out_infinite_forwards]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-transparent to-purple-950 pointer-events-none" />
+           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-transparent to-zinc-950/70 pointer-events-none" />
 
           <div className="relative z-10 max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Content */}
@@ -622,7 +641,7 @@ export default function Home() {
             {/* Right: CTAs */}
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end w-full opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.85s_forwards]">
               <Link
-                href="/academy/enroll"
+                href="/academy/enroll?program=summer-cyber-camp"
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono flex items-center justify-center gap-2 group"
               >
                 Enroll Now
@@ -1611,6 +1630,76 @@ export default function Home() {
                   </button>
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CEAP Summer Program Popup — Redesigned */}
+      {isCeapPopupOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-zinc-950/90 backdrop-blur-md"
+          onClick={() => {
+            setIsCeapPopupOpen(false);
+            localStorage.setItem("ceap-popup-dismissed", "true");
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="CEAP Summer Cyber Camp 2026"
+        >
+          {/* Subtle dark backdrop */}
+          <div className="absolute inset-0 bg-zinc-950/50 pointer-events-none" />
+
+          {/* Main popup card */}
+          <div className="relative w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden" onClick={(event) => event.stopPropagation()} style={{ border: "2px solid rgba(68, 81, 162, 0.4)", maxHeight: "90vh" }}>
+            {/* Close button */}
+            <button onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="absolute top-3 right-3 z-30 w-9 h-9 bg-zinc-950/80 hover:bg-[#E82027] text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10 hover:border-[#E82027] group" aria-label="Close popup"><X className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" /></button>
+            {/* Two-column layout: flyer left, content right */}
+            <div className="flex flex-col lg:flex-row h-full min-h-[420px]">
+              {/* LEFT: Flyer — fills entire left panel edge-to-edge */}
+              <div className="lg:w-[55%] relative overflow-hidden">
+                <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full h-full lg:h-full">
+                  <img src="/assets/ceap/WhatsApp Image 2026-08-03 at 4.16.41 PM.jpeg" alt="CEAP Summer 2026 — Essentials of Cybersecurity Program flyer showing program details, schedule, and pricing" className="w-full h-full object-cover lg:object-cover transition-all duration-300 hover:brightness-110" />
+                  {/* Hover overlay hint */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
+                    <span className="bg-zinc-900/90 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full backdrop-blur-sm border border-white/20">View Details →</span>
+                  </div>
+                </Link>
+              </div>
+              {/* RIGHT: Promotional content + CTA */}
+              <div className="lg:w-[45%] bg-gradient-to-b from-zinc-900 to-zinc-950 px-6 py-8 lg:py-10 flex flex-col justify-between overflow-y-auto">
+                <div>
+                  {/* Header */}
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <GraduationCap className="w-5 h-5 text-[#4451A2]" />
+                      <span className="text-[#4451A2] text-xs font-bold uppercase tracking-widest">Summer 2026</span>
+                    </div>
+                    <h2 className="text-white text-xl lg:text-2xl font-black leading-tight mb-2">CEAP Summer<br />Cyber Camp</h2>
+                    <p className="text-zinc-400 text-sm leading-relaxed">Give your child a <span className="text-white font-semibold">real skill</span> this summer. Accelerated, hands-on cybersecurity training with a certificate of completion.</p>
+                  </div>
+                  {/* Key details */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#4451A2]/15 flex items-center justify-center shrink-0"><Clock className="w-4 h-4 text-[#4451A2]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Mon 3rd August 2026</p><p className="text-zinc-500 text-xs">5 Weeks • 4 Hours Daily</p></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#662F8E]/15 flex items-center justify-center shrink-0"><Users className="w-4 h-4 text-[#662F8E]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Ages 12–17</p><p className="text-zinc-500 text-xs">Live Sessions • Hands-On Practicals</p></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#E82027]/15 flex items-center justify-center shrink-0"><ShieldCheck className="w-4 h-4 text-[#E82027]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Certificate of Completion</p><p className="text-zinc-500 text-xs">Industry-Recognized Credential</p></div>
+                    </div>
+                  </div>
+                </div>
+                {/* CTA Section */}
+                <div className="space-y-4">
+                  <Link href="/academy/enroll?program=summer-cyber-camp" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full bg-[#E82027] hover:bg-[#c41a20] text-white font-black text-sm uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#E82027]/20 flex items-center justify-center gap-2 group text-center">Enroll Now<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
+                  <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block text-center text-zinc-400 hover:text-white text-xs font-medium transition-colors duration-200 underline underline-offset-4 decoration-zinc-600 hover:decoration-white">Learn More About the Program</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

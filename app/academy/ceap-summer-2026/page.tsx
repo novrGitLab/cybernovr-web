@@ -107,63 +107,98 @@ export default function CEAPCurriculumPage() {
         {/* Stats row */}
       </section>
 
-      <section className="bg-purple-950/[0.02] border border-purple-900/10 rounded-2xl p-8 md:p-12 shadow-sm text-left">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <h2 className="text-xl md:text-3xl font-black text-zinc-900 uppercase tracking-tight">
-              Secure Your Spot This Summer
-            </h2>
-            <p className="text-[13px] text-zinc-500 font-normal leading-relaxed">
-              Give your child a real skill this summer. Our 9-week live
-              cybersecurity program teaches kids and teens (ages 12–17) how to
-              think, build, and defend like real security professionals.
-            </p>
-            <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-black text-red-700">₦250,000</span>
-              <span className="text-sm text-zinc-400 font-medium">/ student</span>
-            </div>
-            <div className="flex flex-wrap gap-4 text-[13px] font-mono text-zinc-500 font-bold">
-              <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" /> 9 Weeks
-              </span>
-              <span className="flex items-center gap-1">
-                <BarChart3 className="h-3 w-3" /> Ages 12–17
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-3 w-3" /> 8 Domains
-              </span>
-              <span className="flex items-center gap-1">
-                <Award className="h-3 w-3" /> Capstone Project
-              </span>
-            </div>
-            <Link
-              href="/academy/enroll"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-[13px] uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-md font-mono"
-            >
-              Enroll Now <ArrowRight className="h-4 w-4" />
-            </Link>
+      {/* Banner — Dark cybersecurity theme matching homepage */}
+      <section className="w-full">
+        <div className="bg-zinc-950 text-white border border-purple-900/40 rounded-2xl py-8 md:py-12 px-6 md:px-12 relative overflow-hidden">
+          {/* Photo background */}
+          <div className="absolute inset-y-0 right-0 hidden lg:block lg:w-[44%] pointer-events-none">
+            <img src="/assets/ceap/mimi-thian-vdXMSiX-n6M-unsplash.jpg" alt="" className="h-full w-full object-cover opacity-55" />
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
           </div>
-          <div className="space-y-3">
-            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-tight">
-              This program includes:
-            </h4>
-            <ul className="space-y-2">
-              {[
-                "Live instructor-led sessions (2 hrs/week)",
-                "Cybernovr Mobile LMS access",
-                "Hands-on capstone project",
-                "Certificate of completion",
-                "8 core cybersecurity domains",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-2 text-[13px] text-zinc-600"
+          {/* Animated grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-0 animate-[bannerGridPulse_3s_ease-in-out_infinite_forwards]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-transparent to-zinc-950/70 pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left: Content */}
+            <div className="lg:col-span-7 space-y-5 text-left">
+              {/* Badge */}
+              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.1s_forwards]">
+                CEAP Summer 2026
+              </span>
+
+              {/* Title */}
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.2s_forwards]">
+                Secure Your Spot<br />This Summer
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-purple-200 text-[13px] md:text-[15px] font-normal opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.35s_forwards]">
+                Give your child a real skill this summer. Our 9-week live cybersecurity program teaches kids and teens (ages 12–17) how to think, build, and defend like real security professionals.
+              </p>
+
+              {/* Price */}
+              <div className="flex items-baseline gap-3 opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.5s_forwards]">
+                <span className="text-3xl font-black text-red-500">₦250,000</span>
+                <span className="text-sm text-purple-300 font-medium">/ student</span>
+              </div>
+
+              {/* Feature pills */}
+              <div className="flex flex-wrap gap-3 pt-1 opacity-0 animate-[bannerFadeScale_0.4s_ease-out_0.6s_forwards]">
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
+                  <GraduationCap className="h-3.5 w-3.5 text-red-400" />
+                  8 Core Domains + Capstone
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
+                  <BookOpen className="h-3.5 w-3.5 text-red-400" />
+                  Cybernovr Mobile LMS
+                </span>
+              </div>
+
+              {/* Event details */}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-purple-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.75s_forwards]">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-red-400" />
+                  Starts: Mon 3rd Aug
+                </span>
+                <span className="text-purple-600">|</span>
+                <span>9 Weeks</span>
+                <span className="text-purple-600">|</span>
+                <span>Ages 12–17</span>
+              </div>
+            </div>
+
+            {/* Right: Program includes + CTA */}
+            <div className="lg:col-span-5 space-y-5 opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.85s_forwards]">
+              <div className="space-y-2">
+                <h4 className="text-[13px] font-bold text-purple-200 uppercase tracking-widest">
+                  This program includes:
+                </h4>
+                <ul className="space-y-1.5">
+                  {[
+                    "Live instructor-led sessions (2 hrs/week)",
+                    "Cybernovr Mobile LMS access",
+                    "Hands-on capstone project",
+                    "Certificate of completion",
+                    "8 core cybersecurity domains",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-[13px] text-purple-100">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-red-500 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link
+                  href="/academy/enroll?program=summer-cyber-camp"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono flex items-center justify-center gap-2 group"
                 >
-                  <CheckCircle2 className="h-4 w-4 text-red-700 shrink-0" />{" "}
-                  {item}
-                </li>
-              ))}
-            </ul>
+                  Enroll Now
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -230,7 +265,7 @@ export default function CEAPCurriculumPage() {
       {/* CTA */}
       <section className="text-center space-y-4 pt-4">
         <Link
-          href="/academy/enroll"
+          href="/academy/enroll?program=summer-cyber-camp"
           className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-[13px] uppercase tracking-widest px-8 py-4 rounded-lg transition-all shadow-md font-mono"
         >
           Enroll Now <ArrowRight className="h-4 w-4" />
