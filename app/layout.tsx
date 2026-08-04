@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import Providers from "./Providers";
 import FooterNewsletter from "./FooterNewsletter";
 import GoogleTagManager from "./GoogleTagManager";
+import Analytics from "./Analytics";
 import "./globals.css";
 
 import NavigationAndConsent from "./NavigationAndConsent";
@@ -59,8 +60,44 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
 
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "CyberNovr",
+          url: "https://www.cybernovr.com",
+          logo: "https://www.cybernovr.com/assets/icon/cybernovr-white.svg",
+          description: "Cybersecurity company protecting critical infrastructure with premium intelligence solutions.",
+          sameAs: [
+            "https://twitter.com/CYBERNOVR",
+            "https://www.linkedin.com/company/cybernovr-limited",
+            "https://www.facebook.com/profile.php?id=61577489252198",
+            "https://www.instagram.com/cybernovr",
+          ],
+          contactPoint: [
+            { "@type": "ContactPoint", telephone: "+234-809-812-0000", contactType: "customer service" },
+            { "@type": "ContactPoint", telephone: "+1-443-985-3735", contactType: "customer service" },
+          ],
+          address: [
+            { "@type": "PostalAddress", streetAddress: "4625 Varsity Drive NW", addressLocality: "Calgary", addressRegion: "AB", postalCode: "T3A 0Z9", addressCountry: "CA" },
+            { "@type": "PostalAddress", streetAddress: "17 Sunday Adigun Street, Alausa", addressLocality: "Ikeja, Lagos", addressCountry: "NG" },
+          ],
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "CyberNovr",
+          url: "https://www.cybernovr.com",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://www.cybernovr.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }) }} />
+      </head>
       <body className="bg-surface text-on-surface font-sans overflow-x-hidden antialiased">
         <GoogleTagManager />
+        <Analytics />
         <Providers>
         <Toaster position="top-right" richColors />
 
@@ -111,6 +148,7 @@ export default function RootLayout({
               <ul className="space-y-3 text-sm font-medium text-white/80">
                 <li><Link className="hover:text-primary transition-colors" href="/privacy">Privacy Policy</Link></li>
                 <li><Link className="hover:text-primary transition-colors" href="/cookies">Cookies Policy</Link></li>
+                <li><Link className="hover:text-primary transition-colors" href="/isms">ISMS Policy</Link></li>
               </ul>
             </div>
             
@@ -154,7 +192,7 @@ export default function RootLayout({
           {/* HIGH CONTRAST & VISIBLE COPYRIGHT TEXT (#16, #43) */}
           <div className="max-w-[1536px] mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <p className="text-white/60 font-medium tracking-wide text-center sm:text-left">
-              © 2026 Cybernovr Limited. All rights reserved. A <span className="text-red-400">#cyber360resilience</span> company
+              Â© 2026 Cybernovr Limited. All rights reserved. A <span className="text-red-400">#cyber360resilience</span> company
             </p>
           </div>
         </footer>
@@ -163,3 +201,4 @@ export default function RootLayout({
     </html>
   );
 }
+
