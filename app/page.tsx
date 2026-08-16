@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShieldAlert, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
 import { submitWeb3Form } from "./web3forms";
+import { TOPIC_KEYS, SECTOR_KEYS, LOCATION_KEYS } from "./novralert-options";
 import { blogPosts } from "./resources/blog/data";
 import { newsBriefs } from "./resources/news/data";
 import { webinars } from "./resources/webinar/data";
@@ -25,6 +26,7 @@ export default function Home() {
   const [contactSucceeded, setContactSucceeded] = useState(false);
   const [alertSubmitting, setAlertSubmitting] = useState(false);
   const [alertSucceeded, setAlertSucceeded] = useState(false);
+  const [alertError, setAlertError] = useState("");
   const [vaptSubmitting, setVaptSubmitting] = useState(false);
   const [vaptSucceeded, setVaptSucceeded] = useState(false);
   const [auditSubmitting, setAuditSubmitting] = useState(false);
@@ -69,16 +71,34 @@ export default function Home() {
   const handleAlertSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAlertSubmitting(true);
+    setAlertError("");
     const form = e.currentTarget;
     try {
       const formData = new FormData(form);
-      formData.append("form_name", "novralertSubscription");
-      formData.append("form_source", "Home Page - NovrALERT Modal");
-      await submitWeb3Form(formData);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim().toLowerCase();
+      // Quick "receive all broadcasts" capture: free tier, every topic/sector/location.
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company: null,
+          topics: TOPIC_KEYS,
+          sectors: SECTOR_KEYS,
+          locations: LOCATION_KEYS,
+          cnii: false,
+          tier: "free",
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.message || "Subscription failed");
       setAlertSucceeded(true);
       form.reset();
     } catch (err) {
-      console.error("Form submission error:", err);
+      console.error("Alert subscription error:", err);
+      setAlertError(err instanceof Error ? err.message : "Subscription failed. Please try again.");
     } finally {
       setAlertSubmitting(false);
     }
@@ -1098,6 +1118,18 @@ export default function Home() {
                 <form onSubmit={handleAlertSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
+                      Full Name
+                    </label>
+                    <input
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      required
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Corporate Email
                     </label>
                     <input
@@ -1108,6 +1140,9 @@ export default function Home() {
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-[15px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/30 transition-all font-normal"
                     />
                   </div>
+                  {alertError && (
+                    <p className="text-red-600 text-[11px] font-mono">{alertError}</p>
+                  )}
                   <button
                     type="submit"
                     disabled={alertSubmitting}

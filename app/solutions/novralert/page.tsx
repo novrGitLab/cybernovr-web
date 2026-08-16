@@ -1,64 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Brain, Eye, Globe, ShieldAlert, CheckCircle2, Building2, Mail, User, FileText } from "lucide-react";
-
-const TOPICS = [
-  { value: "iam", label: "Identity & Access Management" },
-  { value: "data_privacy", label: "Data Privacy" },
-  { value: "cloud_security", label: "Cloud Security" },
-  { value: "network_security", label: "Network Security" },
-  { value: "endpoint", label: "Endpoint Protection" },
-  { value: "incident_response", label: "Incident Response" },
-  { value: "threat_intel", label: "Threat Intelligence" },
-  { value: "compliance", label: "Compliance & Governance" },
-  { value: "appsec", label: "Application Security" },
-  { value: "ot_ics", label: "OT/ICS Security" },
-];
-
-const SECTORS = [
-  { value: "banking", label: "Banking & Finance" },
-  { value: "telecom", label: "Telecommunications" },
-  { value: "fintech", label: "Fintech" },
-  { value: "energy", label: "Energy & Utilities" },
-  { value: "government", label: "Government" },
-  { value: "education", label: "Education" },
-  { value: "health", label: "Healthcare" },
-  { value: "oil_gas", label: "Oil & Gas" },
-  { value: "manufacturing", label: "Manufacturing" },
-];
-
-const LOCATIONS = [
-  { value: "nigeria", label: "Nigeria" },
-  { value: "ghana", label: "Ghana" },
-  { value: "kenya", label: "Kenya" },
-  { value: "south_africa", label: "South Africa" },
-  { value: "uk", label: "United Kingdom" },
-  { value: "us", label: "United States" },
-];
-
-const TIERS = [
-  {
-    id: "starter",
-    name: "Starter",
-    price: "$7",
-    period: "/mo",
-    features: ["Basic threat alerts", "3 topic areas", "Email delivery", "Weekly digest"],
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    price: "$15",
-    period: "/mo",
-    features: ["Full threat coverage", "All topics & sectors", "API access", "Real-time alerts", "Dark web monitoring"],
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    features: ["Dedicated tenant", "Custom integrations", "Priority support", "Tailored intelligence", "SLA guarantee"],
-  },
-];
+import { Brain, Eye, Globe, ShieldAlert, CheckCircle2, Building2, Mail, User } from "lucide-react";
+import { TOPICS, SECTORS, LOCATIONS, TIERS } from "@/app/novralert-options";
 
 export default function NovrALERTPage() {
   const [submitting, setSubmitting] = useState(false);
@@ -73,6 +16,7 @@ export default function NovrALERTPage() {
   const [locations, setLocations] = useState<string[]>([]);
   const [cnii, setCnii] = useState(false);
   const [tier, setTier] = useState<string | null>(null);
+  const [error, setError] = useState("");
 
   const toggleMulti = (arr: string[], setArr: (v: string[]) => void, value: string) => {
     setArr(arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value]);
@@ -94,12 +38,19 @@ export default function NovrALERTPage() {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
+    setError("");
     try {
-      // Simulate submission — backend integration pending
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: firstName, email, company, topics, sectors, locations, cnii, tier }),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.message || "Subscription failed");
       setSucceeded(true);
     } catch (err) {
       console.error("Subscription error:", err);
+      setError(err instanceof Error ? err.message : "Subscription failed. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -169,11 +120,15 @@ export default function NovrALERTPage() {
         {succeeded ? (
           <div className="py-10 text-center flex flex-col items-center justify-center space-y-3">
             <CheckCircle2 className="h-12 w-12 text-emerald-500 animate-bounce" />
-            <h4 className="text-[15px] font-black uppercase tracking-wide text-white">Subscription Confirmed</h4>
+            <h4 className="text-[15px] font-black uppercase tracking-wide text-white">
+              {tier === "free" ? "Subscription Confirmed" : "Request Received"}
+            </h4>
             <p className="text-xs text-zinc-400 max-w-xs mx-auto font-medium">
-              Welcome to NovrALERT. Your personalized threat intelligence feed will begin shortly.
+              {tier === "free"
+                ? "Welcome to NovrALERT. Your personalized threat intelligence feed will begin shortly."
+                : "Thanks for subscribing to NovrALERT. We'll reach out shortly with payment details to activate your plan."}
             </p>
-            <button onClick={() => { setSucceeded(false); setFirstName(""); setEmail(""); setCompany(""); setTopics([]); setSectors([]); setLocations([]); setCnii(false); setTier(null); }} className="text-[13px] text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider mt-2">
+            <button onClick={() => { setSucceeded(false); setError(""); setFirstName(""); setEmail(""); setCompany(""); setTopics([]); setSectors([]); setLocations([]); setCnii(false); setTier(null); }} className="text-[13px] text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider mt-2">
               Subscribe Another Account
             </button>
           </div>
@@ -256,8 +211,8 @@ export default function NovrALERTPage() {
               <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest font-mono">Subscription Plan *</h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {TIERS.map((t) => (
-                  <button key={t.id} type="button" onClick={() => setTier(t.id)} className={`text-left p-5 rounded-xl border-2 transition-all ${
-                    tier === t.id
+                  <button key={t.value} type="button" onClick={() => setTier(t.value)} className={`text-left p-5 rounded-xl border-2 transition-all ${
+                    tier === t.value
                       ? "border-red-600 bg-red-600/10"
                       : "border-zinc-800 bg-zinc-900 hover:border-zinc-600"
                   }`}>
@@ -275,6 +230,8 @@ export default function NovrALERTPage() {
               </div>
               {errors.tier && <p className="text-red-400 text-[11px] font-mono">{errors.tier}</p>}
             </div>
+
+            {error && <p className="text-red-400 text-[11px] font-mono text-center">{error}</p>}
 
             <button type="submit" disabled={submitting} className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-xs font-mono disabled:opacity-50 disabled:cursor-not-allowed">
               {submitting ? "Subscribing..." : "Subscribe Now"}
