@@ -15,7 +15,7 @@ export default function ResourcesWhitePapersPage() {
         </p>
       </div>
 
-      <div className="max-w-2xl text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-6 shadow-sm group hover:border-purple-900/30 transition-all duration-300">
           <div className="space-y-4">
             <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
@@ -27,6 +27,21 @@ export default function ResourcesWhitePapersPage() {
             </div>
           </div>
           <a href="/assets/whitepapers/building-cyber-resilience-in-national-critical-infrastructure.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-[13px] uppercase tracking-wider transition-all font-mono group/btn self-start">
+            Download White Paper <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
+          </a>
+        </div>
+
+        <div className="p-6 bg-purple-950/[0.02] border border-purple-900/10 rounded-xl flex flex-col justify-between space-y-6 shadow-sm group hover:border-purple-900/30 transition-all duration-300">
+          <div className="space-y-4">
+            <div className="w-10 h-10 bg-purple-950/[0.04] border border-purple-900/10 text-red-700 rounded-lg flex items-center justify-center">
+              <Shield className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="text-[15px] font-bold text-zinc-900 mb-2 uppercase tracking-tight leading-snug">Security: Stay Ahead of the Latest Threats with Intel-Driven SecOps</h3>
+              <p className="text-zinc-600 text-[11px] md:text-[13px] leading-relaxed font-normal">Discover how intelligence-driven security operations can help organizations proactively identify, prevent, and respond to emerging cyber threats before they impact your business.</p>
+            </div>
+          </div>
+          <a href="/assets/whitepapers/security-stay-ahead-latest-threats-intel-driven-secops-wp.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-red-700 hover:text-red-600 font-bold text-[13px] uppercase tracking-wider transition-all font-mono group/btn self-start">
             Download White Paper <FileDown className="h-4 w-4 group-hover/btn:translate-y-0.5 transition-transform" />
           </a>
         </div>
