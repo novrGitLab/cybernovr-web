@@ -73,13 +73,22 @@ export async function POST(req: Request) {
   const company = typeof b.company === "string" && b.company.trim() ? b.company.trim() : null;
   const topics = pickKeys(b.topics, TOPIC_KEYS);
   const sectors = pickKeys(b.sectors, SECTOR_KEYS);
-  const locations = pickKeys(b.locations, LOCATION_KEYS);
+  const locations = pickKeys(b.locations, LOCATION_KEYS) ?? ["global"];
   const cnii = b.cnii === true;
   const tier = typeof b.tier === "string" && TIER_KEYS.includes(b.tier as (typeof TIER_KEYS)[number]) ? b.tier : null;
 
-  if (!name || !EMAIL_RE.test(email) || !topics || !sectors || !locations || !tier) {
+  const isFree = tier === "free";
+
+  if (!name || !EMAIL_RE.test(email) || !topics || !sectors || !tier) {
     return NextResponse.json(
-      { success: false, message: "Please provide a name, a valid email, at least one topic, sector, location, and a tier." },
+      { success: false, message: "Please provide a name, a valid email, at least one topic, a sector, and a tier." },
+      { status: 400 }
+    );
+  }
+
+  if (!isFree && !locations) {
+    return NextResponse.json(
+      { success: false, message: "Paid plans require at least one location." },
       { status: 400 }
     );
   }
@@ -87,7 +96,7 @@ export async function POST(req: Request) {
   try {
     await ensureTable;
     // email is unique — re-signup with the same email UPDATES the row, not duplicates.
-    await sql`
+    const [row] = await sql`
       INSERT INTO subscribers (tenant_id, name, email, company, topics, sectors, locations, cnii, tier, status, unsubscribe_token)
       VALUES (1, ${name}, ${email}, ${company}, ${sql.json(topics)}, ${sql.json(sectors)}, ${sql.json(locations)}, ${cnii}, ${tier}, ${tier === "free" ? "active" : "pending_payment"}, ${randomUUID()})
       ON CONFLICT (email) DO UPDATE SET
@@ -101,10 +110,11 @@ export async function POST(req: Request) {
         status = EXCLUDED.status,
         unsubscribe_token = EXCLUDED.unsubscribe_token,
         updated_at = now()
+      RETURNING id
     `;
-    return NextResponse.json({ success: true, message: "Subscription saved." });
+    return NextResponse.json({ success: true, message: "Subscription saved.", subscriberId: row.id });
   } catch (err) {
-    console.error("NovrALERT subscribe error:", err);
+    console.error("NovrALERT subscribe error:", err instanceof Error ? err.message : err);
     return NextResponse.json({ success: false, message: "Subscription could not be saved. Please try again." }, { status: 500 });
   }
 }
