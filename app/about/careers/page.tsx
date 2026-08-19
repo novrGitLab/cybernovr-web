@@ -93,6 +93,25 @@ export default function CorporateCareersPage() {
             info@cybernovr.com
           </p>
         </div>
+        <div className="p-8 border-2 border-purple-900/10 rounded-xl bg-purple-950/[0.02] space-y-4">
+          <div className="space-y-1">
+            <h4 className="text-[15px] font-bold text-zinc-900 uppercase tracking-wide">
+              Cybersecurity Specialist
+            </h4>
+            <p className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase">
+              Full-Time · Lagos, Nigeria
+            </p>
+          </div>
+          <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+            We require the services of a qualified Cybersecurity Specialist to
+            safeguard our network infrastructure and digital assets. He/She will
+            monitor system vulnerabilities, implement threat mitigation
+            strategies, and ensure organizational compliance with modern
+            security standards. A CompTIA Security+ certification and relevant
+            hands-on IT security experience are required. Send a cover letter
+            and resume to info@cybernovr.com.
+          </p>
+        </div>
       </section>
     </div>
   );

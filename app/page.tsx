@@ -1,7 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShieldAlert, ArrowRight, Bell, CheckCircle2, X, Terminal, ShieldCheck, Star } from 'lucide-react';
+import {
+  ShieldAlert,
+  ArrowRight,
+  Bell,
+  CheckCircle2,
+  X,
+  Terminal,
+  ShieldCheck,
+  Star,
+  GraduationCap,
+  Clock,
+  Users,
+} from "lucide-react";
 import { submitWeb3Form } from "./web3forms";
 import { TOPIC_KEYS, SECTOR_KEYS, LOCATION_KEYS } from "./novralert-options";
 import { blogPosts } from "./resources/blog/data";
@@ -14,6 +26,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+  const [isCeapPopupOpen, setIsCeapPopupOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [flashCardIndex, setFlashCardIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -151,51 +164,155 @@ export default function Home() {
     emails: {
       general: "info@cybernovr.com",
       incidentResponse: "incident@cybernovr.com",
-      alerts: "alerts@cybernovr.com"
+      alerts: "alerts@cybernovr.com",
     },
     socials: {
-      linkedin: "https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin:
+        "https://www.linkedin.com/in/cybernovr-limited-21831a36b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       x: "https://x.com/CYBERNOVR",
-      instagram: "https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==",
+      instagram:
+        "https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==",
       facebook: "https://www.facebook.com/profile.php?id=61577489252198",
-      tiktok: "https://www.tiktok.com/@cybernovr"
-    }
+      tiktok: "https://www.tiktok.com/@cybernovr",
+    },
   };
 
   const softwareSolutions = [
-    { name: "NovrSOC (by Cybernovr)", tagline: "AI-Powered Managed SOC (MSSP)", desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.", path: "/solutions/novrsoc", logo: "novrsoc.png", shortName: "NovrSOC" },
-    { name: "NovrGRC (by Cybernovr)", tagline: "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals", desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.", path: "/solutions/novrgrc", logo: "novrgrc.png", shortName: "NovrGRC" },
-    { name: "SecuBreach (by Cybernovr)", tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT", desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.", path: "/solutions/secubreach", logo: "secubreach.webp", shortName: "SecuBreach" },
-    { name: "NovrRadar (by Cybernovr)", tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE", desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.", path: "/solutions/novrradar", logo: "novrradar.png", shortName: "NovrRadar" }
+    {
+      name: "NovrSOC (by Cybernovr)",
+      tagline: "AI-Powered Managed SOC (MSSP)",
+      desc: "AI-powered autonomous cyber defense with 24/7 monitoring and management of your assets against cyber threats.",
+      path: "/solutions/novrsoc",
+      logo: "novrsoc.png",
+      shortName: "NovrSOC",
+    },
+    {
+      name: "NovrGRC (by Cybernovr)",
+      tagline:
+        "AUTOMATED GOVERNANCE, RISK & COMPLIANCE management platform for several verticals",
+      desc: "Next-generation GRC platform providing complete visibility of your cyber risks, audit and, compliance management.",
+      path: "/solutions/novrgrc",
+      logo: "novrgrc.png",
+      shortName: "NovrGRC",
+    },
+    {
+      name: "SecuBreach (by Cybernovr)",
+      tagline: "VULNERABILITY, THREAT & EXPOSURE MANAGEMENT",
+      desc: "Nigeria's #1 vulnerability management solution. Bridges vulnerability management and regulatory compliance.",
+      path: "/solutions/secubreach",
+      logo: "secubreach.webp",
+      shortName: "SecuBreach",
+    },
+    {
+      name: "NovrRadar (by Cybernovr)",
+      tagline: "LIVE THREAT IoA and EXPOSURE MANAGEMENT ENGINE",
+      desc: "Advanced predictive threat and exposure management platform performing continuous tracking of cyber attacks.",
+      path: "/solutions/novrradar",
+      logo: "novrradar.png",
+      shortName: "NovrRadar",
+    },
   ];
 
   const industryVerticals = [
-    { name: "Banking", title: "Guidance on minimum cybersecurity and resilience requirements for financial sector players", desc: "Working with leading Deposit Money Banks and Payment Services Banks to secure financial transactions in Africa" },
-    { name: "Communication", title: "SECURING THE BACKBONE OF THE DIGITAL ECONOMY", desc: "We help sector players to promote a unified, consistent, and resilient cybersecurity posture across the communications industry and ensure a sector-wide capacity to anticipate, detect, respond to, and recover from cyber threats" },
-    { name: "Fintech", title: "CONTINUOUS RISK ASSESSMENT FOR DIGITAL WALLETS & PAYMENT GATEWAYS", desc: "We provide complete threat visibility of Indicators of Attack (IoA) and Exposure management to manage cybersecurity risks in the Fintech" },
-    { name: "Energy", title: "PROTECTING OPERATIONAL TECHNOLOGY & SCADA SYSTEMS", desc: "Understanding the security of information and operational technologies is key to delivering effective cyber resilience of the energy sector" },
-    { name: "Government", title: "DIGITAL PUBLIC INFRASTRUCTURE (DPI) DELIVERS A COMPLEMENT OF CRITICAL PUBLIC AND PRIVATE SERVICES", desc: "Working with sub-national governments in Nigeria, we ensure the cyber resilience of digital identity, payment networks, and data exchange platforms to enhance the integrity of DPI." },
-    { name: "Education", title: "SECURING ACADEMIC INFRASTRUCTURE & STUDENT DATA ASSETS", desc: "Protecting cloud learning repositories, student database nodes, identity management platforms, and privacy profiles across institutions." },
-    { name: "Health", title: "HEALTHCARE INFRASTRUCTURE PROTECTION AND PATIENT DATA ARE KEY TO US", desc: "Working tirelessly to harden medical record vaults, diagnostic information systems, hospital registry endpoints, and healthcare logistics networks." }
+    {
+      name: "Banking",
+      title:
+        "Guidance on minimum cybersecurity and resilience requirements for financial sector players",
+      desc: "Working with leading Deposit Money Banks and Payment Services Banks to secure financial transactions in Africa",
+    },
+    {
+      name: "Communication",
+      title: "SECURING THE BACKBONE OF THE DIGITAL ECONOMY",
+      desc: "We help sector players to promote a unified, consistent, and resilient cybersecurity posture across the communications industry and ensure a sector-wide capacity to anticipate, detect, respond to, and recover from cyber threats",
+    },
+    {
+      name: "Fintech",
+      title:
+        "CONTINUOUS RISK ASSESSMENT FOR DIGITAL WALLETS & PAYMENT GATEWAYS",
+      desc: "We provide complete threat visibility of Indicators of Attack (IoA) and Exposure management to manage cybersecurity risks in the Fintech",
+    },
+    {
+      name: "Energy",
+      title: "PROTECTING OPERATIONAL TECHNOLOGY & SCADA SYSTEMS",
+      desc: "Understanding the security of information and operational technologies is key to delivering effective cyber resilience of the energy sector",
+    },
+    {
+      name: "Government",
+      title:
+        "DIGITAL PUBLIC INFRASTRUCTURE (DPI) DELIVERS A COMPLEMENT OF CRITICAL PUBLIC AND PRIVATE SERVICES",
+      desc: "Working with sub-national governments in Nigeria, we ensure the cyber resilience of digital identity, payment networks, and data exchange platforms to enhance the integrity of DPI.",
+    },
+    {
+      name: "Education",
+      title: "SECURING ACADEMIC INFRASTRUCTURE & STUDENT DATA ASSETS",
+      desc: "Protecting cloud learning repositories, student database nodes, identity management platforms, and privacy profiles across institutions.",
+    },
+    {
+      name: "Health",
+      title:
+        "HEALTHCARE INFRASTRUCTURE PROTECTION AND PATIENT DATA ARE KEY TO US",
+      desc: "Working tirelessly to harden medical record vaults, diagnostic information systems, hospital registry endpoints, and healthcare logistics networks.",
+    },
   ];
 
   const activeTestimonials = [
-    { text: "CYBERNOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBERNOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBERNOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBERNOVR for its outstanding commitment to youth development and technology education.", author: "Omoluabi-Okechukwu B.M.", firm: "Principal, Caleb International College" },
-    { text: "The Cybersecurity Program facilitated by CYBERNOVR at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate CYBERNOVR for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with CYBERNOVR on more impactful initiatives in the future.", author: "Mr. Emmanuel Jaiyeoba", firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos" },
-    { text: "CYBERNOVR has been a trusted partner in strengthening our cybersecurity and compliance efforts. Their expertise in PCI DSS solutions and penetration testing has helped us enhance our security posture with confidence. The team is highly professional, responsive, and committed to delivering practical, high-quality solutions tailored to our needs. We are pleased with the value they bring and confidently recommend CYBERNOVR to any organisation seeking reliable cybersecurity consulting services.", author: "Sheriff Adigun", firm: "PAYCELER, UK" },
-    { text: "When I enrolled in CYBERNOVR's CEAP program, I expected foundational knowledge. What I gained was a transformative experience spanning 11 comprehensive modules—from ethical hacking to cyber laws and privacy management. I completed the program with a 93.33% score, but more importantly, I developed a holistic security mindset. I began changing my own digital habits and coaching family and friends. Before this program, cybersecurity was an interest. Now, it is my chosen path.", author: "Nwankwo Odinma Emmanuel", firm: "CEAP Graduate, CYBERNOVR" },
-    { text: "My time at Cybernovr has been fulfilling. I worked on the Weekly blog, news articles, and the white paper—challenging at first, but I grew to enjoy it. The CEAP program taught me foundational cybersecurity concepts that helped me understand how things work and choose a career path. I noticed supply-chain attacks were especially common, with groups like 'ShinyHunters' behind most of them. Would I recommend CEAP? Absolutely. It's not just for aspiring cybersecurity professionals—anyone in tech should have access to this information. It builds a strong foundation for how to think about building and securing software.", author: "Thankgod Ausaji", firm: "CEAP Graduate, CYBERNOVR" }
+    {
+      text: "CYBERNOVR has proven to be more than a technology company—it is a true partner in developing future tech professionals. When many organisations could not accommodate our students for internship due to the short duration, CYBERNOVR welcomed them and provided invaluable industry exposure. Today, one of our students, Gabriel Oloritu, proudly serves as a CYBERNOVR Ambassador. Their free cybersecurity seminars have also inspired and empowered our students. We are proud to recommend CYBERNOVR for its outstanding commitment to youth development and technology education.",
+      author: "Omoluabi-Okechukwu B.M.",
+      firm: "Principal, Caleb International College",
+    },
+    {
+      text: "The Cybersecurity Program facilitated by CYBERNOVR at St. Gregory's College, Ikoyi, Lagos, was highly engaging, insightful, and impactful. The sessions were well planned, interactive, and practical, providing our students with valuable knowledge of online safety, cyber threats, digital responsibility, and best practices for navigating the digital world securely. Following the training, the students participated in an online assessment to evaluate their understanding of the concepts covered. The quality of their engagement and performance reflected the effectiveness of the program and the relevance of the content delivered. We sincerely appreciate CYBERNOVR for equipping our students with essential cybersecurity knowledge and practical skills that will serve them well in today's technology-driven world. We look forward to partnering with CYBERNOVR on more impactful initiatives in the future.",
+      author: "Mr. Emmanuel Jaiyeoba",
+      firm: "Head Teacher, St. Gregory's College, Ikoyi, Lagos",
+    },
+    {
+      text: "CYBERNOVR has been a trusted partner in strengthening our cybersecurity and compliance efforts. Their expertise in PCI DSS solutions and penetration testing has helped us enhance our security posture with confidence. The team is highly professional, responsive, and committed to delivering practical, high-quality solutions tailored to our needs. We are pleased with the value they bring and confidently recommend CYBERNOVR to any organisation seeking reliable cybersecurity consulting services.",
+      author: "Sheriff Adigun",
+      firm: "PAYCELER, UK",
+    },
+    {
+      text: "When I enrolled in CYBERNOVR's CEAP program, I expected foundational knowledge. What I gained was a transformative experience spanning 11 comprehensive modules—from ethical hacking to cyber laws and privacy management. I completed the program with a 93.33% score, but more importantly, I developed a holistic security mindset. I began changing my own digital habits and coaching family and friends. Before this program, cybersecurity was an interest. Now, it is my chosen path.",
+      author: "Nwankwo Odinma Emmanuel",
+      firm: "CEAP Graduate, CYBERNOVR",
+    },
+    {
+      text: "My time at Cybernovr has been fulfilling. I worked on the Weekly blog, news articles, and the white paper—challenging at first, but I grew to enjoy it. The CEAP program taught me foundational cybersecurity concepts that helped me understand how things work and choose a career path. I noticed supply-chain attacks were especially common, with groups like 'ShinyHunters' behind most of them. Would I recommend CEAP? Absolutely. It's not just for aspiring cybersecurity professionals—anyone in tech should have access to this information. It builds a strong foundation for how to think about building and securing software.",
+      author: "Thankgod Ausaji",
+      firm: "CEAP Graduate, CYBERNOVR",
+    },
   ];
 
-  const partners = ['pat1', 'pat2', 'pat3', 'pat4', 'pat5', 'pat6', 'pat7'];
+  const partners = ["pat1", "pat2", "pat3", "pat4", "pat5", "pat6", "pat7"];
 
   const flashCards = [
-    blogPosts[0] && { tag: "Blog" as const, title: blogPosts[0].title, date: blogPosts[0].date, sortDate: blogPosts[0].isoDate, path: `/resources/blog/${blogPosts[0].slug}` },
-    newsBriefs[0] && { tag: "News" as const, title: newsBriefs[0].title, date: newsBriefs[0].date, sortDate: newsBriefs[0].date, path: "/resources/news" },
-    webinars[0] && { tag: "Webinar" as const, title: webinars[0].title, date: webinars[0].date, sortDate: webinars[0].isoDate, path: "/resources/webinar" },
+    blogPosts[0] && {
+      tag: "Blog" as const,
+      title: blogPosts[0].title,
+      date: blogPosts[0].date,
+      sortDate: blogPosts[0].isoDate,
+      path: `/resources/blog/${blogPosts[0].slug}`,
+    },
+    newsBriefs[0] && {
+      tag: "News" as const,
+      title: newsBriefs[0].title,
+      date: newsBriefs[0].date,
+      sortDate: newsBriefs[0].date,
+      path: "/resources/news",
+    },
+    webinars[0] && {
+      tag: "Webinar" as const,
+      title: webinars[0].title,
+      date: webinars[0].date,
+      sortDate: webinars[0].isoDate,
+      path: "/resources/webinar",
+    },
   ]
     .filter(Boolean)
-    .sort((a, b) => new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b!.sortDate).getTime() - new Date(a!.sortDate).getTime(),
+    )
     .slice(0, 3);
 
   const carouselImages = [
@@ -249,7 +366,10 @@ export default function Home() {
     requestAnimationFrame(animateMetrics);
   }, []);
 
-  const replayStat = (target: number, setter: React.Dispatch<React.SetStateAction<number>>) => {
+  const replayStat = (
+    target: number,
+    setter: React.Dispatch<React.SetStateAction<number>>,
+  ) => {
     setter(0);
     let startTime: number | null = null;
     const duration = 1200;
@@ -289,9 +409,18 @@ export default function Home() {
     return () => clearInterval(carouselTimer);
   }, []);
 
+  // CEAP Popup - show on first visit, remember dismissal
+  useEffect(() => {
+    const dismissed = localStorage.getItem("ceap-popup-dismissed");
+    if (!dismissed) {
+      const timer = setTimeout(() => setIsCeapPopupOpen(true), 300);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const scrollToContactForm = () => {
-    const target = document.getElementById('contact-gateway');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById("contact-gateway");
+    if (target) target.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -354,21 +483,10 @@ export default function Home() {
               <div className="absolute w-80 h-[1px] bg-emerald-500/15" />
               <div className="absolute h-80 w-[1px] bg-emerald-500/15" />
 
-              {/* Spinning sweep */}
-              <div
-                className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-transparent via-emerald-500/5 to-emerald-500/25 animate-spin"
-                style={{ animationDuration: "4s" }}
-              />
-
-              {/* Second slower sweep for depth */}
-              <div
-                className="absolute w-64 h-64 rounded-full bg-gradient-to-bl from-transparent via-transparent to-emerald-500/10 animate-spin"
-                style={{ animationDuration: "8s" }}
-              />
 
               {/* Critical intrusion dot */}
               <div className="absolute top-[28%] left-[28%] z-10 text-center">
-                <span className="w-3 h-3 bg-red-600 rounded-full block animate-ping" />
+                <span className="w-3 h-3 bg-red-600 rounded-full block" />
                 <span className="w-2.5 h-2.5 bg-red-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#ef4444]" />
                 <span className="font-mono text-[8px] text-red-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-red-500/30 whitespace-nowrap">
                   CRITICAL INTRUSION
@@ -377,10 +495,7 @@ export default function Home() {
 
               {/* High exploit dot */}
               <div className="absolute bottom-[30%] right-[20%] z-10 text-center">
-                <span
-                  className="w-3 h-3 bg-amber-500 rounded-full block animate-ping"
-                  style={{ animationDelay: "0.5s" }}
-                />
+                <span className="w-3 h-3 bg-amber-500 rounded-full block" />
                 <span className="w-2.5 h-2.5 bg-amber-500 rounded-full block -mt-2.5 shadow-[0_0_12px_#f59e0b]" />
                 <span className="font-mono text-[8px] text-amber-600 font-bold block bg-zinc-50/95 px-1.5 rounded mt-1 border border-amber-500/30 whitespace-nowrap">
                   HIGH EXPLOIT
@@ -389,10 +504,7 @@ export default function Home() {
 
               {/* Recon dot */}
               <div className="absolute top-[58%] left-[16%] z-10 text-center">
-                <span
-                  className="w-2 h-2 bg-purple-500 rounded-full block animate-ping"
-                  style={{ animationDelay: "1.2s" }}
-                />
+                <span className="w-2 h-2 bg-purple-500 rounded-full block" />
                 <span className="w-1.5 h-1.5 bg-purple-500 rounded-full block -mt-2 shadow-[0_0_8px_#a855f7]" />
                 <span className="font-mono text-[7px] text-purple-600 font-bold block bg-zinc-50/95 px-1 rounded mt-1 border border-purple-500/30 whitespace-nowrap">
                   RECON DETECTED
@@ -461,6 +573,90 @@ export default function Home() {
                 </span>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+{/* CEAP BANNER — Summer 2026 */}
+      <section className="w-full">
+         <div className="bg-zinc-950 text-white border-y border-purple-900/40 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
+            {/* CEAP photo background */}
+            <div className="absolute inset-y-0 right-0 hidden w-full lg:block lg:w-[44%] pointer-events-none">
+              <img
+                src="/assets/ceap/vitaly-gariev-_Am5E9vcsu8-unsplash.jpg"
+                alt=""
+                className="h-full w-full object-cover opacity-55"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
+            </div>
+           {/* Animated grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-30" />
+           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-transparent to-zinc-950/70 pointer-events-none" />
+
+          <div className="relative z-10 max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left: Content */}
+            <div className="lg:col-span-8 space-y-5 text-left">
+              {/* Badge */}
+              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.1s_forwards]">
+                CEAP Summer 2026
+              </span>
+
+              {/* Title */}
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.2s_forwards]">
+                Essentials of Cybersecurity
+              </h3>
+
+              {/* Subtitle */}
+              <p className="text-purple-200 text-[13px] md:text-[15px] font-normal opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.35s_forwards]">
+                9-Week Live Program for Kids &amp; Teens (Ages 12–17)
+              </p>
+
+              {/* Tagline */}
+              <p className="italic border-l-4 border-red-500 pl-4 py-1 text-[13px] md:text-[15px] font-semibold text-red-400 opacity-0 animate-[bannerFadeSlideLeft_0.5s_ease-out_0.5s_forwards]">
+                Give your child a real skill this summer
+              </p>
+
+              {/* Feature pills */}
+              <div className="flex flex-wrap gap-3 pt-1 opacity-0 animate-[bannerFadeScale_0.4s_ease-out_0.6s_forwards]">
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
+                  <GraduationCap className="h-3.5 w-3.5 text-red-400" />
+                  8 Core Domains + Capstone Project
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
+                  <ShieldCheck className="h-3.5 w-3.5 text-red-400" />
+                  Includes Cybernovr Mobile LMS
+                </span>
+              </div>
+
+              {/* Event details */}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-purple-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.75s_forwards]">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-red-400" />
+                  Starts: Mon 3rd Aug
+                </span>
+                <span className="text-purple-600">|</span>
+                <span>2 Hrs/Wk</span>
+                <span className="text-purple-600">|</span>
+                <span className="text-white">₦250,000 / student</span>
+              </div>
+            </div>
+
+            {/* Right: CTAs */}
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end w-full opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.85s_forwards]">
+              <Link
+                href="/academy/enroll?program=summer-cyber-camp"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono flex items-center justify-center gap-2 group"
+              >
+                Enroll Now
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/academy/ceap-summer-2026"
+                className="w-full border-2 border-purple-600 hover:border-white text-purple-200 hover:text-white font-bold text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all font-mono"
+              >
+                View Curriculum
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -579,13 +775,13 @@ export default function Home() {
                           : `transition-opacity duration-700 ${isActive ? "opacity-100 z-10" : "opacity-0 z-0"}`
                       }`}
                     >
-              <img
-                src={img.src}
-                alt={img.alt}
-                width={800}
-                height={600}
-                className="w-full h-full object-cover object-top"
-              />
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover object-top"
+                      />
                       {img.desc && (
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-5">
                           <p className="text-white text-xs font-bold leading-snug">
@@ -869,93 +1065,93 @@ export default function Home() {
                 <p className="text-xs text-zinc-400 max-w-xs mx-auto font-medium">
                   Our team will be in touch within 24 hours.
                 </p>
-                <button onClick={() => setSecuritySucceeded(false)} className="text-[13px] text-red-400 hover:text-red-300 font-mono font-bold uppercase tracking-wider mt-2">
+                <button
+                  onClick={() => setSecuritySucceeded(false)}
+                  className="text-[13px] text-red-400 hover:text-red-300 font-mono font-bold uppercase tracking-wider mt-2"
+                >
                   Submit Another Request
                 </button>
               </div>
             ) : (
-            <form
-              className="space-y-6"
-              onSubmit={handleSecuritySubmit}
-            >
-              <div className="space-y-5">
-                <div className="space-y-1">
-                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
-                    Full Name *
-                  </label>
-                  <input
-                    name="name"
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
-                    placeholder="Your name"
-                    type="text"
-                    required
-                  />
+              <form className="space-y-6" onSubmit={handleSecuritySubmit}>
+                <div className="space-y-5">
+                  <div className="space-y-1">
+                    <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                      Full Name *
+                    </label>
+                    <input
+                      name="name"
+                      className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                      placeholder="Your name"
+                      type="text"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                      Corporate Email *
+                    </label>
+                    <input
+                      name="email"
+                      className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                      placeholder="you@company.com"
+                      type="email"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
+                      Phone Number *
+                    </label>
+                    <input
+                      name="phone"
+                      className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[15px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
+                      placeholder="Contact Phone Number"
+                      type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9+\-\s()]+"
+                      title="Please enter a valid phone number"
+                      onKeyDown={(e) => {
+                        if (
+                          !/[0-9+\-\s()]/.test(e.key) &&
+                          ![
+                            "Backspace",
+                            "Delete",
+                            "Tab",
+                            "ArrowLeft",
+                            "ArrowRight",
+                          ].includes(e.key)
+                        ) {
+                          e.preventDefault();
+                        }
+                      }}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-1.5 pt-1">
+                    <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider block">
+                      Comments
+                    </label>
+                    <textarea
+                      name="comments"
+                      rows={4}
+                      className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
+                      placeholder="How may we help you?"
+                    ></textarea>
+                  </div>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
-                    Corporate Email *
-                  </label>
-                  <input
-                    name="email"
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
-                    placeholder="you@company.com"
-                    type="email"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider">
-                    Phone Number *
-                  </label>
-                  <input
-                    name="phone"
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-3 text-[15px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all font-normal"
-                    placeholder="Contact Phone Number"
-                    type="tel"
-                    inputMode="numeric"
-                    pattern="[0-9+\-\s()]+"
-                    title="Please enter a valid phone number"
-                    onKeyDown={(e) => {
-                      if (
-                        !/[0-9+\-\s()]/.test(e.key) &&
-                        ![
-                          "Backspace",
-                          "Delete",
-                          "Tab",
-                          "ArrowLeft",
-                          "ArrowRight",
-                        ].includes(e.key)
-                      ) {
-                        e.preventDefault();
-                      }
-                    }}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-1.5 pt-1">
-                  <label className="text-[13px] font-bold text-zinc-300 font-mono uppercase tracking-wider block">
-                    Comments
-                  </label>
-                  <textarea
-                    name="comments"
-                    rows={4}
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded p-4 text-[13px] text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600 hover:border-purple-900/40 transition-all resize-none font-normal"
-                    placeholder="How may we help you?"
-                  ></textarea>
-                </div>
-              </div>
-
-              <button
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
-                type="submit"
-                disabled={securitySubmitting}
-              >
-                {securitySubmitting ? "Submitting..." : "Submit"}
-              </button>
-            </form>
+                <button
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded shadow-xl transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={securitySubmitting}
+                >
+                  {securitySubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </form>
             )}
           </div>
         </div>
@@ -1001,15 +1197,15 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => setContactSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button
+                    onClick={() => setContactSucceeded(false)}
+                    className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2"
+                  >
                     Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form
-                  className="space-y-4"
-                  onSubmit={handleContactSubmit}
-                >
+                <form className="space-y-4" onSubmit={handleContactSubmit}>
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
@@ -1079,7 +1275,9 @@ export default function Home() {
                     disabled={contactSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-4 font-black uppercase tracking-widest rounded-lg shadow-md transition-all text-[13px] font-mono disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {contactSubmitting ? "Submitting..." : "Please Reach Out to Us"}
+                    {contactSubmitting
+                      ? "Submitting..."
+                      : "Please Reach Out to Us"}
                   </button>
                 </form>
               )}
@@ -1148,7 +1346,14 @@ export default function Home() {
                     disabled={alertSubmitting}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md font-mono flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {alertSubmitting ? "Submitting..." : <>Receive Alert Broadcasts <Bell className="h-3.5 w-3.5" /></>}
+                    {alertSubmitting ? (
+                      "Submitting..."
+                    ) : (
+                      <>
+                        Receive Alert Broadcasts{" "}
+                        <Bell className="h-3.5 w-3.5" />
+                      </>
+                    )}
                   </button>
                 </form>
               ) : (
@@ -1160,7 +1365,10 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     You will receive threat intelligence updates.
                   </p>
-                  <button onClick={() => setAlertSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button
+                    onClick={() => setAlertSucceeded(false)}
+                    className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2"
+                  >
                     Subscribe Another Email
                   </button>
                 </div>
@@ -1203,15 +1411,15 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => setVaptSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button
+                    onClick={() => setVaptSucceeded(false)}
+                    className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2"
+                  >
                     Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form
-                  className="space-y-4"
-                  onSubmit={handleVaptSubmit}
-                >
+                <form className="space-y-4" onSubmit={handleVaptSubmit}>
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
@@ -1358,15 +1566,15 @@ export default function Home() {
                   <p className="text-xs text-zinc-500 max-w-xs mx-auto font-medium">
                     Our team will be in touch within 24 hours.
                   </p>
-                  <button onClick={() => setAuditSucceeded(false)} className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2">
+                  <button
+                    onClick={() => setAuditSucceeded(false)}
+                    className="text-[13px] text-red-600 hover:text-red-700 font-mono font-bold uppercase tracking-wider mt-2"
+                  >
                     Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form
-                  className="space-y-4"
-                  onSubmit={handleAuditSubmit}
-                >
+                <form className="space-y-4" onSubmit={handleAuditSubmit}>
                   <div className="space-y-1">
                     <label className="text-[13px] font-bold text-zinc-400 font-mono uppercase tracking-wider">
                       Full Name *
@@ -1440,6 +1648,76 @@ export default function Home() {
                   </button>
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CEAP Summer Program Popup — Redesigned */}
+      {isCeapPopupOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-zinc-950/90 backdrop-blur-md"
+          onClick={() => {
+            setIsCeapPopupOpen(false);
+            localStorage.setItem("ceap-popup-dismissed", "true");
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="CEAP Summer Cyber Camp 2026"
+        >
+          {/* Subtle dark backdrop */}
+          <div className="absolute inset-0 bg-zinc-950/50 pointer-events-none" />
+
+          {/* Main popup card */}
+          <div className="relative w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden" onClick={(event) => event.stopPropagation()} style={{ border: "2px solid rgba(68, 81, 162, 0.4)", maxHeight: "90vh" }}>
+            {/* Close button */}
+            <button onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="absolute top-3 right-3 z-30 w-9 h-9 bg-zinc-950/80 hover:bg-[#E82027] text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10 hover:border-[#E82027] group" aria-label="Close popup"><X className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" /></button>
+            {/* Two-column layout: flyer left, content right */}
+            <div className="flex flex-col lg:flex-row h-full min-h-[420px]">
+              {/* LEFT: Flyer — fills entire left panel edge-to-edge */}
+              <div className="lg:w-[55%] relative overflow-hidden">
+                <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full h-full lg:h-full">
+                  <img src="/assets/ceap/WhatsApp Image 2026-08-03 at 4.16.41 PM.jpeg" alt="CEAP Summer 2026 — Essentials of Cybersecurity Program flyer showing program details, schedule, and pricing" className="w-full h-full object-cover lg:object-cover transition-all duration-300 hover:brightness-110" />
+                  {/* Hover overlay hint */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
+                    <span className="bg-zinc-900/90 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full backdrop-blur-sm border border-white/20">View Details →</span>
+                  </div>
+                </Link>
+              </div>
+              {/* RIGHT: Promotional content + CTA */}
+              <div className="lg:w-[45%] bg-gradient-to-b from-zinc-900 to-zinc-950 px-6 py-8 lg:py-10 flex flex-col justify-between overflow-y-auto">
+                <div>
+                  {/* Header */}
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <GraduationCap className="w-5 h-5 text-[#4451A2]" />
+                      <span className="text-[#4451A2] text-xs font-bold uppercase tracking-widest">Summer 2026</span>
+                    </div>
+                    <h2 className="text-white text-xl lg:text-2xl font-black leading-tight mb-2">CEAP Summer<br />Cyber Camp</h2>
+                    <p className="text-zinc-400 text-sm leading-relaxed">Give your child a <span className="text-white font-semibold">real skill</span> this summer. Accelerated, hands-on cybersecurity training with a certificate of completion.</p>
+                  </div>
+                  {/* Key details */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#4451A2]/15 flex items-center justify-center shrink-0"><Clock className="w-4 h-4 text-[#4451A2]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Mon 3rd August 2026</p><p className="text-zinc-500 text-xs">5 Weeks • 4 Hours Daily</p></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#662F8E]/15 flex items-center justify-center shrink-0"><Users className="w-4 h-4 text-[#662F8E]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Ages 12–17</p><p className="text-zinc-500 text-xs">Live Sessions • Hands-On Practicals</p></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#E82027]/15 flex items-center justify-center shrink-0"><ShieldCheck className="w-4 h-4 text-[#E82027]" /></div>
+                      <div><p className="text-white text-sm font-semibold">Certificate of Completion</p><p className="text-zinc-500 text-xs">Industry-Recognized Credential</p></div>
+                    </div>
+                  </div>
+                </div>
+                {/* CTA Section */}
+                <div className="space-y-4">
+                  <Link href="/academy/enroll?program=summer-cyber-camp" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full bg-[#E82027] hover:bg-[#c41a20] text-white font-black text-sm uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#E82027]/20 flex items-center justify-center gap-2 group text-center">Enroll Now<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
+                  <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block text-center text-zinc-400 hover:text-white text-xs font-medium transition-colors duration-200 underline underline-offset-4 decoration-zinc-600 hover:decoration-white">Learn More About the Program</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

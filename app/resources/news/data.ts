@@ -39,5 +39,13 @@ export const newsBriefs: NewsBrief[] = [
     link: "https://theeconomictimes.com.ng/2025/06/05/ncc-unveils-comprehensive-cybersecurity-framework-to-safeguard-nigerias-telecom-sector/",
     image: "/assets/news/ncc-framework.webp",
     date: "2025-06-05"
+  },
+  {
+    title: "New Android Malware 'WindRelay' Turns Phones into Card-Cloning Tools",
+    source: "Nigeria Communications Week",
+    desc: "WindRelay, a newly discovered Android malware, works with the SpyNote remote-access trojan to hijack NFC signals between a victim's bank card and phone, letting criminals clone the card for use at ATMs or payment terminals. Victims are tricked via fake bank calls/texts into installing the app, then persuaded to tap their card against their phone for 'verification.'",
+    link: "https://www.nigeriacommunicationsweek.com.ng/2026/08/14/cyberthreat-new-malware-turns-phones-into-tools-for-card-fraud-report?utm_source=chatgpt.com",
+    image: "/assets/news/newsroom.webp",
+    date: "2026-08-14"
   }
 ];
