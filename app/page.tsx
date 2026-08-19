@@ -615,8 +615,6 @@ export default function Home() {
                   Starts: Mon 3rd Aug
                 </span>
                 <span className="text-purple-600">|</span>
-                <span>2 Hrs/Wk</span>
-                <span className="text-purple-600">|</span>
                 <span className="text-white">₦250,000 / student</span>
               </div>
             </div>
