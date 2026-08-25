@@ -557,83 +557,58 @@ export default function Home() {
         </div>
       </section>
 
-{/* CEAP BANNER — Summer 2026 */}
+{/* ISO 27001 CERTIFICATION BANNER */}
       <section className="w-full">
-         <div className="bg-zinc-950 text-white border-y border-purple-900/40 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
-            {/* CEAP photo background */}
-            <div className="absolute inset-y-0 right-0 hidden w-full lg:block lg:w-[44%] pointer-events-none">
-              <img
-                src="/assets/ceap/vitaly-gariev-_Am5E9vcsu8-unsplash.jpg"
-                alt=""
-                className="h-full w-full object-cover opacity-55"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
-            </div>
-           {/* Animated grid pattern */}
+        <div className="bg-[#0c1222] text-white border-y border-indigo-500/20 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
+          {/* Background photo */}
+          <div className="absolute inset-y-0 right-0 hidden w-full lg:block lg:w-[44%] pointer-events-none">
+            <img
+              src="/assets/iso/cybersecurity-bg.jpg"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c1222] via-[#0c1222]/60 to-[#0c1222]/20" />
+          </div>
+          {/* Animated grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:2rem_2px] pointer-events-none opacity-30" />
-           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-transparent to-zinc-950/70 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-transparent to-[#0c1222]/70 pointer-events-none" />
 
           <div className="relative z-10 max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left: Content */}
-            <div className="lg:col-span-8 space-y-5 text-left">
+            {/* Left: ISO Badge Image */}
+            <div className="lg:col-span-3 flex justify-center lg:justify-start opacity-0 animate-[bannerFadeScale_0.6s_ease-out_0.1s_forwards]">
+              <img
+                src="/assets/iso/iso-27001.webp"
+                alt="ISO 27001 Certified"
+                className="h-36 md:h-44 lg:h-52 w-auto object-contain"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <div className="lg:col-span-9 space-y-4 text-left">
               {/* Badge */}
-              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.1s_forwards]">
-                CEAP Summer 2026
+              <span className="inline-block font-mono text-[11px] font-black tracking-widest uppercase bg-red-600 text-white px-3 py-1 rounded opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.2s_forwards]">
+                Notification of Award
               </span>
 
               {/* Title */}
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.2s_forwards]">
-                Essentials of Cybersecurity
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.3s_forwards]">
+                Certified Information Security<br />Management System
               </h3>
 
-              {/* Subtitle */}
-              <p className="text-purple-200 text-[13px] md:text-[15px] font-normal opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.35s_forwards]">
-                9-Week Live Program for Kids &amp; Teens (Ages 12–17)
+              {/* Description */}
+              <p className="text-indigo-200 text-[13px] md:text-[15px] font-normal max-w-2xl opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.45s_forwards]">
+                Cybernovr has achieved ISO 27001 certification, demonstrating our commitment to information security best practices.
               </p>
 
-              {/* Tagline */}
-              <p className="italic border-l-4 border-red-500 pl-4 py-1 text-[13px] md:text-[15px] font-semibold text-red-400 opacity-0 animate-[bannerFadeSlideLeft_0.5s_ease-out_0.5s_forwards]">
-                Give your child a real skill this summer
-              </p>
-
-              {/* Feature pills */}
-              <div className="flex flex-wrap gap-3 pt-1 opacity-0 animate-[bannerFadeScale_0.4s_ease-out_0.6s_forwards]">
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
-                  <GraduationCap className="h-3.5 w-3.5 text-red-400" />
-                  8 Core Domains + Capstone Project
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-bold tracking-wide text-purple-200 bg-purple-900/50 border border-purple-700/40 px-3 py-1.5 rounded-md">
-                  <ShieldCheck className="h-3.5 w-3.5 text-red-400" />
-                  Includes Cybernovr Mobile LMS
-                </span>
-              </div>
-
-              {/* Event details */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-purple-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.75s_forwards]">
+              {/* Certification details */}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-indigo-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.6s_forwards]">
                 <span className="flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5 text-red-400" />
-                  Starts: Mon 3rd Aug
+                  <ShieldCheck className="h-3.5 w-3.5 text-red-400" />
+                  Scope: Cybersecurity risk management services
                 </span>
-                <span className="text-purple-600">|</span>
-                <span className="text-white">₦250,000 / student</span>
+                <span className="text-indigo-600">|</span>
+                <span className="text-white">Date: 20/08/2026</span>
               </div>
-            </div>
-
-            {/* Right: CTAs */}
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end w-full opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.85s_forwards]">
-              <Link
-                href="/academy/enroll?program=summer-cyber-camp"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all shadow-md font-mono flex items-center justify-center gap-2 group"
-              >
-                Enroll Now
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/academy/ceap-summer-2026"
-                className="w-full border-2 border-purple-600 hover:border-white text-purple-200 hover:text-white font-bold text-[13px] uppercase tracking-widest px-6 py-4 rounded-md text-center transition-all font-mono"
-              >
-                View Curriculum
-              </Link>
             </div>
           </div>
         </div>

@@ -127,6 +127,9 @@ export default function RootLayout({
                 <a href="https://x.com/CYBERNOVR" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="X"><FaXTwitter size={20} /></a>
                 <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram"><FaInstagram size={20} /></a>
               </div>
+              <Link href="/isms" className="block pt-2">
+                <img src="/assets/iso/iso-27001.webp" alt="ISO 27001 Certified" className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+              </Link>
             </div>
             
             {/* Navigation links */}
