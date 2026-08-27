@@ -10,9 +10,6 @@ import {
   Terminal,
   ShieldCheck,
   Star,
-  GraduationCap,
-  Clock,
-  Users,
 } from "lucide-react";
 import { submitWeb3Form } from "./web3forms";
 import { blogPosts } from "./resources/blog/data";
@@ -25,7 +22,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isVaptModalOpen, setIsVaptModalOpen] = useState(false);
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
-  const [isCeapPopupOpen, setIsCeapPopupOpen] = useState(false);
+  const [isIsoPopupOpen, setIsIsoPopupOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [flashCardIndex, setFlashCardIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -389,11 +386,11 @@ export default function Home() {
     return () => clearInterval(carouselTimer);
   }, []);
 
-  // CEAP Popup - show on first visit, remember dismissal
+  // ISO 27001 Popup - show on first visit, remember dismissal
   useEffect(() => {
-    const dismissed = localStorage.getItem("ceap-popup-dismissed");
+    const dismissed = localStorage.getItem("iso-popup-dismissed");
     if (!dismissed) {
-      const timer = setTimeout(() => setIsCeapPopupOpen(true), 300);
+      const timer = setTimeout(() => setIsIsoPopupOpen(true), 300);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -462,7 +459,6 @@ export default function Home() {
               {/* Crosshairs */}
               <div className="absolute w-80 h-[1px] bg-emerald-500/15" />
               <div className="absolute h-80 w-[1px] bg-emerald-500/15" />
-
 
               {/* Critical intrusion dot */}
               <div className="absolute top-[28%] left-[28%] z-10 text-center">
@@ -557,7 +553,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* ISO 27001 CERTIFICATION BANNER */}
+      {/* ISO 27001 CERTIFICATION BANNER */}
       <section className="w-full">
         <div className="bg-[#0c1222] text-white border-y border-indigo-500/20 py-8 md:py-12 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
           {/* Background photo */}
@@ -592,21 +588,30 @@ export default function Home() {
 
               {/* Title */}
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tight opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.3s_forwards]">
-                Certified Information Security<br />Management System
+                Certified Information Security
+                <br />
+                Management System
               </h3>
 
               {/* Description */}
               <p className="text-indigo-200 text-[13px] md:text-[15px] font-normal max-w-2xl opacity-0 animate-[bannerFadeSlideUp_0.5s_ease-out_0.45s_forwards]">
-                Cybernovr has achieved ISO 27001 certification, demonstrating our commitment to information security best practices.
+                Cybernovr has achieved ISO 27001 certification, demonstrating
+                our commitment to information security best practices.
               </p>
 
               {/* Certification details */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 font-mono text-[12px] md:text-[13px] font-bold text-indigo-300 uppercase tracking-widest opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.6s_forwards]">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="h-3.5 w-3.5 text-red-400" />
-                  Scope: Cybersecurity risk management services
+              <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-5 gap-y-3 pt-2 text-[12px] md:text-[13px] font-bold text-indigo-300 opacity-0 animate-[bannerFadeSlideUp_0.4s_ease-out_0.6s_forwards]">
+                <span className="flex items-start gap-1.5 max-w-3xl">
+                  <ShieldCheck className="h-3.5 w-3.5 text-red-400 mt-0.5 shrink-0" />
+                  <span>
+                    Scope: Cybersecurity Education and Training, Governance,
+                    Risk and Compliance (GRC) Services, Managed Security
+                    Operations Centre (SOC) Services, Cybersecurity Professional
+                    Services, and the Provision and Support of Partner
+                    Cybersecurity Products.
+                  </span>
                 </span>
-                <span className="text-indigo-600">|</span>
+                <span className="hidden sm:inline text-indigo-600">|</span>
                 <span className="text-white">Date: 20/08/2026</span>
               </div>
             </div>
@@ -1591,69 +1596,131 @@ export default function Home() {
         </div>
       )}
 
-      {/* CEAP Summer Program Popup — Redesigned */}
-      {isCeapPopupOpen && (
+      {/* ISO 27001 Certification Popup */}
+      {isIsoPopupOpen && (
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-zinc-950/90 backdrop-blur-md"
           onClick={() => {
-            setIsCeapPopupOpen(false);
-            localStorage.setItem("ceap-popup-dismissed", "true");
+            setIsIsoPopupOpen(false);
+            localStorage.setItem("iso-popup-dismissed", "true");
           }}
           role="dialog"
           aria-modal="true"
-          aria-label="CEAP Summer Cyber Camp 2026"
+          aria-label="ISO 27001 Certified"
         >
           {/* Subtle dark backdrop */}
           <div className="absolute inset-0 bg-zinc-950/50 pointer-events-none" />
 
           {/* Main popup card */}
-          <div className="relative w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden" onClick={(event) => event.stopPropagation()} style={{ border: "2px solid rgba(68, 81, 162, 0.4)", maxHeight: "90vh" }}>
+          <div
+            className="relative w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden"
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              border: "2px solid rgba(68, 81, 162, 0.4)",
+              maxHeight: "90vh",
+            }}
+          >
             {/* Close button */}
-            <button onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="absolute top-3 right-3 z-30 w-9 h-9 bg-zinc-950/80 hover:bg-[#E82027] text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10 hover:border-[#E82027] group" aria-label="Close popup"><X className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" /></button>
-            {/* Two-column layout: flyer left, content right */}
+            <button
+              onClick={() => {
+                setIsIsoPopupOpen(false);
+                localStorage.setItem("iso-popup-dismissed", "true");
+              }}
+              className="absolute top-3 right-3 z-30 w-9 h-9 bg-zinc-950/80 hover:bg-[#E82027] text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10 hover:border-[#E82027] group"
+              aria-label="Close popup"
+            >
+              <X className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" />
+            </button>
+            {/* Two-column layout: badge image left, content right */}
             <div className="flex flex-col lg:flex-row h-full min-h-[420px]">
-              {/* LEFT: Flyer — fills entire left panel edge-to-edge */}
-              <div className="lg:w-[55%] relative overflow-hidden">
-                <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full h-full lg:h-full">
-                  <img src="/assets/ceap/WhatsApp Image 2026-08-03 at 4.16.41 PM.jpeg" alt="CEAP Summer 2026 — Essentials of Cybersecurity Program flyer showing program details, schedule, and pricing" className="w-full h-full object-cover lg:object-cover transition-all duration-300 hover:brightness-110" />
+              {/* LEFT: ISO badge image — fills entire left panel edge-to-edge */}
+              <div className="lg:w-[55%] relative overflow-hidden bg-[#0c1222]">
+                <Link
+                  href="/isms"
+                  onClick={() => {
+                    setIsIsoPopupOpen(false);
+                    localStorage.setItem("iso-popup-dismissed", "true");
+                  }}
+                  className="block w-full h-full lg:h-full"
+                >
+                  <img
+                    src="/assets/iso/iso-27001.webp"
+                    alt="ISO 27001 Certified"
+                    className="w-full h-full object-contain p-8 transition-all duration-300 hover:brightness-110"
+                  />
                   {/* Hover overlay hint */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
-                    <span className="bg-zinc-900/90 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full backdrop-blur-sm border border-white/20">View Details →</span>
+                    <span className="bg-zinc-900/90 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full backdrop-blur-sm border border-white/20">
+                      View Policy →
+                    </span>
                   </div>
                 </Link>
               </div>
-              {/* RIGHT: Promotional content + CTA */}
+              {/* RIGHT: Certification content + CTA */}
               <div className="lg:w-[45%] bg-gradient-to-b from-zinc-900 to-zinc-950 px-6 py-8 lg:py-10 flex flex-col justify-between overflow-y-auto">
                 <div>
                   {/* Header */}
-                  <div className="mb-6">
+                  <div className="mb-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <GraduationCap className="w-5 h-5 text-[#4451A2]" />
-                      <span className="text-[#4451A2] text-xs font-bold uppercase tracking-widest">Summer 2026</span>
+                      <ShieldCheck className="w-5 h-5 text-[#E82027]" />
+                      <span className="text-red-400 text-xs font-bold uppercase tracking-widest">
+                        Certified
+                      </span>
                     </div>
-                    <h2 className="text-white text-xl lg:text-2xl font-black leading-tight mb-2">CEAP Summer<br />Cyber Camp</h2>
-                    <p className="text-zinc-400 text-sm leading-relaxed">Give your child a <span className="text-white font-semibold">real skill</span> this summer. Accelerated, hands-on cybersecurity training with a certificate of completion.</p>
+                    <h2 className="text-white text-xl lg:text-2xl font-black leading-tight mb-2">
+                      ISO 27001 CERTIFIED
+                    </h2>
+                    <p className="text-indigo-200 text-sm leading-relaxed">
+                      Information Security Management System
+                    </p>
                   </div>
-                  {/* Key details */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#4451A2]/15 flex items-center justify-center shrink-0"><Clock className="w-4 h-4 text-[#4451A2]" /></div>
-                      <div><p className="text-white text-sm font-semibold">Mon 3rd August 2026</p><p className="text-zinc-500 text-xs">5 Weeks • 4 Hours Daily</p></div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#662F8E]/15 flex items-center justify-center shrink-0"><Users className="w-4 h-4 text-[#662F8E]" /></div>
-                      <div><p className="text-white text-sm font-semibold">Ages 12–17</p><p className="text-zinc-500 text-xs">Live Sessions • Hands-On Practicals</p></div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#E82027]/15 flex items-center justify-center shrink-0"><ShieldCheck className="w-4 h-4 text-[#E82027]" /></div>
-                      <div><p className="text-white text-sm font-semibold">Certificate of Completion</p><p className="text-zinc-500 text-xs">Industry-Recognized Credential</p></div>
-                    </div>
+                  {/* Body */}
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-5">
+                    Cybernovr has achieved ISO 27001 certification,
+                    demonstrating our commitment to information security best
+                    practices.
+                  </p>
+                  {/* Scope block */}
+                  <div className="border-l-2 border-indigo-500/50 pl-3 mb-5">
+                    <p className="text-[#4451A2] text-[10px] font-bold uppercase tracking-widest mb-1">
+                      Scope
+                    </p>
+                    <p className="text-zinc-300 text-xs leading-relaxed">
+                      Scope: Cybersecurity Education and Training, Governance,
+                      Risk and Compliance (GRC) Services, Managed Security
+                      Operations Centre (SOC) Services, Cybersecurity
+                      Professional Services, and the Provision and Support of
+                      Partner Cybersecurity Products.
+                    </p>
+                  </div>
+                  {/* Meta */}
+                  <div className="flex items-center gap-3 text-[11px] font-mono uppercase tracking-widest mb-5">
+                    <span className="text-indigo-300">Date: 20/08/2026</span>
                   </div>
                 </div>
                 {/* CTA Section */}
-                <div className="space-y-4">
-                  <Link href="/academy/enroll?program=summer-cyber-camp" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block w-full bg-[#E82027] hover:bg-[#c41a20] text-white font-black text-sm uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#E82027]/20 flex items-center justify-center gap-2 group text-center">Enroll Now<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" /></Link>
-                  <Link href="/academy/ceap-summer-2026" onClick={() => { setIsCeapPopupOpen(false); localStorage.setItem("ceap-popup-dismissed", "true"); }} className="block text-center text-zinc-400 hover:text-white text-xs font-medium transition-colors duration-200 underline underline-offset-4 decoration-zinc-600 hover:decoration-white">Learn More About the Program</Link>
+                <div className="space-y-3">
+                  <Link
+                    href="/isms"
+                    onClick={() => {
+                      setIsIsoPopupOpen(false);
+                      localStorage.setItem("iso-popup-dismissed", "true");
+                    }}
+                    className="block w-full bg-[#E82027] hover:bg-[#c41a20] text-white font-black text-sm uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#E82027]/20 flex items-center justify-center gap-2 group text-center"
+                  >
+                    View ISMS Policy
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsIsoPopupOpen(false);
+                      localStorage.setItem("iso-popup-dismissed", "true");
+                    }}
+                    className="block w-full text-center text-zinc-400 hover:text-white text-xs font-medium transition-colors duration-200 underline underline-offset-4 decoration-zinc-600 hover:decoration-white"
+                  >
+                    Dismiss
+                  </button>
                 </div>
               </div>
             </div>
