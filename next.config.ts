@@ -51,6 +51,10 @@ const nextConfig: NextConfig = {
       { source: "/white-papers", destination: "/resources/whitepapers", permanent: true },
       { source: "/blogs", destination: "/resources/blog", permanent: true },
       { source: "/initiatives/awareness", destination: "/academy", permanent: true },
+      { source: "/initiatives/youth-league", destination: "/academy", permanent: true },
+      { source: "/initiatives/:path*", destination: "/academy", permanent: true },
+      { source: "/courses/enroll", destination: "/academy/enroll", permanent: true },
+      { source: "/courses/:path*", destination: "/academy", permanent: true },
     ];
   },
   async headers() {
