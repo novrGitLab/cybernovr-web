@@ -45,7 +45,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      ...(item.path ? { item: `${BASE}${item.path}` } : {}),
+      item: `${BASE}${item.path || "/"}`,
     })),
   };
 }
