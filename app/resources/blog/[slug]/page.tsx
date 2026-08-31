@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowLeft, Clock, User } from "lucide-react";
 import { blogPosts, getBlogPostBySlug } from "../data";
@@ -13,13 +14,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | CYBERNOVR Blog`,
+    title: `${post.title} | CyberNovr Blog`,
     description: post.description,
+    alternates: {
+      canonical: `https://www.cybernovr.com/resources/blog/${post.slug}`,
+      languages: {
+        "en-NG": `https://www.cybernovr.com/resources/blog/${post.slug}`,
+        en: `https://www.cybernovr.com/resources/blog/${post.slug}`,
+        "x-default": `https://www.cybernovr.com/resources/blog/${post.slug}`,
+      },
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       url: `https://www.cybernovr.com/resources/blog/${post.slug}`,
-      siteName: "CYBERNOVR",
+      siteName: "CyberNovr",
       type: "article",
       publishedTime: post.isoDate,
       authors: [post.author],
@@ -86,11 +95,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Hero Image */}
       <div className="max-w-4xl mx-auto mb-12">
         <div className="relative overflow-hidden rounded-xl border border-zinc-200">
-          <img
+          <Image
             src={post.image.src}
             alt={post.image.alt}
             width={1200}
             height={630}
+            priority
             className="w-full h-auto object-cover max-h-[500px]"
           />
         </div>
@@ -129,7 +139,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {section.image && (
               <div className="my-8">
                 <div className="relative overflow-hidden rounded-xl border border-zinc-200">
-                  <img
+                  <Image
                     src={section.image.src}
                     alt={section.image.alt}
                     width={1200}

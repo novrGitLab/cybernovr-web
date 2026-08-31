@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/app/seo";
 import {
   ArrowLeft,
   ArrowRight,
@@ -12,20 +13,11 @@ import {
   BarChart3,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "CEAP Summer 2026 Curriculum | CYBERNOVR Academy",
-  description:
-    "Explore the 9-week CEAP summer cybersecurity curriculum for kids and teens (ages 12–17). 8 core domains + capstone project.",
-  openGraph: {
-    title: "CEAP Summer 2026 Curriculum | CYBERNOVR Academy",
-    description:
-      "Explore the 9-week CEAP summer cybersecurity curriculum for kids and teens (ages 12–17). 8 core domains + capstone project.",
-    url: "https://www.cybernovr.com/academy/ceap-summer-2026",
-    siteName: "CYBERNOVR",
-    locale: "en_US",
-    type: "website",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "CEAP Summer 2026 Curriculum | CyberNovr Academy",
+  description: "Explore the 9-week CEAP summer cybersecurity curriculum for kids and teens (ages 12–17). 8 core domains + capstone project. Cybersecurity training for Nigerian students.",
+  path: "/academy/ceap-summer-2026",
+});
 
 const domains = [
   {
@@ -112,7 +104,7 @@ export default function CEAPCurriculumPage() {
         <div className="bg-zinc-950 text-white border border-purple-900/40 rounded-2xl py-8 md:py-12 px-6 md:px-12 relative overflow-hidden">
           {/* Photo background */}
           <div className="absolute inset-y-0 right-0 hidden lg:block lg:w-[44%] pointer-events-none">
-            <img src="/assets/ceap/mimi-thian-vdXMSiX-n6M-unsplash.jpg" alt="" className="h-full w-full object-cover opacity-55" />
+            <img src="/assets/ceap/mimi-thian-vdXMSiX-n6M-unsplash.jpg" alt="Students learning cybersecurity at CEAP summer program" className="h-full w-full object-cover opacity-55" />
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/45 to-zinc-950/20" />
           </div>
           {/* Animated grid */}

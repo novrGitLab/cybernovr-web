@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Privacy Policy | CYBERNOVR",
-  description: "CYBERNOVR Privacy Policy — how we collect, use, and protect your personal information.",
-};
+export const metadata = pageMetadata({
+  title: "Privacy Policy | CyberNovr",
+  description: "CyberNovr Privacy Policy — how we collect, use, and protect your personal information under NDPR and applicable data protection regulations.",
+  path: "/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

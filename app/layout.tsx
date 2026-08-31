@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Inter } from "next/font/google";
 import { FaLinkedinIn, FaFacebookF, FaTiktok, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { MapPin, Phone, Mail } from "lucide-react";
@@ -21,20 +22,23 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://www.cybernovr.com"),
-  title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
-  description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+  title: {
+    default: "CyberNovr — Cybersecurity, SOC & GRC Solutions for Nigeria & Africa",
+    template: "%s",
+  },
+  description: "Nigeria's leading cybersecurity company. We deliver 24/7 SOC, GRC, XDR, and vulnerability management for banks, fintechs, and telecoms across Africa. ISO 27001 certified.",
   openGraph: {
-    title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
-    description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+    title: "CyberNovr — Cybersecurity, SOC & GRC Solutions for Nigeria & Africa",
+    description: "Nigeria's leading cybersecurity company. 24/7 SOC, GRC, XDR, and vulnerability management for banks, fintechs, and telecoms across Africa.",
     url: "https://www.cybernovr.com",
-    siteName: "CYBERNOVR",
-    locale: "en_US",
+    siteName: "CyberNovr",
+    locale: "en_NG",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CYBERNOVR | Institutional-Grade Cybersecurity Intelligence",
-    description: "Protecting critical digital infrastructures with premium intelligence solutions.",
+    title: "CyberNovr — Cybersecurity Solutions for Nigeria & Africa",
+    description: "24/7 SOC, GRC, XDR, and vulnerability management for Nigerian banks, fintechs, and telecoms.",
   },
   robots: { index: true, follow: true },
   icons: {
@@ -58,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en-NG" className={`scroll-smooth ${inter.variable}`}>
 
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -66,7 +70,7 @@ export default function RootLayout({
           "@type": "Organization",
           name: "CyberNovr",
           url: "https://www.cybernovr.com",
-          logo: "https://www.cybernovr.com/assets/icon/cybernovr-white.svg",
+          logo: "https://www.cybernovr.com/logo-white.png",
           description: "Cybersecurity company protecting critical infrastructure with premium intelligence solutions.",
           sameAs: [
             "https://twitter.com/CYBERNOVR",
@@ -114,7 +118,7 @@ export default function RootLayout({
             {/* Brand column */}
             <div className="md:col-span-4 space-y-6">
               <Link className="block" href="/">
-                <img src="/logo-white.png" alt="CYBERNOVR" className="h-10 md:h-12 w-auto max-w-[220px] object-contain" />
+                <Image src="/logo-white.png" alt="CYBERNOVR — Cybersecurity Company Nigeria" width={220} height={48} className="h-10 md:h-12 w-auto max-w-[220px] object-contain" />
               </Link>
               <p className="text-white/70 max-w-sm text-sm leading-relaxed">
                 A leading Cybersecurity company, providing information assurance and services in cybersecurity risk management, critical information infrastructure protection, and cybersecurity capacity building
@@ -128,7 +132,7 @@ export default function RootLayout({
                 <a href="https://www.instagram.com/cybernovr?igsh=MW45YThxdm9yNjd0Yw==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram"><FaInstagram size={20} /></a>
               </div>
               <Link href="/isms" className="block pt-2">
-                <img src="/assets/iso/iso-27001.webp" alt="ISO 27001 Certified" className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <Image src="/assets/iso/iso-27001.webp" alt="ISO 27001 Certified" width={200} height={190} className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
               </Link>
             </div>
             

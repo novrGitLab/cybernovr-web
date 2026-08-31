@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import { EyeOff, Activity, ShieldAlert, Radio } from "lucide-react";
 import NovrRadarForm from "@/components/forms/NovrRadarForm";
+import { pageMetadata, breadcrumbSchema } from "@/app/seo";
 
-export const metadata: Metadata = {
-  title: "NovrRadar — AI-Powered XDR & Threat Detection Platform | CyberNovr",
-  description: "AI-powered Extended Detection and Response platform. Continuous monitoring of Indicators of Attack across enterprise digital infrastructure.",
-  openGraph: {
-    title: "NovrRadar — XDR Platform | CyberNovr",
-    description: "AI-powered XDR solution for continuous threat detection.",
-    url: "https://www.cybernovr.com/solutions/novrradar",
-    siteName: "CyberNovr",
-    type: "website",
-  },
-  twitter: { card: "summary_large_image", title: "NovrRadar — XDR Platform", description: "AI-powered XDR for continuous threat detection." },
-  alternates: { canonical: "https://www.cybernovr.com/solutions/novrradar" },
-  robots: { index: true, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "NovrRadar — AI-Powered XDR & Threat Detection for Africa | CyberNovr",
+  description: "AI-powered Extended Detection and Response (XDR) for Nigerian and African enterprises. Continuous monitoring of Indicators of Attack at internet gateway boundaries with zero privacy compromise.",
+  path: "/solutions/novrradar",
+});
 
 export default function NovrRadarPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Extended Detection and Response (XDR)",
+    name: "NovrRadar — AI-Powered XDR & Threat Detection",
+    description: "AI-powered XDR monitoring network metadata at internet gateway boundaries. Detects Indicators of Attack including zero-day exploits for African enterprises and national infrastructure.",
+    provider: { "@type": "Organization", name: "CyberNovr Limited", url: "https://www.cybernovr.com" },
+    areaServed: [
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Country", name: "Ghana" },
+      { "@type": "Country", name: "Kenya" },
+      { "@type": "Country", name: "South Africa" },
+    ],
+  };
   const points = [
     { icon: EyeOff, t: "Passive Monitoring", d: "Deploys non-intrusively directly at main internet gateway boundaries without altering network traffic speed benchmarks." },
     { icon: Activity, t: "Metadata Analysis Only", d: "Safely dissects raw IP values, ports, protocols, and routing flow architectures to identify systematic threat signatures." },
@@ -27,6 +33,12 @@ export default function NovrRadarPage() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: "Home", path: "" },
+        { name: "Solutions", path: "/solutions" },
+        { name: "NovrRadar", path: "/solutions/novrradar" },
+      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       
       {/* Main Header Block */}
       <div className="border-b border-zinc-200 pb-8 text-left max-w-4xl space-y-3">

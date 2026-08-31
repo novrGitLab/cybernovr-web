@@ -1,5 +1,6 @@
 "use client";
 import React, { Suspense, useEffect } from "react";
+import Image from "next/image";
 import { ShieldCheck, GraduationCap } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
@@ -142,9 +143,9 @@ function TheTeamContent() {
               <div className="space-y-4">
                 {/* Object-Contain System for Frame Preservation */}
                 <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative flex items-center justify-center">
-                  <img
+                  <Image
                     src={`/assets/team/${member.img}`}
-                    alt={member.name}
+                    alt={`${member.name} — ${member.role} at CyberNovr`}
                     width={400}
                     height={300}
                     className="max-h-full max-w-full object-contain"
@@ -208,9 +209,9 @@ function TheTeamContent() {
             >
               <div className="space-y-4">
                 <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative flex items-center justify-center">
-                  <img
+                  <Image
                     src={`/assets/team/${member.img}`}
-                    alt={member.name}
+                    alt={`${member.name} — ${member.role} at CyberNovr`}
                     width={400}
                     height={300}
                     className="max-h-full max-w-full object-contain"

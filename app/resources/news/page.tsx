@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { submitWeb3Form } from "@/app/web3forms";
 import { ArrowRight, Mail, CheckCircle2 } from "lucide-react";
 import { newsBriefs } from "./data";
@@ -42,8 +43,8 @@ export default function ResourcesNewsPage() {
           <article key={idx} className="bg-purple-950/[0.02] border border-purple-900/10 rounded-xl overflow-hidden flex flex-col justify-between shadow-sm group hover:border-purple-900/30 transition-all duration-300">
             <div className="space-y-0">
               <div className="aspect-[16/9] overflow-hidden">
-                <img 
-                  src={news.image} 
+                <Image
+                  src={news.image}
                   alt={news.title}
                   width={800}
                   height={450}

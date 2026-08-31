@@ -1,8 +1,10 @@
-export const metadata = {
-  title: "ISMS Policy | CYBERNOVR",
-  description:
-    "CYBERNOVR Information Security Management System (ISMS) Policy",
-};
+import { pageMetadata } from "../seo";
+
+export const metadata = pageMetadata({
+  title: "ISMS Policy | CyberNovr",
+  description: "CyberNovr Information Security Management System (ISMS) Policy — ISO 27001:2022 certified information security management.",
+  path: "/isms",
+});
 
 export default function IsmsPage() {
   return (
