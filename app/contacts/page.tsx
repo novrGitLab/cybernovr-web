@@ -1,6 +1,13 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import ContactPageForm from "@/components/forms/ContactPageForm";
+import { pageMetadata } from "../seo";
+
+export const metadata = pageMetadata({
+  title: "Contact CyberNovr — Cybersecurity Company Lagos, Nigeria",
+  description: "Get in touch with CyberNovr's cybersecurity team in Lagos, Nigeria. 24/7 SOC incident response hotline: +234-901-699-1201. Offices in Lagos and Calgary. Email: info@cybernovr.com.",
+  path: "/contacts",
+});
 
 const locations = [
   { text: "4625 Varsity Drive NW, Calgary, AB T3A 0Z9, Canada" },

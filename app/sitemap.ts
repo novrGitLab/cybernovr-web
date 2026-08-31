@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/academy`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/academy/enroll`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/academy/assessments`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${baseUrl}/academy/ceap-summer-2026`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/assessments`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/contacts`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/incident-response`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },

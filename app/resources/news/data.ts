@@ -9,6 +9,14 @@ export interface NewsBrief {
 
 export const newsBriefs: NewsBrief[] = [
   {
+    title: "Police Arrest 31-Year-Old Man Over Alleged Cyberbullying of Traditional Ruler in Adamawa",
+    source: "The Punch Nigeria",
+    desc: "The Adamawa State Police Command has arrested Buriba Israel, 31, of Jambutu, Yola South, over allegations that he used social media to circulate posts containing accusations against Daniel Samaila, holder of the Hamman Bachama first-class chieftaincy stool of the Numan Federation. Police described the posts as offensive and damaging to the traditional ruler's reputation and dignity. Following a formal complaint, detectives launched an investigation, arrested the suspect, and recovered electronic devices now undergoing forensic examination.",
+    link: "https://punchng.com/police-arrest-31-year-old-man-for-cyberbullying-in-adamawa/",
+    image: "/assets/news/newsroom.webp",
+    date: "2026-08-31"
+  },
+  {
     title: "NCC Unveils Cybersecurity Blueprint to Fortify Nigeria's Telecom Backbone",
     source: "Nigeria Communications Week",
     desc: "The presentation of the proposed framework by the Chief Executive Officer of Cybernovr, the consultants to the Commission on the project, Dr. Kazeem Durodoye, further provided details on securing the telecom sector.",

@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, Milestone, Briefcase, Eye, Target, Heart, ShieldCheck, Lightbulb, Users, RefreshCcw } from "lucide-react";
 import TeamMemberCard from "@/components/about/TeamMemberCard";
+import { pageMetadata } from "../seo";
+
+export const metadata = pageMetadata({
+  title: "About CyberNovr — Nigeria's Leading Cybersecurity Company Since 2008",
+  description: "CyberNovr is Nigeria's trusted cybersecurity company protecting critical national infrastructure. ISO 27001 certified, with offices in Lagos and Calgary. Discover our team, journey, and mission to deliver #cyber360resilience.",
+  path: "/about",
+});
 
 const corporateSectors = [
   {
@@ -35,32 +42,9 @@ const interns = [
   { name: "Mr. Adeniran-Taiwo Luciano Eniade", role: "Penetration Tester", img: "worker-9.webp" },
 ];
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "CyberNovr",
-  url: "https://www.cybernovr.com",
-  logo: "https://www.cybernovr.com/assets/icon/cybernovr-white.svg",
-  description: "Cybersecurity company protecting critical infrastructure since 2008.",
-  foundingDate: "2008",
-  sameAs: [
-    "https://twitter.com/CyberNovr",
-    "https://linkedin.com/company/cybernovr",
-    "https://facebook.com/CyberNovr",
-    "https://instagram.com/cybernovr",
-  ],
-  member: workers.map((w) => ({
-    "@type": "Person",
-    name: w.name,
-    jobTitle: w.role,
-    description: w.bio,
-  })),
-};
-
 export default function AboutPage() {
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
       {/* Header */}
       <div className="border-b border-zinc-200 pb-10 max-w-4xl text-left">

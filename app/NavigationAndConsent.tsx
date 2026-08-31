@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
@@ -75,7 +76,7 @@ export default function NavigationAndConsent() {
         <div className="flex justify-between items-center w-full h-full px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto">
           
           <Link className="flex items-center" href="/">
-            <img src="/logo.png" alt="CYBERNOVR" width={1080} height={247} className="h-10 md:h-12 w-auto object-contain" />
+            <Image src="/logo.png" alt="CYBERNOVR — Cybersecurity Company Nigeria" width={200} height={48} priority className="h-10 md:h-12 w-auto object-contain" />
           </Link>
           
           {/* Desktop Links Stack */}

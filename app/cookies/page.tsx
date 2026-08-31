@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Cookie Policy | CYBERNOVR",
-  description: "CYBERNOVR Cookie Policy — how we use cookies and similar technologies on our website.",
-};
+export const metadata = pageMetadata({
+  title: "Cookie Policy | CyberNovr",
+  description: "CyberNovr Cookie Policy — how we use cookies and similar technologies on our website.",
+  path: "/cookies",
+});
 
 export default function CookiePolicyPage() {
   return (

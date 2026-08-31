@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import { Zap, Search, Globe, FileText } from "lucide-react";
 import SecuBreachForm from "@/components/forms/SecuBreachForm";
+import { pageMetadata, breadcrumbSchema } from "@/app/seo";
 
-export const metadata: Metadata = {
-  title: "SecuBreach — AI-Powered Vulnerability Management Platform | CyberNovr",
-  description: "AI-driven vulnerability management platform. Passive scanning, CVE detection, and regulatory tagging for GDPR, HIPAA, SOX, PCI, and NDPA compliance.",
-  openGraph: {
-    title: "SecuBreach — Vulnerability Management | CyberNovr",
-    description: "AI-powered vulnerability management and CVE detection platform.",
-    url: "https://www.cybernovr.com/solutions/secubreach",
-    siteName: "CyberNovr",
-    type: "website",
-  },
-  twitter: { card: "summary_large_image", title: "SecuBreach — Vulnerability Management", description: "AI-powered vulnerability management platform." },
-  alternates: { canonical: "https://www.cybernovr.com/solutions/secubreach" },
-  robots: { index: true, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "SecuBreach — Vulnerability Management for Nigeria & Africa | CyberNovr",
+  description: "AI-driven vulnerability management platform for Nigerian organizations. Passive scanning, CVE detection, and regulatory tagging for NDPR, GDPR, HIPAA, SOX, and PCI compliance.",
+  path: "/solutions/secubreach",
+});
 
 export default function SecuBreachPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Vulnerability Management",
+    name: "SecuBreach — AI-Powered Vulnerability Management",
+    description: "AI-driven vulnerability management platform for Nigerian organizations. Passive scanning, CVE detection, and context-aware regulatory tagging for NDPR, GDPR, HIPAA, SOX, and PCI.",
+    provider: { "@type": "Organization", name: "CyberNovr Limited", url: "https://www.cybernovr.com" },
+    areaServed: [
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Country", name: "Ghana" },
+      { "@type": "Country", name: "Kenya" },
+      { "@type": "Country", name: "South Africa" },
+    ],
+  };
   const capabilities = [
     { icon: Zap, t: "Passive Scanning", d: "No packet injection or content access, ensuring safe monitoring." },
     { icon: Search, t: "CVE-Driven Engine", d: "Advanced detection engine based on Common Vulnerabilities and Exposures." },
@@ -27,6 +33,12 @@ export default function SecuBreachPage() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: "Home", path: "" },
+        { name: "Solutions", path: "/solutions" },
+        { name: "SecuBreach", path: "/solutions/secubreach" },
+      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       
       {/* Heading Header */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">

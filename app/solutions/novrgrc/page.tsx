@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import { ShieldAlert, CheckSquare, FileText, Layers } from "lucide-react";
 import NovrGRCForm from "@/components/forms/NovrGRCForm";
+import { pageMetadata, breadcrumbSchema } from "@/app/seo";
 
-export const metadata: Metadata = {
-  title: "NovrGRC — Governance, Risk & Compliance Platform | CyberNovr",
-  description: "Automated GRC platform for compliance management, risk quantification, and audit automation. Supports SOC 2, ISO 27001, PCI DSS, CBN Framework, and NDPA.",
-  openGraph: {
-    title: "NovrGRC — GRC Platform | CyberNovr",
-    description: "Automated governance, risk, and compliance management platform.",
-    url: "https://www.cybernovr.com/solutions/novrgrc",
-    siteName: "CyberNovr",
-    type: "website",
-  },
-  twitter: { card: "summary_large_image", title: "NovrGRC — GRC Platform", description: "Automated governance, risk, and compliance platform." },
-  alternates: { canonical: "https://www.cybernovr.com/solutions/novrgrc" },
-  robots: { index: true, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "NovrGRC — GRC Platform for NDPR, CBN & ISO 27001 Compliance | CyberNovr",
+  description: "Automated governance, risk, and compliance platform for Nigerian organizations. Built-in support for CBN Cybersecurity Framework, NDPA/NDPR, NCC Cyber Resilience, ISO 27001, PCI DSS, and SOC 2.",
+  path: "/solutions/novrgrc",
+});
 
 export default function NovrGRCPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Governance, Risk & Compliance (GRC) Platform",
+    name: "NovrGRC — Automated GRC Platform",
+    description: "Automated GRC platform for Nigerian organizations. Supports CBN Cybersecurity Framework, NDPA/NDPR, NCC Cyber Resilience Framework, ISO 27001, PCI DSS, SOC 2, and NIST.",
+    provider: { "@type": "Organization", name: "CyberNovr Limited", url: "https://www.cybernovr.com" },
+    areaServed: [
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Country", name: "Ghana" },
+      { "@type": "Country", name: "Kenya" },
+      { "@type": "Country", name: "South Africa" },
+    ],
+  };
   const modules = [
     { title: "Enterprise and Operational Risk Management", desc: "Automates multi-tier risk identification, quantification maps, mitigation treatment controls, and supports organisational risk management programmes.", icon: ShieldAlert },
     { title: "Compliance Mapping Suite", desc: "Built to help organisations to comply with Nigerian regulatory Frameworks such as CBN Cybersecurity Framework, Nigeria Data Protection Act (NDPA), and NCC Cyber Resilience Framework. We also support international frameworks such as SOC 2, ISO 27001, PCI DSS, and NIST.", icon: CheckSquare },
@@ -27,6 +33,12 @@ export default function NovrGRCPage() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: "Home", path: "" },
+        { name: "Solutions", path: "/solutions" },
+        { name: "NovrGRC", path: "/solutions/novrgrc" },
+      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       
       {/* Top Heading */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">

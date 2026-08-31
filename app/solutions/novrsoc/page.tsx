@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import { Brain, Cloud, ShieldAlert, Fingerprint } from "lucide-react";
 import NovrSOCForm from "@/components/forms/NovrSOCForm";
+import { pageMetadata, breadcrumbSchema } from "@/app/seo";
 
-export const metadata: Metadata = {
-  title: "NovrSOC — 24/7 Security Operations Center Platform | CyberNovr",
-  description: "AI-driven SOC platform for 24/7 security monitoring, SIEM, threat management, and incident response. Professional-grade cybersecurity operations for critical infrastructure.",
-  openGraph: {
-    title: "NovrSOC — 24/7 SOC Platform | CyberNovr",
-    description: "AI-driven platform for 24/7 SOC operations, SIEM, and threat management.",
-    url: "https://www.cybernovr.com/solutions/novrsoc",
-    siteName: "CyberNovr",
-    type: "website",
-  },
-  twitter: { card: "summary_large_image", title: "NovrSOC — 24/7 SOC Platform", description: "AI-driven security operations center platform." },
-  alternates: { canonical: "https://www.cybernovr.com/solutions/novrsoc" },
-  robots: { index: true, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "NovrSOC — Managed 24/7 SOC & SIEM for Nigeria & Africa | CyberNovr",
+  description: "AI-driven 24/7/365 Security Operations Center (SOC) for Nigerian banks, fintechs, telecoms, and government. SIEM, SOAR, threat management, and incident response. NDPR & CBN compliant.",
+  path: "/solutions/novrsoc",
+});
 
 export default function NovrSOCPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Managed Security Operations Center (SOC)",
+    name: "NovrSOC — 24/7 Managed SOC & SIEM",
+    description: "AI-driven 24/7/365 Security Operations Center for Nigerian and African organizations. SIEM, SOAR, threat management, dark web monitoring, and incident response.",
+    provider: { "@type": "Organization", name: "CyberNovr Limited", url: "https://www.cybernovr.com" },
+    areaServed: [
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Country", name: "Ghana" },
+      { "@type": "Country", name: "Kenya" },
+      { "@type": "Country", name: "South Africa" },
+    ],
+  };
   const pillars = [
     { icon: Brain, title: "Threat Management", desc: "Provides threat visibility (map), incident management, alerting, and communication." },
     { icon: Cloud, title: "Threat Response", desc: "Determine the level of risk to the organization posed by the suspect domain/URL/App." },
@@ -27,6 +33,12 @@ export default function NovrSOCPage() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 sm:px-6 md:px-0 lg:px-margin-desktop max-w-[1536px] mx-auto space-y-20 w-full bg-white text-zinc-900 antialiased">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: "Home", path: "" },
+        { name: "Solutions", path: "/solutions" },
+        { name: "NovrSOC", path: "/solutions/novrsoc" },
+      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       
       {/* Top Main Heading Block */}
       <div className="border-b border-zinc-200 pb-8 max-w-4xl text-left">
